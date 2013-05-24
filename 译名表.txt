@@ -1,0 +1,24 @@
+# 译名表
+
+## a
+Arbitrary		可变的；变元
+Argument		参数
+
+## b
+Boolean			布尔值
+Branch			分支
+
+## e
+Example			例
+
+## g
+Geometric Progression 	几何增长
+
+## p
+Predicate		谓词
+
+## r
+Reciprocal		倒数
+
+## t
+Term			项

@@ -14,11 +14,21 @@ Example			例
 ## g
 Geometric Progression 	几何增长
 
+## l
+List			表
+Local Variable		局部变量
+
 ## p
+Pair			序对
 Predicate		谓词
 
 ## r
 Reciprocal		倒数
+
+## S
+Same			一致
+Sequence		序列
+Symbol			符号
 
 ## t
 Term			项

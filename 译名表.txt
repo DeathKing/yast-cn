@@ -1,34 +1,59 @@
 # 译名表
 
 ## a
-Arbitrary		可变的；变元
+Abbreviation		缩略词
+Arbitrary		可变的；变元；任意多
 Argument		参数
 
 ## b
 Boolean			布尔值
 Branch			分支
 
+## c
+Convert			转换
+Circle Ratio		圆周率
+
 ## e
 Example			例
+Exponential		指数
 
 ## g
 Geometric Progression 	几何增长
 
+## I
+Introduction		简介
+
 ## l
 List			表
 Local Variable		局部变量
+Logarithm		对数
+
+## N
+Native Code		本地代码
+Newline			换行符
 
 ## p
 Pair			序对
 Predicate		谓词
 
+## Q
+Quotient		商数
+
 ## r
 Reciprocal		倒数
+Remainder		余数
 
 ## S
 Same			一致
+S-expressions		S-表达式
 Sequence		序列
+Space			空格符
+Square root		平方根
 Symbol			符号
+
+## T
+Tab			制表符
+Trigonometric Functions	三角函数
 
 ## t
 Term			项

@@ -2,6 +2,7 @@
 
 ## a
 Abbreviation		缩略词
+Accessors		读取函数
 Arbitrary		可变的；变元；任意多
 Argument		参数
 
@@ -22,6 +23,7 @@ Geometric Progression 	几何增长
 
 ## I
 Introduction		简介
+Inner product		内积
 
 ## l
 List			表
@@ -47,6 +49,8 @@ Remainder		余数
 Same			一致
 S-expressions		S-表达式
 Sequence		序列
+Setters			写入函数
+Side effects		副作用
 Space			空格符
 Square root		平方根
 Symbol			符号

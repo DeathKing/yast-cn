@@ -34,6 +34,9 @@ Logarithm		对数
 Native Code		本地代码
 Newline			换行符
 
+## O
+Option			参量
+
 ## p
 Pair			序对
 Predicate		谓词
@@ -49,8 +52,9 @@ Remainder		余数
 Same			一致
 S-expressions		S-表达式
 Sequence		序列
-Setters			写入函数
+Setters			设置函数
 Side effects		副作用
+Slot			槽
 Space			空格符
 Square root		平方根
 Symbol			符号

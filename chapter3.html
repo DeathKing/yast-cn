@@ -2,7 +2,7 @@
 <html lang="zh_CN">
 <head>
 	<meta charset="utf-8" />
-	<title> </title>
+	<title>第 3 章 生成表</title>
     <meta name="author" content="DeathKing" />
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,10 +11,155 @@
 	<div class="container">
 		
 <div class="item chapter">
-	<h1 id=""><span></span> </h1>
-	<ol class="toc"></ol>
+	<h1 id="chapter-3"><span>第 3 章</span> 生成表</h1>
+	<ol class="toc">          <li class="level-2">
+            <a href="#section-3-1">3.1 简介</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-3-2">3.2 Cons单元和表</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-3-2-1">3.2.1 Cons单元</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-3-2-2">3.2.2 表</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-3-3">3.3 原子</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-3-4">3.4 引用</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-3-4-1">3.4.1 特殊形式</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-3-5">3.5 car函数和cdr函数</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-3-6">3.6 list函数</a>
+          </li>
+</ol>
   	<div class="main">
-  		
+  		<h2 id='section-3-1'><span>3.1</span> 简介</h2>
+
+
+<p>作为Lisp语言大家族的一员，Scheme同样擅长于处理表。你应该理解表以及有关表的操作以掌握Scheme。表在在后面章节中的递归函数和高阶函数中扮演重要角色。</p>
+
+<p>在本章中，我会讲解基本的表操作，例如<code>cons</code>，<code>car</code>，<code>cdr</code>，<code>list</code>和<code>quote</code>。</p>
+
+<h2 id='section-3-2'><span>3.2</span> Cons单元和表</h2>
+
+
+<h3 id='section-3-2-1'><span>3.2.1</span> Cons单元</h3>
+
+
+<p>首先，让我解释一下表的元素：<strong>Cons单元（Cons cells）</strong>。Cons单元是一个存放了两个地址的内存空间。Cons单元可用函数<code>cons</code>生成。</p>
+
+<p>在前端输入<code>(cons 1 2)</code></p>
+
+<div class="codeblock"><div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1">;Value 11: (1 . 2)</span>
+</pre></div>
+</div>
+<p>系统返回<code>(1 . 2)</code>。如图一所示，函数<code>cons</code>给两个地址分配了内存空间，并把存放指向<code>1</code>的地址放在一个空间，把存放指向<code>2</code>的地址放在另一个空间。存放指向<code>1</code>的地址的内存空间被称作<code>car</code>部分，对应的，存放指向<code>2</code>的地址的内存空间被称作<code>cdr</code>部分。<code>car</code>和<code>cdr</code>分别是Contents of the Address part of the Register和Contents of the Decrement part of the Register的简称【待翻译】。这些名字最初来源于Lisp首次被实现所使用的硬件环境中内存空间的名字。这些名字同时也表明cons单元的本质就是一个内存空间。<code>cons</code>这个名字是术语<strong>构造（construction）</strong>的简称。</p>
+
+<p>图 1</p>
+
+<p>Cons单元也可以被串起来。</p>
+
+<div class="codeblock"><div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">))</span>
+<span class="c1">;Value 15: (3 1 . 2)</span>
+
+<span class="p">(</span><span class="mi">3</span> <span class="o">.</span> <span class="p">(</span><span class="mi">1</span> <span class="o">.</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>可以更方便地表示为<code>(3 1 . 2)</code>。这种情况的内存空间如图2所示</p>
+
+<p>图 2 串连Cons单元</p>
+
+<p>Cons单元可以存放不同类型的数据，也可以嵌套。</p>
+
+<div class="codeblock"><div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">cons </span><span class="sc">#\a</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="s">"hello"</span><span class="p">))</span>
+<span class="c1">;Value 17: (#\a 3 . "hello")</span>
+
+<span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">0</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">))</span>
+<span class="c1">;Value 23: ((0 . 1) 2 . 3)</span>
+</pre></div>
+</div>
+<p>这是因为Scheme可以通过地址操作所有的数据。（<code>#\c</code>代表了一个字符<code>c</code>。例如，<code>#\a</code>就代表字符<code>a</code>）</p>
+
+<h3 id='section-3-2-2'><span>3.2.2</span> 表</h3>
+
+
+<p>表是Cons单元通过用<code>cdr</code>部分连接到下一个<code>Cons</code>单元的开头实现的。表中包含的<code>’()</code>被称作空表。就算数据仅由一个Cons单元组成，只要它的<code>cdr</code>单元是<code>’()</code>，那它就是一个表。图标三展示了表<code>(1 2 3)</code>的内存结构。</p>
+
+<p>事实上，表可以像下面这样递归地定义：</p>
+
+<div class="codeblock"><div class="highlight type-scheme"><pre><span class="mi">1</span><span class="o">.</span> <span class="o">`</span><span class="err">‘</span><span class="p">()</span><span class="o">`</span><span class="err">是一个表</span>
+<span class="mi">2</span><span class="o">.</span> <span class="err">如果</span><span class="o">`</span><span class="nv">ls</span><span class="o">`</span><span class="err">是一个表且</span><span class="o">`</span><span class="nv">obj</span><span class="o">`</span><span class="err">是某种类型的数据，那么</span><span class="o">`</span><span class="p">(</span><span class="nb">cons </span><span class="nv">obj</span> <span class="nv">ls</span><span class="p">)</span><span class="o">`</span><span class="err">也是一个表</span>
+<span class="err">正因为表是一种被递归定义的数据结构，将它用在递归的函数中显然是合理的。</span>
+</pre></div>
+</div>
+<h2 id='section-3-3'><span>3.3</span> 原子</h2>
+
+
+<p>不使用Cons单元的数据结构称为<strong>原子（atom）</strong>。数字，字符，字符串，向量和空表<code>’()</code>都是原子。<code>’()</code>既是原子，又是表。</p>
+
+<p>练习1</p>
+
+<h2 id='section-3-4'><span>3.4</span> 引用</h2>
+
+
+<p>所有的记号都会依据Scheme的求值规则求值：所有的标记都会从最内层的括号依次向外层括号求值，且最外层括号返回的值讲作为S-表达式的值。一个被称为<strong>引用（quote）</strong>的形式可以用来阻止标记被求值。他是用来程序原封不动的返回符号或者表本身的，而不是求值后变成的其他东西。【待议】</p>
+
+<p>例如，<code>(+ 2 3)</code>会被求值为<code>5</code>，然而<code>(quote (+ 2 3))</code>则向程序返回<code>(+ 2 3)</code>本身。因为<code>quote</code>的使用频率很高，他被简写为<code>’</code>。</p>
+
+<p>比如：</p>
+
+<ul><li><code>’(+ 2 3)</code>代表列表<code>(+ 2 3)</code>本身；</li>
+  <li><code>’+</code>代表符号<code>+</code>本身；</li>
+</ul><p>实际上，<code>’()</code>是对空表的引用，也就是说，尽管解释器返回<code>()</code>代表空表，你也应该用<code>’()</code>来表示空表。</p>
+
+<h3 id='section-3-4-1'><span>3.4.1</span> 特殊形式</h3>
+
+
+<p>Scheme有两种不同类型的操作符：其一是函数。函数会对所有的参数求值并返回值。另一种操作符则是特殊形式。特殊形式不会对所有的参数求值。除了<code>quote</code>，<code>lambda</code>，<code>define</code>，<code>if</code>，<code>set!</code>，等都是特殊形式。</p>
+
+<h2 id='section-3-5'><span>3.5</span> car函数和cdr函数</h2>
+
+
+<p>返回一个Cons单元的<code>car</code>部分和<code>cdr</code>部分的函数分别是<code>car</code>和<code>cdr</code>函数。如果<code>cdr</code>部分串连着Cons单元，解释器会打印出整个<code>cdr</code>部分（原文是<code>car</code>，似有误）。如果Cons单元的<code>cdr</code>部分不是<code>’()</code>，那么其值稍后亦会被展示。</p>
+
+<div class="codeblock"><div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">car </span><span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1">;Value: 1</span>
+
+<span class="p">(</span><span class="nb">cdr </span><span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1">;Value 18: (2 3 4)</span>
+</pre></div>
+</div>
+<h2 id='section-3-6'><span>3.6</span> list函数</h2>
+
+
+<p><code>list</code>函数使得我们可以构建包含数个元素的表。函数<code>list</code>有任意多个数的参数，且返回由这些参数构成的表。</p>
+
+<div class="codeblock"><div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">list</span><span class="p">)</span>
+<span class="c1">;Value: ()</span>
+
+<span class="p">(</span><span class="nb">list </span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">;Value 24: (1)</span>
+
+<span class="p">(</span><span class="nb">list </span><span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span> <span class="o">'</span><span class="p">(</span><span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1">;Value 25: ((1 2) (3 4))</span>
+
+<span class="p">(</span><span class="nb">list </span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">;Value 26: (0)</span>
+
+<span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1">;Value 27: (1 2)</span>
+</pre></div>
+</div>
+<p>啊</p>
   	</div>
 </div>
 
@@ -22,8 +167,10 @@
 			
 			<div class="navigation">
 				
-					<a class="prev_page" href="/chapter2.html">&laquo; 第 2 章将Scheme用作计算器</a>
+					<a class="prev_page" href="/yast-cn/chapter2.html">&laquo; 第 2 章将Scheme用作计算器</a>
 				
+				
+					<a class="next_page" href="/yast-cn/chapter4.html">第 4 章定义函数 &raquo;</a>
 				
 			</div>
 			

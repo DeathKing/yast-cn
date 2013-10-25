@@ -96,12 +96,10 @@
 
 <p>事实上，表可以像下面这样递归地定义：</p>
 
-<div class="codeblock"><div class="highlight type-scheme"><pre><span class="mi">1</span><span class="o">.</span> <span class="o">`</span><span class="err">‘</span><span class="p">()</span><span class="o">`</span><span class="err">是一个表</span>
-<span class="mi">2</span><span class="o">.</span> <span class="err">如果</span><span class="o">`</span><span class="nv">ls</span><span class="o">`</span><span class="err">是一个表且</span><span class="o">`</span><span class="nv">obj</span><span class="o">`</span><span class="err">是某种类型的数据，那么</span><span class="o">`</span><span class="p">(</span><span class="nb">cons </span><span class="nv">obj</span> <span class="nv">ls</span><span class="p">)</span><span class="o">`</span><span class="err">也是一个表</span>
-<span class="err">正因为表是一种被递归定义的数据结构，将它用在递归的函数中显然是合理的。</span>
-</pre></div>
-</div>
-<h2 id='section-3-3'><span>3.3</span> 原子</h2>
+<ol><li><code>‘()</code>是一个表</li>
+  <li>如果<code>ls</code>是一个表且<code>obj</code>是某种类型的数据，那么<code>(cons obj ls)</code>也是一个表
+正因为表是一种被递归定义的数据结构，将它用在递归的函数中显然是合理的。</li>
+</ol><h2 id='section-3-3'><span>3.3</span> 原子</h2>
 
 
 <p>不使用Cons单元的数据结构称为<strong>原子（atom）</strong>。数字，字符，字符串，向量和空表<code>’()</code>都是原子。<code>’()</code>既是原子，又是表。</p>
@@ -167,10 +165,10 @@
 			
 			<div class="navigation">
 				
-					<a class="prev_page" href="/yast-cn/chapter2.html">&laquo; 第 2 章将Scheme用作计算器</a>
+					<a class="prev_page" href="/chapter2.html">&laquo; 第 2 章将Scheme用作计算器</a>
 				
 				
-					<a class="next_page" href="/yast-cn/chapter4.html">第 4 章定义函数 &raquo;</a>
+					<a class="next_page" href="/chapter4.html">第 4 章定义函数 &raquo;</a>
 				
 			</div>
 			

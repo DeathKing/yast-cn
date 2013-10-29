@@ -197,15 +197,14 @@ a0 * n                    (r = 1)</p>
 
 <p>Foo市的城市游泳池按照顾客的年龄收费：</p>
 
-<p>
-  <code>free if age ≤ 3 or age ≥ 65.
-0.5 dollars for 4 ≤ age ≤ 6.
-1.0 dollars for 7 ≤ age ≤ 12.
-1.5 dollars for 13 ≤ age ≤ 15.
-1.8 dollars for 16 ≤ age ≤ 18.
-2.0 dollars for others.
-</code>
-</p>
+<blockquote>
+  <p>free if age ≤ 3 or age ≥ 65.<br>
+0.5 dollars for 4 ≤ age ≤ 6.<br>
+1.0 dollars for 7 ≤ age ≤ 12.<br>
+1.5 dollars for 13 ≤ age ≤ 15.<br>
+1.8 dollars for 16 ≤ age ≤ 18.<br>
+2.0 dollars for others.</p>
+</blockquote>
 
 <p>那么，一个返回城市游泳池收费的函数如下：</p>
 
@@ -225,7 +224,7 @@ a0 * n                    (r = 1)</p>
 
   <p>编写下列函数。</p>
 
-  <p>成绩（A-D）是由分数决定的。编写一个将分数映射为成绩的函数，映射规则如下：
+  <p>成绩（A-D）是由分数决定的。编写一个将分数映射为成绩的函数，映射规则如下：<br>
 + A 如果 score ≥ 80
 + B 如果 60 ≤ score ≤ 79
 + C 如果 40 ≤ score ≤ 59
@@ -243,7 +242,7 @@ a0 * n                    (r = 1)</p>
 <p>基本函数<code>eq?</code>、<code>eqv?</code>、<code>equal?</code>具有两个参数，用于检查这两个参数是否“一致”。这三个函数之间略微有些区别。</p>
 
 <blockquote>
-  <p><code>eq?</code>
+  <p><code>eq?</code><br>
 该函数比较两个对象的地址，如果相同的话就返回<code>#t</code>。例如，<code>(eq? str str)</code>返回<code>#t</code>，因为<code>str</code>本身的地址是一致的。与此相对的，因为字符串<code>”hello”</code>和<code>”hello”</code>被储存在了不同的地址中，函数将返回<code>#f</code>。不要使用<code>eq?</code>来比较数字，因为不仅在R5RS中，甚至在MIT-Scheme实现中，它都没有指定返回值。使用<code>eqv?</code>或者<code>=</code>替代。</p>
 </blockquote>
 
@@ -266,7 +265,7 @@ a0 * n                    (r = 1)</p>
 </pre></div>
 </div>
 <blockquote>
-  <p><code>eqv?</code>
+  <p><code>eqv?</code><br>
 该函数比较两个存储在内存中的对象的类型和值。如果类型和值都一致的话就返回<code>#t</code>。对于过程（<code>lambda</code>表达式）的比较依赖于具体的实现。这个函数不能用于类似于表和字符串一类的序列比较，因为尽管这些序列看起来是一致的，但它们的值是存储在不同的地址中。</p>
 </blockquote>
 
@@ -290,7 +289,7 @@ a0 * n                    (r = 1)</p>
 </pre></div>
 </div>
 <blockquote>
-  <p><code>equal?</code>
+  <p><code>equal?</code><br>
 该函数用于比较类似于表或者字符串一类的序列。</p>
 </blockquote>
 
@@ -341,7 +340,7 @@ a0 * n                    (r = 1)</p>
 
 
 <blockquote>
-  <p><code>=</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;=</code>
+  <p><code>=</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;=</code><br>
 这些函数都有任意个数的参数。如果参数是按照这些函数的名字排序的话，函数就返回<code>#t</code>。</p>
 </blockquote>
 
@@ -376,7 +375,7 @@ a0 * n                    (r = 1)</p>
 </pre></div>
 </div>
 <blockquote>
-  <p><code>odd?</code>、<code>even?</code>、<code>postitive?</code>、<code>negative?</code>、<code>zero?</code>
+  <p><code>odd?</code>、<code>even?</code>、<code>postitive?</code>、<code>negative?</code>、<code>zero?</code><br>
 这些函数仅有一个参数，如果这些参数满足函数名所指示的条件话就返回<code>#t</code>。</p>
 </blockquote>
 
@@ -459,6 +458,8 @@ a0 * n                    (r = 1)</p>
 				
 					<a class="prev_page" href="/yast-cn/chapter4.html">« 第 4 章定义函数</a>
 				
+				
+					<a class="next_page" href="/yast-cn/chapter6.html">第 6 章局部变量 »</a>
 				
 			</div>
 			

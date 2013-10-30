@@ -7,8 +7,7 @@
 <meta name="author" content="DeathKing">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-	<div class="container">
+<body><div class="entry"><div class="container">
 		
 <div class="item chapter">
 	<h1 id="chapter-5">
@@ -52,6 +51,18 @@
           </li>
           <li class="level-2">
             <a href="#section-5-6">5.6 总结</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-5-7">5.7 习题解答</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-5-7-1">5.7.1 答案1</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-5-7-2">5.7.2 答案2</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-5-7-3">5.7.3 答案3</a>
           </li>
 </ol>
 <div class="main">
@@ -198,12 +209,12 @@ a0 * n                    (r = 1)</p>
 <p>Foo市的城市游泳池按照顾客的年龄收费：</p>
 
 <blockquote>
-  <p>free if age ≤ 3 or age ≥ 65.<br>
-0.5 dollars for 4 ≤ age ≤ 6.<br>
-1.0 dollars for 7 ≤ age ≤ 12.<br>
-1.5 dollars for 13 ≤ age ≤ 15.<br>
-1.8 dollars for 16 ≤ age ≤ 18.<br>
-2.0 dollars for others.</p>
+  <p>如果 age ≤ 3 或者 age ≥ 65 则 免费；<br>
+如果 介于 4 ≤ age ≤ 6 则 0.5美元；<br>
+如果 介于 7 ≤ age ≤ 12 则 1.0美元；<br>
+如果 介于 13 ≤ age ≤ 15 则 1.5美元；<br>
+如果 介于 16 ≤ age ≤ 18 则 1.8美元；<br>
+其它 则 2.0美元；</p>
 </blockquote>
 
 <p>那么，一个返回城市游泳池收费的函数如下：</p>
@@ -399,9 +410,13 @@ a0 * n                    (r = 1)</p>
 
 <p>下一章我将讲解局部变量。</p>
 
-<p>练习答案</p>
+<h2 id="section-5-7">
+<span>5.7</span> 习题解答</h2>
 
-<p>答案1</p>
+
+<h3 id="section-5-7-1">
+<span>5.7.1</span> 答案1</h3>
+
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; 1</span>
@@ -420,7 +435,9 @@ a0 * n                    (r = 1)</p>
       <span class="p">(</span><span class="nb">integer-&gt;char </span><span class="nv">n</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p>答案2</p>
+<h3 id="section-5-7-2">
+<span>5.7.2</span> 答案2</h3>
+
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; 1</span>
@@ -438,7 +455,9 @@ a0 * n                    (r = 1)</p>
       <span class="p">(</span><span class="nb">* </span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p>答案3</p>
+<h3 id="section-5-7-3">
+<span>5.7.3</span> 答案3</h3>
+
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">score</span> <span class="nv">n</span><span class="p">)</span>
@@ -464,6 +483,5 @@ a0 * n                    (r = 1)</p>
 			</div>
 			
 		
-	</div>
-</body>
+	</div></div></body>
 </html>

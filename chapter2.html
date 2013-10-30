@@ -7,8 +7,7 @@
 <meta name="author" content="DeathKing">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-	<div class="container">
+<body><div class="entry"><div class="container">
 		
 <div class="item chapter">
 	<h1 id="chapter-2">
@@ -37,6 +36,15 @@
           </li>
           <li class="level-2">
             <a href="#section-2-5">2.5 小结</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-2-6">2.6 习题解答</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-2-6-1">2.6.1 答案1</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-2-6-2">2.6.2 答案2</a>
           </li>
 </ol>
 <div class="main">
@@ -67,7 +75,7 @@
 <ol>
 <li>一对括号代表了一次计算的步骤。本例中，<code>(+ 1 2)</code>代表步骤<code>1+2</code>。</li>
   <li>左括号后紧跟着一个函数的名字，然后是参数。Scheme中大多数的操作符都是函数。在本例中，函数<code>+</code>首先出现，然后紧跟两个参数：<code>1</code>和<code>2</code>.</li>
-  <li>标记的分隔符是<strong>空格（Space）</strong>、<strong>制表符（Space）</strong>或者<strong>换行符（Newline）</strong>。逗号和分号不是分隔符。</li>
+  <li>标记的分隔符是<strong>空格（Space）</strong>、<strong>制表符（Tab）</strong>或者<strong>换行符（Newline）</strong>。逗号和分号不是分隔符。</li>
 </ol>
 <p>让我们来详细地分析计算过程。在这个函数中，当所有的参数被求值后，计算开始处理。对参数的求值顺序是没有被规范的，也就是说，参数并不是总是会从左到右求值。</p>
 
@@ -81,10 +89,10 @@
 <p>函数<code>+</code>可以接受任意多的参数。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">+</span><span class="p">)</span>       <span class="err">→</span> <span class="mi">0</span>
-<span class="p">(</span><span class="nb">+ </span><span class="mi">1</span><span class="p">)</span>     <span class="err">→</span> <span class="mi">1</span>
-<span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>   <span class="err">→</span> <span class="mi">3</span>
-<span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="err">→</span> <span class="mi">6</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">+</span><span class="p">)</span>       <span class="c1">;→ 0</span>
+<span class="p">(</span><span class="nb">+ </span><span class="mi">1</span><span class="p">)</span>     <span class="c1">;→ 1</span>
+<span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1">;→ 3</span>
+<span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">;→ 6</span>
 </pre></div>
 </div>
 <h2 id="section-2-3">
@@ -98,21 +106,21 @@
 <p>例：</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">- </span><span class="mi">10</span> <span class="mi">3</span><span class="p">)</span>    <span class="err">→</span> <span class="mi">7</span>
-<span class="p">(</span><span class="nb">- </span><span class="mi">10</span> <span class="mi">3</span> <span class="mi">5</span><span class="p">)</span>  <span class="err">→</span> <span class="mi">2</span>
-<span class="p">(</span><span class="nb">* </span><span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>     <span class="err">→</span> <span class="mi">6</span>
-<span class="p">(</span><span class="nb">* </span><span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span>   <span class="err">→</span> <span class="mi">24</span>
-<span class="p">(</span><span class="nb">/ </span><span class="mi">29</span> <span class="mi">3</span><span class="p">)</span>    <span class="err">→</span> <span class="mi">29</span><span class="nv">/3</span>
-<span class="p">(</span><span class="nb">/ </span><span class="mi">29</span> <span class="mi">3</span> <span class="mi">7</span><span class="p">)</span>  <span class="err">→</span> <span class="mi">29</span><span class="nv">/21</span>
-<span class="p">(</span><span class="nb">/ </span><span class="mi">9</span> <span class="mi">6</span><span class="p">)</span>     <span class="err">→</span> <span class="mi">3</span><span class="nv">/2</span>
-<span class="p">(</span><span class="nb">exact-&gt;inexact </span><span class="p">(</span><span class="nb">/ </span><span class="mi">29</span> <span class="mi">3</span> <span class="mi">7</span><span class="p">))</span> <span class="err">→</span> <span class="mf">1.380952380952381</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">- </span><span class="mi">10</span> <span class="mi">3</span><span class="p">)</span>    <span class="c1">;→ 7</span>
+<span class="p">(</span><span class="nb">- </span><span class="mi">10</span> <span class="mi">3</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1">;→ 2</span>
+<span class="p">(</span><span class="nb">* </span><span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>     <span class="c1">;→ 6</span>
+<span class="p">(</span><span class="nb">* </span><span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span>   <span class="c1">;→ 24</span>
+<span class="p">(</span><span class="nb">/ </span><span class="mi">29</span> <span class="mi">3</span><span class="p">)</span>    <span class="c1">;→ 29/3</span>
+<span class="p">(</span><span class="nb">/ </span><span class="mi">29</span> <span class="mi">3</span> <span class="mi">7</span><span class="p">)</span>  <span class="c1">;→ 29/21</span>
+<span class="p">(</span><span class="nb">/ </span><span class="mi">9</span> <span class="mi">6</span><span class="p">)</span>     <span class="c1">;→ 3/2</span>
+<span class="p">(</span><span class="nb">exact-&gt;inexact </span><span class="p">(</span><span class="nb">/ </span><span class="mi">29</span> <span class="mi">3</span> <span class="mi">7</span><span class="p">))</span> <span class="c1">;→ 1.380952380952381</span>
 </pre></div>
 </div>
 <p>括号可以像下面这样嵌套：</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">* </span><span class="p">(</span><span class="nb">+ </span><span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nb">- </span><span class="mi">5</span> <span class="mi">3</span><span class="p">))</span> <span class="err">→</span> <span class="mi">10</span>
-<span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nb">+ </span><span class="mi">9</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">2</span> <span class="mi">3</span><span class="p">))</span> <span class="err">→</span> <span class="mi">2</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">* </span><span class="p">(</span><span class="nb">+ </span><span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nb">- </span><span class="mi">5</span> <span class="mi">3</span><span class="p">))</span> <span class="c1">;→ 10</span>
+<span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nb">+ </span><span class="mi">9</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">2</span> <span class="mi">3</span><span class="p">))</span> <span class="c1">;→ 2</span>
 </pre></div>
 </div>
 <p>形如这些由<strong>括号</strong>、<strong>标记（token）</strong>以及<strong>分隔符</strong>组成的式子，被称为<strong>S-表达式</strong>。</p>
@@ -141,9 +149,9 @@
   <li>函数<code>sqrt</code>用于求参数的<strong>平方根（square root）</strong>。</li>
 </ul>
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">quotient </span><span class="mi">7</span> <span class="mi">3</span><span class="p">)</span> <span class="err">→</span> <span class="mi">2</span>
-<span class="p">(</span><span class="nb">modulo </span><span class="mi">7</span> <span class="mi">3</span><span class="p">)</span>   <span class="err">→</span> <span class="mi">1</span>
-<span class="p">(</span><span class="nb">sqrt </span><span class="mi">8</span><span class="p">)</span>       <span class="err">→</span> <span class="mf">2.8284271247461903</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">quotient </span><span class="mi">7</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">;→ 2</span>
+<span class="p">(</span><span class="nb">modulo </span><span class="mi">7</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1">;→ 1</span>
+<span class="p">(</span><span class="nb">sqrt </span><span class="mi">8</span><span class="p">)</span>       <span class="c1">;→ 2.8284271247461903</span>
 </pre></div>
 </div>
 <h3 id="section-2-4-2">
@@ -153,8 +161,8 @@
 <p>数学上的三角函数，诸如<code>sin</code>，<code>cos</code>，<code>tan</code>，<code>asin</code>，<code>acos</code>和<code>atan</code>都可以在Scheme中使用。<code>atan</code>接受1个或2个参数。如果期望<code>atan</code>的结果是1/2 π，就使用第二个参数指明使用弧度制。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">atan </span><span class="mi">1</span><span class="p">)</span>   <span class="err">→</span> <span class="mf">0.7853981633974483</span>
-<span class="p">(</span><span class="nb">atan </span><span class="mi">1</span> <span class="mi">0</span><span class="p">)</span> <span class="err">→</span> <span class="mf">1.5707963267948966</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">atan </span><span class="mi">1</span><span class="p">)</span>   <span class="c1">;→ 0.7853981633974483</span>
+<span class="p">(</span><span class="nb">atan </span><span class="mi">1</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">;→ 1.5707963267948966</span>
 </pre></div>
 </div>
 <h3 id="section-2-4-3">
@@ -179,38 +187,44 @@
 
 <p>本章中，我们已经将Scheme解释器当作计算器使用。这会让你快速上手Scheme。我会在下个章节讲解Scheme的数据类型‘表’。</p>
 
-<p>习题答案</p>
+<h2 id="section-2-6">
+<span>2.6</span> 习题解答</h2>
 
-<p>答案1</p>
+
+<h3 id="section-2-6-1">
+<span>2.6.1</span> 答案1</h3>
+
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">;1</span>
-<span class="p">(</span><span class="nb">* </span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">39</span><span class="p">)</span> <span class="p">(</span><span class="nb">- </span><span class="mi">53</span> <span class="mi">45</span><span class="p">))</span>              <span class="err">⇒</span>    <span class="mi">320</span>
+<span class="p">(</span><span class="nb">* </span><span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">39</span><span class="p">)</span> <span class="p">(</span><span class="nb">- </span><span class="mi">53</span> <span class="mi">45</span><span class="p">))</span>              <span class="c1">;⇒    320</span>
 
 <span class="c1">;2</span>
-<span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">/ </span><span class="mi">1020</span> <span class="mi">39</span><span class="p">)</span> <span class="p">(</span><span class="nb">* </span><span class="mi">45</span> <span class="mi">2</span><span class="p">))</span>            <span class="err">⇒</span>    <span class="mi">1510</span><span class="nv">/13</span>
+<span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">/ </span><span class="mi">1020</span> <span class="mi">39</span><span class="p">)</span> <span class="p">(</span><span class="nb">* </span><span class="mi">45</span> <span class="mi">2</span><span class="p">))</span>            <span class="c1">;⇒    1510/13</span>
 
 <span class="c1">;3</span>
-<span class="p">(</span><span class="nb">+ </span><span class="mi">39</span> <span class="mi">48</span> <span class="mi">72</span> <span class="mi">23</span> <span class="mi">91</span><span class="p">)</span>                  <span class="err">⇒</span>    <span class="mi">273</span>
+<span class="p">(</span><span class="nb">+ </span><span class="mi">39</span> <span class="mi">48</span> <span class="mi">72</span> <span class="mi">23</span> <span class="mi">91</span><span class="p">)</span>                  <span class="c1">;⇒    273</span>
 
 <span class="c1">;4</span>
-<span class="p">(</span><span class="nb">exact-&gt;inexact </span><span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nb">+ </span><span class="mi">39</span> <span class="mi">48</span> <span class="mi">72</span> <span class="mi">23</span> <span class="mi">91</span><span class="p">)</span> <span class="mi">5</span><span class="p">))</span>   <span class="err">⇒</span>    <span class="mf">54.6</span>
+<span class="p">(</span><span class="nb">exact-&gt;inexact </span><span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nb">+ </span><span class="mi">39</span> <span class="mi">48</span> <span class="mi">72</span> <span class="mi">23</span> <span class="mi">91</span><span class="p">)</span> <span class="mi">5</span><span class="p">))</span>   <span class="c1">;⇒    54.6</span>
 </pre></div>
 </div>
-<p>答案2</p>
+<h3 id="section-2-6-2">
+<span>2.6.2</span> 答案2</h3>
+
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">;1</span>
-<span class="p">(</span><span class="nb">* </span><span class="mi">4</span> <span class="p">(</span><span class="nb">atan </span><span class="mf">1.0</span><span class="p">))</span>          <span class="err">⇒</span>   <span class="mf">3.141592653589793</span>
+<span class="p">(</span><span class="nb">* </span><span class="mi">4</span> <span class="p">(</span><span class="nb">atan </span><span class="mf">1.0</span><span class="p">))</span>          <span class="c1">;⇒   3.141592653589793</span>
 
 <span class="c1">;2</span>
-<span class="p">(</span><span class="nb">exp </span><span class="mi">2</span><span class="nv">/3</span><span class="p">)</span>                 <span class="err">⇒</span>   <span class="mf">1.9477340410546757</span>
+<span class="p">(</span><span class="nb">exp </span><span class="mi">2</span><span class="nv">/3</span><span class="p">)</span>                 <span class="c1">;⇒   1.9477340410546757</span>
 
 <span class="c1">;3</span>
-<span class="p">(</span><span class="nb">expt </span><span class="mi">3</span> <span class="mi">4</span><span class="p">)</span>                <span class="err">⇒</span>   <span class="mi">81</span>
+<span class="p">(</span><span class="nb">expt </span><span class="mi">3</span> <span class="mi">4</span><span class="p">)</span>                <span class="c1">;⇒   81</span>
 
 <span class="c1">;4</span>
-<span class="p">(</span><span class="nb">log </span><span class="mi">1000</span><span class="p">)</span>                <span class="err">⇒</span>   <span class="mf">6.907755278982137</span>
+<span class="p">(</span><span class="nb">log </span><span class="mi">1000</span><span class="p">)</span>                <span class="c1">;⇒   6.907755278982137</span>
 </pre></div>
 </div>
   	</div>
@@ -228,6 +242,5 @@
 			</div>
 			
 		
-	</div>
-</body>
+	</div></div></body>
 </html>

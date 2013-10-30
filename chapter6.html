@@ -7,8 +7,7 @@
 <meta name="author" content="DeathKing">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-	<div class="container">
+<body><div class="entry"><div class="container">
 		
 <div class="item chapter">
 	<h1 id="chapter-6">
@@ -17,11 +16,17 @@
 <li class="level-2">
             <a href="#section-6-1">6.1 简介</a>
           </li>
-          <li class="level-1">
-            <a href="#chapter-6">第 6 章 let表达式</a>
+          <li class="level-2">
+            <a href="#section-6-2">6.2 let表达式</a>
           </li>
           <li class="level-2">
-            <a href="#section-6-1">6.1 总结</a>
+            <a href="#section-6-3">6.3 总结</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-6-4">6.4 习题解答</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-6-4-1">6.4.1 答案1</a>
           </li>
 </ol>
 <div class="main">
@@ -31,8 +36,8 @@
 
 <p>在前面的章节中，我已经讲述了如何定义函数。在本节中，我讲介绍局部变量，这将会使定义函数变得更加容易。</p>
 
-<h1 id="chapter-6">
-<span>第 6 章</span> let表达式</h1>
+<h2 id="section-6-2">
+<span>6.2</span> let表达式</h2>
 
 
 <p>使用<code>let</code>表达式可以定义局部变量。格式如下：</p>
@@ -119,7 +124,7 @@
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">p1</span> <span class="nv">v1</span><span class="p">)</span> <span class="p">(</span><span class="nf">p2</span> <span class="nv">v2</span><span class="p">)</span> <span class="o">...</span><span class="p">)</span> <span class="nv">exp1</span> <span class="nv">exp2</span> <span class="o">...</span><span class="p">)</span>
-<span class="err">⇒</span>
+<span class="c1">;⇒</span>
 <span class="p">((</span><span class="k">lambda </span><span class="p">(</span><span class="nf">p1</span> <span class="nv">p2</span> <span class="o">...</span><span class="p">)</span>
     <span class="nv">exp1</span> <span class="nv">exp2</span> <span class="o">...</span><span class="p">)</span> <span class="nv">v1</span> <span class="nv">v2</span><span class="p">)</span>
 </pre></div>
@@ -130,15 +135,19 @@
 
 <p>编写一个解决第四章练习1的函数，该函数旨在通过一个初始速度<code>v</code>和与水平面所成夹角<code>a</code>来计算飞行距离。</p>
 
-<h2 id="section-6-1">
-<span>6.1</span> 总结</h2>
+<h2 id="section-6-3">
+<span>6.3</span> 总结</h2>
 
 
 <p>本节中，我介绍了<code>let</code>表达式，<code>let</code>表达式是<code>lambda</code>表达式的一个语法糖。变量的作用域通过使用<code>let</code>表达式或<code>lambda</code>表达式来确定。在Scheme中，这个有效域由源代码的编写决定，这叫做<strong>词法闭包（lexical closure）</strong>。</p>
 
-<p>练习答案</p>
+<h2 id="section-6-4">
+<span>6.4</span> 习题解答</h2>
 
-<p>答案1</p>
+
+<h3 id="section-6-4-1">
+<span>6.4.1</span> 答案1</h3>
+
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">throw</span> <span class="nv">v</span> <span class="nv">a</span><span class="p">)</span>
@@ -161,6 +170,5 @@
 			</div>
 			
 		
-	</div>
-</body>
+	</div></div></body>
 </html>

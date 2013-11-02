@@ -67,7 +67,7 @@
 <span class="c1">;Value 11: (1 . 2)</span>
 </pre></div>
 </div>
-<p>系统返回<code>(1 . 2)</code>。如图一所示，函数<code>cons</code>给两个地址分配了内存空间，并把存放指向<code>1</code>的地址放在一个空间，把存放指向<code>2</code>的地址放在另一个空间。存放指向<code>1</code>的地址的内存空间被称作<code>car</code>部分，对应的，存放指向<code>2</code>的地址的内存空间被称作<code>cdr</code>部分。<code>car</code>和<code>cdr</code>分别是Contents of the Address part of the Register和Contents of the Decrement part of the Register的简称【待翻译】。这些名字最初来源于Lisp首次被实现所使用的硬件环境中内存空间的名字。这些名字同时也表明cons单元的本质就是一个内存空间。<code>cons</code>这个名字是术语<strong>构造（construction）</strong>的简称。</p>
+<p>系统返回<code>(1 . 2)</code>。如图一所示，函数<code>cons</code>给两个地址分配了内存空间，并把存放指向<code>1</code>的地址放在一个空间，把存放指向<code>2</code>的地址放在另一个空间。存放指向<code>1</code>的地址的内存空间被称作<code>car</code>部分，对应的，存放指向<code>2</code>的地址的内存空间被称作<code>cdr</code>部分。<code>car</code>和<code>cdr</code>分别是<strong>寄存器地址部分（Contents of the Address part of the Register）</strong>和<strong>寄存器减量部分（Contents of the Decrement part of the Register）</strong>的简称。这些名字最初来源于Lisp首次被实现所使用的硬件环境中内存空间的名字。这些名字同时也表明Cons单元的本质就是一个内存空间。<code>cons</code>这个名字是术语<strong>构造（construction）</strong>的简称。</p>
 
 <p>图 1</p>
 

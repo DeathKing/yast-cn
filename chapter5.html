@@ -204,20 +204,20 @@ a0 * n                    (r = 1)</p>
 </div>
 <p>在<code>cond</code>表达式中，<code>predicates_i</code>是按照从上到下的顺序求值，而当<code>predicates_i</code>为真时，<code>clause_i</code>会被求值并返回。<code>i</code>之后的<code>predicates</code>和<code>clauses</code>不会被求值。如果所有的<code>predicates_i</code>都是假的话，则返回<code>cluase_else</code>。在一个子句中，你可以写数条S-表达式，而<code>clause</code>的值是最后一条S-表达式。</p>
 
-<p>例：城市游泳池的收费。</p>
-
-<p>Foo市的城市游泳池按照顾客的年龄收费：</p>
-
 <blockquote>
+  <p>例：城市游泳池的收费。</p>
+
+  <p>Foo市的城市游泳池按照顾客的年龄收费：</p>
+
   <p>如果 age ≤ 3 或者 age ≥ 65 则 免费；<br>
 如果 介于 4 ≤ age ≤ 6 则 0.5美元；<br>
 如果 介于 7 ≤ age ≤ 12 则 1.0美元；<br>
 如果 介于 13 ≤ age ≤ 15 则 1.5美元；<br>
 如果 介于 16 ≤ age ≤ 18 则 1.8美元；<br>
 其它 则 2.0美元；</p>
-</blockquote>
 
-<p>那么，一个返回城市游泳池收费的函数如下：</p>
+  <p>那么，一个返回城市游泳池收费的函数如下：</p>
+</blockquote>
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fee</span> <span class="nv">age</span><span class="p">)</span>

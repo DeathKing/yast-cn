@@ -69,9 +69,8 @@
 
 <p>让我们使用任意一款编辑器（记事本亦可）来编辑代码片段1中展示的代码，并将它们存储为‘hello.scm’，放置在类似于‘C:\doc\scheme\’的文件夹下。如果可以的话，把这些文件放在你在第一章定义的MIT-Scheme默认文件夹下。</p>
 
-<p>代码片段1（hello.scm）</p>
-
-<div class="codeblock">
+<div class="codeblock has-caption">
+<p class="caption">代码片段1（hello.scm）</p>
 <div class="highlight type-scheme"><pre><span class="c1">; Hello world as a variable</span>
 <span class="p">(</span><span class="k">define </span><span class="nv">vhello</span> <span class="s">"Hello world"</span><span class="p">)</span>     <span class="c1">;1</span>
 
@@ -122,14 +121,12 @@
 
 <p>可以通过在<code>lambda</code>后放一个参数表来定义有参数的函数。将代码片段2保存为<code>farg.scm</code>并放在同<code>hello.scm</code>一致的目录。</p>
 
-<p>代码片段2 (farg.scm)</p>
-
-<div class="codeblock">
+<div class="codeblock has-caption">
+<p class="caption">代码片段2 (farg.scm)</p>
 <div class="highlight type-scheme"><pre><span class="c1">; hello with name</span>
 <span class="p">(</span><span class="k">define </span><span class="nv">hello</span>
   <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">name</span><span class="p">)</span>
     <span class="p">(</span><span class="nb">string-append </span><span class="s">"Hello "</span> <span class="nv">name</span> <span class="s">"!"</span><span class="p">)))</span>
-
 
 <span class="c1">; sum of three numbers</span>
 <span class="p">(</span><span class="k">define </span><span class="nv">sum3</span>
@@ -164,9 +161,8 @@
 
 <p>用<code>lambda</code>定义函数是一种规范的方法，但你也可以使用类似于代码片段3中展示的短形式。</p>
 
-<p>代码片段3</p>
-
-<div class="codeblock">
+<div class="codeblock has-caption">
+<p class="caption">代码片段3</p>
 <div class="highlight type-scheme"><pre><span class="c1">; hello with name</span>
 <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">hello</span> <span class="nv">name</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">string-append </span><span class="s">"Hello "</span> <span class="nv">name</span> <span class="s">"!"</span><span class="p">))</span>
@@ -179,26 +175,31 @@
 </div>
 <p>在这种形式中，函数按照它们被调用的形式被定义。代码片段2和代码片段3都是相同的。有些人不喜欢这种短形式的函数定义，但是我在教程中使用这种形式，因为它可以使代码更短小。</p>
 
-<p>练习1</p>
+<blockquote>
+  <p>练习1</p>
 
-<p>按照下面的要求编写函数。这些都非常简单但实用。</p>
+  <p>按照下面的要求编写函数。这些都非常简单但实用。</p>
 
-<ol>
+  <ol>
 <li>将参数加1的函数。</li>
-  <li>将参数减1的函数。</li>
-</ol>
-<p>练习2</p>
+    <li>将参数减1的函数。</li>
+  </ol>
+</blockquote>
 
-<p>让我们按照下面的步骤编写一个用于计算飞行距离的函数。</p>
+<blockquote>
+  <p>练习2</p>
 
-<ol>
+  <p>让我们按照下面的步骤编写一个用于计算飞行距离的函数。</p>
+
+  <ol>
 <li>编写一个将角的单位由度转换为弧度的函数。180度即π弧度。π可以通过下面的式子定义：
 <code>(define pi (* 4 (atan 1.0)))</code>。</li>
-  <li>编写一个用于计算按照一个常量速度（水平分速度）运动的物体，t秒内的位移的函数。</li>
-  <li>编写一个用于计算物体落地前的飞行时间的函数，参数是垂直分速度。忽略空气阻力并取重力加速度<code>g</code>为<code>9.8m/s^2</code>。提示：设落地时瞬时竖直分速度为<code>-Vy</code>，有如下关系。<code>2Vy = g*t</code>  此处<code>t</code>为落地时的时间。</li>
-  <li>使用问题1-3中定义的函数编写一个用于计算一个以初速度<code>v</code>和角度<code>theta</code>掷出的小球的飞行距离。</li>
-</ol>
+    <li>编写一个用于计算按照一个常量速度（水平分速度）运动的物体，t秒内的位移的函数。</li>
+    <li>编写一个用于计算物体落地前的飞行时间的函数，参数是垂直分速度。忽略空气阻力并取重力加速度<code>g</code>为<code>9.8m/s^2</code>。提示：设落地时瞬时竖直分速度为<code>-Vy</code>，有如下关系。<code>2Vy = g*t</code>  此处<code>t</code>为落地时的时间。</li>
+    <li>使用问题1-3中定义的函数编写一个用于计算一个以初速度<code>v</code>和角度<code>theta</code>掷出的小球的飞行距离。</li>
+  </ol>
 <p>提示：首先，将角度的单位转换为弧度（假定转换后的角度为<code>theta1</code>）。初始水平、竖直分速度分别表示为：<code>v*cos(theta1)</code>和<code>v*sin(theta1)</code>。落地时间可以通过问题3中定义的函数计算。由于水平分速度不会改变， 因此可以利用问题2中的函数计算距离。</p>
+</blockquote>
 
 <h2 id="section-4-5">
 <span>4.5</span> 关于编辑器</h2>
@@ -253,7 +254,7 @@
     </ul>
 </li>
 </ul>
-<p>请查阅 http://www-swiss.ai.mit.edu/projects/scheme/documentation/user_8.html 以获得更多关于Edwin的帮助。你下载的MIT-Scheme中也附带了同样的文档。</p>
+<p>请查阅[](http://www-swiss.ai.mit.edu/projects/scheme/documentation/user_8.html)以获得更多关于Edwin的帮助。你下载的MIT-Scheme中也附带了同样的文档。</p>
 
 <h2 id="section-4-6">
 <span>4.6</span> 小结</h2>

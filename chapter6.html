@@ -54,7 +54,9 @@
 </div>
 <p>声明了变量<code>p1</code>、<code>p2</code>，并分别为它们赋初值<code>v1</code>、<code>v2</code>。变量的<strong>作用域（Scope）</strong>为<code>body</code>体，也就是说变量只在<code>body</code>中有效。</p>
 
-<p>例1：声明局部变量<code>i</code>和<code>j</code>，将它们与<code>1</code>、<code>2</code>绑定，然后求二者的和。</p>
+<blockquote>
+  <p>例1：声明局部变量<code>i</code>和<code>j</code>，将它们与<code>1</code>、<code>2</code>绑定，然后求二者的和。</p>
+</blockquote>
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nf">j</span> <span class="mi">2</span><span class="p">))</span>
@@ -64,7 +66,9 @@
 </div>
 <p><code>let</code>表达式可以嵌套使用。</p>
 
-<p>例2：声明局部变量<code>i</code>和<code>j</code>，并将分别将它们与<code>1</code>和<code>i+2</code>绑定，然后求它们的乘积。</p>
+<blockquote>
+  <p>例2：声明局部变量<code>i</code>和<code>j</code>，并将分别将它们与<code>1</code>和<code>i+2</code>绑定，然后求它们的乘积。</p>
+</blockquote>
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">i</span> <span class="mi">1</span><span class="p">))</span>
@@ -89,7 +93,9 @@
 <span class="c1">;Value: 3</span>
 </pre></div>
 </div>
-<p>例3：函数<code>quadric-equation</code>用于计算二次方程。它需要三个代表系数的参数：<code>a</code>、<code>b</code>、<code>c</code> （<code>ax^2 + bx + c = 0</code>），返回一个存放答案的实数表。通过逐步地使用<code>let</code>表达式，可以避免不必要的计算。</p>
+<blockquote>
+  <p>例3：函数<code>quadric-equation</code>用于计算二次方程。它需要三个代表系数的参数：<code>a</code>、<code>b</code>、<code>c</code> （<code>ax^2 + bx + c = 0</code>），返回一个存放答案的实数表。通过逐步地使用<code>let</code>表达式，可以避免不必要的计算。</p>
+</blockquote>
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">;;;The scopes of variables d,e, and f are the regions with the same background colors.</span>
@@ -110,16 +116,19 @@
 <span class="c1">;Value 12: (-2/3 -1)</span>
 </pre></div>
 </div>
-<p>这个函数的行为如下：</p>
+<blockquote>
+  <p>这个函数的行为如下：</p>
 
-<ol>
+  <ol>
 <li>如果二次项系数<code>a</code>为<code>0</code>，函数返回<code>'error</code>。</li>
-  <li>如果<code>a ≠ 0</code>，则将变量<code>d</code>与判别式<code>(b^2 - 4ac)</code>的值绑定。</li>
-  <li>如果<code>d</code>为负数，则返回<code>'()</code>。</li>
-  <li>如果<code>d</code>不为负数，则将变量<code>e</code>与<code>-b/2a</code>绑定。</li>
-  <li>如果<code>d</code>为<code>0</code>，则返回一个包含<code>e</code>的表。</li>
-  <li>如果<code>d</code>是正数，则将变量<code>f</code>与<code>√(d/2a)</code>绑定，并返回由<code>(+ e f)</code>和<code>(- e f)</code>构成的表。</li>
-</ol>
+    <li>如果<code>a ≠ 0</code>，则将变量<code>d</code>与判别式<code>(b^2 - 4ac)</code>的值绑定。</li>
+    <li>如果<code>d</code>为负数，则返回<code>'()</code>。</li>
+    <li>如果<code>d</code>不为负数，则将变量<code>e</code>与<code>-b/2a</code>绑定。</li>
+    <li>如果<code>d</code>为<code>0</code>，则返回一个包含<code>e</code>的表。</li>
+    <li>如果<code>d</code>是正数，则将变量<code>f</code>与<code>√(d/2a)</code>绑定，并返回由<code>(+ e f)</code>和<code>(- e f)</code>&gt; 构成的表。</li>
+  </ol>
+</blockquote>
+
 <p>实际上，<code>let</code>表达式只是<code>lambda</code>表达式的一个语法糖：</p>
 
 <div class="codeblock">
@@ -131,9 +140,11 @@
 </div>
 <p>这是因为<code>lambda</code>表达式用于定义函数，它为变量建立了一个作用域。</p>
 
-<p>练习1</p>
+<blockquote>
+  <p>练习1</p>
 
-<p>编写一个解决第四章练习1的函数，该函数旨在通过一个初始速度<code>v</code>和与水平面所成夹角<code>a</code>来计算飞行距离。</p>
+  <p>编写一个解决第四章练习1的函数，该函数旨在通过一个初始速度<code>v</code>和与水平面所成夹角<code>a</code>来计算飞行距离。</p>
+</blockquote>
 
 <h2 id="section-6-3">
 <span>6.3</span> 总结</h2>
@@ -165,7 +176,7 @@
 					<a class="prev_page" href="/yast-cn/chapter5.html">« 第 5 章分支</a>
 				
 				
-					<a class="next_page" href="/yast-cn/chapter7.html">第 7 章高阶函数 »</a>
+					<a class="next_page" href="/yast-cn/chapter7.html">第 7 章重复 »</a>
 				
 			</div>
 			

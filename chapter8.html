@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>第 8 章 高阶函数</title>
+<meta name="author" content="DeathKing">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div class="entry"><div class="container">
+		
+<div class="item chapter">
+	<h1 id="chapter-8">
+<span>第 8 章</span> 高阶函数</h1>
+	<ol class="toc">
+<li class="level-2">
+            <a href="#section-8-1">8.1 简介</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-8-2">8.2 映射</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-8-2-1">8.2.1 map</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-8-2-2">8.2.2 for-each</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-8-3">8.3 过滤</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-8-4">8.4 归档</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-8-5">8.5 排序</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-8-6">8.6 apply函数</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-8-7">8.7 编写高阶函数</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-8-7-1">8.7.1 member-if和member</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-8-7-2">8.7.2 不规则曲线</a>
+          </li>
+</ol>
+<div class="main">
+  		<h2 id="section-8-1">
+<span>8.1</span> 简介</h2>
+
+
+<p><strong>高阶函数（Higher Order Function）</strong>是一种以函数为参数的函数。它们都被用于<strong>映射（mapping）</strong>、<strong>过滤（filtering）</strong>、<strong>归档（folding）</strong>和<strong>排序（sorting）</strong>表。高阶函数提高了程序的模块性。编写对各种情况都适用的高阶函数与为单一情况编写递归函数相比，可以使程序更具可读性。比如说，使用一个高阶函数来实现排序可以使得我们使用不同的条件来排序，这就将排序条件和排序过程清楚地划分开来。函数<code>sort</code>具有两个参数，其一是一个待排序的表，其二是<strong>定序（Ordering）</strong>函数。下面展示了按照大小将一个整数表正序排序。<code>&lt;</code>函数就是（本例中的）两数的定序函数。</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">sort</span> <span class="o">'</span><span class="p">(</span><span class="mi">7883</span> <span class="mi">9099</span> <span class="mi">6729</span> <span class="mi">2828</span> <span class="mi">7754</span> <span class="mi">4179</span> <span class="mi">5340</span> <span class="mi">2644</span> <span class="mi">2958</span> <span class="mi">2239</span><span class="p">)</span> <span class="nv">&lt;</span><span class="p">)</span>
+<span class="c1">;⇒  (2239 2644 2828 2958 4179 5340 6729 7754 7883 9099)</span>
+</pre></div>
+</div>
+<p>另一方面，按照每个数末两位的大小排序可以按下面的方式实现：</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">sort</span> <span class="o">'</span><span class="p">(</span><span class="mi">7883</span> <span class="mi">9099</span> <span class="mi">6729</span> <span class="mi">2828</span> <span class="mi">7754</span> <span class="mi">4179</span> <span class="mi">5340</span> <span class="mi">2644</span> <span class="mi">2958</span> <span class="mi">2239</span><span class="p">)</span> 
+      <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">x</span> <span class="nv">y</span><span class="p">)</span> <span class="p">(</span><span class="nb">&lt; </span><span class="p">(</span><span class="nb">modulo </span><span class="nv">x</span> <span class="mi">100</span><span class="p">)</span> <span class="p">(</span><span class="nb">modulo </span><span class="nv">y</span> <span class="mi">100</span><span class="p">))))</span>
+<span class="c1">;⇒  (2828 6729 2239 5340 2644 7754 2958 4179 7883 9099)</span>
+</pre></div>
+</div>
+<p>正如这里所演示的，像<strong>快速排序（Quick Sort）</strong>、<strong>归并排序（Merge Sort）</strong>等排序过程，将定序函数完全分离开来提高了代码的复用性。</p>
+
+<p>在本节中，我将讲解预定义的高阶函数，然后介绍如何定义高阶函数。由于Scheme并不区别过程和其它的数据结构，因此你可以通过将函数当作参数传递轻松的定义自己的高阶函数。</p>
+
+<p>实际上，Scheme中预定义函数的本质就是高阶函数，因为Scheme并没有定义块结构的语法，因此使用<code>lambda</code>表达式作为一个块。</p>
+
+<h2 id="section-8-2">
+<span>8.2</span> 映射</h2>
+
+
+<p>映射是将同样的行为应用于表所有元素的过程。R5RS定义了两个映射过程：其一为返回转化后的表的<code>map</code>过程，另一为注重副作用的<code>for-each</code>过程。</p>
+
+<h3 id="section-8-2-1">
+<span>8.2.1</span> map</h3>
+
+
+<p><code>map</code>过程的格式如下：</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">map </span><span class="nv">procedure</span> <span class="nv">list1</span> <span class="nv">list2</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code>procedure</code>是个与某个过程或<code>lambda</code>表达式相绑定的符号。作为参数的表的个数视<code>procedure</code>需要的参数而定。</p>
+
+<p>例：</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="c1">; Adding each item of '(1 2 3) and '(4 5 6).</span>
+<span class="p">(</span><span class="nb">map </span><span class="nv">+</span> <span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="o">'</span><span class="p">(</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1">;⇒  (5 7 9)</span>
+
+<span class="c1">; Squaring each item of '(1 2 3)</span>
+<span class="p">(</span><span class="nb">map </span><span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span> <span class="p">(</span><span class="nb">* </span><span class="nv">x</span> <span class="nv">x</span><span class="p">))</span> <span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<span class="c1">;⇒  (1 4 9)</span>
+</pre></div>
+</div>
+<h3 id="section-8-2-2">
+<span>8.2.2</span> for-each</h3>
+
+
+<p><code>for-each</code>的格式与<code>map</code>一致。但<code>for-each</code>并不返回一个具体的值，只是用于副作用。</p>
+
+<p>例：</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="nv">sum</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">for-each </span><span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span> <span class="p">(</span><span class="k">set! </span><span class="nv">sum</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">sum</span> <span class="nv">x</span><span class="p">)))</span> <span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nv">sum</span>
+<span class="c1">;⇒  10</span>
+</pre></div>
+</div>
+<p>练习1</p>
+
+<p>用<code>map</code>编写下面的函数：</p>
+
+<ol>
+<li>一个将表中所有元素翻倍的函数；</li>
+  <li>一个将两个表中对应位置元素相减的函数；</li>
+</ol>
+<h2 id="section-8-3">
+<span>8.3</span> 过滤</h2>
+
+
+<p>尽管过滤函数并没有在R5RS中定义，但MIT-Scheme实现提供了<code>keep-matching-items</code>和<code>delete-matching-item</code>两个函数。其它实现中应该有类似的函数。</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">keep-matching-items</span> <span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">-3</span> <span class="mi">-4</span> <span class="mi">5</span><span class="p">)</span> <span class="nv">positive?</span><span class="p">)</span>
+<span class="c1">;⇒  (1 2 5)</span>
+</pre></div>
+</div>
+<p>练习2</p>
+
+<p>编写下列函数：</p>
+
+<ol>
+<li>
+<strong>滤取（Filtering Out）</strong>出一个表中的偶数；</li>
+  <li>滤取出不满足<code>10 ≤ x ≤ 100</code>的数；</li>
+</ol>
+<h2 id="section-8-4">
+<span>8.4</span> 归档</h2>
+
+
+<p>尽管在R5RS中没有定义归档函数，但MIT-Scheme提供了<code>reduce</code>等函数。</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">reduce</span> <span class="nv">+</span> <span class="mi">0</span> <span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>                 <span class="c1">;⇒  10</span>
+<span class="p">(</span><span class="nf">reduce</span> <span class="nv">+</span> <span class="mi">0</span> <span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span><span class="p">))</span>                     <span class="c1">;⇒  3</span>
+<span class="p">(</span><span class="nf">reduce</span> <span class="nv">+</span> <span class="mi">0</span> <span class="o">'</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>                       <span class="c1">;⇒  1</span>
+<span class="p">(</span><span class="nf">reduce</span> <span class="nv">+</span> <span class="mi">0</span> <span class="o">'</span><span class="p">())</span>                        <span class="c1">;⇒  0</span>
+<span class="p">(</span><span class="nf">reduce</span> <span class="nv">+</span> <span class="mi">0</span> <span class="o">'</span><span class="p">(</span><span class="nv">foo</span><span class="p">))</span>                     <span class="c1">;⇒  foo</span>
+<span class="p">(</span><span class="nf">reduce</span> <span class="nv">list</span> <span class="o">'</span><span class="p">()</span> <span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>            <span class="c1">;⇒  (((1 2) 3) 4)</span>
+</pre></div>
+</div>
+<p>练习3</p>
+
+<p>1.编写一个将表中所有元素平方的函数，然后求取它们的和，最后求和的平方根。</p>
+
+<h2 id="section-8-5">
+<span>8.5</span> 排序</h2>
+
+
+<p>尽管R5RS中没有定义排序函数，但MIT-Scheme提供了<code>sort</code>（实为<code>merge-sort</code>实现）和<code>quick-sort</code>函数。</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">sort</span> <span class="o">'</span><span class="p">(</span><span class="mi">3</span> <span class="mi">5</span> <span class="mi">1</span> <span class="mi">4</span> <span class="mi">-1</span><span class="p">)</span> <span class="nv">&lt;</span><span class="p">)</span>
+<span class="c1">;⇒  (-1 1 3 4 5)</span>
+</pre></div>
+</div>
+<p>练习4</p>
+
+<p>编写下列函数</p>
+
+<p>1、以<code>sin(x)</code>的大小升序排序；
+2、以表长度降序排序；</p>
+
+<h2 id="section-8-6">
+<span>8.6</span> apply函数</h2>
+
+
+<p><code>apply</code>函数是将一个过程应用于一个表（译注：将表展开，作为过程的参数）。即使函数具有任意多个参数，首参数和末参数分别应该是一个过程和一个表。虽然看起来不然，但这个函数的确非常方便。</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">apply </span><span class="nv">max</span> <span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">))</span>      <span class="c1">;⇒   3</span>
+<span class="p">(</span><span class="nb">apply </span><span class="nv">+</span> <span class="mi">1</span> <span class="mi">2</span> <span class="o">'</span><span class="p">(</span><span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">))</span>    <span class="c1">;⇒  15</span>
+<span class="p">(</span><span class="nb">apply </span><span class="nv">-</span> <span class="mi">100</span> <span class="o">'</span><span class="p">(</span><span class="mi">5</span> <span class="mi">12</span> <span class="mi">17</span><span class="p">))</span>  <span class="c1">;⇒  66</span>
+</pre></div>
+</div>
+<p>练习5</p>
+
+<p>用<code>apply</code>编写练习3中的函数。</p>
+
+<h2 id="section-8-7">
+<span>8.7</span> 编写高阶函数</h2>
+
+
+<p>自己编写高阶函数非常容易。这里用<code>member-if</code>、<code>member</code>和<code>fractal</code>演示。</p>
+
+<h3 id="section-8-7-1">
+<span>8.7.1</span> member-if和member</h3>
+
+
+<p><code>member-if</code>函数使用一个谓词和一个表作为参数，返回一个子表，该子表的<code>car</code>部分即是原列表中首个满足该谓词的元素。<code>member-if</code>函数可以像下面这样定义：</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">member-if</span> <span class="nv">proc</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">cond</span>
+   <span class="p">((</span><span class="nb">null? </span><span class="nv">ls</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
+   <span class="p">((</span><span class="nf">proc</span> <span class="p">(</span><span class="nb">car </span><span class="nv">ls</span><span class="p">))</span> <span class="nv">ls</span><span class="p">)</span>
+   <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">member-if</span> <span class="nv">proc</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls</span><span class="p">)))))</span>
+
+<span class="p">(</span><span class="nf">member-if</span> <span class="nv">positive?</span> <span class="o">'</span><span class="p">(</span><span class="mi">0</span> <span class="mi">-1</span> <span class="mi">-2</span> <span class="mi">3</span> <span class="mi">5</span> <span class="mi">-7</span><span class="p">))</span>
+<span class="c1">;⇒  (3 5 -7)</span>
+</pre></div>
+</div>
+<p>接下来，<code>member</code>函数检查特定元素是否在表中，该函数编写如下。函数需要三个参数，其一为用于比较的函数，其二为特定项，其三为待查找表。</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nb">member </span><span class="nv">proc</span> <span class="nv">obj</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">cond</span>
+   <span class="p">((</span><span class="nb">null? </span><span class="nv">ls</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
+   <span class="p">((</span><span class="nf">proc</span> <span class="nv">obj</span> <span class="p">(</span><span class="nb">car </span><span class="nv">ls</span><span class="p">))</span> <span class="nv">ls</span><span class="p">)</span>
+   <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nb">member </span><span class="nv">proc</span> <span class="nv">obj</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls</span><span class="p">)))))</span>
+
+<span class="p">(</span><span class="nb">member </span><span class="nv">string=?</span> <span class="s">"hello"</span> <span class="o">'</span><span class="p">(</span><span class="s">"hi"</span> <span class="s">"guys"</span> <span class="s">"bye"</span> <span class="s">"hello"</span> <span class="s">"see you"</span><span class="p">))</span>
+<span class="c1">;⇒  ("hello" "see you")</span>
+</pre></div>
+</div>
+<h3 id="section-8-7-2">
+<span>8.7.2</span> 不规则曲线</h3>
+
+
+<p>生成像C曲线、龙曲线等不规则曲线可以通过在两个点中插入一个点来实现。</p>
+  	</div>
+</div>
+
+		
+			
+			<div class="navigation">
+				
+					<a class="prev_page" href="/yast-cn/chapter7.html">« 第 7 章重复</a>
+				
+				
+			</div>
+			
+		
+	</div></div></body>
+</html>

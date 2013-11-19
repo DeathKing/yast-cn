@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>第 9 章 输入输出</title>
+<meta name="author" content="DeathKing">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div class="entry"><div class="container">
+		
+<div class="item chapter">
+	<h1 id="chapter-9">
+<span>第 9 章</span> 输入输出</h1>
+	<ol class="toc">
+<li class="level-2">
+            <a href="#section-9-1">9.1 简介</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-9-2">9.2 从文件输入</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-9-2-1">9.2.1 open-input-file，read-char和eof-object?</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-9-2-2">9.2.2 语法call-with-input-file和with-input-from-file</a>
+          </li>
+</ol>
+<div class="main">
+  		<h2 id="section-9-1">
+<span>9.1</span> 简介</h2>
+
+
+<p>通过前面章节的学习，你已经可以在Scheme的交互式前端中编写并执行程序了。在本章中，我讲介绍如何输入和输出。使用这个特性，你可以从文件中读取数据或向文件中写入数据。</p>
+
+<h2 id="section-9-2">
+<span>9.2</span> 从文件输入</h2>
+
+
+<h3>open-input-file，read-char和eof-object?</h3>
+
+<p>函数<code>(open-input-file filename)</code>可以用于打开一个文件。此函数返回一个用于输入的端口。函数<code>(read-char port)</code>用于从端口中读取一个字符。当读取到<strong>文件结尾（EOF）</strong>时，此函数返回<code>eof-object</code>，你可以使用<code>eof-object?</code>来检查。函数<code>(close-input-port port)</code>用于关闭输入端口。[代码片段1]展示了一个函数，该函数以字符串形式返回了文件内容。</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">read-file</span> <span class="nv">file-name</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">p</span> <span class="p">(</span><span class="nb">open-input-file </span><span class="nv">file-name</span><span class="p">)))</span>
+    <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">p</span><span class="p">)))</span>
+      <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eof-object? </span><span class="nv">c</span><span class="p">)</span>
+	  <span class="p">(</span><span class="nf">begin</span>
+	    <span class="p">(</span><span class="nb">close-input-port </span><span class="nv">p</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nb">list-&gt;string </span><span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">)))</span>
+	  <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">p</span><span class="p">))))))</span>
+</pre></div>
+</div>
+<p>比如，在[范例1]中展示的结果就是将[代码片段1]应用于文件hello.txt。由于换行符是由<code>'\n'</code>表示的，这就很容易阅读。然而，像格式化输出[范例2]，我们也可使用<code>display</code>函数。</p>
+
+<div class="codeblock">
+<div class="highlight type-text"><pre>Hello world!
+Scheme is an elegant programming language.
+</pre></div>
+</div>
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">cd</span> <span class="s">"C:\\doc"</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">read-file</span> <span class="s">"hello.txt"</span><span class="p">)</span>
+<span class="c1">;Value 14: "Hello world!\nScheme is an elegant programming language.\n"</span>
+</pre></div>
+</div>
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">display </span><span class="p">(</span><span class="nf">read-file</span> <span class="s">"hello.txt"</span><span class="p">))</span>
+<span class="nv">Hello</span> <span class="nv">world!</span>
+<span class="nv">Scheme</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">elegant</span> <span class="nv">programming</span> <span class="nv">language</span><span class="o">.</span>
+<span class="c1">;Unspecified return value</span>
+</pre></div>
+</div>
+<h3 id="section-9-2-2">
+<span>9.2.2</span> 语法call-with-input-file和with-input-from-file</h3>
+
+
+<p>你通过使用语法<code>call-with-input-file</code>和<code>with-input-from-file</code>来打开文件以供读取输入。这些语法是非常方便的，因为它们要处理错误。</p>
+
+<blockquote>
+  <p><code>(call-with-input-file filename procedure)</code></p>
+
+  <p>该函数将名为<code>filename</code>的文件打开以供读取输入。函数<code>procedure</code>接受一个输入端口作为参数。文件应该显式地关闭</p>
+</blockquote>
+  	</div>
+</div>
+
+		
+			
+			<div class="navigation">
+				
+					<a class="prev_page" href="/yast-cn/chapter8.html">« 第 8 章高阶函数</a>
+				
+				
+			</div>
+			
+		
+	</div></div></body>
+</html>

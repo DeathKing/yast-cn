@@ -25,6 +25,9 @@
           <li class="level-3">
             <a href="#section-9-2-2">9.2.2 语法call-with-input-file和with-input-from-file</a>
           </li>
+          <li class="level-3">
+            <a href="#section-9-2-3">9.2.3 read</a>
+          </li>
 </ol>
 <div class="main">
   		<h2 id="section-9-1">
@@ -81,7 +84,72 @@ Scheme is an elegant programming language.
 <blockquote>
   <p><code>(call-with-input-file filename procedure)</code></p>
 
-  <p>该函数将名为<code>filename</code>的文件打开以供读取输入。函数<code>procedure</code>接受一个输入端口作为参数。文件应该显式地关闭</p>
+  <p>该函数将名为<code>filename</code>的文件打开以供读取输入。函数<code>procedure</code>接受一个输入端口作为参数。文件有可能再次使用，因此当<code>procedure</code>结束时文件不会自动关闭，文件应该显式地关闭。[代码片段1]可以按照[代码片段2]那样用<code>call-with-input-file</code>编写。</p>
+</blockquote>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">read-file</span> <span class="nv">file-name</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">call-with-input-file </span><span class="nv">file-name</span>
+    <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">p</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">p</span><span class="p">)))</span>
+	<span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eof-object? </span><span class="nv">c</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nf">begin</span>
+	      <span class="p">(</span><span class="nb">close-input-port </span><span class="nv">p</span><span class="p">)</span>
+	      <span class="p">(</span><span class="nb">list-&gt;string </span><span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">)))</span>
+	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">p</span><span class="p">)))))))</span>
+</pre></div>
+</div>
+<blockquote>
+  <p><code>(with-input-from-file filename procedure)</code>
+该函数将名为<code>filename</code>的文件作为标准输入打开。函数<code>procedure</code>不接受任何参数。当<code>procedure</code>退出时，文件自动被关闭。[代码片段3]展示了如何用<code>with-input-from-file</code>来重写[代码片段1]。</p>
+</blockquote>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">read-file</span> <span class="nv">file-name</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">with-input-from-file </span><span class="nv">file-name</span>
+    <span class="p">(</span><span class="k">lambda </span><span class="p">()</span>
+      <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nf">read-char</span><span class="p">)))</span>
+	<span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eof-object? </span><span class="nv">c</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nb">list-&gt;string </span><span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">))</span>
+	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nf">read-char</span><span class="p">)))))))</span>
+</pre></div>
+</div>
+<h3 id="section-9-2-3">
+<span>9.2.3</span> read</h3>
+
+
+<p>函数<code>(read port)</code>从端口<code>port</code>中读入一个S-表达式。用它来读诸如”paren.txt”中带括号的内容就很方便。</p>
+
+<div class="codeblock">
+<div class="highlight type-text"><pre>'(Hello world!
+Scheme is an elegant programming language.)
+
+'(Lisp is a programming language ready to evolve.)
+</pre></div>
+</div>
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">s-read</span> <span class="nv">file-name</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">with-input-from-file </span><span class="nv">file-name</span>
+    <span class="p">(</span><span class="k">lambda </span><span class="p">()</span>
+      <span class="p">(</span><span class="k">let </span><span class="nv">loop</span> <span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">s</span> <span class="p">(</span><span class="nf">read</span><span class="p">)))</span>
+	<span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eof-object? </span><span class="nv">s</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">s</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nf">read</span><span class="p">)))))))</span>
+</pre></div>
+</div>
+<p>下面展示了用<code>s-read</code>读取”paren.txt”的结果。</p>
+
+<div class="codeblock">
+<div class="highlight type-text"><pre>(s-read "paren.txt")
+⇒ ((quote (hello world! scheme is an elegant programming language.))
+(quote (lisp is a programming language ready to evolve.)))
+</pre></div>
+</div>
+<blockquote>
+  <p>练习1</p>
+
+  <p>编写函数<code>(read-lines)</code>，该函数返回一个由字符串构成的表，分别代表每一行的内容。在Scheme中，换行符是由<code>#\Linefeed</code>表示。下面演示了将该函数用于”hello.txt”的结果。
+<code>(read-lines "hello.txt") ⇒ ("Hello world!" "Scheme is an elegant programming language.")</code></p>
 </blockquote>
   	</div>
 </div>

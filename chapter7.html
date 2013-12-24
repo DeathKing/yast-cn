@@ -68,7 +68,8 @@
 
 <p>我们通常使用计算阶乘来解释递归。</p>
 
-<div class="codeblock">
+<div class="codeblock has-caption">
+<p class="caption">[代码片段1] 用于计算阶乘的fact函数</p>
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact</span> <span class="nv">n</span><span class="p">)</span>
   <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">n</span> <span class="mi">1</span><span class="p">)</span>
       <span class="mi">1</span>
@@ -123,7 +124,8 @@
 
 <p>[代码片段2]展示了[代码片段1]中函数<code>fact</code>的尾递归版本。</p>
 
-<div class="codeblock">
+<div class="codeblock has-caption">
+<p class="caption">[代码片段2] fact函数的尾递归版本fact-tail</p>
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-tail</span> <span class="nv">n</span><span class="p">)</span>
   <span class="p">(</span><span class="nf">fact-rec</span> <span class="nv">n</span> <span class="nv">n</span><span class="p">))</span>
 
@@ -168,7 +170,8 @@
 
 <p>在Scheme中，用命名<code>let</code>来表达循环是俗成的方法。</p>
 
-<div class="codeblock">
+<div class="codeblock has-caption">
+<p class="caption">[代码片段3] fact-let的实现</p>
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-let</span> <span class="nv">n</span><span class="p">)</span>
   <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">n1</span> <span class="nv">n</span><span class="p">)</span> <span class="p">(</span><span class="nf">p</span> <span class="nv">n</span><span class="p">))</span>           <span class="c1">; 1</span>
     <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span>                    
@@ -196,7 +199,8 @@
 
 <p><code>letrec</code>类似于<code>let</code>，但它允许一个名字递归地调用它自己。语法<code>letrec</code>通常用于定义复杂的递归函数。[代码片段4]展示了<code>fact</code>函数的<code>letrec</code>版本。</p>
 
-<div class="codeblock">
+<div class="codeblock has-caption">
+<p class="caption">[代码片段4] fact函数的letrec版本</p>
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-letrec</span> <span class="nv">n</span><span class="p">)</span>
   <span class="p">(</span><span class="k">letrec </span><span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n1</span> <span class="nv">p</span><span class="p">)</span>
 		   <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span>
@@ -237,7 +241,8 @@
 
 <p>[代码片段5]演示了<code>fact</code>的<code>do</code>表达式版本。</p>
 
-<div class="codeblock">
+<div class="codeblock has-caption">
+<p class="caption">[代码片段5] fact函数的do表达式版本</p>
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-do</span> <span class="nv">n</span><span class="p">)</span>
   <span class="p">(</span><span class="k">do </span><span class="p">((</span><span class="nf">n1</span> <span class="nv">n</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">))</span> <span class="p">(</span><span class="nf">p</span> <span class="nv">n</span> <span class="p">(</span><span class="nb">* </span><span class="nv">p</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">))))</span> <span class="p">((</span><span class="nb">= </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span> <span class="nv">p</span><span class="p">)))</span>
 </pre></div>

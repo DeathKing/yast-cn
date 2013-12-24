@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>第 10 章 赋值</title>
+<meta name="author" content="DeathKing">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div class="entry"><div class="container">
+		
+<div class="item chapter">
+	<h1 id="chapter-10">
+<span>第 10 章</span> 赋值</h1>
+	<ol class="toc">
+<li class="level-2">
+            <a href="#section-10-1">10.1 简介</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-10-2">10.2 set!</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-10-3">10.3 赋值和内部状态</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-10-3-1">10.3.1 静态作用域（词法闭包）</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-10-3-2">10.3.2 使用赋值和词法闭包来实现内部状态</a>
+          </li>
+</ol>
+<div class="main">
+  		<h2 id="section-10-1">
+<span>10.1</span> 简介</h2>
+
+
+<p>因为Scheme是函数式语言，通常来说，你可以编写不使用赋值的语句。然而，如果使用赋值的话，有些算法就可以轻易实现了。尤其是内部状态和<strong>继续（continuations ）</strong>需要赋值。</p>
+
+<p>Even assignment is convenient and easy to understand, it has substantial drawback. See SICP: 3.1 Assignment and Local State and Why Functional Programming Matters.
+参见《计算机程序的构造和解释：3.1 赋值和局部状态》以及《为什么函数式编程如此重要》</p>
+
+<p>R5RS中规定的用于赋值的特殊形式是<code>set!</code>、<code>set-car!</code>、<code>set-cdr!</code>、<code>string-set!</code>、<code>vector-set!</code>等。除此之外，有些实现也依赖于赋值。由于赋值改变了参数的值，因此它具有<strong>破坏性（destructive）</strong>。Scheme中，具有破坏性的方法都以<code>!</code>结尾，以警示程序员。</p>
+
+<h2 id="section-10-2">
+<span>10.2</span> set!</h2>
+
+
+<p><code>set!</code>可以为一个参数赋值。与Common Lisp不同，<code>set!</code>无法给一个S-表达式赋值。
+赋值前参数应被定义。</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="nv">var</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="k">set! </span><span class="nv">var</span> <span class="p">(</span><span class="nb">* </span><span class="nv">var</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nv">var</span> <span class="err">⇒</span> <span class="mi">10</span>
+
+<span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">i</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="p">(</span><span class="k">set! </span><span class="nv">i</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">i</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="nv">i</span><span class="p">)</span>
+<span class="err">⇒</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<h2 id="section-10-3">
+<span>10.3</span> 赋值和内部状态</h2>
+
+
+<h3 id="section-10-3-1">
+<span>10.3.1</span> 静态作用域（词法闭包）</h3>
+
+
+<p>The scope of variables in Scheme is in the parentheses in that the variables are defined on the source code. The scope as written in the source code is called lexical closure or static scope. This way of scope eliminates bags, as you can grasp the scope of parameters quite easily — written on the source code. On the other hand, there is another way of determining scopes, called dynamic scope. In this way the scope is determined when the program is executed. This way is not used nowadays often because of difficulties of bug fixing.
+The let, lambda, and letrec form make closures. The arguments of lambda expression are valid in the function definition. As let is a syntax sugar for lambda, the same thing happens.</p>
+
+<h3 id="section-10-3-2">
+<span>10.3.2</span> 使用赋值和词法闭包来实现内部状态</h3>
+
+
+<p>You can make procedures with internal status by using the lexical closure. For instance, procedure that simulate bank accounts can be written like as follows: Ten dollars should be donated to make new bank account. The function takes one integer argument. The positive values represent donation and the negative withdrawing. Negative balance is allowed for simplification.</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="nv">bank-account</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">balance</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">set! </span><span class="nv">balance</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">balance</span> <span class="nv">n</span><span class="p">))</span>
+      <span class="nv">balance</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>The procedure assigns (+ balance n) to the balance.  Following is the result of calling this function.
+(bank-account 20)     ; donating 20 dollars 
+;Value: 30</p>
+
+<p>(bank-account -25)     ; withdrawing 25 dollars
+;Value: 5
+As you can write procedures that returns a procedure using Scheme, you can write a function that create ‘bank account’. This example implies that it is easy to make an object oriented (OO) language using functional programming language. In fact, only few more is required from here to make an OO language.</p>
+
+<p>(define (make-bank-account balance)
+  (lambda (n)
+    (set! balance (+ balance n))
+    balance))
+(define gates-bank-account (make-bank-account 10))   ; Gates makes a bank account by donating  10 dollars
+;Value: gates-bank-account</p>
+
+<p>(gates-bank-account 50)                              ; donating 50 dollars
+;Value: 60</p>
+
+<p>(gates-bank-account -55)                             ; withdrawing 55 dollars
+;Value: 5</p>
+
+<p>(define torvalds-bank-account (make-bank-account 100))  ; Torvalds makes a bank account by donating 100 dollars
+;Value: torvalds-bank-account</p>
+
+<p>(torvalds-bank-account -70)                             ; withdrawing 70 dollars
+;Value: 30</p>
+
+<p>(torvalds-bank-account 300)                             ; donating 300 dollars
+;Value: 330
+3.3. Side effect
+The main goal of Scheme procedure is to return a value and other effect is called side effect. Assignment and IO are side effects.
+Exercise 1
+Modify make-bank-account so that withdrawing more than balance causes error. hint: Use begin to group more than one S-expressions.
+4. Destructive Operations on Lists (set-car!, set-cdr!)
+The set-car! and set-cdr! assign a value to the car and cdr part of a cons cell, respectively. These operators can assign a value to a S-expression, which is different in the case of set!.
+(define tree ‘((1 2) (3 4 5) (6 7 8 9)))</p>
+
+<p>(set-car! (car tree) 100)  ; changing 1 to 100 </p>
+
+<p>tree
+ ((100 2) (3 4 5) (6 7 8 9))</p>
+
+<p>(set-cdr! (third tree) ‘(a b c)) ; changing  ‘(7 8 9) to ‘(a b c) </p>
+
+<p>tree
+⇒ ((100 2) (3 4 5) (6 a b c))
+4.1. Queue
+Queue can be implemented by using set-car! and set-cdr!. Queue is a first in first out (FIFO) date structure while ordinary list is first in last out (FILO). Figure 1 shows the data structure of queue. The pointer of the car part of cons-cell-top points to the list and that of the cdr part to the last cons cell of the list.
+ Figure 1: The data structure of queue.
+Enqueue is performed with following procedure (Fig. 2):
+Redirecting the cdr part of the last cons cell which is accessible directly by (cdr cons-cell-top) to a new item.
+Redirecting the cdr part of cons-cell-top to the new item.
+ Figure 2: The procedure of adding ‘item 4’ to the queue.
+Dequeue is performed with following procedure (Fig. 3)
+Storing the top item of the list to a local variable.
+Redirecting the car part of the cons-cell-top to the second item of the list.
+ Figure 3: The procedure of popping ‘item 1’ from the queue.
+[code 1] shows a implementation of queue. The function enqueue! returns a queue in that the obj is added at the last of the queue. The function dequeue!removes the first item from the queue and return the first item.
+[code 1]
+(define (make-queue)
+  (cons ‘() ‘()))</p>
+
+<p>(define (enqueue! queue obj)
+  (let ((lobj (cons obj ‘())))
+    (if (null? (car queue))
+	(begin
+	  (set-car! queue lobj)
+	  (set-cdr! queue lobj))
+	(begin
+	  (set-cdr! (cdr queue) lobj)
+	  (set-cdr! queue lobj)))
+    (car queue)))</p>
+
+<p>(define (dequeue! queue)
+  (let ((obj (car (car queue))))
+    (set-car! queue (cdr (car queue)))
+    obj))
+(define q (make-queue))
+;Value: q</p>
+
+<p>(enqueue! q ‘a)
+;Value 12: (a)</p>
+
+<p>(enqueue! q ‘b)
+;Value 12: (a b)</p>
+
+<p>(enqueue! q ‘c)
+;Value 12: (a b c)</p>
+
+<p>(dequeue! q)
+;Value: a</p>
+
+<p>q
+;Value 13: ((b c) c)
+5. Summary
+I have explained about assignment and scope of variables in this chapter. Even assignment is not used in Scheme often, it is indispensable for some algorithm and data structure.
+Too much use of assignment makes your code ugly. Use assignment only it is really required with care.
+I will explain about data structures used in Scheme in following several chapters.
+Answer 1
+(define (make-bank-account amount)
+  (lambda (n)
+    (let ((m (+ amount n)))
+      (if (negative? m)
+	  ‘error
+	  (begin
+	    (set! amount m)
+	    amount)))))</p>
+  	</div>
+</div>
+
+		
+			
+			<div class="navigation">
+				
+					<a class="prev_page" href="/yast-cn/chapter9.html">« 第 9 章输入输出</a>
+				
+				
+			</div>
+			
+		
+	</div></div></body>
+</html>

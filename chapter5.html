@@ -2,18 +2,18 @@
 <html lang="zh_CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<title>第 5 章 分支</title>
-<meta name="author" content="DeathKing">
-<link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+	<title>第 5 章 分支</title>
+    <meta name="author" content="DeathKing">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body><div class="entry"><div class="container">
 		
 <div class="item chapter">
 	<h1 id="chapter-5">
 <span>第 5 章</span> 分支</h1>
-	<ol class="toc">
-<li class="level-2">
+	<ol class="toc">          <li class="level-2">
             <a href="#section-5-1">5.1 简介</a>
           </li>
           <li class="level-2">
@@ -65,7 +65,7 @@
             <a href="#section-5-7-3">5.7.3 答案3</a>
           </li>
 </ol>
-<div class="main">
+  	<div class="main">
   		<h2 id="section-5-1">
 <span>5.1</span> 简介</h2>
 
@@ -79,7 +79,7 @@
 <p><code>if</code>表达式将过程分为两个部分。<code>if</code>的格式如下：</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">if </span><span class="nv">predicate</span> <span class="nv">then_value</span> <span class="nv">else_value</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">if</span> <span class="nv">predicate</span> <span class="nv">then_value</span> <span class="nv">else_value</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>如果<code>predicate</code>部分为真，那么<code>then_value</code>部分被求值，否则<code>else_value</code>部分被求值，并且求得的值会返回给<code>if</code>语句的括号外。<code>true</code>是除<code>false</code>以外的任意值，<code>true</code>使用<code>#t</code>表示，<code>false</code>用<code>#f</code>表示。</p>
@@ -89,10 +89,10 @@
 <p>因此，从兼容性角度考虑，你不应该使用表目录【待议】作为谓词。使用函数<code>null?</code>来判断表是否为空。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">null? </span><span class="o">'</span><span class="p">())</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">null?</span> <span class="o">'</span><span class="p">())</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">null? </span><span class="o">'</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">null?</span> <span class="o">'</span><span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
 <span class="c1">;Value: ()   ;#f</span>
 </pre></div>
 </div>
@@ -101,11 +101,11 @@
 <p>例：首项为<code>a0</code>，增长率<code>r</code>，项数为<code>n</code>的几何增长（geometric progression）数列之和</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">sum-gp</span> <span class="nv">a0</span> <span class="nv">r</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">* </span><span class="nv">a0</span>
-     <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">r</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">sum-gp</span> <span class="nv">a0</span> <span class="nv">r</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">*</span> <span class="nv">a0</span>
+     <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">r</span> <span class="mi">1</span><span class="p">)</span>
 	 <span class="nv">n</span>
-	 <span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nb">- </span><span class="mi">1</span> <span class="p">(</span><span class="nb">expt </span><span class="nv">r</span> <span class="nv">n</span><span class="p">))</span> <span class="p">(</span><span class="nb">- </span><span class="mi">1</span> <span class="nv">r</span><span class="p">)))))</span>   <span class="c1">; !!</span>
+	 <span class="p">(</span><span class="nb">/</span> <span class="p">(</span><span class="nb">-</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">expt</span> <span class="nv">r</span> <span class="nv">n</span><span class="p">))</span> <span class="p">(</span><span class="nb">-</span> <span class="mi">1</span> <span class="nv">r</span><span class="p">)))))</span>   <span class="c1">; !!</span>
 </pre></div>
 </div>
 <p>通常来说，几何增长的求和公式如下：</p>
@@ -127,7 +127,7 @@ a0 * n                    (r = 1)</p>
   <p>编写下面的函数。阅读第五节了解如何编写谓词。</p>
 
   <ul>
-<li>返回一个实数绝对值的函数。</li>
+    <li>返回一个实数绝对值的函数。</li>
     <li>返回一个实数的倒数的函数。如果参数为<code>0</code>，则返回<code>#f</code>。</li>
     <li>将一个整数转化为ASCII码字符的函数。整数可以被转化为33-126号之间的ASCII码。使用<code>integer-&gt;char</code>可以将整数转化为字符。如果给定的整数不能够转化为字符，那么就返回<code>#f</code>。</li>
   </ul>
@@ -146,13 +146,13 @@ a0 * n                    (r = 1)</p>
 <p><code>and</code>具有任意个数的参数，并从左到右对它们求值。如果某一参数为<code>#f</code>，那么它就返回<code>#f</code>，而不对剩余参数求值。反过来说，如果所有的参数都不是<code>#f</code>，那么就返回最后一个参数的值。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">and </span><span class="no">#f</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">and</span> <span class="no">#f</span> <span class="mi">0</span><span class="p">)</span>
 <span class="c1">;Value: ()</span>
 
-<span class="p">(</span><span class="k">and </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="k">and</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
 <span class="c1">;Value: 3</span>
 
-<span class="p">(</span><span class="k">and </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="no">#f</span><span class="p">)</span>
+<span class="p">(</span><span class="k">and</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="no">#f</span><span class="p">)</span>
 <span class="c1">;Value: ()</span>
 </pre></div>
 </div>
@@ -163,16 +163,16 @@ a0 * n                    (r = 1)</p>
 <p><code>or</code>具有可变个数的参数，并从左到右对它们求值。它返回第一个不是值<code>#f</code>的参数，而余下的参数不会被求值。如果所有的参数的值都是<code>#f</code>的话，则返回最后一个参数的值。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">or </span><span class="no">#f</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">or</span> <span class="no">#f</span> <span class="mi">0</span><span class="p">)</span>
 <span class="c1">;Value: 0</span>
 
-<span class="p">(</span><span class="k">or </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="k">or</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
 <span class="c1">;Value: 1</span>
 
-<span class="p">(</span><span class="k">or </span><span class="no">#f</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="k">or</span> <span class="no">#f</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
 <span class="c1">;Value: 1</span>
 
-<span class="p">(</span><span class="k">or </span><span class="no">#f</span> <span class="no">#f</span> <span class="no">#f</span><span class="p">)</span>
+<span class="p">(</span><span class="k">or</span> <span class="no">#f</span> <span class="no">#f</span> <span class="no">#f</span><span class="p">)</span>
 <span class="c1">;Value: ()</span>
 </pre></div>
 </div>
@@ -182,7 +182,7 @@ a0 * n                    (r = 1)</p>
   <p>编写下面的函数。</p>
 
   <ul>
-<li>一个接受三个实数作为参数的函数，若参数皆为正数则返回它们的乘积。</li>
+    <li>一个接受三个实数作为参数的函数，若参数皆为正数则返回它们的乘积。</li>
     <li>一个接受三个实数作为参数的函数，若参数至少一个为负数则返回它们的乘积。</li>
   </ul>
 </blockquote>
@@ -194,12 +194,12 @@ a0 * n                    (r = 1)</p>
 <p>尽管所有的分支都可以用<code>if</code>表达式表达，但当条件有更多的可能性时，你就需要使用嵌套的<code>if</code>表达式了，这将使代码变得复杂。处理这种情况可以使用<code>cond</code>表达式。<code>cond</code>表达式的格式如下：</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">cond</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">cond</span>
   <span class="p">(</span><span class="nf">predicate_1</span> <span class="nv">clauses_1</span><span class="p">)</span>
   <span class="p">(</span><span class="nf">predicate_2</span> <span class="nv">clauses_2</span><span class="p">)</span>
     <span class="o">......</span>
   <span class="p">(</span><span class="nf">predicate_n</span> <span class="nv">clauses_n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">else </span>       <span class="nv">clauses_else</span><span class="p">))</span>
+  <span class="p">(</span><span class="k">else</span>        <span class="nv">clauses_else</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>在<code>cond</code>表达式中，<code>predicates_i</code>是按照从上到下的顺序求值，而当<code>predicates_i</code>为真时，<code>clause_i</code>会被求值并返回。<code>i</code>之后的<code>predicates</code>和<code>clauses</code>不会被求值。如果所有的<code>predicates_i</code>都是假的话，则返回<code>cluase_else</code>。在一个子句中，你可以写数条S-表达式，而<code>clause</code>的值是最后一条S-表达式。</p>
@@ -220,14 +220,14 @@ a0 * n                    (r = 1)</p>
 </blockquote>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fee</span> <span class="nv">age</span><span class="p">)</span>
-  <span class="p">(</span><span class="nf">cond</span>
-   <span class="p">((</span><span class="k">or </span><span class="p">(</span><span class="nb">&lt;= </span><span class="nv">age</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nb">&gt;= </span><span class="nv">age</span> <span class="mi">65</span><span class="p">))</span> <span class="mi">0</span><span class="p">)</span>
-   <span class="p">((</span><span class="nb">&lt;= </span><span class="mi">4</span> <span class="nv">age</span> <span class="mi">6</span><span class="p">)</span> <span class="mf">0.5</span><span class="p">)</span>
-   <span class="p">((</span><span class="nb">&lt;= </span><span class="mi">7</span> <span class="nv">age</span> <span class="mi">12</span><span class="p">)</span> <span class="mf">1.0</span><span class="p">)</span>
-   <span class="p">((</span><span class="nb">&lt;= </span><span class="mi">13</span> <span class="nv">age</span> <span class="mi">15</span><span class="p">)</span> <span class="mf">1.5</span><span class="p">)</span>
-   <span class="p">((</span><span class="nb">&lt;= </span><span class="mi">16</span> <span class="nv">age</span> <span class="mi">18</span><span class="p">)</span> <span class="mf">1.8</span><span class="p">)</span>
-   <span class="p">(</span><span class="k">else </span><span class="mf">2.0</span><span class="p">)))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">fee</span> <span class="nv">age</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">cond</span>
+   <span class="p">((</span><span class="k">or</span> <span class="p">(</span><span class="nb">&lt;=</span> <span class="nv">age</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nb">&gt;=</span> <span class="nv">age</span> <span class="mi">65</span><span class="p">))</span> <span class="mi">0</span><span class="p">)</span>
+   <span class="p">((</span><span class="nb">&lt;=</span> <span class="mi">4</span> <span class="nv">age</span> <span class="mi">6</span><span class="p">)</span> <span class="mf">0.5</span><span class="p">)</span>
+   <span class="p">((</span><span class="nb">&lt;=</span> <span class="mi">7</span> <span class="nv">age</span> <span class="mi">12</span><span class="p">)</span> <span class="mf">1.0</span><span class="p">)</span>
+   <span class="p">((</span><span class="nb">&lt;=</span> <span class="mi">13</span> <span class="nv">age</span> <span class="mi">15</span><span class="p">)</span> <span class="mf">1.5</span><span class="p">)</span>
+   <span class="p">((</span><span class="nb">&lt;=</span> <span class="mi">16</span> <span class="nv">age</span> <span class="mi">18</span><span class="p">)</span> <span class="mf">1.8</span><span class="p">)</span>
+   <span class="p">(</span><span class="k">else</span> <span class="mf">2.0</span><span class="p">)))</span>
 </pre></div>
 </div>
 <blockquote>
@@ -258,20 +258,20 @@ a0 * n                    (r = 1)</p>
 </blockquote>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="nv">str</span> <span class="s">"hello"</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="nv">str</span> <span class="s">"hello"</span><span class="p">)</span>
 <span class="c1">;Value: str</span>
 
-<span class="p">(</span><span class="nb">eq? </span><span class="nv">str</span> <span class="nv">str</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">eq?</span> <span class="nv">str</span> <span class="nv">str</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">eq? </span><span class="s">"hello"</span> <span class="s">"hello"</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">eq?</span> <span class="s">"hello"</span> <span class="s">"hello"</span><span class="p">)</span>
 <span class="c1">;Value: ()             ← It should be #f in R5RS </span>
 
 <span class="c1">;;; comparing numbers depends on implementations</span>
-<span class="p">(</span><span class="nb">eq? </span><span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">eq?</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">eq? </span><span class="mf">1.0</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">eq?</span> <span class="mf">1.0</span> <span class="mf">1.0</span><span class="p">)</span>
 <span class="c1">;Value: ()</span>
 </pre></div>
 </div>
@@ -281,21 +281,21 @@ a0 * n                    (r = 1)</p>
 </blockquote>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">eqv? </span><span class="mf">1.0</span> <span class="mf">1.0</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">eqv?</span> <span class="mf">1.0</span> <span class="mf">1.0</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">eqv? </span><span class="mi">1</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">eqv?</span> <span class="mi">1</span> <span class="mf">1.0</span><span class="p">)</span>
 <span class="c1">;Value: ()</span>
 
 <span class="c1">;;; don't use it to compare sequences</span>
-<span class="p">(</span><span class="nb">eqv? </span><span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">eqv?</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
 <span class="c1">;Value: ()</span>
 
-<span class="p">(</span><span class="nb">eqv? </span><span class="s">"hello"</span> <span class="s">"hello"</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">eqv?</span> <span class="s">"hello"</span> <span class="s">"hello"</span><span class="p">)</span>
 <span class="c1">;Value: ()</span>
 
 <span class="c1">;;; the following depends on implementations</span>
-<span class="p">(</span><span class="nb">eqv? </span><span class="p">(</span><span class="nf">lambda</span><span class="p">(</span><span class="nf">x</span><span class="p">)</span> <span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span> <span class="nv">x</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">eqv?</span> <span class="p">(</span><span class="k">lambda</span><span class="p">(</span><span class="nf">x</span><span class="p">)</span> <span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">x</span><span class="p">)</span> <span class="nv">x</span><span class="p">))</span>
 <span class="c1">;Value: ()</span>
 </pre></div>
 </div>
@@ -305,10 +305,10 @@ a0 * n                    (r = 1)</p>
 </blockquote>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">equal? </span><span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">equal?</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">equal? </span><span class="s">"hello"</span> <span class="s">"hello"</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">equal?</span> <span class="s">"hello"</span> <span class="s">"hello"</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
 </pre></div>
 </div>
@@ -319,7 +319,7 @@ a0 * n                    (r = 1)</p>
 <p>下面列举了几个用于检查类型的函数。这些函数都只有一个参数。</p>
 
 <ul>
-<li>
+  <li>
 <code>pair?</code> 如果对象为序对则返回<code>#t</code>；</li>
   <li>
 <code>list?</code> 如果对象是一个表则返回<code>#t</code>。要小心的是空表<code>’()</code>是一个表但是不是一个序对。</li>
@@ -346,6 +346,7 @@ a0 * n                    (r = 1)</p>
   <li>
 <code>inexact?</code> 如果对象是一个浮点数的话则返回#t。</li>
 </ul>
+
 <h3 id="section-5-5-3">
 <span>5.5.3</span> 用于比较数的函数</h3>
 
@@ -356,32 +357,32 @@ a0 * n                    (r = 1)</p>
 </blockquote>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">= </span><span class="mi">1</span> <span class="mi">1</span> <span class="mf">1.0</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">=</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mf">1.0</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">&lt; </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">&lt;</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
-<span class="p">(</span><span class="nb">&lt; </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">&lt;</span> <span class="mi">1</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
-<span class="p">(</span><span class="nf">&lt;</span><span class="p">)</span>
-<span class="c1">;Value: #t</span>
-
-<span class="p">(</span><span class="nb">= </span><span class="mi">2</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">&lt;</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">&lt; </span><span class="mi">2</span> <span class="mi">3</span> <span class="mf">3.1</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">=</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">&gt; </span><span class="mi">4</span> <span class="mi">1</span> <span class="mf">-0.2</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">&lt;</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mf">3.1</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">&lt;= </span><span class="mi">1</span> <span class="mi">1</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">&gt;</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mf">-0.2</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">&gt;= </span><span class="mi">2</span> <span class="mi">1</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">&lt;=</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mf">1.1</span><span class="p">)</span>
 <span class="c1">;Value: #t</span>
 
-<span class="p">(</span><span class="nb">&lt; </span><span class="mi">3</span> <span class="mi">4</span> <span class="mf">3.9</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">&gt;=</span> <span class="mi">2</span> <span class="mi">1</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="c1">;Value: #t</span>
+
+<span class="p">(</span><span class="nb">&lt;</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mf">3.9</span><span class="p">)</span>
 <span class="c1">;Value: ()</span>
 </pre></div>
 </div>
@@ -420,19 +421,19 @@ a0 * n                    (r = 1)</p>
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; 1</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-abs</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">* </span><span class="nv">n</span>
-     <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">positive? </span><span class="nv">n</span><span class="p">)</span> <span class="mi">1</span> <span class="mi">-1</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-abs</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">*</span> <span class="nv">n</span>
+     <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">positive?</span> <span class="nv">n</span><span class="p">)</span> <span class="mi">1</span> <span class="mi">-1</span><span class="p">)))</span>
      
 <span class="c1">; 2     </span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">inv</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">not </span><span class="p">(</span><span class="nb">zero? </span><span class="nv">n</span><span class="p">))</span>
-      <span class="p">(</span><span class="nb">/ </span><span class="nv">n</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">inv</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">not</span> <span class="p">(</span><span class="nb">zero?</span> <span class="nv">n</span><span class="p">))</span>
+      <span class="p">(</span><span class="nb">/</span> <span class="nv">n</span><span class="p">)))</span>
 
 <span class="c1">; 3</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">i2a</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt;= </span><span class="mi">33</span> <span class="nv">n</span> <span class="mi">126</span><span class="p">)</span>
-      <span class="p">(</span><span class="nb">integer-&gt;char </span><span class="nv">n</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">i2a</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">&lt;=</span> <span class="mi">33</span> <span class="nv">n</span> <span class="mi">126</span><span class="p">)</span>
+      <span class="p">(</span><span class="nb">integer-&gt;char</span> <span class="nv">n</span><span class="p">)))</span>
 </pre></div>
 </div>
 <h3 id="section-5-7-2">
@@ -441,18 +442,18 @@ a0 * n                    (r = 1)</p>
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; 1</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">pro3and</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">and </span><span class="p">(</span><span class="nb">positive? </span><span class="nv">a</span><span class="p">)</span>
-       <span class="p">(</span><span class="nb">positive? </span><span class="nv">b</span><span class="p">)</span>
-       <span class="p">(</span><span class="nb">positive? </span><span class="nv">c</span><span class="p">)</span>
-       <span class="p">(</span><span class="nb">* </span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">pro3and</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">and</span> <span class="p">(</span><span class="nb">positive?</span> <span class="nv">a</span><span class="p">)</span>
+       <span class="p">(</span><span class="nb">positive?</span> <span class="nv">b</span><span class="p">)</span>
+       <span class="p">(</span><span class="nb">positive?</span> <span class="nv">c</span><span class="p">)</span>
+       <span class="p">(</span><span class="nb">*</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
 
 <span class="c1">; 2</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">pro3or</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="k">or </span><span class="p">(</span><span class="nb">negative? </span><span class="nv">a</span><span class="p">)</span>
-	  <span class="p">(</span><span class="nb">negative? </span><span class="nv">b</span><span class="p">)</span>
-	  <span class="p">(</span><span class="nb">negative? </span><span class="nv">c</span><span class="p">))</span>
-      <span class="p">(</span><span class="nb">* </span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">pro3or</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="k">or</span> <span class="p">(</span><span class="nb">negative?</span> <span class="nv">a</span><span class="p">)</span>
+	  <span class="p">(</span><span class="nb">negative?</span> <span class="nv">b</span><span class="p">)</span>
+	  <span class="p">(</span><span class="nb">negative?</span> <span class="nv">c</span><span class="p">))</span>
+      <span class="p">(</span><span class="nb">*</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
 </pre></div>
 </div>
 <h3 id="section-5-7-3">
@@ -460,12 +461,12 @@ a0 * n                    (r = 1)</p>
 
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">score</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="nf">cond</span>
-   <span class="p">((</span><span class="nb">&gt;= </span><span class="nv">n</span> <span class="mi">80</span><span class="p">)</span> <span class="ss">'A</span><span class="p">)</span>
-   <span class="p">((</span><span class="nb">&lt;= </span><span class="mi">60</span> <span class="nv">n</span> <span class="mi">79</span><span class="p">)</span> <span class="ss">'B</span><span class="p">)</span>
-   <span class="p">((</span><span class="nb">&lt;= </span><span class="mi">40</span> <span class="nv">n</span> <span class="mi">59</span><span class="p">)</span> <span class="ss">'C</span><span class="p">)</span>
-   <span class="p">(</span><span class="k">else </span><span class="ss">'D</span><span class="p">)))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">score</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">cond</span>
+   <span class="p">((</span><span class="nb">&gt;=</span> <span class="nv">n</span> <span class="mi">80</span><span class="p">)</span> <span class="ss">'A</span><span class="p">)</span>
+   <span class="p">((</span><span class="nb">&lt;=</span> <span class="mi">60</span> <span class="nv">n</span> <span class="mi">79</span><span class="p">)</span> <span class="ss">'B</span><span class="p">)</span>
+   <span class="p">((</span><span class="nb">&lt;=</span> <span class="mi">40</span> <span class="nv">n</span> <span class="mi">59</span><span class="p">)</span> <span class="ss">'C</span><span class="p">)</span>
+   <span class="p">(</span><span class="k">else</span> <span class="ss">'D</span><span class="p">)))</span>
 </pre></div>
 </div>
   	</div>
@@ -475,10 +476,10 @@ a0 * n                    (r = 1)</p>
 			
 			<div class="navigation">
 				
-					<a class="prev_page" href="/yast-cn/yast-cn/chapter4.html">« 第 4 章定义函数</a>
+					<a class="prev_page" href="/yast-cn/chapter4.html">« 第 4 章定义函数</a>
 				
 				
-					<a class="next_page" href="/yast-cn/yast-cn/chapter6.html">第 6 章局部变量 »</a>
+					<a class="next_page" href="/yast-cn/chapter6.html">第 6 章局部变量 »</a>
 				
 			</div>
 			

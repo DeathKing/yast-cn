@@ -2,18 +2,18 @@
 <html lang="zh_CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<title>第 7 章 重复</title>
-<meta name="author" content="DeathKing">
-<link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+	<title>第 7 章 重复</title>
+    <meta name="author" content="DeathKing">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body><div class="entry"><div class="container">
 		
 <div class="item chapter">
 	<h1 id="chapter-7">
 <span>第 7 章</span> 重复</h1>
-	<ol class="toc">
-<li class="level-2">
+	<ol class="toc">          <li class="level-2">
             <a href="#section-7-1">7.1 简介</a>
           </li>
           <li class="level-2">
@@ -53,7 +53,7 @@
             <a href="#section-7-8-5">7.8.5 练习5</a>
           </li>
 </ol>
-<div class="main">
+  	<div class="main">
   		<h2 id="section-7-1">
 <span>7.1</span> 简介</h2>
 
@@ -70,16 +70,16 @@
 
 <div class="codeblock has-caption">
 <p class="caption">[代码片段1] 用于计算阶乘的fact函数</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">n</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">fact</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">n</span> <span class="mi">1</span><span class="p">)</span>
       <span class="mi">1</span>
-      <span class="p">(</span><span class="nb">* </span><span class="nv">n</span> <span class="p">(</span><span class="nf">fact</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n</span> <span class="mi">1</span><span class="p">)))))</span>
+      <span class="p">(</span><span class="nb">*</span> <span class="nv">n</span> <span class="p">(</span><span class="nf">fact</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">n</span> <span class="mi">1</span><span class="p">)))))</span>
 </pre></div>
 </div>
 <p><code>(fact 5)</code>的计算过程如下：</p>
 
 <div class="codeblock">
-<div class="highlight type-text"><pre>(fact 5)
+<div class="highlight type-plaintext"><pre>(fact 5)
 ⇒ 5 * (fact 4)
 ⇒ 5 * 4 * (fact 3)
 ⇒ 5 * 4 * 3 * (fact 2)
@@ -96,11 +96,11 @@
 <p>然而，递归函数可以以一种简单的方式表达重复。表是被递归定义的，进而表和递归函数可以很好地配合。例如，一个让表中所有元素翻倍的函数可以像下面这样写。如果参数是空表，那么函数应该停止计算并返回一个空表。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">list*2</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">list*2</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls</span><span class="p">)</span>
       <span class="o">'</span><span class="p">()</span>
-      <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">* </span><span class="mi">2</span> <span class="p">(</span><span class="nb">car </span><span class="nv">ls</span><span class="p">))</span>
-	         <span class="p">(</span><span class="nf">list*2</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls</span><span class="p">)))))</span>
+      <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">*</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls</span><span class="p">))</span>
+	         <span class="p">(</span><span class="nf">list*2</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls</span><span class="p">)))))</span>
 </pre></div>
 </div>
 <blockquote>
@@ -109,7 +109,7 @@
   <p>用递归编写下面的函数。</p>
 
   <ol>
-<li>用于统计表中元素个数的<code>my-length</code>函数。（<code>length</code>是一个预定义函数）。</li>
+    <li>用于统计表中元素个数的<code>my-length</code>函数。（<code>length</code>是一个预定义函数）。</li>
     <li>一个求和表中元素的函数。</li>
     <li>一个分别接受一个表<code>ls</code>和一个对象<code>x</code>的函数，该函数返回从<code>ls</code>中删除<code>x</code>后得到的表。</li>
     <li>一个分别接受一个表<code>ls</code>和一个对象<code>x</code>的函数，该函数返回<code>x</code>在<code>ls</code>中首次出现的位置。索引从<code>0</code>开始。如果<code>x</code>不在<code>ls</code>中，函数返回<code>#f</code>。</li>
@@ -126,20 +126,20 @@
 
 <div class="codeblock has-caption">
 <p class="caption">[代码片段2] fact函数的尾递归版本fact-tail</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-tail</span> <span class="nv">n</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">fact-tail</span> <span class="nv">n</span><span class="p">)</span>
   <span class="p">(</span><span class="nf">fact-rec</span> <span class="nv">n</span> <span class="nv">n</span><span class="p">))</span>
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-rec</span> <span class="nv">n</span> <span class="nv">p</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">n</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">fact-rec</span> <span class="nv">n</span> <span class="nv">p</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">n</span> <span class="mi">1</span><span class="p">)</span>
       <span class="nv">p</span>
-      <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">m</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n</span> <span class="mi">1</span><span class="p">)))</span>
-	<span class="p">(</span><span class="nf">fact-rec</span> <span class="nv">m</span> <span class="p">(</span><span class="nb">* </span><span class="nv">p</span> <span class="nv">m</span><span class="p">)))))</span>
+      <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">m</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">n</span> <span class="mi">1</span><span class="p">)))</span>
+	<span class="p">(</span><span class="nf">fact-rec</span> <span class="nv">m</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">p</span> <span class="nv">m</span><span class="p">)))))</span>
 </pre></div>
 </div>
 <p><code>fact-tail</code>计算阶乘的过程像这样：</p>
 
 <div class="codeblock">
-<div class="highlight type-text"><pre>(fact-tail 5)
+<div class="highlight type-plaintext"><pre>(fact-tail 5)
 ⇒ (fact-rec 5 5)
 ⇒ (fact-rec 4 20)
 ⇒ (fact-rec 3 60)
@@ -156,7 +156,7 @@
   <p>用尾递归编写下面的函数</p>
 
   <ol>
-<li>用于翻转表元素顺序的<code>my-reverse</code>函数。（<code>reverse</code>函数是预定义函数）</li>
+    <li>用于翻转表元素顺序的<code>my-reverse</code>函数。（<code>reverse</code>函数是预定义函数）</li>
     <li>求和由数构成的表。</li>
     <li>将一个代表正整数的字符串转化为对应整数。例如，”1232”会被转化为1232。不需要检查不合法的输入。提示，字符到整数的转化是通过将字符#\0……#\9的ASCII减去48，可以使用函数<code>char-&gt;integer</code>来获得字符的ASCII码。函数<code>string-&gt;list</code>可以将字符串转化为由字符构成的表。</li>
   </ol>
@@ -172,12 +172,12 @@
 
 <div class="codeblock has-caption">
 <p class="caption">[代码片段3] fact-let的实现</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-let</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">n1</span> <span class="nv">n</span><span class="p">)</span> <span class="p">(</span><span class="nf">p</span> <span class="nv">n</span><span class="p">))</span>           <span class="c1">; 1</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span>                    
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">fact-let</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">n1</span> <span class="nv">n</span><span class="p">)</span> <span class="p">(</span><span class="nf">p</span> <span class="nv">n</span><span class="p">))</span>           <span class="c1">; 1</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span>                    
 	<span class="nv">p</span>
-	<span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">m</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">)))</span>
-	  <span class="p">(</span><span class="nf">loop</span> <span class="nv">m</span> <span class="p">(</span><span class="nb">* </span><span class="nv">p</span> <span class="nv">m</span><span class="p">))))))</span>      <span class="c1">; 2</span>
+	<span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">m</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">n1</span> <span class="mi">1</span><span class="p">)))</span>
+	  <span class="p">(</span><span class="nf">loop</span> <span class="nv">m</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">p</span> <span class="nv">m</span><span class="p">))))))</span>      <span class="c1">; 2</span>
 </pre></div>
 </div>
 <blockquote>
@@ -186,7 +186,7 @@
   <p>用命名<code>let</code>编写下面的函数。</p>
 
   <ol>
-<li>练习1的问题3和问题4；</li>
+    <li>练习1的问题3和问题4；</li>
     <li>练习2中的函数；</li>
     <li>
 <code>range</code>函数：返回一个从<code>0</code>到<code>n</code>的表（但不包含<code>n</code>）。</li>
@@ -201,12 +201,12 @@
 
 <div class="codeblock has-caption">
 <p class="caption">[代码片段4] fact函数的letrec版本</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-letrec</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">letrec </span><span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n1</span> <span class="nv">p</span><span class="p">)</span>
-		   <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">fact-letrec</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">letrec</span> <span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">n1</span> <span class="nv">p</span><span class="p">)</span>
+		   <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span>
 		       <span class="nv">p</span>
-		       <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">m</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">)))</span>
-			 <span class="p">(</span><span class="nf">iter</span> <span class="nv">m</span> <span class="p">(</span><span class="nb">* </span><span class="nv">p</span> <span class="nv">m</span><span class="p">)))))))</span>     <span class="c1">; *</span>
+		       <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">m</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">n1</span> <span class="mi">1</span><span class="p">)))</span>
+			 <span class="p">(</span><span class="nf">iter</span> <span class="nv">m</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">p</span> <span class="nv">m</span><span class="p">)))))))</span>     <span class="c1">; *</span>
     <span class="p">(</span><span class="nf">iter</span> <span class="nv">n</span> <span class="nv">n</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -225,7 +225,7 @@
 <p>虽然并不常见，但语法<code>do</code>也可用于表达重复。它的格式如下：</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">do </span><span class="nv">binds</span> <span class="p">(</span><span class="nf">predicate</span> <span class="nv">value</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">do</span> <span class="nv">binds</span> <span class="p">(</span><span class="nf">predicate</span> <span class="nv">value</span><span class="p">)</span>
     <span class="nv">body</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -234,7 +234,7 @@
 <p><code>binds</code>部分的格式如下所示：</p>
 
 <div class="codeblock">
-<div class="highlight type-text"><pre>[binds] → ((p1 i1 u1) (p2 i2 u2) ... )
+<div class="highlight type-plaintext"><pre>[binds] → ((p1 i1 u1) (p2 i2 u2) ... )
 </pre></div>
 </div>
 <p>变量<code>p1</code>，<code>p2</code>，…被分别初始化为<code>i1</code>，<code>i2</code>，…并在循环后分别被更新为<code>u1</code>，<code>u2</code>，…。</p>
@@ -243,8 +243,8 @@
 
 <div class="codeblock has-caption">
 <p class="caption">[代码片段5] fact函数的do表达式版本</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">fact-do</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">do </span><span class="p">((</span><span class="nf">n1</span> <span class="nv">n</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">))</span> <span class="p">(</span><span class="nf">p</span> <span class="nv">n</span> <span class="p">(</span><span class="nb">* </span><span class="nv">p</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">))))</span> <span class="p">((</span><span class="nb">= </span><span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span> <span class="nv">p</span><span class="p">)))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">fact-do</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">do</span> <span class="p">((</span><span class="nf">n1</span> <span class="nv">n</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">n1</span> <span class="mi">1</span><span class="p">))</span> <span class="p">(</span><span class="nf">p</span> <span class="nv">n</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">p</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">n1</span> <span class="mi">1</span><span class="p">))))</span> <span class="p">((</span><span class="nb">=</span> <span class="nv">n1</span> <span class="mi">1</span><span class="p">)</span> <span class="nv">p</span><span class="p">)))</span>
 </pre></div>
 </div>
 <p>变量<code>n1</code>和<code>p</code>分别被初始化为<code>n</code>和<code>n</code>，在每次循环后分别被减去1和乘以<code>(n1 - 1)</code>。当<code>n1</code>变为<code>1</code>时，函数返回<code>p</code>。</p>
@@ -275,36 +275,36 @@
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; 1</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-length</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-length</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls</span><span class="p">)</span>
       <span class="mi">0</span>
-      <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="p">(</span><span class="nf">my-length</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls</span><span class="p">)))))</span>
+      <span class="p">(</span><span class="nb">+</span> <span class="mi">1</span> <span class="p">(</span><span class="nf">my-length</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls</span><span class="p">)))))</span>
 
 <span class="c1">; 2</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-sum</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-sum</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls</span><span class="p">)</span>
       <span class="mi">0</span>
-      <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">my-sum</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls</span><span class="p">)))))</span>
+      <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">my-sum</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls</span><span class="p">)))))</span>
 
 <span class="c1">; 3</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">remove</span> <span class="nv">x</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">remove</span> <span class="nv">x</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls</span><span class="p">)</span>
       <span class="o">'</span><span class="p">()</span>
-      <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">h</span> <span class="p">(</span><span class="nb">car </span><span class="nv">ls</span><span class="p">)))</span>
-        <span class="p">((</span><span class="k">if </span><span class="p">(</span><span class="nb">eqv? </span><span class="nv">x</span> <span class="nv">h</span><span class="p">)</span>
-            <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">y</span><span class="p">)</span> <span class="nv">y</span><span class="p">)</span>
-            <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">y</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">h</span> <span class="nv">y</span><span class="p">)))</span>
-         <span class="p">(</span><span class="nf">remove</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls</span><span class="p">))))))</span>
+      <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">h</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls</span><span class="p">)))</span>
+        <span class="p">((</span><span class="k">if</span> <span class="p">(</span><span class="nb">eqv?</span> <span class="nv">x</span> <span class="nv">h</span><span class="p">)</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">y</span><span class="p">)</span> <span class="nv">y</span><span class="p">)</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">y</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons</span> <span class="nv">h</span> <span class="nv">y</span><span class="p">)))</span>
+         <span class="p">(</span><span class="nf">remove</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls</span><span class="p">))))))</span>
         
 <span class="c1">; 4</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">position</span> <span class="nv">x</span> <span class="nv">ls</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">position</span> <span class="nv">x</span> <span class="nv">ls</span><span class="p">)</span>
   <span class="p">(</span><span class="nf">position-aux</span> <span class="nv">x</span> <span class="nv">ls</span> <span class="mi">0</span><span class="p">))</span>
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">position-aux</span> <span class="nv">x</span> <span class="nv">ls</span> <span class="nv">i</span><span class="p">)</span>
-  <span class="p">(</span><span class="nf">cond</span>
-   <span class="p">((</span><span class="nb">null? </span><span class="nv">ls</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
-   <span class="p">((</span><span class="nb">eqv? </span><span class="nv">x</span> <span class="p">(</span><span class="nb">car </span><span class="nv">ls</span><span class="p">))</span> <span class="nv">i</span><span class="p">)</span>
-   <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">position-aux</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span><span class="nv">+</span> <span class="nv">i</span><span class="p">)))))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">position-aux</span> <span class="nv">x</span> <span class="nv">ls</span> <span class="nv">i</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">cond</span>
+   <span class="p">((</span><span class="nb">null?</span> <span class="nv">ls</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
+   <span class="p">((</span><span class="nb">eqv?</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls</span><span class="p">))</span> <span class="nv">i</span><span class="p">)</span>
+   <span class="p">(</span><span class="k">else</span> <span class="p">(</span><span class="nf">position-aux</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">1+</span> <span class="nv">i</span><span class="p">)))))</span>
 </pre></div>
 </div>
 <h3 id="section-7-8-2">
@@ -313,35 +313,35 @@
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; 1</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-reverse</span> <span class="nv">ls</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-reverse</span> <span class="nv">ls</span><span class="p">)</span>
   <span class="p">(</span><span class="nf">my-reverse-rec</span> <span class="nv">ls</span> <span class="p">()))</span>
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-reverse-rec</span> <span class="nv">ls0</span> <span class="nv">ls1</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-reverse-rec</span> <span class="nv">ls0</span> <span class="nv">ls1</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span>
       <span class="nv">ls1</span>
-      <span class="p">(</span><span class="nf">my-reverse-rec</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">))))</span>
+      <span class="p">(</span><span class="nf">my-reverse-rec</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">))))</span>
 
 <span class="c1">;-------------------</span>
 <span class="c1">; 2</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-sum-tail</span> <span class="nv">ls</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-sum-tail</span> <span class="nv">ls</span><span class="p">)</span>
   <span class="p">(</span><span class="nf">my-sum-rec</span> <span class="nv">ls</span> <span class="mi">0</span><span class="p">))</span>
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-sum-rec</span> <span class="nv">ls</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-sum-rec</span> <span class="nv">ls</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls</span><span class="p">)</span>
       <span class="nv">n</span>
-      <span class="p">(</span><span class="nf">my-sum-rec</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">n</span> <span class="p">(</span><span class="nb">car </span><span class="nv">ls</span><span class="p">)))))</span>
+      <span class="p">(</span><span class="nf">my-sum-rec</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">n</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls</span><span class="p">)))))</span>
 
 <span class="c1">;--------------------</span>
 <span class="c1">; 3</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-string-&gt;integer</span> <span class="nv">str</span><span class="p">)</span>
-  <span class="p">(</span><span class="nf">char2int</span> <span class="p">(</span><span class="nb">string-&gt;list </span><span class="nv">str</span><span class="p">)</span> <span class="mi">0</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-string-&gt;integer</span> <span class="nv">str</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">char2int</span> <span class="p">(</span><span class="nb">string-&gt;list</span> <span class="nv">str</span><span class="p">)</span> <span class="mi">0</span><span class="p">))</span>
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">char2int</span> <span class="nv">ls</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">char2int</span> <span class="nv">ls</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls</span><span class="p">)</span>
       <span class="nv">n</span>
-      <span class="p">(</span><span class="nf">char2int</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls</span><span class="p">)</span> 
-		<span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">char-&gt;integer </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls</span><span class="p">))</span> <span class="mi">48</span><span class="p">)</span>
-		   <span class="p">(</span><span class="nb">* </span><span class="nv">n</span> <span class="mi">10</span><span class="p">))))</span>
+      <span class="p">(</span><span class="nf">char2int</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls</span><span class="p">)</span> 
+		<span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">-</span> <span class="p">(</span><span class="nb">char-&gt;integer</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls</span><span class="p">))</span> <span class="mi">48</span><span class="p">)</span>
+		   <span class="p">(</span><span class="nb">*</span> <span class="nv">n</span> <span class="mi">10</span><span class="p">))))</span>
 </pre></div>
 </div>
 <h3 id="section-7-8-3">
@@ -350,53 +350,53 @@
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; 1</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">remove</span> <span class="nv">x</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">ls1</span> <span class="p">()))</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span> 
-	<span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">remove</span> <span class="nv">x</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">ls1</span> <span class="p">()))</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span> 
+	<span class="p">(</span><span class="nb">reverse</span> <span class="nv">ls1</span><span class="p">)</span>
 	<span class="p">(</span><span class="nf">loop</span>
-	 <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span>
-          <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eqv? </span><span class="nv">x</span> <span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">))</span>
+	 <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span>
+          <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eqv?</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">))</span>
               <span class="nv">ls1</span>
-            <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">))))))</span>
+            <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">))))))</span>
 
 <span class="c1">; 2</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">position</span> <span class="nv">x</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">i</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="p">(</span><span class="nf">cond</span>
-     <span class="p">((</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
-     <span class="p">((</span><span class="nb">eqv? </span><span class="nv">x</span> <span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">))</span> <span class="nv">i</span><span class="p">)</span>
-     <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span><span class="nv">+</span> <span class="nv">i</span><span class="p">))))))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">position</span> <span class="nv">x</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">i</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="p">(</span><span class="k">cond</span>
+     <span class="p">((</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
+     <span class="p">((</span><span class="nb">eqv?</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">))</span> <span class="nv">i</span><span class="p">)</span>
+     <span class="p">(</span><span class="k">else</span> <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nf">1+</span> <span class="nv">i</span><span class="p">))))))</span>
 
 <span class="c1">; 3</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-reverse-let</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">ls1</span> <span class="p">()))</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-reverse-let</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">ls1</span> <span class="p">()))</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span>
 	<span class="nv">ls1</span>
-	<span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">)))))</span>
+	<span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">)))))</span>
 
 <span class="c1">; 4</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-sum-let</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">n</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-sum-let</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">n</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span>
 	<span class="nv">n</span>
-	<span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">n</span><span class="p">)))))</span>
+	<span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">n</span><span class="p">)))))</span>
 
 <span class="c1">; 5</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-string-&gt;integer-let</span> <span class="nv">str</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="p">(</span><span class="nb">string-&gt;list </span><span class="nv">str</span><span class="p">))</span> <span class="p">(</span><span class="nf">n</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-string-&gt;integer-let</span> <span class="nv">str</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="p">(</span><span class="nb">string-&gt;list</span> <span class="nv">str</span><span class="p">))</span> <span class="p">(</span><span class="nf">n</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span>
 	<span class="nv">n</span>
-	<span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span>
-	      <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">char-&gt;integer </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">))</span> <span class="mi">48</span><span class="p">)</span>
-		 <span class="p">(</span><span class="nb">* </span><span class="nv">n</span> <span class="mi">10</span><span class="p">))))))</span>
+	<span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span>
+	      <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">-</span> <span class="p">(</span><span class="nb">char-&gt;integer</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">))</span> <span class="mi">48</span><span class="p">)</span>
+		 <span class="p">(</span><span class="nb">*</span> <span class="nv">n</span> <span class="mi">10</span><span class="p">))))))</span>
 
 <span class="c1">; 6</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">range</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">i</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="nf">ls1</span> <span class="p">()))</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">i</span> <span class="nv">n</span><span class="p">)</span>
-        <span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">)</span>
-      <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="mi">1</span><span class="nv">+</span> <span class="nv">i</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">i</span> <span class="nv">ls1</span><span class="p">)))))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">range</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">i</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="nf">ls1</span> <span class="p">()))</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">i</span> <span class="nv">n</span><span class="p">)</span>
+        <span class="p">(</span><span class="nb">reverse</span> <span class="nv">ls1</span><span class="p">)</span>
+      <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nf">1+</span> <span class="nv">i</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons</span> <span class="nv">i</span> <span class="nv">ls1</span><span class="p">)))))</span>
 </pre></div>
 </div>
 <h3 id="section-7-8-4">
@@ -405,30 +405,30 @@
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; 1</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-reverse-letrec</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">letrec </span><span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">ls0</span> <span class="nv">ls1</span><span class="p">)</span>
-		   <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-reverse-letrec</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">letrec</span> <span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">ls0</span> <span class="nv">ls1</span><span class="p">)</span>
+		   <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span>
 		       <span class="nv">ls1</span>
-		       <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">))))))</span>
+		       <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">))))))</span>
     <span class="p">(</span><span class="nf">iter</span> <span class="nv">ls</span> <span class="p">())))</span>
 
 <span class="c1">; 2</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-sum-letrec</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">letrec </span><span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">ls0</span> <span class="nv">n</span><span class="p">)</span>
-		   <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-sum-letrec</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">letrec</span> <span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">ls0</span> <span class="nv">n</span><span class="p">)</span>
+		   <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span>
 		       <span class="nv">n</span>
-		       <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">n</span><span class="p">))))))</span>
+		       <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">n</span><span class="p">))))))</span>
     <span class="p">(</span><span class="nf">iter</span> <span class="nv">ls</span> <span class="mi">0</span><span class="p">)))</span>
 
 <span class="c1">; 3</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-string-&gt;integer-letrec</span> <span class="nv">str</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">letrec </span><span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">ls0</span> <span class="nv">n</span><span class="p">)</span>
-		   <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-string-&gt;integer-letrec</span> <span class="nv">str</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">letrec</span> <span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">ls0</span> <span class="nv">n</span><span class="p">)</span>
+		   <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span>
 		       <span class="nv">n</span>
-		       <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span>
-			     <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">char-&gt;integer </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">))</span> <span class="mi">48</span><span class="p">)</span>
-				<span class="p">(</span><span class="nb">* </span><span class="nv">n</span> <span class="mi">10</span><span class="p">)))))))</span>
-    <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">string-&gt;list </span><span class="nv">str</span><span class="p">)</span> <span class="mi">0</span><span class="p">)))</span>
+		       <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span>
+			     <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">-</span> <span class="p">(</span><span class="nb">char-&gt;integer</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">))</span> <span class="mi">48</span><span class="p">)</span>
+				<span class="p">(</span><span class="nb">*</span> <span class="nv">n</span> <span class="mi">10</span><span class="p">)))))))</span>
+    <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">string-&gt;list</span> <span class="nv">str</span><span class="p">)</span> <span class="mi">0</span><span class="p">)))</span>
 </pre></div>
 </div>
 <h3 id="section-7-8-5">
@@ -437,21 +437,21 @@
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; 1</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-reverse-do</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">do </span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">))</span> <span class="p">(</span><span class="nf">ls1</span> <span class="p">()</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">)))</span>
-      <span class="p">((</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-reverse-do</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">do</span> <span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">))</span> <span class="p">(</span><span class="nf">ls1</span> <span class="p">()</span> <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">)))</span>
+      <span class="p">((</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">)))</span>
 
 <span class="c1">; 2</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-sum-do</span> <span class="nv">ls</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">do </span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">))</span> <span class="p">(</span><span class="nf">n</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">n</span> <span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">))))</span>
-      <span class="p">((</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">n</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-sum-do</span> <span class="nv">ls</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">do</span> <span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">))</span> <span class="p">(</span><span class="nf">n</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">n</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">))))</span>
+      <span class="p">((</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">n</span><span class="p">)))</span>
 
 <span class="c1">; 3</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-string-&gt;integer-do</span> <span class="nv">str</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">do </span><span class="p">((</span><span class="nf">ls0</span> <span class="p">(</span><span class="nb">string-&gt;list </span><span class="nv">str</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">))</span>
-       <span class="p">(</span><span class="nf">n</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">char-&gt;integer </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">))</span> <span class="mi">48</span><span class="p">)</span> 
-	       <span class="p">(</span><span class="nb">* </span><span class="nv">n</span> <span class="mi">10</span><span class="p">))))</span>
-      <span class="p">((</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">n</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-string-&gt;integer-do</span> <span class="nv">str</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">do</span> <span class="p">((</span><span class="nf">ls0</span> <span class="p">(</span><span class="nb">string-&gt;list</span> <span class="nv">str</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">))</span>
+       <span class="p">(</span><span class="nf">n</span> <span class="mi">0</span> <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">-</span> <span class="p">(</span><span class="nb">char-&gt;integer</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">))</span> <span class="mi">48</span><span class="p">)</span> 
+	       <span class="p">(</span><span class="nb">*</span> <span class="nv">n</span> <span class="mi">10</span><span class="p">))))</span>
+      <span class="p">((</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">n</span><span class="p">)))</span>
 </pre></div>
 </div>
   	</div>
@@ -461,10 +461,10 @@
 			
 			<div class="navigation">
 				
-					<a class="prev_page" href="/yast-cn/yast-cn/chapter6.html">« 第 6 章局部变量</a>
+					<a class="prev_page" href="/yast-cn/chapter6.html">« 第 6 章局部变量</a>
 				
 				
-					<a class="next_page" href="/yast-cn/yast-cn/chapter8.html">第 8 章高阶函数 »</a>
+					<a class="next_page" href="/yast-cn/chapter8.html">第 8 章高阶函数 »</a>
 				
 			</div>
 			

@@ -2,18 +2,18 @@
 <html lang="zh_CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<title>第 9 章 输入输出</title>
-<meta name="author" content="DeathKing">
-<link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+	<title>第 9 章 输入输出</title>
+    <meta name="author" content="DeathKing">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body><div class="entry"><div class="container">
 		
 <div class="item chapter">
 	<h1 id="chapter-9">
 <span>第 9 章</span> 输入输出</h1>
-	<ol class="toc">
-<li class="level-2">
+	<ol class="toc">          <li class="level-2">
             <a href="#section-9-1">9.1 简介</a>
           </li>
           <li class="level-2">
@@ -53,7 +53,7 @@
             <a href="#section-9-5-3">9.5.3 练习3</a>
           </li>
 </ol>
-<div class="main">
+  	<div class="main">
   		<h2 id="section-9-1">
 <span>9.1</span> 简介</h2>
 
@@ -70,21 +70,21 @@
 
 <div class="codeblock has-caption">
 <p class="caption">[代码片段1] 以字符串的形式返回文件内容</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">read-file</span> <span class="nv">file-name</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">p</span> <span class="p">(</span><span class="nb">open-input-file </span><span class="nv">file-name</span><span class="p">)))</span>
-    <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">p</span><span class="p">)))</span>
-      <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eof-object? </span><span class="nv">c</span><span class="p">)</span>
-	  <span class="p">(</span><span class="nf">begin</span>
-	    <span class="p">(</span><span class="nb">close-input-port </span><span class="nv">p</span><span class="p">)</span>
-	    <span class="p">(</span><span class="nb">list-&gt;string </span><span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">)))</span>
-	  <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">p</span><span class="p">))))))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">read-file</span> <span class="nv">file-name</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">p</span> <span class="p">(</span><span class="nb">open-input-file</span> <span class="nv">file-name</span><span class="p">)))</span>
+    <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char</span> <span class="nv">p</span><span class="p">)))</span>
+      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eof-object?</span> <span class="nv">c</span><span class="p">)</span>
+	  <span class="p">(</span><span class="k">begin</span>
+	    <span class="p">(</span><span class="nb">close-input-port</span> <span class="nv">p</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nb">list-&gt;string</span> <span class="p">(</span><span class="nb">reverse</span> <span class="nv">ls1</span><span class="p">)))</span>
+	  <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons</span> <span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nb">read-char</span> <span class="nv">p</span><span class="p">))))))</span>
 </pre></div>
 </div>
 <p>比如，在[范例1]中展示的结果就是将[代码片段1]应用于文件hello.txt。由于换行符是由<code>'\n'</code>表示的，这就很容易阅读。然而，像格式化输出[范例2]，我们也可使用<code>display</code>函数。</p>
 
 <div class="codeblock has-caption">
 <p class="caption">[文件]hello.txt</p>
-<div class="highlight type-text"><pre>Hello world!
+<div class="highlight type-plaintext"><pre>Hello world!
 Scheme is an elegant programming language.
 </pre></div>
 </div>
@@ -97,7 +97,7 @@ Scheme is an elegant programming language.
 </div>
 <div class="codeblock has-caption">
 <p class="caption">[范例2]</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">display </span><span class="p">(</span><span class="nf">read-file</span> <span class="s">"hello.txt"</span><span class="p">))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">display</span> <span class="p">(</span><span class="nf">read-file</span> <span class="s">"hello.txt"</span><span class="p">))</span>
 <span class="nv">Hello</span> <span class="nv">world!</span>
 <span class="nv">Scheme</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">elegant</span> <span class="nv">programming</span> <span class="nv">language</span><span class="o">.</span>
 <span class="c1">;Unspecified return value</span>
@@ -117,15 +117,15 @@ Scheme is an elegant programming language.
 
 <div class="codeblock has-caption">
 <p class="caption">[代码片段2] call-with-input-file版本</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">read-file</span> <span class="nv">file-name</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">call-with-input-file </span><span class="nv">file-name</span>
-    <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">p</span><span class="p">)</span>
-      <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">p</span><span class="p">)))</span>
-	<span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eof-object? </span><span class="nv">c</span><span class="p">)</span>
-	    <span class="p">(</span><span class="nf">begin</span>
-	      <span class="p">(</span><span class="nb">close-input-port </span><span class="nv">p</span><span class="p">)</span>
-	      <span class="p">(</span><span class="nb">list-&gt;string </span><span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">)))</span>
-	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">p</span><span class="p">)))))))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">read-file</span> <span class="nv">file-name</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">call-with-input-file</span> <span class="nv">file-name</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">p</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char</span> <span class="nv">p</span><span class="p">)))</span>
+	<span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eof-object?</span> <span class="nv">c</span><span class="p">)</span>
+	    <span class="p">(</span><span class="k">begin</span>
+	      <span class="p">(</span><span class="nb">close-input-port</span> <span class="nv">p</span><span class="p">)</span>
+	      <span class="p">(</span><span class="nb">list-&gt;string</span> <span class="p">(</span><span class="nb">reverse</span> <span class="nv">ls1</span><span class="p">)))</span>
+	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons</span> <span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nb">read-char</span> <span class="nv">p</span><span class="p">)))))))</span>
 </pre></div>
 </div>
 <blockquote>
@@ -135,13 +135,13 @@ Scheme is an elegant programming language.
 
 <div class="codeblock has-caption">
 <p class="caption">[代码片段3] with-input-from-file版本</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">read-file</span> <span class="nv">file-name</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">with-input-from-file </span><span class="nv">file-name</span>
-    <span class="p">(</span><span class="k">lambda </span><span class="p">()</span>
-      <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nf">read-char</span><span class="p">)))</span>
-	<span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eof-object? </span><span class="nv">c</span><span class="p">)</span>
-	    <span class="p">(</span><span class="nb">list-&gt;string </span><span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">))</span>
-	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nf">read-char</span><span class="p">)))))))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">read-file</span> <span class="nv">file-name</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">with-input-from-file</span> <span class="nv">file-name</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+      <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char</span><span class="p">)))</span>
+	<span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eof-object?</span> <span class="nv">c</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nb">list-&gt;string</span> <span class="p">(</span><span class="nb">reverse</span> <span class="nv">ls1</span><span class="p">))</span>
+	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons</span> <span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nb">read-char</span><span class="p">)))))))</span>
 </pre></div>
 </div>
 <h3 id="section-9-2-3">
@@ -151,7 +151,7 @@ Scheme is an elegant programming language.
 <p>函数<code>(read port)</code>从端口<code>port</code>中读入一个S-表达式。用它来读诸如”paren.txt”中带括号的内容就很方便。</p>
 
 <div class="codeblock">
-<div class="highlight type-text"><pre>'(Hello world!
+<div class="highlight type-plaintext"><pre>'(Hello world!
 Scheme is an elegant programming language.)
 
 '(Lisp is a programming language ready to evolve.)
@@ -159,19 +159,19 @@ Scheme is an elegant programming language.)
 </div>
 <div class="codeblock has-caption">
 <p class="caption">[代码片段4]</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">s-read</span> <span class="nv">file-name</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">with-input-from-file </span><span class="nv">file-name</span>
-    <span class="p">(</span><span class="k">lambda </span><span class="p">()</span>
-      <span class="p">(</span><span class="k">let </span><span class="nv">loop</span> <span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">s</span> <span class="p">(</span><span class="nf">read</span><span class="p">)))</span>
-	<span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eof-object? </span><span class="nv">s</span><span class="p">)</span>
-	    <span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">)</span>
-	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">s</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nf">read</span><span class="p">)))))))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">s-read</span> <span class="nv">file-name</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">with-input-from-file</span> <span class="nv">file-name</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+      <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span> <span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">s</span> <span class="p">(</span><span class="nb">read</span><span class="p">)))</span>
+	<span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eof-object?</span> <span class="nv">s</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nb">reverse</span> <span class="nv">ls1</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons</span> <span class="nv">s</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nb">read</span><span class="p">)))))))</span>
 </pre></div>
 </div>
 <p>下面展示了用<code>s-read</code>读取”paren.txt”的结果。</p>
 
 <div class="codeblock">
-<div class="highlight type-text"><pre>(s-read "paren.txt")
+<div class="highlight type-plaintext"><pre>(s-read "paren.txt")
 ⇒ ((quote (hello world! scheme is an elegant programming language.))
 (quote (lisp is a programming language ready to evolve.)))
 </pre></div>
@@ -254,29 +254,29 @@ Scheme is an elegant programming language.)
 
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">group-list</span> <span class="nv">ls</span> <span class="nv">sep</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">letrec </span><span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">ls0</span> <span class="nv">ls1</span><span class="p">)</span>
-		   <span class="p">(</span><span class="nf">cond</span>
-		    <span class="p">((</span><span class="nb">null? </span><span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">list </span><span class="nv">ls1</span><span class="p">))</span>
-		    <span class="p">((</span><span class="nb">eqv? </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">sep</span><span class="p">)</span> 
-		     <span class="p">(</span><span class="nb">cons </span><span class="nv">ls1</span> <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span> <span class="o">'</span><span class="p">())))</span>
-		    <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">)))))))</span>
-    <span class="p">(</span><span class="nb">map </span><span class="nv">reverse</span> <span class="p">(</span><span class="nf">iter</span> <span class="nv">ls</span> <span class="o">'</span><span class="p">()))))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">group-list</span> <span class="nv">ls</span> <span class="nv">sep</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">letrec</span> <span class="p">((</span><span class="nf">iter</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">ls0</span> <span class="nv">ls1</span><span class="p">)</span>
+		   <span class="p">(</span><span class="k">cond</span>
+		    <span class="p">((</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">ls1</span><span class="p">))</span>
+		    <span class="p">((</span><span class="nb">eqv?</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">sep</span><span class="p">)</span> 
+		     <span class="p">(</span><span class="nb">cons</span> <span class="nv">ls1</span> <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span> <span class="o">'</span><span class="p">())))</span>
+		    <span class="p">(</span><span class="k">else</span> <span class="p">(</span><span class="nf">iter</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">)</span> <span class="nv">ls1</span><span class="p">)))))))</span>
+    <span class="p">(</span><span class="nb">map</span> <span class="nv">reverse</span> <span class="p">(</span><span class="nf">iter</span> <span class="nv">ls</span> <span class="o">'</span><span class="p">()))))</span>
 
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">read-lines</span> <span class="nv">file-name</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">with-input-from-file </span><span class="nv">file-name</span>
-    <span class="p">(</span><span class="k">lambda </span><span class="p">()</span>
-      <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nf">read-char</span><span class="p">)))</span>
-	<span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eof-object? </span><span class="nv">c</span><span class="p">)</span>
-	    <span class="p">(</span><span class="nb">map </span><span class="nv">list-&gt;string</span> <span class="p">(</span><span class="nf">group-list</span> <span class="p">(</span><span class="nb">reverse </span><span class="nv">ls1</span><span class="p">)</span> <span class="sc">#\Linefeed</span><span class="p">))</span>  <span class="c1">; *</span>
-	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nf">read-char</span><span class="p">)))))))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">read-lines</span> <span class="nv">file-name</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">with-input-from-file</span> <span class="nv">file-name</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+      <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls1</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char</span><span class="p">)))</span>
+	<span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eof-object?</span> <span class="nv">c</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nb">map</span> <span class="nv">list-&gt;string</span> <span class="p">(</span><span class="nf">group-list</span> <span class="p">(</span><span class="nb">reverse</span> <span class="nv">ls1</span><span class="p">)</span> <span class="sc">#\Linefeed</span><span class="p">))</span>  <span class="c1">; *</span>
+	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons</span> <span class="nv">c</span> <span class="nv">ls1</span><span class="p">)</span> <span class="p">(</span><span class="nb">read-char</span><span class="p">)))))))</span>
 </pre></div>
 </div>
 <p>示例：</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">group-list</span> <span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">4</span> <span class="mi">0</span> <span class="mi">3</span> <span class="mi">7</span> <span class="mi">2</span> <span class="mi">0</span> <span class="mi">9</span> <span class="mi">5</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">group-list</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">4</span> <span class="mi">0</span> <span class="mi">3</span> <span class="mi">7</span> <span class="mi">2</span> <span class="mi">0</span> <span class="mi">9</span> <span class="mi">5</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span>
 <span class="c1">;Value 13: ((1 4) (3 7 2) (9 5) () (1 2 3))</span>
 
 <span class="p">(</span><span class="nf">read-lines</span> <span class="s">"hello.txt"</span><span class="p">)</span>
@@ -288,17 +288,17 @@ Scheme is an elegant programming language.)
 
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">my-copy-file</span> <span class="nv">from</span> <span class="nv">to</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">pfr</span> <span class="p">(</span><span class="nb">open-input-file </span><span class="nv">from</span><span class="p">))</span>
-	<span class="p">(</span><span class="nf">pto</span> <span class="p">(</span><span class="nb">open-output-file </span><span class="nv">to</span><span class="p">)))</span>
-    <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">pfr</span><span class="p">)))</span>
-      <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">eof-object? </span><span class="nv">c</span><span class="p">)</span>
-	  <span class="p">(</span><span class="nf">begin</span>
-	    <span class="p">(</span><span class="nb">close-input-port </span><span class="nv">pfr</span><span class="p">)</span>
-	    <span class="p">(</span><span class="nb">close-output-port </span><span class="nv">pto</span><span class="p">))</span>
-	  <span class="p">(</span><span class="nf">begin</span>
-	    <span class="p">(</span><span class="nb">write-char </span><span class="nv">c</span> <span class="nv">pto</span><span class="p">)</span>
-	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">read-char </span><span class="nv">pfr</span><span class="p">)))))))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">my-copy-file</span> <span class="nv">from</span> <span class="nv">to</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">pfr</span> <span class="p">(</span><span class="nb">open-input-file</span> <span class="nv">from</span><span class="p">))</span>
+	<span class="p">(</span><span class="nf">pto</span> <span class="p">(</span><span class="nb">open-output-file</span> <span class="nv">to</span><span class="p">)))</span>
+    <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char</span> <span class="nv">pfr</span><span class="p">)))</span>
+      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eof-object?</span> <span class="nv">c</span><span class="p">)</span>
+	  <span class="p">(</span><span class="k">begin</span>
+	    <span class="p">(</span><span class="nb">close-input-port</span> <span class="nv">pfr</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nb">close-output-port</span> <span class="nv">pto</span><span class="p">))</span>
+	  <span class="p">(</span><span class="k">begin</span>
+	    <span class="p">(</span><span class="nb">write-char</span> <span class="nv">c</span> <span class="nv">pto</span><span class="p">)</span>
+	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">read-char</span> <span class="nv">pfr</span><span class="p">)))))))</span>
 </pre></div>
 </div>
 <h3 id="section-9-5-3">
@@ -306,13 +306,13 @@ Scheme is an elegant programming language.)
 
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">print-lines</span> <span class="o">.</span> <span class="nv">lines</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">lines</span><span class="p">))</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">pair? </span><span class="nv">ls0</span><span class="p">)</span>
-        <span class="p">(</span><span class="nf">begin</span>
-         <span class="p">(</span><span class="nb">display </span><span class="p">(</span><span class="nb">car </span><span class="nv">ls0</span><span class="p">))</span>
-         <span class="p">(</span><span class="nf">newline</span><span class="p">)</span>
-         <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">ls0</span><span class="p">))))))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">print-lines</span> <span class="o">.</span> <span class="nv">lines</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">lines</span><span class="p">))</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">pair?</span> <span class="nv">ls0</span><span class="p">)</span>
+        <span class="p">(</span><span class="k">begin</span>
+         <span class="p">(</span><span class="nb">display</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">))</span>
+         <span class="p">(</span><span class="nb">newline</span><span class="p">)</span>
+         <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">))))))</span>
 </pre></div>
 </div>
   	</div>
@@ -322,10 +322,10 @@ Scheme is an elegant programming language.)
 			
 			<div class="navigation">
 				
-					<a class="prev_page" href="/yast-cn/yast-cn/chapter8.html">« 第 8 章高阶函数</a>
+					<a class="prev_page" href="/yast-cn/chapter8.html">« 第 8 章高阶函数</a>
 				
 				
-					<a class="next_page" href="/yast-cn/yast-cn/chapter10.html">第 10 章赋值 »</a>
+					<a class="next_page" href="/yast-cn/chapter10.html">第 10 章赋值 »</a>
 				
 			</div>
 			

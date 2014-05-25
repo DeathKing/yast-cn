@@ -2,18 +2,18 @@
 <html lang="zh_CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<title>第 3 章 生成表</title>
-<meta name="author" content="DeathKing">
-<link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+	<title>第 3 章 生成表</title>
+    <meta name="author" content="DeathKing">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body><div class="entry"><div class="container">
 		
 <div class="item chapter">
 	<h1 id="chapter-3">
 <span>第 3 章</span> 生成表</h1>
-	<ol class="toc">
-<li class="level-2">
+	<ol class="toc">          <li class="level-2">
             <a href="#section-3-1">3.1 简介</a>
           </li>
           <li class="level-2">
@@ -53,7 +53,7 @@
             <a href="#section-3-8-2">3.8.2 答案2</a>
           </li>
 </ol>
-<div class="main">
+  	<div class="main">
   		<h2 id="section-3-1">
 <span>3.1</span> 简介</h2>
 
@@ -75,34 +75,36 @@
 <p>在前端输入<code>(cons 1 2)</code></p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1">;Value 11: (1 . 2)</span>
 </pre></div>
 </div>
 <p>系统返回<code>(1 . 2)</code>。如图一所示，函数<code>cons</code>给两个地址分配了内存空间，并把存放指向<code>1</code>的地址放在一个空间，把存放指向<code>2</code>的地址放在另一个空间。存放指向<code>1</code>的地址的内存空间被称作<code>car</code>部分，对应的，存放指向<code>2</code>的地址的内存空间被称作<code>cdr</code>部分。<code>car</code>和<code>cdr</code>分别是<strong>寄存器地址部分（Contents of the Address part of the Register）</strong>和<strong>寄存器减量部分（Contents of the Decrement part of the Register）</strong>的简称。这些名字最初来源于Lisp首次被实现所使用的硬件环境中内存空间的名字。这些名字同时也表明Cons单元的本质就是一个内存空间。<code>cons</code>这个名字是术语<strong>构造（construction）</strong>的简称。</p>
 
 <div class="figure">
-  <img src="figures/cons2.png" alt="A cons cell"><p class="caption">一个Cons单元</p>
+  <img src="figures/cons2.png" alt="A cons cell">
+  <p class="caption">一个Cons单元</p>
 </div>
 <p>Cons单元也可以被串起来。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">))</span>
 <span class="c1">;Value 15: (3 1 . 2)</span>
 </pre></div>
 </div>
 <p>·(3 . (1 . 2))·可以更方便地表示为<code>(3 1 . 2)</code>。这种情况的内存空间如图2所示。</p>
 
 <div class="figure">
-  <img src="figures/conss2.png" alt="Beaded cons cells"><p class="caption">串连Cons单元</p>
+  <img src="figures/conss2.png" alt="Beaded cons cells">
+  <p class="caption">串连Cons单元</p>
 </div>
 <p>Cons单元可以存放不同类型的数据，也可以嵌套。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">cons </span><span class="sc">#\a</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="s">"hello"</span><span class="p">))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">cons</span> <span class="sc">#\a</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="s">"hello"</span><span class="p">))</span>
 <span class="c1">;Value 17: (#\a 3 . "hello")</span>
 
-<span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">0</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">))</span>
 <span class="c1">;Value 23: ((0 . 1) 2 . 3)</span>
 </pre></div>
 </div>
@@ -115,16 +117,18 @@
 <p>表是Cons单元通过用<code>cdr</code>部分连接到下一个<code>Cons</code>单元的开头实现的。表中包含的<code>’()</code>被称作空表。就算数据仅由一个Cons单元组成，只要它的<code>cdr</code>单元是<code>’()</code>，那它就是一个表。图3展示了表<code>(1 2 3)</code>的内存结构。</p>
 
 <div class="figure">
-  <img src="figures/conss2.png" alt="Memory structure for a list (1 2 3)。"><p class="caption">表(1 2 3)的内存结构</p>
+  <img src="figures/conss2.png" alt="Memory structure for a list (1 2 3)。">
+  <p class="caption">表(1 2 3)的内存结构</p>
 </div>
 <p>事实上，表可以像下面这样递归地定义：</p>
 
 <ol>
-<li>
+  <li>
 <code>‘()</code>是一个表</li>
   <li>如果<code>ls</code>是一个表且<code>obj</code>是某种类型的数据，那么<code>(cons obj ls)</code>也是一个表
 正因为表是一种被递归定义的数据结构，将它用在递归的函数中显然是合理的。</li>
 </ol>
+
 <h2 id="section-3-3">
 <span>3.3</span> 原子</h2>
 
@@ -137,7 +141,7 @@
   <p>使用<code>cons</code>来构建在前端表现为如下形式的数据结构。</p>
 
   <ol>
-<li><code>("hi" . "everybody")</code></li>
+    <li><code>("hi" . "everybody")</code></li>
     <li><code>(0)</code></li>
     <li><code>(1 10 . 100)</code></li>
     <li><code>(1 10 100)</code></li>
@@ -157,11 +161,12 @@
 <p>比如：</p>
 
 <ul>
-<li>
+  <li>
 <code>’(+ 2 3)</code>代表列表<code>(+ 2 3)</code>本身；</li>
   <li>
 <code>’+</code>代表符号<code>+</code>本身；</li>
 </ul>
+
 <p>实际上，<code>’()</code>是对空表的引用，也就是说，尽管解释器返回<code>()</code>代表空表，你也应该用<code>’()</code>来表示空表。</p>
 
 <h3 id="section-3-4-1">
@@ -177,10 +182,10 @@
 <p>返回一个Cons单元的<code>car</code>部分和<code>cdr</code>部分的函数分别是<code>car</code>和<code>cdr</code>函数。如果<code>cdr</code>部分串连着Cons单元，解释器会打印出整个<code>cdr</code>部分。如果Cons单元的<code>cdr</code>部分不是<code>’()</code>，那么其值稍后亦会被展示。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">car </span><span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">car</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
 <span class="c1">;Value: 1</span>
 
-<span class="p">(</span><span class="nb">cdr </span><span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">cdr</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
 <span class="c1">;Value 18: (2 3 4)</span>
 </pre></div>
 </div>
@@ -190,7 +195,7 @@
   <p>求值下列S-表达式。</p>
 
   <ol>
-<li><code>(car '(0))</code></li>
+    <li><code>(car '(0))</code></li>
     <li><code>(cdr '(0))</code></li>
     <li><code>(car '((1 2 3) (4 5 6)))</code></li>
     <li><code>(cdr '(1 2 3 . 4))</code></li>
@@ -205,19 +210,19 @@
 <p><code>list</code>函数使得我们可以构建包含数个元素的表。函数<code>list</code>有任意个数的参数，且返回由这些参数构成的表。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">list</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 <span class="c1">;Value: ()</span>
 
-<span class="p">(</span><span class="nb">list </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">list</span> <span class="mi">1</span><span class="p">)</span>
 <span class="c1">;Value 24: (1)</span>
 
-<span class="p">(</span><span class="nb">list </span><span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span> <span class="o">'</span><span class="p">(</span><span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">list</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span><span class="p">)</span> <span class="o">'</span><span class="p">(</span><span class="nf">3</span> <span class="mi">4</span><span class="p">))</span>
 <span class="c1">;Value 25: ((1 2) (3 4))</span>
 
-<span class="p">(</span><span class="nb">list </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">list</span> <span class="mi">0</span><span class="p">)</span>
 <span class="c1">;Value 26: (0)</span>
 
-<span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1">;Value 27: (1 2)</span>
 </pre></div>
 </div>
@@ -237,27 +242,27 @@
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">;1</span>
-<span class="p">(</span><span class="nb">cons </span><span class="s">"hi"</span> <span class="s">"everybody"</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">cons</span> <span class="s">"hi"</span> <span class="s">"everybody"</span><span class="p">)</span>
 <span class="c1">;Value 32: ("hi" . "everybody")</span>
 
 <span class="c1">;2</span>
-<span class="p">(</span><span class="nb">cons </span><span class="mi">0</span> <span class="o">'</span><span class="p">())</span>
+<span class="p">(</span><span class="nb">cons</span> <span class="mi">0</span> <span class="o">'</span><span class="p">())</span>
 <span class="c1">;Value 33: (0)</span>
 
 <span class="c1">;3</span>
-<span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">10</span> <span class="mi">100</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">10</span> <span class="mi">100</span><span class="p">))</span>
 <span class="c1">;Value 34: (1 10 . 100)</span>
 
 <span class="c1">;4</span>
-<span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">10</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">100</span> <span class="o">'</span><span class="p">())))</span>
+<span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">10</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">100</span> <span class="o">'</span><span class="p">())))</span>
 <span class="c1">;Value 35: (1 10 100)</span>
 
 <span class="c1">;5</span>
-<span class="p">(</span><span class="nb">cons </span><span class="sc">#\I</span> <span class="p">(</span><span class="nb">cons </span><span class="s">"saw"</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="s">"girls"</span> <span class="o">'</span><span class="p">()))))</span>
+<span class="p">(</span><span class="nb">cons</span> <span class="sc">#\I</span> <span class="p">(</span><span class="nb">cons</span> <span class="s">"saw"</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">cons</span> <span class="s">"girls"</span> <span class="o">'</span><span class="p">()))))</span>
 <span class="c1">;Value 36: (#\I "saw" 3 "girls")</span>
 
 <span class="c1">;6</span>
-<span class="p">(</span><span class="nb">cons </span><span class="s">"Sum of"</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="o">'</span><span class="p">()))))</span> <span class="p">(</span><span class="nb">cons </span><span class="s">"is"</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">10</span> <span class="o">'</span><span class="p">()))))</span>
+<span class="p">(</span><span class="nb">cons</span> <span class="s">"Sum of"</span> <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">4</span> <span class="o">'</span><span class="p">()))))</span> <span class="p">(</span><span class="nb">cons</span> <span class="s">"is"</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">10</span> <span class="o">'</span><span class="p">()))))</span>
 <span class="c1">;Value 37: ("Sum of" (1 2 3 4) "is" 10)</span>
 </pre></div>
 </div>
@@ -267,23 +272,23 @@
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">;1</span>
-<span class="p">(</span><span class="nb">car </span><span class="o">'</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">car</span> <span class="o">'</span><span class="p">(</span><span class="nf">0</span><span class="p">))</span>
 <span class="c1">;Value: 0</span>
 
 <span class="c1">;2</span>
-<span class="p">(</span><span class="nb">cdr </span><span class="o">'</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">cdr</span> <span class="o">'</span><span class="p">(</span><span class="nf">0</span><span class="p">))</span>
 <span class="c1">;Value: ()</span>
 
 <span class="c1">;3</span>
-<span class="p">(</span><span class="nb">car </span><span class="o">'</span><span class="p">((</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">)))</span>
+<span class="p">(</span><span class="nb">car</span> <span class="o">'</span><span class="p">((</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nf">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">)))</span>
 <span class="c1">;Value 28: (1 2 3)</span>
 
 <span class="c1">;4</span>
-<span class="p">(</span><span class="nb">cdr </span><span class="o">'</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="o">.</span> <span class="mi">4</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">cdr</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="o">.</span> <span class="mi">4</span><span class="p">))</span>
 <span class="c1">;Value 29: (2 3 . 4)</span>
 
 <span class="c1">;5</span>
-<span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="o">'</span><span class="p">()))))</span>
+<span class="p">(</span><span class="nb">cdr</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="o">'</span><span class="p">()))))</span>
 <span class="c1">;Value 31: (2 1)</span>
 </pre></div>
 </div>
@@ -294,10 +299,10 @@
 			
 			<div class="navigation">
 				
-					<a class="prev_page" href="/yast-cn/yast-cn/chapter2.html">« 第 2 章将Scheme用作计算器</a>
+					<a class="prev_page" href="/yast-cn/chapter2.html">« 第 2 章将Scheme用作计算器</a>
 				
 				
-					<a class="next_page" href="/yast-cn/yast-cn/chapter4.html">第 4 章定义函数 »</a>
+					<a class="next_page" href="/yast-cn/chapter4.html">第 4 章定义函数 »</a>
 				
 			</div>
 			

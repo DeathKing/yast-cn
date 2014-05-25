@@ -2,18 +2,18 @@
 <html lang="zh_CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<title>第 4 章 定义函数</title>
-<meta name="author" content="DeathKing">
-<link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+	<title>第 4 章 定义函数</title>
+    <meta name="author" content="DeathKing">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body><div class="entry"><div class="container">
 		
 <div class="item chapter">
 	<h1 id="chapter-4">
 <span>第 4 章</span> 定义函数</h1>
-	<ol class="toc">
-<li class="level-2">
+	<ol class="toc">          <li class="level-2">
             <a href="#section-4-1">4.1 简介</a>
           </li>
           <li class="level-2">
@@ -47,7 +47,7 @@
             <a href="#section-4-7-2">4.7.2 答案2</a>
           </li>
 </ol>
-<div class="main">
+  	<div class="main">
   		<h2 id="section-4-1">
 <span>4.1</span> 简介</h2>
 
@@ -55,10 +55,11 @@
 <p>在前面的章节中，我已经讲解了：</p>
 
 <ol>
-<li>如何安装MIT-Scheme；</li>
+  <li>如何安装MIT-Scheme；</li>
   <li>Scheme解释器是如何对S-表达式求值；</li>
   <li>基本的表操作；</li>
 </ol>
+
 <p>在本章中，我会讲解如何自定义函数。正如Scheme是函数式编程语言，你需要通过编写小型函数来构造你的程序。因此，明白如何构造并组合这些函数对掌握Scheme尤为关键。在前端定义函数非常不便，因此我们通常需要在编译器中编辑好代码，并在解释器中加载它们。</p>
 
 <h2 id="section-4-2">
@@ -72,10 +73,10 @@
 <div class="codeblock has-caption">
 <p class="caption">代码片段1（hello.scm）</p>
 <div class="highlight type-scheme"><pre><span class="c1">; Hello world as a variable</span>
-<span class="p">(</span><span class="k">define </span><span class="nv">vhello</span> <span class="s">"Hello world"</span><span class="p">)</span>     <span class="c1">;1</span>
+<span class="p">(</span><span class="k">define</span> <span class="nv">vhello</span> <span class="s">"Hello world"</span><span class="p">)</span>     <span class="c1">;1</span>
 
 <span class="c1">; Hello world as a function</span>
-<span class="p">(</span><span class="k">define </span><span class="nv">fhello</span> <span class="p">(</span><span class="k">lambda </span><span class="p">()</span>         <span class="c1">;2</span>
+<span class="p">(</span><span class="k">define</span> <span class="nv">fhello</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>         <span class="c1">;2</span>
 		 <span class="s">"Hello world"</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -85,7 +86,7 @@
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">cd</span> <span class="s">"C:\\doc\\scheme"</span><span class="p">)</span>
 <span class="c1">;Value 14: #[pathname 14 "c:\\doc\\scheme\\"]</span>
 
-<span class="p">(</span><span class="nb">load </span><span class="s">"hello.scm"</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">load</span> <span class="s">"hello.scm"</span><span class="p">)</span>
 <span class="c1">;Loading "hello.scm" -- done</span>
 <span class="c1">;Value: fhello</span>
 </pre></div>
@@ -124,20 +125,20 @@
 <div class="codeblock has-caption">
 <p class="caption">代码片段2 (farg.scm)</p>
 <div class="highlight type-scheme"><pre><span class="c1">; hello with name</span>
-<span class="p">(</span><span class="k">define </span><span class="nv">hello</span>
-  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">name</span><span class="p">)</span>
-    <span class="p">(</span><span class="nb">string-append </span><span class="s">"Hello "</span> <span class="nv">name</span> <span class="s">"!"</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="nv">hello</span>
+  <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">name</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">string-append</span> <span class="s">"Hello "</span> <span class="nv">name</span> <span class="s">"!"</span><span class="p">)))</span>
 
 <span class="c1">; sum of three numbers</span>
-<span class="p">(</span><span class="k">define </span><span class="nv">sum3</span>
-  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
-    <span class="p">(</span><span class="nb">+ </span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="nv">sum3</span>
+  <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">+</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
 </pre></div>
 </div>
 <p>保存文件，并在解释器中载入此文件，然后调用我们定义的函数。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">load </span><span class="s">"farg.scm"</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">load</span> <span class="s">"farg.scm"</span><span class="p">)</span>
 <span class="c1">;Loading "farg.scm" -- done</span>
 <span class="c1">;Value: sum3</span>
 
@@ -164,13 +165,13 @@
 <div class="codeblock has-caption">
 <p class="caption">代码片段3</p>
 <div class="highlight type-scheme"><pre><span class="c1">; hello with name</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">hello</span> <span class="nv">name</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">string-append </span><span class="s">"Hello "</span> <span class="nv">name</span> <span class="s">"!"</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">hello</span> <span class="nv">name</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">string-append</span> <span class="s">"Hello "</span> <span class="nv">name</span> <span class="s">"!"</span><span class="p">))</span>
 
 
 <span class="c1">; sum of three numbers</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">sum3</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">+ </span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">sum3</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">+</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>在这种形式中，函数按照它们被调用的形式被定义。代码片段2和代码片段3都是相同的。有些人不喜欢这种短形式的函数定义，但是我在教程中使用这种形式，因为它可以使代码更短小。</p>
@@ -181,7 +182,7 @@
   <p>按照下面的要求编写函数。这些都非常简单但实用。</p>
 
   <ol>
-<li>将参数加1的函数。</li>
+    <li>将参数加1的函数。</li>
     <li>将参数减1的函数。</li>
   </ol>
 </blockquote>
@@ -192,13 +193,14 @@
   <p>让我们按照下面的步骤编写一个用于计算飞行距离的函数。</p>
 
   <ol>
-<li>编写一个将角的单位由度转换为弧度的函数。180度即π弧度。π可以通过下面的式子定义：
+    <li>编写一个将角的单位由度转换为弧度的函数。180度即π弧度。π可以通过下面的式子定义：
 <code>(define pi (* 4 (atan 1.0)))</code>。</li>
     <li>编写一个用于计算按照一个常量速度（水平分速度）运动的物体，t秒内的位移的函数。</li>
     <li>编写一个用于计算物体落地前的飞行时间的函数，参数是垂直分速度。忽略空气阻力并取重力加速度<code>g</code>为<code>9.8m/s^2</code>。提示：设落地时瞬时竖直分速度为<code>-Vy</code>，有如下关系。<code>2Vy = g*t</code>  此处<code>t</code>为落地时的时间。</li>
     <li>使用问题1-3中定义的函数编写一个用于计算一个以初速度<code>v</code>和角度<code>theta</code>掷出的小球的飞行距离。</li>
   </ol>
-<p>提示：首先，将角度的单位转换为弧度（假定转换后的角度为<code>theta1</code>）。初始水平、竖直分速度分别表示为：<code>v*cos(theta1)</code>和<code>v*sin(theta1)</code>。落地时间可以通过问题3中定义的函数计算。由于水平分速度不会改变， 因此可以利用问题2中的函数计算距离。</p>
+
+  <p>提示：首先，将角度的单位转换为弧度（假定转换后的角度为<code>theta1</code>）。初始水平、竖直分速度分别表示为：<code>v*cos(theta1)</code>和<code>v*sin(theta1)</code>。落地时间可以通过问题3中定义的函数计算。由于水平分速度不会改变， 因此可以利用问题2中的函数计算距离。</p>
 </blockquote>
 
 <h2 id="section-4-5">
@@ -230,7 +232,7 @@
 <p>双击Edwin的图标以启动Edwin。当Edwin启动后，一个叫<code>*Scheme*</code>的默认缓冲区出现在屏幕上，它对应于emacs中的<code>*scratch*</code>缓冲区。你可以将<code>*scheme*</code>用作解释器前端。按下<kbd>Ctrl-X</kbd> <kbd>Ctrl-e</kbd> 就可以对S-表达式进行求值。</p>
 
 <ul>
-<li>
+  <li>
     <p>文件的打开与关闭，编辑器的关闭。按下<kbd>Ctrl-X</kbd> <kbd>Ctrl-F</kbd>来打开一个文件。如果你指定的文件并不存在，则会创建一个新文件。初始路径被设置为了‘C:\’，你在打开文件前应该修改这个路径。按下<kbd>Ctrl-X</kbd> <kbd>Ctrl-S</kbd>来保存文件，而按下<kbd>Ctrl-x</kbd> <kbd>Ctrl-w</kbd>则是文件另存为。退出编辑器请按下<kbd>Ctrl-x</kbd> <kbd>Ctrl-c</kbd>。</p>
   </li>
   <li>
@@ -240,20 +242,21 @@
     <p>剪切，复制和粘贴。我们无法使用鼠标，因此复制（剪切）、粘贴起来就会显得不太方便。但你可以像下面这样做：</p>
 
     <ul>
-<li>首先，通过方向键将光标移动至待选区域的开头，然后按下<kbd>Ctrl-SPACE</kbd>。</li>
+      <li>首先，通过方向键将光标移动至待选区域的开头，然后按下<kbd>Ctrl-SPACE</kbd>。</li>
       <li>然后移动至结束位置按下<kbd>Ctrl-w</kbd>来剪切区域，按下<kbd>Alt-w</kbd>来复制区域。</li>
       <li>最后，移动至你想要复制的区域，按下<kbd>Ctrl-y</kbd>。</li>
     </ul>
-</li>
+  </li>
   <li>
     <p>求值S-表达式</p>
     <ul>
-<li>按键<kbd>Alt-z</kbd>用于求值以<code>define</code>开头的S-表达式。</li>
+      <li>按键<kbd>Alt-z</kbd>用于求值以<code>define</code>开头的S-表达式。</li>
       <li>按键<kbd>Alt-:</kbd>用于在一个小型的缓冲区中求值S-表达式。这个通常用在测试用<kbd>Alt-z</kbd>求值的函数。</li>
       <li>按键<kbd>Ctrl-x</kbd> <kbd>Ctrl-e</kbd>用于求值整个<code>*scheme*</code>缓冲区中的S-表达式。</li>
     </ul>
-</li>
+  </li>
 </ul>
+
 <p>请查阅[](http://www-swiss.ai.mit.edu/projects/scheme/documentation/user_8.html)以获得更多关于Edwin的帮助。你下载的MIT-Scheme中也附带了同样的文档。</p>
 
 <h2 id="section-4-6">
@@ -274,12 +277,12 @@
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; 1</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="mi">1</span><span class="nv">+</span> <span class="nv">x</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">+ </span><span class="nv">x</span> <span class="mi">1</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">1+</span> <span class="nv">x</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">+</span> <span class="nv">x</span> <span class="mi">1</span><span class="p">))</span>
 
 <span class="c1">; 2</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="mi">1</span><span class="nv">-</span> <span class="nv">x</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">- </span><span class="nv">x</span> <span class="mi">1</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">1-</span> <span class="nv">x</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">-</span> <span class="nv">x</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 <h3 id="section-4-7-2">
@@ -290,25 +293,25 @@
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="c1">; definition of pi</span>
-<span class="p">(</span><span class="k">define </span><span class="nv">pi</span> <span class="p">(</span><span class="nb">* </span><span class="mi">4</span> <span class="p">(</span><span class="nb">atan </span><span class="mf">1.0</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="nv">pi</span> <span class="p">(</span><span class="nb">*</span> <span class="mi">4</span> <span class="p">(</span><span class="nb">atan</span> <span class="mf">1.0</span><span class="p">)))</span>
 
 <span class="c1">; degree -&gt; radian</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">radian</span> <span class="nv">deg</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">* </span><span class="nv">deg</span> <span class="p">(</span><span class="nb">/ </span><span class="nv">pi</span> <span class="mf">180.0</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">radian</span> <span class="nv">deg</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">*</span> <span class="nv">deg</span> <span class="p">(</span><span class="nb">/</span> <span class="nv">pi</span> <span class="mf">180.0</span><span class="p">)))</span>
 
 <span class="c1">; free fall time</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">ff-time</span> <span class="nv">vy</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nb">* </span><span class="mf">2.0</span> <span class="nv">vy</span><span class="p">)</span> <span class="mf">9.8</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">ff-time</span> <span class="nv">vy</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">/</span> <span class="p">(</span><span class="nb">*</span> <span class="mf">2.0</span> <span class="nv">vy</span><span class="p">)</span> <span class="mf">9.8</span><span class="p">))</span>
 
 <span class="c1">; horizontal distance </span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">dx</span> <span class="nv">vx</span> <span class="nv">t</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">* </span><span class="nv">vx</span> <span class="nv">t</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">dx</span> <span class="nv">vx</span> <span class="nv">t</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">*</span> <span class="nv">vx</span> <span class="nv">t</span><span class="p">))</span>
 
 <span class="c1">; distance</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">distance</span> <span class="nv">v</span> <span class="nv">ang</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">distance</span> <span class="nv">v</span> <span class="nv">ang</span><span class="p">)</span>
   <span class="p">(</span><span class="nf">dx</span>
-   <span class="p">(</span><span class="nb">* </span><span class="nv">v</span> <span class="p">(</span><span class="nb">cos </span><span class="p">(</span><span class="nf">radian</span> <span class="nv">ang</span><span class="p">)))</span>                     <span class="c1">; vx</span>
-   <span class="p">(</span><span class="nf">ff-time</span> <span class="p">(</span><span class="nb">* </span><span class="nv">v</span> <span class="p">(</span><span class="nb">sin </span><span class="p">(</span><span class="nf">radian</span> <span class="nv">ang</span><span class="p">))))))</span>         <span class="c1">; t</span>
+   <span class="p">(</span><span class="nb">*</span> <span class="nv">v</span> <span class="p">(</span><span class="nb">cos</span> <span class="p">(</span><span class="nf">radian</span> <span class="nv">ang</span><span class="p">)))</span>                     <span class="c1">; vx</span>
+   <span class="p">(</span><span class="nf">ff-time</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">v</span> <span class="p">(</span><span class="nb">sin</span> <span class="p">(</span><span class="nf">radian</span> <span class="nv">ang</span><span class="p">))))))</span>         <span class="c1">; t</span>
 </pre></div>
 </div>
 <p>向解释器中载入后，距离可以像这样计算：</p>
@@ -319,6 +322,8 @@
 </pre></div>
 </div>
 <p>函数返回一个合理的值：141.1米，因为忽略了空气阻力，所以这个值略微偏大。</p>
+
+
   	</div>
 </div>
 
@@ -326,10 +331,10 @@
 			
 			<div class="navigation">
 				
-					<a class="prev_page" href="/yast-cn/yast-cn/chapter3.html">« 第 3 章生成表</a>
+					<a class="prev_page" href="/yast-cn/chapter3.html">« 第 3 章生成表</a>
 				
 				
-					<a class="next_page" href="/yast-cn/yast-cn/chapter5.html">第 5 章分支 »</a>
+					<a class="next_page" href="/yast-cn/chapter5.html">第 5 章分支 »</a>
 				
 			</div>
 			

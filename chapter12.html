@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>第 12 章 符号</title>
+    <meta name="author" content="DeathKing">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body><div class="entry"><div class="container">
+		
+<div class="item chapter">
+	<h1 id="chapter-12">
+<span>第 12 章</span> 符号</h1>
+	<ol class="toc">          <li class="level-2">
+            <a href="#section-12-1">12.1 简介</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-12-2">12.2 有关符号的基本函数</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-12-3">12.3 统计文本中的单词</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-12-4">12.4 小结</a>
+          </li>
+</ol>
+  	<div class="main">
+  		<h2 id="section-12-1">
+<span>12.1</span> 简介</h2>
+
+
+<p>我会在本章讲解在Lisp/Scheme程序设计语言中具有字符性质的数据类型——符号。</p>
+
+<h2 id="section-12-2">
+<span>12.2</span> 有关符号的基本函数</h2>
+
+
+<p>下列都是有关符号的基本函数。</p>
+
+<dl>
+    <dt>`(symbol? x)`</dt>
+    <dd>如果`x`是一个符号则返回`#t`。</dd>
+
+    <dt>`(string-&gt;symbol str)`</dt>
+    <dd>将`str`转换为符号。`str`应该都是小写的，否则地址系统可能无法正常工作。在MIT-Scheme中，`(string-&gt;symbol "Hello")`和`'Hello`是不同的。
+
+```scheme
+(eq? (string-&gt;symbol "Hello") 'Hello)
+;Value: ()
+
+(eq? (string-&gt;symbol "Hello") (string-&gt;symbol "Hello"))
+;Value: #t
+
+(symbol-&gt;string  (string-&gt;symbol "Hello"))
+;Value 15: "Hello"
+```
+</dd>
+
+    <dt>`(symbol-&gt;string sym)`</dt>
+    <dd>将sym转换为字符。</dd>
+</dl>
+
+<h2 id="section-12-3">
+<span>12.3</span> 统计文本中的单词</h2>
+
+
+<p>下面的代码是一段统计文本中单词个数的程序，这也是被经常用作演示符号的例子。这个程序使用了<strong>哈希表（Hash table）</strong>和<strong>关联表（Association list）</strong>，这些都将在下一章中讲解。</p>
+
+<div class="codeblock">
+<div class="highlight type-scheme"><pre><span class="mi">01</span><span class="nv">:</span>     <span class="c1">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="mi">02</span><span class="nv">:</span>     <span class="c1">;;;   wc.scm</span>
+<span class="mi">03</span><span class="nv">:</span>     <span class="c1">;;;   a scheme word-count program</span>
+<span class="mi">04</span><span class="nv">:</span>     <span class="c1">;;;</span>
+<span class="mi">05</span><span class="nv">:</span>     <span class="c1">;;;    by T.Shido</span>
+<span class="mi">06</span><span class="nv">:</span>     <span class="c1">;;;    on August 19, 2005</span>
+<span class="mi">07</span><span class="nv">:</span>     <span class="c1">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="mi">08</span><span class="nv">:</span>     
+<span class="mi">09</span><span class="nv">:</span>     <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">list-&gt;symbol</span> <span class="nv">ls0</span><span class="p">)</span>
+<span class="mi">10</span><span class="nv">:</span>       <span class="p">(</span><span class="nb">string-&gt;symbol</span> <span class="p">(</span><span class="nb">list-&gt;string</span> <span class="p">(</span><span class="nf">reverse!</span> <span class="nv">ls0</span><span class="p">))))</span>
+<span class="mi">11</span><span class="nv">:</span>     
+<span class="mi">12</span><span class="nv">:</span>     <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">char-in</span> <span class="nv">c</span> <span class="o">.</span> <span class="nv">ls</span><span class="p">)</span>
+<span class="mi">13</span><span class="nv">:</span>       <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls0</span> <span class="nv">ls</span><span class="p">))</span>
+<span class="mi">14</span><span class="nv">:</span>         <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls0</span><span class="p">)</span>
+<span class="mi">15</span><span class="nv">:</span>             <span class="no">#f</span>
+<span class="mi">16</span><span class="nv">:</span>           <span class="p">(</span><span class="k">or</span> <span class="p">(</span><span class="nb">char=?</span> <span class="nv">c</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls0</span><span class="p">))</span>
+<span class="mi">17</span><span class="nv">:</span>               <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls0</span><span class="p">))))))</span>
+<span class="mi">18</span><span class="nv">:</span>     
+<span class="mi">19</span><span class="nv">:</span>     <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">read-words</span> <span class="nv">fname</span><span class="p">)</span>
+<span class="mi">20</span><span class="nv">:</span>       <span class="p">(</span><span class="nb">with-input-from-file</span> <span class="nv">fname</span>
+<span class="mi">21</span><span class="nv">:</span>         <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+<span class="mi">22</span><span class="nv">:</span>           <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">w</span> <span class="o">'</span><span class="p">())</span> <span class="p">(</span><span class="nf">wls</span> <span class="o">'</span><span class="p">()))</span>
+<span class="mi">23</span><span class="nv">:</span>             <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">c</span> <span class="p">(</span><span class="nb">read-char</span><span class="p">)))</span>
+<span class="mi">24</span><span class="nv">:</span>     	  <span class="p">(</span><span class="k">cond</span>
+<span class="mi">25</span><span class="nv">:</span>     	   <span class="p">((</span><span class="nb">eof-object?</span> <span class="nv">c</span><span class="p">)</span>
+<span class="mi">26</span><span class="nv">:</span>                 <span class="p">(</span><span class="nf">reverse!</span> <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">pair?</span> <span class="nv">w</span><span class="p">)</span>
+<span class="mi">27</span><span class="nv">:</span>                               <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nf">list-&gt;symbol</span> <span class="nv">w</span><span class="p">)</span> <span class="nv">wls</span><span class="p">)</span>
+<span class="mi">28</span><span class="nv">:</span>                             <span class="nv">wls</span><span class="p">)))</span>
+<span class="mi">29</span><span class="nv">:</span>     	   <span class="p">((</span><span class="nf">char-in</span> <span class="nv">c</span> <span class="sc">#\Space</span> <span class="sc">#\Linefeed</span> <span class="sc">#\Tab</span> <span class="o">#</span><span class="err">\</span><span class="o">,</span> <span class="sc">#\.</span>  <span class="sc">#\ #\(</span> <span class="sc">#\)</span> <span class="sc">#\=</span> <span class="sc">#\?</span> <span class="sc">#\!</span> <span class="o">#</span><span class="err">\</span><span class="c1">; #\:)</span>
+<span class="mi">30</span><span class="nv">:</span>                 <span class="p">(</span><span class="nf">loop</span> <span class="o">'</span><span class="p">()</span> <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">pair?</span> <span class="nv">w</span><span class="p">)</span>
+<span class="mi">31</span><span class="nv">:</span>                               <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nf">list-&gt;symbol</span> <span class="nv">w</span><span class="p">)</span> <span class="nv">wls</span><span class="p">)</span>
+<span class="mi">32</span><span class="nv">:</span>                             <span class="nv">wls</span><span class="p">)))</span>
+<span class="mi">33</span><span class="nv">:</span>     	   <span class="p">(</span><span class="k">else</span>
+<span class="mi">34</span><span class="nv">:</span>     	    <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">char-downcase</span> <span class="nv">c</span><span class="p">)</span> <span class="nv">w</span><span class="p">)</span> <span class="nv">wls</span><span class="p">))))))))</span>
+<span class="mi">35</span><span class="nv">:</span>     
+<span class="mi">36</span><span class="nv">:</span>     <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">sort-by-frequency</span> <span class="nv">al</span><span class="p">)</span>
+<span class="mi">37</span><span class="nv">:</span>       <span class="p">(</span><span class="nf">sort</span> <span class="nv">al</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">x</span> <span class="nv">y</span><span class="p">)</span> <span class="p">(</span><span class="nb">&gt;</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">y</span><span class="p">)))))</span>
+<span class="mi">38</span><span class="nv">:</span>     
+<span class="mi">39</span><span class="nv">:</span>     <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">wc</span> <span class="nv">fname</span><span class="p">)</span>
+<span class="mi">40</span><span class="nv">:</span>       <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">wh</span> <span class="p">(</span><span class="nf">make-eq-hash-table</span><span class="p">)))</span>
+<span class="mi">41</span><span class="nv">:</span>         <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span><span class="p">((</span><span class="nf">ls</span> <span class="p">(</span><span class="nf">read-words</span> <span class="nv">fname</span><span class="p">)))</span>
+<span class="mi">42</span><span class="nv">:</span>           <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls</span><span class="p">)</span>
+<span class="mi">43</span><span class="nv">:</span>               <span class="p">(</span><span class="nf">sort-by-frequency</span> <span class="p">(</span><span class="nf">hash-table-&gt;alist</span> <span class="nv">wh</span><span class="p">))</span>
+<span class="mi">44</span><span class="nv">:</span>             <span class="p">(</span><span class="k">begin</span>
+<span class="mi">45</span><span class="nv">:</span>              <span class="p">(</span><span class="nf">hash-table/put!</span> <span class="nv">wh</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls</span><span class="p">)</span> <span class="p">(</span><span class="nf">1+</span> <span class="p">(</span><span class="nf">hash-table/get</span> <span class="nv">wh</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls</span><span class="p">)</span> <span class="mi">0</span><span class="p">)))</span>
+<span class="mi">46</span><span class="nv">:</span>              <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls</span><span class="p">)))))))</span>
+<span class="p">(</span><span class="nf">wc</span> <span class="s">"opensource.txt"</span><span class="p">)</span>
+<span class="err">⇒</span>
+<span class="p">((</span><span class="nf">the</span> <span class="o">.</span> <span class="mi">208</span><span class="p">)</span> <span class="p">(</span><span class="nf">to</span> <span class="o">.</span> <span class="mi">142</span><span class="p">)</span> <span class="p">(</span><span class="nf">a</span> <span class="o">.</span> <span class="mi">104</span><span class="p">)</span> <span class="p">(</span><span class="nf">of</span> <span class="o">.</span> <span class="mi">103</span><span class="p">)</span> <span class="p">(</span><span class="k">and</span> <span class="o">.</span> <span class="mi">83</span><span class="p">)</span> <span class="p">(</span><span class="nf">that</span> <span class="o">.</span> <span class="mi">75</span><span class="p">)</span> <span class="p">(</span><span class="nf">is</span> <span class="o">.</span> <span class="mi">73</span><span class="p">)</span> <span class="p">(</span><span class="nf">in</span> <span class="o">.</span> <span class="mi">65</span><span class="p">)</span> <span class="p">(</span><span class="nf">i</span> <span class="o">.</span> <span class="mi">64</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">you</span> <span class="o">.</span> <span class="mi">55</span><span class="p">)</span> <span class="p">(</span><span class="nf">it</span> <span class="o">.</span> <span class="mi">54</span><span class="p">)</span> <span class="p">(</span><span class="nf">they</span> <span class="o">.</span> <span class="mi">48</span><span class="p">)</span> <span class="p">(</span><span class="nf">for</span> <span class="o">.</span> <span class="mi">46</span><span class="p">)</span> <span class="p">(</span><span class="nf">what</span> <span class="o">.</span> <span class="mi">38</span><span class="p">)</span> <span class="p">(</span><span class="nf">work</span> <span class="o">.</span> <span class="mi">37</span><span class="p">)</span> <span class="p">(</span><span class="nf">but</span> <span class="o">.</span> <span class="mi">35</span><span class="p">)</span> <span class="p">(</span><span class="nf">have</span> <span class="o">.</span> <span class="mi">32</span><span class="p">)</span> <span class="p">(</span><span class="nf">on</span> <span class="o">.</span> <span class="mi">32</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">people</span> <span class="o">.</span> <span class="mi">32</span><span class="p">)</span> <span class="p">(</span><span class="nf">are</span> <span class="o">.</span> <span class="mi">30</span><span class="p">)</span> <span class="p">(</span><span class="nf">be</span> <span class="o">.</span> <span class="mi">29</span><span class="p">)</span> <span class="p">(</span><span class="k">do</span> <span class="o">.</span> <span class="mi">29</span><span class="p">)</span> <span class="p">(</span><span class="nf">from</span> <span class="o">.</span> <span class="mi">27</span><span class="p">)</span> <span class="p">(</span><span class="nf">so</span> <span class="o">.</span> <span class="mi">26</span><span class="p">)</span> <span class="p">(</span><span class="nf">like</span> <span class="o">.</span> <span class="mi">25</span><span class="p">)</span> <span class="p">(</span><span class="nf">as</span> <span class="o">.</span> <span class="mi">25</span><span class="p">)</span> <span class="p">(</span><span class="nf">by</span> <span class="o">.</span> <span class="mi">24</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">source</span> <span class="o">.</span> <span class="mi">24</span><span class="p">)</span> <span class="p">(</span><span class="nb">not</span> <span class="o">.</span> <span class="mi">23</span><span class="p">)</span> <span class="p">(</span><span class="nf">open</span> <span class="o">.</span> <span class="mi">23</span><span class="p">)</span> <span class="p">(</span><span class="nf">can</span> <span class="o">.</span> <span class="mi">23</span><span class="p">)</span> <span class="p">(</span><span class="nf">we</span> <span class="o">.</span> <span class="mi">22</span><span class="p">)</span> <span class="p">(</span><span class="nf">was</span> <span class="o">.</span> <span class="mi">22</span><span class="p">)</span> <span class="p">(</span><span class="nf">one</span> <span class="o">.</span> <span class="mi">22</span><span class="p">)</span> <span class="p">(</span><span class="nf">it</span><span class="ss">'s</span> <span class="o">.</span> <span class="mi">22</span><span class="p">)</span> <span class="p">(</span><span class="nf">an</span> <span class="o">.</span> <span class="mi">21</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">this</span> <span class="o">.</span> <span class="mi">20</span><span class="p">)</span> <span class="p">(</span><span class="nf">about</span> <span class="o">.</span> <span class="mi">20</span><span class="p">)</span> <span class="p">(</span><span class="nf">business</span> <span class="o">.</span> <span class="mi">18</span><span class="p">)</span> <span class="p">(</span><span class="nf">working</span> <span class="o">.</span> <span class="mi">18</span><span class="p">)</span> <span class="p">(</span><span class="nf">most</span> <span class="o">.</span> <span class="mi">17</span><span class="p">)</span> <span class="p">(</span><span class="nf">there</span> <span class="o">.</span> <span class="mi">17</span><span class="p">)</span> <span class="p">(</span><span class="nf">at</span> <span class="o">.</span> <span class="mi">17</span><span class="p">)</span> <span class="p">(</span><span class="nf">with</span> <span class="o">.</span> <span class="mi">16</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">don</span><span class="ss">'t</span> <span class="o">.</span> <span class="mi">16</span><span class="p">)</span> <span class="p">(</span><span class="nf">just</span> <span class="o">.</span> <span class="mi">16</span><span class="p">)</span> <span class="p">(</span><span class="nf">their</span> <span class="o">.</span> <span class="mi">16</span><span class="p">)</span> <span class="p">(</span><span class="nf">something</span> <span class="o">.</span> <span class="mi">15</span><span class="p">)</span> <span class="p">(</span><span class="nf">than</span> <span class="o">.</span> <span class="mi">15</span><span class="p">)</span> <span class="p">(</span><span class="nf">has</span> <span class="o">.</span> <span class="mi">15</span><span class="p">)</span> <span class="p">(</span><span class="k">if</span> <span class="o">.</span> <span class="mi">15</span><span class="p">)</span> <span class="p">(</span><span class="nf">when</span> <span class="o">.</span> <span class="mi">14</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">because</span> <span class="o">.</span> <span class="mi">14</span><span class="p">)</span> <span class="p">(</span><span class="nf">more</span> <span class="o">.</span> <span class="mi">14</span><span class="p">)</span> <span class="p">(</span><span class="nf">were</span> <span class="o">.</span> <span class="mi">13</span><span class="p">)</span> <span class="p">(</span><span class="nf">office</span> <span class="o">.</span> <span class="mi">13</span><span class="p">)</span> <span class="p">(</span><span class="nf">own</span> <span class="o">.</span> <span class="mi">13</span><span class="p">)</span> <span class="p">(</span><span class="k">or</span> <span class="o">.</span> <span class="mi">12</span><span class="p">)</span> <span class="p">(</span><span class="nf">online</span> <span class="o">.</span> <span class="mi">12</span><span class="p">)</span> <span class="p">(</span><span class="nf">now</span> <span class="o">.</span> <span class="mi">12</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">blogging</span> <span class="o">.</span> <span class="mi">12</span><span class="p">)</span> <span class="p">(</span><span class="nf">how</span> <span class="o">.</span> <span class="mi">12</span><span class="p">)</span> <span class="p">(</span><span class="nf">employees</span> <span class="o">.</span> <span class="mi">11</span><span class="p">)</span> <span class="p">(</span><span class="nf">them</span> <span class="o">.</span> <span class="mi">11</span><span class="p">)</span> <span class="p">(</span><span class="nf">think</span> <span class="o">.</span> <span class="mi">11</span><span class="p">)</span> <span class="p">(</span><span class="nf">time</span> <span class="o">.</span> <span class="mi">11</span><span class="p">)</span> <span class="p">(</span><span class="nf">company</span> <span class="o">.</span> <span class="mi">11</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">lot</span> <span class="o">.</span> <span class="mi">11</span><span class="p">)</span> <span class="p">(</span><span class="nf">want</span> <span class="o">.</span> <span class="mi">11</span><span class="p">)</span> <span class="p">(</span><span class="nf">companies</span> <span class="o">.</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nf">could</span> <span class="o">.</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nf">know</span> <span class="o">.</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nf">get</span> <span class="o">.</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nf">learn</span> <span class="o">.</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nf">better</span> <span class="o">.</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">some</span> <span class="o">.</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nf">who</span> <span class="o">.</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nf">even</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span> <span class="p">(</span><span class="nf">thing</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span> <span class="p">(</span><span class="nf">much</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span> <span class="p">(</span><span class="nf">no</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span> <span class="p">(</span><span class="nf">make</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span> <span class="p">(</span><span class="nf">up</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span> <span class="p">(</span><span class="nf">being</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">money</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span> <span class="p">(</span><span class="nf">relationship</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span> <span class="p">(</span><span class="nf">that</span><span class="ss">'s</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span> <span class="p">(</span><span class="nf">us</span> <span class="o">.</span> <span class="mi">9</span><span class="p">)</span> <span class="p">(</span><span class="nf">anyone</span> <span class="o">.</span> <span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="nf">average</span> <span class="o">.</span> <span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="nf">bad</span> <span class="o">.</span> <span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="nf">same</span> <span class="o">.</span> <span class="mi">8</span><span class="p">)</span>
+<span class="o">..........</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>说明：</p>
+
+<p>行号 函数 说明
+09 <code>(list-&gt;symbo ls0)</code> 将一个由字符构成的列表（<code>ls0</code>）转换为一个符号
+12 <code>(char-in c . ls)</code> 检查</p>
+
+<h2 id="section-12-4">
+<span>12.4</span> 小结</h2>
+
+
+<p>符号是Lisp/Scheme中用于解析分析文段（例如词数统计，解析等）的一种字符式数据类型，有一些速度很快的函数适用于符号。</p>
+
+  	</div>
+</div>
+
+		
+			
+			<div class="navigation">
+				
+					<a class="prev_page" href="/yast-cn/chapter11.html">« 第 11 章字符与字符串</a>
+				
+				
+			</div>
+			
+		
+	</div></div></body>
+</html>

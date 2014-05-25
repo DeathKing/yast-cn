@@ -2,18 +2,18 @@
 <html lang="zh_CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<title>第 10 章 赋值</title>
-<meta name="author" content="DeathKing">
-<link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+	<title>第 10 章 赋值</title>
+    <meta name="author" content="DeathKing">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body><div class="entry"><div class="container">
 		
 <div class="item chapter">
 	<h1 id="chapter-10">
 <span>第 10 章</span> 赋值</h1>
-	<ol class="toc">
-<li class="level-2">
+	<ol class="toc">          <li class="level-2">
             <a href="#section-10-1">10.1 简介</a>
           </li>
           <li class="level-2">
@@ -47,7 +47,7 @@
             <a href="#section-10-6-1">10.6.1 练习1</a>
           </li>
 </ol>
-<div class="main">
+  	<div class="main">
   		<h2 id="section-10-1">
 <span>10.1</span> 简介</h2>
 
@@ -66,12 +66,12 @@
 赋值前参数应被定义。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="nv">var</span> <span class="mi">1</span><span class="p">)</span>
-<span class="p">(</span><span class="k">set! </span><span class="nv">var</span> <span class="p">(</span><span class="nb">* </span><span class="nv">var</span> <span class="mi">10</span><span class="p">))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="nv">var</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="k">set!</span> <span class="nv">var</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">var</span> <span class="mi">10</span><span class="p">))</span>
 <span class="nv">var</span> <span class="err">⇒</span> <span class="mi">10</span>
 
-<span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">i</span> <span class="mi">1</span><span class="p">))</span>
-    <span class="p">(</span><span class="k">set! </span><span class="nv">i</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">i</span> <span class="mi">3</span><span class="p">))</span>
+<span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">i</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="p">(</span><span class="k">set!</span> <span class="nv">i</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">i</span> <span class="mi">3</span><span class="p">))</span>
     <span class="nv">i</span><span class="p">)</span>
 <span class="err">⇒</span> <span class="mi">4</span>
 </pre></div>
@@ -95,10 +95,10 @@
 <p>你可以使用词法闭包来实现带有内部状态的过程。例如，用于模拟银行账户的过程可以按如下的方式编写：初始资金是10美元。函数接收一个整形参数。正数表示存入，负数表示取出。为了简单起见，这里允许存款为负数。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="nv">bank-account</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">balance</span> <span class="mi">10</span><span class="p">))</span>
-    <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span><span class="p">)</span>
-      <span class="p">(</span><span class="k">set! </span><span class="nv">balance</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">balance</span> <span class="nv">n</span><span class="p">))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="nv">bank-account</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">balance</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">set!</span> <span class="nv">balance</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">balance</span> <span class="nv">n</span><span class="p">))</span>
       <span class="nv">balance</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -117,11 +117,11 @@
 <p>因为在Scheme中，你可以编写返回过程的过程，因此你可以编写一个创建银行账户的函数。这个例子喻示着使用函数式程序设计语言可以很容易实现面向对象程序设计语言。实际上，只需要在这个基础上再加一点东西就可以实现一门面向对象程序设计语言了。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">make-bank-account</span> <span class="nv">balance</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">set! </span><span class="nv">balance</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">balance</span> <span class="nv">n</span><span class="p">))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">make-bank-account</span> <span class="nv">balance</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">set!</span> <span class="nv">balance</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">balance</span> <span class="nv">n</span><span class="p">))</span>
     <span class="nv">balance</span><span class="p">))</span>
-<span class="p">(</span><span class="k">define </span><span class="nv">gates-bank-account</span> <span class="p">(</span><span class="nf">make-bank-account</span> <span class="mi">10</span><span class="p">))</span>   <span class="c1">; Gates makes a bank account by donating  10 dollars</span>
+<span class="p">(</span><span class="k">define</span> <span class="nv">gates-bank-account</span> <span class="p">(</span><span class="nf">make-bank-account</span> <span class="mi">10</span><span class="p">))</span>   <span class="c1">; Gates makes a bank account by donating  10 dollars</span>
 <span class="c1">;Value: gates-bank-account</span>
 
 <span class="p">(</span><span class="nf">gates-bank-account</span> <span class="mi">50</span><span class="p">)</span>                              <span class="c1">; donating 50 dollars</span>
@@ -131,7 +131,7 @@
 <span class="c1">;Value: 5</span>
 
 
-<span class="p">(</span><span class="k">define </span><span class="nv">torvalds-bank-account</span> <span class="p">(</span><span class="nf">make-bank-account</span> <span class="mi">100</span><span class="p">))</span>  <span class="c1">; Torvalds makes a bank account by donating 100 dollars</span>
+<span class="p">(</span><span class="k">define</span> <span class="nv">torvalds-bank-account</span> <span class="p">(</span><span class="nf">make-bank-account</span> <span class="mi">100</span><span class="p">))</span>  <span class="c1">; Torvalds makes a bank account by donating 100 dollars</span>
 <span class="c1">;Value: torvalds-bank-account</span>
 
 <span class="p">(</span><span class="nf">torvalds-bank-account</span> <span class="mi">-70</span><span class="p">)</span>                             <span class="c1">; withdrawing 70 dollars</span>
@@ -161,17 +161,17 @@ Modify make-bank-account so that withdrawing more than balance causes error.�
 <p>函数set-cat!和set-cdr!分别为一个cons单元的car部分和cdr部分赋新值。和set!不同，这两个操作可以为S-表达式赋值。</p>
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="nv">tree</span> <span class="o">'</span><span class="p">((</span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">)))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="nv">tree</span> <span class="o">'</span><span class="p">((</span><span class="nf">1</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="nf">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="nf">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">)))</span>
 
-<span class="p">(</span><span class="nb">set-car! </span><span class="p">(</span><span class="nb">car </span><span class="nv">tree</span><span class="p">)</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1">; changing 1 to 100 </span>
-
-<span class="nv">tree</span>
- <span class="p">((</span><span class="mi">100</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">))</span>
-
-<span class="p">(</span><span class="nb">set-cdr! </span><span class="p">(</span><span class="nf">third</span> <span class="nv">tree</span><span class="p">)</span> <span class="o">'</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span> <span class="c1">; changing  '(7 8 9) to '(a b c) </span>
+<span class="p">(</span><span class="nb">set-car!</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">tree</span><span class="p">)</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1">; changing 1 to 100 </span>
 
 <span class="nv">tree</span>
-<span class="err">⇒</span> <span class="p">((</span><span class="mi">100</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">6</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
+ <span class="p">((</span><span class="nf">100</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="nf">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="nf">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nb">set-cdr!</span> <span class="p">(</span><span class="nf">third</span> <span class="nv">tree</span><span class="p">)</span> <span class="o">'</span><span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span> <span class="c1">; changing  '(7 8 9) to '(a b c) </span>
+
+<span class="nv">tree</span>
+<span class="err">⇒</span> <span class="p">((</span><span class="nf">100</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="nf">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="nf">6</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
 </pre></div>
 </div>
 <h3 id="section-10-4-1">
@@ -192,25 +192,25 @@ Modify make-bank-account so that withdrawing more than balance causes error.�
 
 <div class="codeblock has-caption">
 <p class="caption">[代码片段1] 队列的Scheme实现</p>
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">make-queue</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">cons </span><span class="o">'</span><span class="p">()</span> <span class="o">'</span><span class="p">()))</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">make-queue</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">cons</span> <span class="o">'</span><span class="p">()</span> <span class="o">'</span><span class="p">()))</span>
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">enqueue!</span> <span class="nv">queue</span> <span class="nv">obj</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">lobj</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">obj</span> <span class="o">'</span><span class="p">())))</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="p">(</span><span class="nb">car </span><span class="nv">queue</span><span class="p">))</span>
-	<span class="p">(</span><span class="nf">begin</span>
-	  <span class="p">(</span><span class="nb">set-car! </span><span class="nv">queue</span> <span class="nv">lobj</span><span class="p">)</span>
-	  <span class="p">(</span><span class="nb">set-cdr! </span><span class="nv">queue</span> <span class="nv">lobj</span><span class="p">))</span>
-	<span class="p">(</span><span class="nf">begin</span>
-	  <span class="p">(</span><span class="nb">set-cdr! </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">queue</span><span class="p">)</span> <span class="nv">lobj</span><span class="p">)</span>
-	  <span class="p">(</span><span class="nb">set-cdr! </span><span class="nv">queue</span> <span class="nv">lobj</span><span class="p">)))</span>
-    <span class="p">(</span><span class="nb">car </span><span class="nv">queue</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">enqueue!</span> <span class="nv">queue</span> <span class="nv">obj</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">lobj</span> <span class="p">(</span><span class="nb">cons</span> <span class="nv">obj</span> <span class="o">'</span><span class="p">())))</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">queue</span><span class="p">))</span>
+	<span class="p">(</span><span class="k">begin</span>
+	  <span class="p">(</span><span class="nb">set-car!</span> <span class="nv">queue</span> <span class="nv">lobj</span><span class="p">)</span>
+	  <span class="p">(</span><span class="nb">set-cdr!</span> <span class="nv">queue</span> <span class="nv">lobj</span><span class="p">))</span>
+	<span class="p">(</span><span class="k">begin</span>
+	  <span class="p">(</span><span class="nb">set-cdr!</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">queue</span><span class="p">)</span> <span class="nv">lobj</span><span class="p">)</span>
+	  <span class="p">(</span><span class="nb">set-cdr!</span> <span class="nv">queue</span> <span class="nv">lobj</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nb">car</span> <span class="nv">queue</span><span class="p">)))</span>
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">dequeue!</span> <span class="nv">queue</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">obj</span> <span class="p">(</span><span class="nb">car </span><span class="p">(</span><span class="nb">car </span><span class="nv">queue</span><span class="p">))))</span>
-    <span class="p">(</span><span class="nb">set-car! </span><span class="nv">queue</span> <span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">car </span><span class="nv">queue</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">dequeue!</span> <span class="nv">queue</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">obj</span> <span class="p">(</span><span class="nb">car</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">queue</span><span class="p">))))</span>
+    <span class="p">(</span><span class="nb">set-car!</span> <span class="nv">queue</span> <span class="p">(</span><span class="nb">cdr</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">queue</span><span class="p">)))</span>
     <span class="nv">obj</span><span class="p">))</span>
-<span class="p">(</span><span class="k">define </span><span class="nv">q</span> <span class="p">(</span><span class="nf">make-queue</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span> <span class="nv">q</span> <span class="p">(</span><span class="nf">make-queue</span><span class="p">))</span>
 <span class="c1">;Value: q</span>
 
 <span class="p">(</span><span class="nf">enqueue!</span> <span class="nv">q</span> <span class="ss">'a</span><span class="p">)</span>
@@ -244,13 +244,13 @@ Modify make-bank-account so that withdrawing more than balance causes error.�
 
 
 <div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">make-bank-account</span> <span class="nv">amount</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">n</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">m</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">amount</span> <span class="nv">n</span><span class="p">)))</span>
-      <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">negative? </span><span class="nv">m</span><span class="p">)</span>
+<div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">make-bank-account</span> <span class="nv">amount</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">m</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">amount</span> <span class="nv">n</span><span class="p">)))</span>
+      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">negative?</span> <span class="nv">m</span><span class="p">)</span>
 	  <span class="ss">'error</span>
-	  <span class="p">(</span><span class="nf">begin</span>
-	    <span class="p">(</span><span class="k">set! </span><span class="nv">amount</span> <span class="nv">m</span><span class="p">)</span>
+	  <span class="p">(</span><span class="k">begin</span>
+	    <span class="p">(</span><span class="k">set!</span> <span class="nv">amount</span> <span class="nv">m</span><span class="p">)</span>
 	    <span class="nv">amount</span><span class="p">)))))</span>
 </pre></div>
 </div>
@@ -261,8 +261,10 @@ Modify make-bank-account so that withdrawing more than balance causes error.�
 			
 			<div class="navigation">
 				
-					<a class="prev_page" href="/yast-cn/yast-cn/chapter9.html">« 第 9 章输入输出</a>
+					<a class="prev_page" href="/yast-cn/chapter9.html">« 第 9 章输入输出</a>
 				
+				
+					<a class="next_page" href="/yast-cn/chapter11.html">第 11 章字符与字符串 »</a>
 				
 			</div>
 			

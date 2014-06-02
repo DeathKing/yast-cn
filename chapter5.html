@@ -86,7 +86,7 @@
 
 <p>在R5RS中，<code>false</code>（<code>#f</code>）和空表<code>（’()）</code>是两个不同的对象。然而，在MIT-Scheme中，这两个为同一对象。这个不同可能是历史遗留问题，在以前的标准——R4RS中，<code>#f</code>和<code>’()</code>被定义为同一对象。</p>
 
-<p>因此，从兼容性角度考虑，你不应该使用表目录【待议】作为谓词。使用函数<code>null?</code>来判断表是否为空。</p>
+<p>因此，从兼容性角度考虑，你不应该使用表目录作为谓词。使用函数<code>null?</code>来判断表是否为空。</p>
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="nb">null?</span> <span class="o">'</span><span class="p">())</span>
@@ -110,10 +110,11 @@
 </div>
 <p>通常来说，几何增长数列的求和公式如下：</p>
 
-<p>
-  <img src="./figures/sum_of_gp.png" alt="">
-</p>
-
+<div class="codeblock">
+<div class="highlight type-plaintext"><pre>a0 * (1 - r^n) / (1 - r)                      (r ≠ 1)
+a0 * n                                        (r = 1)
+</pre></div>
+</div>
 <p>如果<code>if</code>表达式对所有参数求值的话，那么有<code>;!!</code>注释的那行就算在<code>r=1</code>时也会被求值，这将导致产生一个“除数为0”的错误。</p>
 
 <p>你也可以省去<code>else_value</code>项。这样的话，当<code>predicate</code>为假时，返回值就没有被指定。如果你希望当<code>predicate</code>为假时返回<code>#f</code>，那么就要明确地将它写出来。</p>

@@ -60,7 +60,7 @@
   <li>基本的表操作；</li>
 </ol>
 
-<p>在本章中，我会讲解如何自定义函数。正如Scheme是函数式编程语言，你需要通过编写小型函数来构造你的程序。因此，明白如何构造并组合这些函数对掌握Scheme尤为关键。在前端定义函数非常不便，因此我们通常需要在编译器中编辑好代码，并在解释器中加载它们。</p>
+<p>在本章中，我会讲解如何自定义函数。由于Sheme是函数式编程语言，你需要通过编写小型函数来构造程序。因此，明白如何构造并组合这些函数对掌握Scheme尤为关键。在前端定义函数非常不便，因此我们通常需要在文本编辑器中编辑好代码，并在解释器中加载它们。</p>
 
 <h2 id="section-4-2">
 <span>4.2</span> 如何定义简单函数并加载它们</h2>
@@ -68,7 +68,7 @@
 
 <p>你可以使用<code>define</code>来将一个符号与一个值绑定。你可以通过这个操作符定义例如数、字符、表、函数等任何类型的全局参数。</p>
 
-<p>让我们使用任意一款编辑器（记事本亦可）来编辑代码片段1中展示的代码，并将它们存储为‘hello.scm’，放置在类似于‘C:\doc\scheme\’的文件夹下。如果可以的话，把这些文件放在你在第一章定义的MIT-Scheme默认文件夹下。</p>
+<p>让我们使用任意一款编辑器（记事本亦可）来编辑代码片段1中展示的代码，并将它们存储为<code>hello.scm</code>，放置在类似于<code>C:\doc\scheme\</code>的文件夹下。如果可以的话，把这些文件放在你在第一章定义的MIT-Scheme默认文件夹下。</p>
 
 <div class="codeblock has-caption">
 <p class="caption">代码片段1（hello.scm）</p>
@@ -91,7 +91,7 @@
 <span class="c1">;Value: fhello</span>
 </pre></div>
 </div>
-<p>通过这些命令，hello.scm就被加载到解释器中。如果你的当前目录被设定在了脚本所在目录，那么你就不需要再输入第一行的命令了。然后，向解释器输入下面的命令：</p>
+<p>通过这些命令，<code>hello.scm</code>就被加载到解释器中。如果你的当前目录被设定在了脚本所在目录，那么你就不需要再输入第一行的命令了。然后，向解释器输入下面的命令：</p>
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="nv">vhello</span>
@@ -104,15 +104,15 @@
 <span class="c1">;Value 17: "Hello world"</span>
 </pre></div>
 </div>
-<p>操作符<code>define</code>用于声明变量并接受两个参数。<code>define</code>运算符会使用第一个参数作为全局参数，并将其与第二个参数绑定起来。因此，代码片段1的第1行中，我们声明了一个全局参数<code>vhello</code>，并将其与<code>“Hello，World”</code>绑定起来。</p>
+<p>操作符<code>define</code>用于声明变量，它接受两个参数。<code>define</code>运算符会使用第一个参数作为全局参数，并将其与第二个参数绑定起来。因此，代码片段1的第1行中，我们声明了一个全局参数<code>vhello</code>，并将其与<code>"Hello，World"</code>绑定起来。</p>
 
 <p>紧接着，在第2行声明了一个返回<code>“Hello World”</code>的过程。</p>
 
 <p>特殊形式<code>lambda</code>用于定义过程。<code>lambda</code>需要至少一个的参数，第一个参数是由定义的过程所需的参数组成的表。因为本例<code>fhello</code>没有参数，所以参数表是空表。</p>
 
-<p>在解释器中输入<code>vhello</code>，解释器返回“Hello，World”。如果你在解释器中输入<code>fhello</code>，它也会返回向下面这样的值：<code>#[compound-procedure 16 fhello]</code>，这说明了Scheme解释器把过程和常规数据类型用同样的方式对待。正如我们在前面章节讲解的那样，Scheme解释器通过内存空间中的数据地址操作所有的数据，因此，所有存在于内存空间中的对象都以同样的方式处理。</p>
+<p>在解释器中输入<code>vhello</code>，解释器返回“Hello，World”。如果你在解释器中输入<code>fhello</code>，它也会返回像下面这样的值：<code>#[compound-procedure 16 fhello]</code>，这说明了Scheme解释器把过程和常规数据类型用同样的方式对待。正如我们在前面章节中讲解的那样，Scheme解释器通过内存空间中的数据地址操作所有的数据，因此，所有存在于内存空间中的对象都以同样的方式处理。</p>
 
-<p>如果把<code>fhello</code>当过程对待，你应该用括号扩住这些符号，比如<code>(fhello)</code>。</p>
+<p>如果把<code>fhello</code>当过程对待，你应该用括号括住这些符号，比如<code>(fhello)</code>。</p>
 
 <p>然后解释器会按照第二章讲述的规则那样对它求值，并返回“Hello World”。</p>
 
@@ -150,7 +150,7 @@
 <span class="nv">Hello</span>
 </pre></div>
 </div>
-<p>函数<code>hello</code>有一个参数<code>(name)</code>，并会把<code>“Hello”</code>、<code>name的值</code>、和<code>“！”</code>连结在一起并返回。</p>
+<p>函数<code>hello</code>有一个参数<code>(name)</code>，并会把<code>“Hello”</code>、<code>name的值</code>、和<code>"!"</code>连结在一起并返回。</p>
 
 <p>预定义函数<code>string-append</code>可以接受任意多个数的参数，并返回将这些参数连结在一起后的字符串。</p>
 
@@ -196,8 +196,9 @@
     <li>编写一个将角的单位由度转换为弧度的函数。180度即π弧度。π可以通过下面的式子定义：
 <code>(define pi (* 4 (atan 1.0)))</code>。</li>
     <li>编写一个用于计算按照一个常量速度（水平分速度）运动的物体，t秒内的位移的函数。</li>
-    <li>编写一个用于计算物体落地前的飞行时间的函数，参数是垂直分速度。忽略空气阻力并取重力加速度<code>g</code>为<code>9.8m/s^2</code>。提示：设落地时瞬时竖直分速度为<code>-Vy</code>，有如下关系。<code>2Vy = g*t</code>  此处<code>t</code>为落地时的时间。</li>
+    <li>编写一个用于计算物体落地前的飞行时间的函数，参数是垂直分速度。忽略空气阻力并取重力加速度<code>g</code>为<code>9.8m/s^2</code>。提示：设落地时瞬时竖直分速度为<code>-Vy</code>，有如下关系。<code>2 * Vy = g * t</code>  此处<code>t</code>为落地时的时间。</li>
     <li>使用问题1-3中定义的函数编写一个用于计算一个以初速度<code>v</code>和角度<code>theta</code>掷出的小球的飞行距离。</li>
+    <li>计算一个初速度为40m/s、与水平方向呈30°的小球飞行距离。这个差不多就是一个臂力强劲的职业棒球手的投掷距离。</li>
   </ol>
 
   <p>提示：首先，将角度的单位转换为弧度（假定转换后的角度为<code>theta1</code>）。初始水平、竖直分速度分别表示为：<code>v*cos(theta1)</code>和<code>v*sin(theta1)</code>。落地时间可以通过问题3中定义的函数计算。由于水平分速度不会改变， 因此可以利用问题2中的函数计算距离。</p>
@@ -257,7 +258,7 @@
   </li>
 </ul>
 
-<p>请查阅[](http://www-swiss.ai.mit.edu/projects/scheme/documentation/user_8.html)以获得更多关于Edwin的帮助。你下载的MIT-Scheme中也附带了同样的文档。</p>
+<p>请查阅<a href="http://www-swiss.ai.mit.edu/projects/scheme/documentation/user_8.html">Scheme用户手册</a>以获得更多关于Edwin的帮助。你下载的MIT-Scheme中也附带了同样的文档。</p>
 
 <h2 id="section-4-6">
 <span>4.6</span> 小结</h2>

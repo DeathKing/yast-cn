@@ -46,39 +46,42 @@
 <p>在某个字符前添加<code>#\</code>来表明该物是一个字符。例如，<code>#\a</code>表示字符a。字符<code>#\Space</code>、<code>#\Tab</code>、<code>#\Linefeed</code>和<code>#\Return</code>分别代表空格（Space）、制表符（Tab），Linefeed和返回（Return）。R5RS中定义了下面的与字符相关的函数。</p>
 
 <dl>
-  <dt>`(char? obj)`</dt>
-  <dd>如果obj是一个字符则返回#t。</dd>
+  <dt><code>(char? obj)</code></dt>
+  <dd>如果obj是一个字符则返回<code>#t</code>。</dd>
 
-  <dt>`(char=? c1 c3)`</dt>
-  <dd>如果c1和c2是同一个字符的话则返回#t。</dd>
+  <dt><code>(char=? c1 c3)</code></dt>
+  <dd>如果c1和c2是同一个字符的话则返回<code>#t</code>。</dd>
 
-  <dt>`(char-&gt;integer c)`</dt>
-  <dd>将c转化为对应的整数（字符代码，character code）。示例：(char-&gt;integer #\a) =&gt; 97</dd>
+  <dt><code>(char-&gt;integer c)</code></dt>
+  <dd>将c转化为对应的整数（字符代码，character code）。示例：<code>(char-&gt;integer #\a) =&gt; 97</code>
+</dd>
 
-  <dt>`(integer-&gt;char n)`</dt>
+  <dt><code>(integer-&gt;char n)</code></dt>
   <dd>该函数将一个整数转化为对应的字符。</dd>
 
-  <dt>`(char&lt;? c1 c2)`</dt>
-  <dt>`(char&lt;= c1 c2)`</dt>
-  <dt>`(char&gt; c1 c2)`</dt>
-  <dt>`(char&gt;= c1 c2)`</dt>
-  <dd>这些函数用于比较字符。实际上，这些函数比较的是字符代码的大小。例如，`(char&lt;? c1 c2)`等同于`(&lt; (char-&gt;integer c1) (char-&gt;integer c2))`</dd>
+  <dt><code>(char&lt;? c1 c2)</code></dt>
+  <dt><code>(char&lt;= c1 c2)</code></dt>
+  <dt><code>(char&gt; c1 c2)</code></dt>
+  <dt><code>(char&gt;= c1 c2)</code></dt>
+  <dd>这些函数用于比较字符。实际上，这些函数比较的是字符代码的大小。例如，<code>(char&lt;? c1 c2)</code>等同于<code>(&lt; (char-&gt;integer c1) (char-&gt;integer c2))</code>
+</dd>
 
-  <dt>`(char-ci=? c1 c2)`</dt>
-  <dt>`(char-ci&lt;? c1 c2)`</dt>
-  <dt>`(char-ci&lt;=? c1 c2)`</dt> 
-  <dt>`(char-ci&gt;? c1 c2)`</dt>
-  <dt>`(char-ci&gt;=? c1 c2)`</dt>
+  <dt><code>(char-ci=? c1 c2)</code></dt>
+  <dt><code>(char-ci&lt;? c1 c2)</code></dt>
+  <dt><code>(char-ci&lt;=? c1 c2)</code></dt> 
+  <dt><code>(char-ci&gt;? c1 c2)</code></dt>
+  <dt><code>(char-ci&gt;=? c1 c2)</code></dt>
   <dd>这些比较函数对大小写不敏感。</dd>
 
-  <dt>`(char-alphabetic? c)`</dt>
-  <dt>`(char-numeric? c)`</dt>
-  <dt>`(char-whitespace? c)`</dt>
-  <dt>`(char-upper-case? c)`</dt>
-  <dt>`(char-lower-case? c)`</dt>
-    <dd>这些函数分别用于检测字符c是否为字母、数字、空白符、大写字母或小写字母。</dd>
-  <dt>`(char-upcase c)`</dt>
-  <dt>`(char-downcase c)`</dt>
+  <dt><code>(char-alphabetic? c)</code></dt>
+  <dt><code>(char-numeric? c)</code></dt>
+  <dt><code>(char-whitespace? c)</code></dt>
+  <dt><code>(char-upper-case? c)</code></dt>
+  <dt><code>(char-lower-case? c)</code></dt>
+<dd>这些函数分别用于检测字符c是否为字母、数字、空白符、大写字母或小写字母。</dd>
+
+  <dt><code>(char-upcase c)</code></dt>
+  <dt><code>(char-downcase c)</code></dt>
     <dd>这些函数分别返回字符C对应的大写或小写。</dd>
 </dl>
 
@@ -89,44 +92,46 @@
 <p>字符串通过两个闭合的双引号表示。例如，”abc”表示字符串abc。R5RS定义了下面的函数。</p>
 
 <dl>
-  <dt>`(string? s)`</dt>
-  <dd>如果s是一个字符则返回#t。</dd>
+  <dt><code>(string? s)</code></dt>
+  <dd>如果<code>s</code>是一个字符则返回<code>#t</code>。</dd>
 
-  <dt>`(make-string n c)`</dt>
-  <dd>返回由n个字符c组成的字符串。参数c可选。</dd>
+  <dt><code>(make-string n c)</code></dt>
+  <dd>返回由<code>n</code>个字符<code>c</code>组成的字符串。参数<code>c</code>可选。</dd>
   
-  <dt>`(string-length s)`</dt>
-  <dd>返回字符串s的长度。</dd>
+  <dt><code>(string-length s)</code></dt>
+  <dd>返回字符串<code>s</code>的长度。</dd>
   
-  <dt>`(string=? s1 s2)`</dt>
-  <dd>如果字符串s1和s2相同的话则返回#t。</dd>
+  <dt><code>(string=? s1 s2)</code></dt>
+  <dd>如果字符串<code>s1</code>和<code>s2</code>相同的话则返回<code>#t</code>。</dd>
 
-  <dt>`(string-ref s idx)`</dt>
-  <dd>返回字符串s中索引为idx的字符（索引从0开始计数）。</dd>
+  <dt><code>(string-ref s idx)</code></dt>
+  <dd>返回字符串<code>s</code>中索引为<code>idx</code>的字符（索引从0开始计数）。</dd>
 
-  <dt>`(string-set! s idx c)`</dt>
-  <dd>将字符串S中索引为idx的字符设置为c。</dd>
+  <dt><code>(string-set! s idx c)</code></dt>
+  <dd>将字符串<code>s</code>中索引为<code>idx</code>的字符设置为<code>c</code>。</dd>
 
-  <dt>`(substring s start end)`</dt>
-  <dd>返回字符串s从start开始到end-1处的子串。例如`(substring “abcdefg” 1 4) =&gt; “b c d”`</dd>
+  <dt><code>(substring s start end)</code></dt>
+  <dd>返回字符串<code>s</code>从<code>start</code>开始到<code>end-1</code>处的子串。例如<code>(substring "abcdefg" 1 4) =&gt; "b c d"</code>
+</dd>
 
-  <dt>`(string-append s1 s2 ...)`</dt>
-  <dd>连接两个字符串s1和s2</dd>
+  <dt><code>(string-append s1 s2 ...)</code></dt>
+  <dd>连接两个字符串<code>s1</code>和<code>s2</code>
+</dd>
 
-  <dt>`(string-&gt;list s)`</dt>
-  <dd>将字符串s转换为由字符构成的表。</dd>
+  <dt><code>(string-&gt;list s)</code></dt>
+  <dd>将字符串<code>s</code>转换为由字符构成的表。</dd>
 
-  <dt>`(list-&gt;string ls)`</dt>
+  <dt><code>(list-&gt;string ls)</code></dt>
   <dd>将一个由字符构成的表转换为字符串。</dd>
 
-  <dt>`(string-copy s)`</dt>
-  <dd>复制字符串s。</dd>
+  <dt><code>(string-copy s)</code></dt>
+  <dd>复制字符串<code>s</code>。</dd>
 </dl>
 
 <blockquote>
   <p>练习1</p>
 
-  <p>编写一个函数(title-style)，该函数用于将每个单词的首字母大写。</p>
+  <p>编写一个函数<code>title-style</code>，该函数用于将每个单词的首字母大写。</p>
 
 <div class="codeblock">
 <div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">title-style</span> <span class="s">"the cathedral and the bazaar"</span><span class="p">)</span>

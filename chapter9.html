@@ -44,13 +44,13 @@
             <a href="#section-9-5">9.5 习题解答</a>
           </li>
           <li class="level-3">
-            <a href="#section-9-5-1">9.5.1 练习1</a>
+            <a href="#section-9-5-1">9.5.1 答案1</a>
           </li>
           <li class="level-3">
-            <a href="#section-9-5-2">9.5.2 练习2</a>
+            <a href="#section-9-5-2">9.5.2 答案2</a>
           </li>
           <li class="level-3">
-            <a href="#section-9-5-3">9.5.3 练习3</a>
+            <a href="#section-9-5-3">9.5.3 答案3</a>
           </li>
 </ol>
   	<div class="main">
@@ -179,8 +179,9 @@ Scheme is an elegant programming language.)
 <blockquote>
   <p>练习1</p>
 
-  <p>编写函数<code>(read-lines)</code>，该函数返回一个由字符串构成的表，分别代表每一行的内容。在Scheme中，换行符是由<code>#\Linefeed</code>表示。下面演示了将该函数用于”hello.txt”的结果。
-<code>(read-lines "hello.txt") ⇒ ("Hello world!" "Scheme is an elegant programming language.")</code></p>
+  <p>编写函数<code>(read-lines)</code>，该函数返回一个由字符串构成的表，分别代表每一行的内容。在Scheme中，换行符是由<code>#\Linefeed</code>表示。下面演示了将该函数用于”hello.txt”的结果。</p>
+
+  <p><code>(read-lines "hello.txt") ⇒ ("Hello world!" "Scheme is an elegant programming language.")</code></p>
 </blockquote>
 
 <h2 id="section-9-3">
@@ -193,19 +194,19 @@ Scheme is an elegant programming language.)
 
 <p>输出有和输入类似的函数，比如：</p>
 
-<blockquote>
-  <p><code>(open-output-file filename)</code><br>
-该函数打开一个文件用作输出，放回该输出端口。  </p>
+<dl>
+  <dt><code>(open-output-file filename)</code></dt>
+  <dd>该函数打开一个文件用作输出，放回该输出端口。</dd>
 
-  <p><code>(close-output-port port)</code>
-关闭用于输出的端口。</p>
+  <dt><code>(close-output-port port)</code></dt>
+  <dd>关闭用于输出的端口。</dd>
 
-  <p><code>(call-with-output-file filename procedure)</code>
-打开文件<code>filename</code>用于输出，并调用过程<code>procedure</code>。该函数以输出端口为参数。</p>
+  <dt><code>(call-with-output-file filename procedure)</code></dt>
+  <dd>打开文件<code>filename</code>用于输出，并调用过程<code>procedure</code>。该函数以输出端口为参数。</dd>
 
-  <p><code>(with-output-to-file filename procedure)</code>
-打开文件<code>filename</code>作为标准输出，并调用过程<code>procedure</code>。该过程没有参数。当控制权从过程<code>procedure</code>中返回时，文件被关闭。</p>
-</blockquote>
+  <dt><code>(with-output-to-file filename procedure)</code></dt>
+  <dd>打开文件<code>filename</code>作为标准输出，并调用过程<code>procedure</code>。该过程没有参数。当控制权从过程<code>procedure</code>中返回时，文件被关闭。</dd>
+</dl>
 
 <h3 id="section-9-3-2">
 <span>9.3.2</span> 用于输出的函数</h3>
@@ -213,19 +214,19 @@ Scheme is an elegant programming language.)
 
 <p>下面的函数可用于输出。如果参数<code>port</code>被省略的话，则输出至标准输出。</p>
 
-<blockquote>
-  <p><code>(write obj port)</code>
-该函数将<code>obj</code>输出至<code>port</code>。字符串被双引号括起而字符具有前缀<code>#\</code>。</p>
+<dl>
+  <dt><code>(write obj port)</code></dt>
+  <dd>该函数将<code>obj</code>输出至<code>port</code>。字符串被双引号括起而字符具有前缀<code>#\</code>。</dd>
 
-  <p><code>(display obj port)</code>
-该函数将<code>obj</code>输出至<code>port</code>。字符串<em>不被</em>双引号括起而字符<em>不</em>具有前缀<code>#\</code>。</p>
+  <dt><code>(display obj port)</code></dt>
+  <dd>该函数将<code>obj</code>输出至<code>port</code>。字符串*不被*双引号括起而字符*不*具有前缀<code>#\</code>。</dd>
 
-  <p><code>(newline port)</code>
-以新行起始。</p>
+  <dt><code>(newline port)</code></dt>
+  <dd>以新行起始。</dd>
 
-  <p><code>(write-char char port)</code>
-该函数向<code>port</code>写入一个字符。</p>
-</blockquote>
+  <dt><code>(write-char char port)</code></dt>
+  <dd>该函数向<code>port</code>写入一个字符。</dd>
+</dl>
 
 <blockquote>
   <p>练习2</p>
@@ -243,14 +244,14 @@ Scheme is an elegant programming language.)
 <span>9.4</span> 小结</h2>
 
 
-<p>因为Scheme的IO设置非常的小，所以本章也十分短。下一章中，我会讲解赋值。</p>
+<p>因为Scheme的IO设施非常的小，所以本章也十分短。下一章中，我会讲解赋值。</p>
 
 <h2 id="section-9-5">
 <span>9.5</span> 习题解答</h2>
 
 
 <h3 id="section-9-5-1">
-<span>9.5.1</span> 练习1</h3>
+<span>9.5.1</span> 答案1</h3>
 
 
 <div class="codeblock">
@@ -284,7 +285,7 @@ Scheme is an elegant programming language.)
 </pre></div>
 </div>
 <h3 id="section-9-5-2">
-<span>9.5.2</span> 练习2</h3>
+<span>9.5.2</span> 答案2</h3>
 
 
 <div class="codeblock">
@@ -302,7 +303,7 @@ Scheme is an elegant programming language.)
 </pre></div>
 </div>
 <h3 id="section-9-5-3">
-<span>9.5.3</span> 练习3</h3>
+<span>9.5.3</span> 答案3</h3>
 
 
 <div class="codeblock">

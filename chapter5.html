@@ -236,10 +236,10 @@ a0 * n                                        (r = 1)
   <p>编写下列函数。</p>
 
   <p>成绩（A-D）是由分数决定的。编写一个将分数映射为成绩的函数，映射规则如下：<br>
-+ A 如果 score ≥ 80
-+ B 如果 60 ≤ score ≤ 79
-+ C 如果 40 ≤ score ≤ 59
-+ D 如果 score &lt; 40</p>
++ A 如果 score ≥ 80<br>
++ B 如果 60 ≤ score ≤ 79<br>
++ C 如果 40 ≤ score ≤ 59<br>
++ D 如果 score &lt; 40  </p>
 </blockquote>
 
 <h2 id="section-5-5">
@@ -428,12 +428,14 @@ a0 * n                                        (r = 1)
 <span class="c1">; 2     </span>
 <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">inv</span> <span class="nv">n</span><span class="p">)</span>
   <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">not</span> <span class="p">(</span><span class="nb">zero?</span> <span class="nv">n</span><span class="p">))</span>
-      <span class="p">(</span><span class="nb">/</span> <span class="nv">n</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nb">/</span> <span class="nv">n</span><span class="p">)</span>
+      <span class="no">#f</span><span class="p">))</span>
 
 <span class="c1">; 3</span>
 <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">i2a</span> <span class="nv">n</span><span class="p">)</span>
   <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">&lt;=</span> <span class="mi">33</span> <span class="nv">n</span> <span class="mi">126</span><span class="p">)</span>
-      <span class="p">(</span><span class="nb">integer-&gt;char</span> <span class="nv">n</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nb">integer-&gt;char</span> <span class="nv">n</span><span class="p">)</span>
+      <span class="no">#f</span><span class="p">))</span>
 </pre></div>
 </div>
 <h3 id="section-5-7-2">

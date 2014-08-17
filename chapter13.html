@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
-	<title> </title>
+	<title>第 13 章 关联表和哈希表</title>
     <meta name="author" content="DeathKing">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,11 +11,32 @@
 <body><div class="entry"><div class="container">
 		
 <div class="item chapter">
-	<h1 id="">
-<span></span> </h1>
-	<ol class="toc"></ol>
+	<h1 id="chapter-13">
+<span>第 13 章</span> 关联表和哈希表</h1>
+	<ol class="toc">          <li class="level-2">
+            <a href="#section-13-1">13.1 简介</a>
+          </li>
+</ol>
   	<div class="main">
-  		
+  		<h2 id="section-13-1">
+<span>13.1</span> 简介</h2>
+
+
+<p>本章中，我会讲解用于表示数据关联的关联表和哈希表。关联的数据室由键和值组成的序对，值由键唯一定义。表1显示了书籍和作者构成的配对。书籍可以确定作者，反之由作者定义书籍则不可，这是因为一个作者可能会写很多本书。表1中，由于P. Graham和L.Carroll分贝写了两本书，因此他们的书无法被作者的名字唯一定义。</p>
+
+<p>表1</p>
+
+<p>Author	Book
+P. Graham	On Lisp
+P. Graham	ANSI Common Lisp
+E. S. Raymond	The Cathedral and the Bazaar
+K. Dybvig	The Scheme Programming Language
+F. P. Brooks, Jr.	The Mythical Man-Month
+L. Carroll	Alice’s Adventures in Wonderland
+L. Carroll	Through the Looking-Glass, and What Alice Found There</p>
+
+<p>R^5RS定义了关联表，因此它再所有Scheme实现中都可用。</p>
+
 
   	</div>
 </div>

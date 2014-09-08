@@ -1,0 +1,3 @@
+source :rubygems
+
+gem 'burr', '~> 0.0.1'

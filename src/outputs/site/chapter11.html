@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="utf-8" />
+	<title>第 11 章 字符与字符串</title>
+    <meta name="author" content="DeathKing" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<div class="container">
+		
+<div class="item chapter">
+	<h1 id="chapter-11"><span>第 11 章</span> 字符与字符串</h1>
+	<ol class="toc">          <li class="level-2">
+            <a href="#section-11-1">11.1 简介</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-11-2">11.2 字符</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-11-3">11.3 字符串</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-11-4">11.4 小结</a>
+          </li>
+          <li class="level-2">
+            <a href="#section-11-5">11.5 习题解答</a>
+          </li>
+          <li class="level-3">
+            <a href="#section-11-5-1">11.5.1 练习1</a>
+          </li>
+</ol>
+  	<div class="main">
+  		<h2 id='section-11-1'><span>11.1</span> 简介</h2>
+
+
+<p>我只介绍了表和数，因为它们在Scheme中最为常用。然而，Scheme也有像<strong>字符（Character）</strong>、<strong>字符串（String）</strong>、<strong>符号（Symbol）</strong>、<strong>向量（Vector）</strong>等的其它数据类型，我将在11到14章节中介绍它们。</p>
+
+<h2 id='section-11-2'><span>11.2</span> 字符</h2>
+
+
+<p>在某个字符前添加<code>#\</code>来表明该物是一个字符。例如，<code>#\a</code>表示字符a。字符<code>#\Space</code>、<code>#\Tab</code>、<code>#\Linefeed</code>和<code>#\Return</code>分别代表空格（Space）、制表符（Tab），Linefeed和返回（Return）。R5RS中定义了下面的与字符相关的函数。</p>
+
+<dl>
+  <dt><code>(char? obj)</code></dt>
+  <dd>如果obj是一个字符则返回<code>#t</code>。</dd>
+
+  <dt><code>(char=? c1 c3)</code></dt>
+  <dd>如果c1和c2是同一个字符的话则返回<code>#t</code>。</dd>
+
+  <dt><code>(char-&gt;integer c)</code></dt>
+  <dd>将c转化为对应的整数（字符代码，character code）。示例：<code>(char-&gt;integer #\a) =&gt; 97</code></dd>
+
+  <dt><code>(integer-&gt;char n)</code></dt>
+  <dd>该函数将一个整数转化为对应的字符。</dd>
+
+  <dt><code>(char&lt;? c1 c2)</code></dt>
+  <dt><code>(char&lt;= c1 c2)</code></dt>
+  <dt><code>(char&gt; c1 c2)</code></dt>
+  <dt><code>(char&gt;= c1 c2)</code></dt>
+  <dd>这些函数用于比较字符。实际上，这些函数比较的是字符代码的大小。例如，<code>(char&lt;? c1 c2)</code>等同于<code>(&lt; (char-&gt;integer c1) (char-&gt;integer c2))</code></dd>
+
+  <dt><code>(char-ci=? c1 c2)</code></dt>
+  <dt><code>(char-ci&lt;? c1 c2)</code></dt>
+  <dt><code>(char-ci&lt;=? c1 c2)</code></dt> 
+  <dt><code>(char-ci&gt;? c1 c2)</code></dt>
+  <dt><code>(char-ci&gt;=? c1 c2)</code></dt>
+  <dd>这些比较函数对大小写不敏感。</dd>
+
+  <dt><code>(char-alphabetic? c)</code></dt>
+  <dt><code>(char-numeric? c)</code></dt>
+  <dt><code>(char-whitespace? c)</code></dt>
+  <dt><code>(char-upper-case? c)</code></dt>
+  <dt><code>(char-lower-case? c)</code></dt>
+<dd>这些函数分别用于检测字符c是否为字母、数字、空白符、大写字母或小写字母。</dd>
+
+  <dt><code>(char-upcase c)</code></dt>
+  <dt><code>(char-downcase c)</code></dt>
+    <dd>这些函数分别返回字符C对应的大写或小写。</dd>
+</dl>
+
+<h2 id='section-11-3'><span>11.3</span> 字符串</h2>
+
+
+<p>字符串通过两个闭合的双引号表示。例如，”abc”表示字符串abc。R5RS定义了下面的函数。</p>
+
+<dl>
+  <dt><code>(string? s)</code></dt>
+  <dd>如果<code>s</code>是一个字符则返回<code>#t</code>。</dd>
+
+  <dt><code>(make-string n c)</code></dt>
+  <dd>返回由<code>n</code>个字符<code>c</code>组成的字符串。参数<code>c</code>可选。</dd>
+  
+  <dt><code>(string-length s)</code></dt>
+  <dd>返回字符串<code>s</code>的长度。</dd>
+  
+  <dt><code>(string=? s1 s2)</code></dt>
+  <dd>如果字符串<code>s1</code>和<code>s2</code>相同的话则返回<code>#t</code>。</dd>
+
+  <dt><code>(string-ref s idx)</code></dt>
+  <dd>返回字符串<code>s</code>中索引为<code>idx</code>的字符（索引从0开始计数）。</dd>
+
+  <dt><code>(string-set! s idx c)</code></dt>
+  <dd>将字符串<code>s</code>中索引为<code>idx</code>的字符设置为<code>c</code>。</dd>
+
+  <dt><code>(substring s start end)</code></dt>
+  <dd>返回字符串<code>s</code>从<code>start</code>开始到<code>end-1</code>处的子串。例如<code>(substring "abcdefg" 1 4) =&gt; "b c d"</code></dd>
+
+  <dt><code>(string-append s1 s2 ...)</code></dt>
+  <dd>连接两个字符串<code>s1</code>和<code>s2</code></dd>
+
+  <dt><code>(string-&gt;list s)</code></dt>
+  <dd>将字符串<code>s</code>转换为由字符构成的表。</dd>
+
+  <dt><code>(list-&gt;string ls)</code></dt>
+  <dd>将一个由字符构成的表转换为字符串。</dd>
+
+  <dt><code>(string-copy s)</code></dt>
+  <dd>复制字符串<code>s</code>。</dd>
+</dl>
+
+<blockquote>
+  <p>练习1</p>
+
+  <p>编写一个函数<code>title-style</code>，该函数用于将每个单词的首字母大写。</p>
+
+<div class="codeblock"><div class="highlight type-scheme"><pre><span class="p">(</span><span class="nf">title-style</span> <span class="s">"the cathedral and the bazaar"</span><span class="p">)</span>
+<span class="c1">;⇒ "The Cathedral And The Bazaar"</span>
+</pre></div>
+</div></blockquote>
+
+<h2 id='section-11-4'><span>11.4</span> 小结</h2>
+
+
+<p>本章讲解了字符和字符串。下章我将讲解符号。符号是Lisp/Scheme中的一种字符型数据类型。使用这种数据类型，可以对文本进行快速操作。</p>
+
+<h2 id='section-11-5'><span>11.5</span> 习题解答</h2>
+
+
+<h3 id='section-11-5-1'><span>11.5.1</span> 练习1</h3>
+
+
+<p>先将字符串转化为表，将空格之后的字符大写，最后将表转换会字符串。【译注：原文似有误。】</p>
+
+<div class="codeblock"><div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">identity</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">x</span><span class="p">)</span>
+
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">title-style</span> <span class="nv">str</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span> <span class="p">((</span><span class="nf">ls</span> <span class="p">(</span><span class="nb">string-&gt;list</span> <span class="nv">str</span><span class="p">))</span>
+         <span class="p">(</span><span class="nf">w</span> <span class="no">#t</span><span class="p">)</span>
+         <span class="p">(</span><span class="nf">acc</span> <span class="o">'</span><span class="p">()))</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">ls</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">list-&gt;string</span> <span class="p">(</span><span class="nb">reverse</span> <span class="nv">acc</span><span class="p">))</span>
+    <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">c</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">ls</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">ls</span><span class="p">)</span>
+        <span class="p">(</span><span class="nb">char-whitespace?</span> <span class="nv">c</span><span class="p">)</span>
+        <span class="p">(</span><span class="nb">cons</span> <span class="p">((</span><span class="k">if</span> <span class="nv">w</span> <span class="nv">char-upcase</span> <span class="nv">identity</span><span class="p">)</span> <span class="nv">c</span><span class="p">)</span> <span class="nv">acc</span><span class="p">))))))</span>
+
+<span class="c1">;;; Another answer, You can assign caps to the string.</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">title-style</span> <span class="nv">str</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">n</span> <span class="p">(</span><span class="nb">string-length</span> <span class="nv">str</span><span class="p">)))</span>
+    <span class="p">(</span><span class="k">let</span> <span class="nv">loop</span> <span class="p">((</span><span class="nf">w</span> <span class="no">#t</span><span class="p">)</span> <span class="p">(</span><span class="nf">i</span> <span class="mi">0</span><span class="p">))</span>
+      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">i</span> <span class="nv">n</span><span class="p">)</span>
+      <span class="nv">str</span>
+      <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">c</span> <span class="p">(</span><span class="nb">string-ref</span> <span class="nv">str</span> <span class="nv">i</span><span class="p">)))</span>
+        <span class="p">(</span><span class="k">if</span> <span class="nv">w</span> <span class="p">(</span><span class="nb">string-set!</span> <span class="nv">str</span> <span class="nv">i</span> <span class="p">(</span><span class="nb">char-upcase</span> <span class="nv">c</span><span class="p">)))</span>
+        <span class="p">(</span><span class="nf">loop</span> <span class="p">(</span><span class="nb">char-whitespace?</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nf">1+</span> <span class="nv">i</span><span class="p">)))))))</span>
+
+<span class="p">(</span><span class="nf">title-style</span> <span class="s">"the cathedral and the bazaar"</span><span class="p">)</span>
+<span class="c1">;⇒ "The Cathedral And The Bazaar"</span>
+</pre></div>
+</div>
+  	</div>
+</div>
+
+		
+			
+			<div class="navigation">
+				
+					<a class="prev_page" href="/chapter10.html">&laquo; 第 10 章赋值</a>
+				
+				
+					<a class="next_page" href="/chapter12.html">第 12 章符号 &raquo;</a>
+				
+			</div>
+			
+		
+	</div>
+</body>
+</html>

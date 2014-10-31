@@ -433,4 +433,4 @@ Lines 42 — 61 show how to use it. The routine showing numbers and that showing
 
 ## 总结
 
-本章中，我讲解了继续。理解这些概念可能比较困难。但不要担心，
+本章中，我讲解了继续。理解这些概念可能比较困难。但不要担心，有朝一日你终会明白。下一章中，我将介绍惰性求值。

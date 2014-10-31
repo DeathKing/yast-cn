@@ -9,11 +9,11 @@
 下列都是有关符号的基本函数。
 
 <dl>
-    <dt>`(symbol? x)`</dt>
-    <dd>如果`x`是一个符号则返回`#t`。</dd>
+    <dt><code>(symbol? x)</code></dt>
+    <dd>如果<code>x</code>是一个符号则返回<code>#t</code>。</dd>
 
-    <dt>`(string->symbol str)`</dt>
-    <dd>将`str`转换为符号。`str`应该都是小写的，否则地址系统可能无法正常工作。在MIT-Scheme中，`(string->symbol "Hello")`和`'Hello`是不同的。
+    <dt><code>(string->symbol str)</code></dt>
+    <dd>将<code>str</code>转换为符号。<code>str</code>应该都是小写的，否则地址系统可能无法正常工作。在MIT-Scheme中，<code>(string->symbol "Hello")</code>和<code>'Hello</code>是不同的。
 
 ```scheme
 (eq? (string->symbol "Hello") 'Hello)

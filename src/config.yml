@@ -34,6 +34,7 @@ contents:
   - { element: chapter, number: 13, file: chapter13.md }
   - { element: chapter, number: 14, file: chapter14.md }
   - { element: chapter, number: 15, file: chapter15.md }
+  - { element: chapter, number: 16, file: chapter16.md }
 
 formats:
   pdf:

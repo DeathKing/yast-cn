@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh_CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
+	<meta charset="utf-8" />
 	<title>第 12 章 符号</title>
-    <meta name="author" content="DeathKing">
-    <link rel="stylesheet" href="style.css">
+    <meta name="author" content="DeathKing" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
-<body><div class="entry"><div class="container">
+<body>
+  <div class="entry">
+	<div class="container">
 		
 <div class="item chapter">
-	<h1 id="chapter-12">
-<span>第 12 章</span> 符号</h1>
+	<h1 id="chapter-12"><span>第 12 章</span> 符号</h1>
 	<ol class="toc">          <li class="level-2">
             <a href="#section-12-1">12.1 简介</a>
           </li>
@@ -27,24 +27,22 @@
           </li>
 </ol>
   	<div class="main">
-  		<h2 id="section-12-1">
-<span>12.1</span> 简介</h2>
+  		<h2 id='section-12-1'><span>12.1</span> 简介</h2>
 
 
 <p>我会在本章讲解在Lisp/Scheme程序设计语言中具有字符性质的数据类型——符号。</p>
 
-<h2 id="section-12-2">
-<span>12.2</span> 有关符号的基本函数</h2>
+<h2 id='section-12-2'><span>12.2</span> 有关符号的基本函数</h2>
 
 
 <p>下列都是有关符号的基本函数。</p>
 
 <dl>
-    <dt>`(symbol? x)`</dt>
-    <dd>如果`x`是一个符号则返回`#t`。</dd>
+    <dt><code>(symbol? x)</code></dt>
+    <dd>如果<code>x</code>是一个符号则返回<code>#t</code>。</dd>
 
-    <dt>`(string-&gt;symbol str)`</dt>
-    <dd>将`str`转换为符号。`str`应该都是小写的，否则地址系统可能无法正常工作。在MIT-Scheme中，`(string-&gt;symbol "Hello")`和`'Hello`是不同的。
+    <dt><code>(string-&gt;symbol str)</code></dt>
+    <dd>将<code>str</code>转换为符号。<code>str</code>应该都是小写的，否则地址系统可能无法正常工作。在MIT-Scheme中，<code>(string-&gt;symbol "Hello")</code>和<code>'Hello</code>是不同的。
 
 ```scheme
 (eq? (string-&gt;symbol "Hello") 'Hello)
@@ -62,14 +60,12 @@
     <dd>将sym转换为字符。</dd>
 </dl>
 
-<h2 id="section-12-3">
-<span>12.3</span> 统计文本中的单词</h2>
+<h2 id='section-12-3'><span>12.3</span> 统计文本中的单词</h2>
 
 
 <p>下面的代码是一段统计文本中单词个数的程序，这也是被经常用作演示符号的例子。这个程序使用了<strong>哈希表（Hash table）</strong>和<strong>关联表（Association list）</strong>，这些都将在下一章中讲解。</p>
 
-<div class="codeblock">
-<div class="highlight type-scheme"><pre><span class="mi">01</span><span class="nv">:</span>     <span class="c1">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<div class="codeblock"><div class="highlight type-scheme"><pre><span class="mi">01</span><span class="nv">:</span>     <span class="c1">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 <span class="mi">02</span><span class="nv">:</span>     <span class="c1">;;;   wc.scm</span>
 <span class="mi">03</span><span class="nv">:</span>     <span class="c1">;;;   a scheme word-count program</span>
 <span class="mi">04</span><span class="nv">:</span>     <span class="c1">;;;</span>
@@ -137,8 +133,7 @@
 09 <code>(list-&gt;symbo ls0)</code> 将一个由字符构成的列表（<code>ls0</code>）转换为一个符号
 12 <code>(char-in c . ls)</code> 检查</p>
 
-<h2 id="section-12-4">
-<span>12.4</span> 小结</h2>
+<h2 id='section-12-4'><span>12.4</span> 小结</h2>
 
 
 <p>符号是Lisp/Scheme中用于解析分析文段（例如词数统计，解析等）的一种字符式数据类型，有一些速度很快的函数适用于符号。</p>
@@ -150,13 +145,15 @@
 			
 			<div class="navigation">
 				
-					<a class="prev_page" href="./chapter11.html">« 第 11 章字符与字符串</a>
+					<a class="prev_page" href="./chapter11.html">&laquo; 第 11 章字符与字符串</a>
 				
 				
-					<a class="next_page" href="./chapter13.html">第 13 章关联表和哈希表 »</a>
+					<a class="next_page" href="./chapter13.html">第 13 章关联表和哈希表 &raquo;</a>
 				
 			</div>
 			
 		
-	</div></div></body>
+	</div>
+  </div>
+</body>
 </html>

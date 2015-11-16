@@ -8,8 +8,8 @@
 </head>
 
 <body>
-<div class="entry">
-<div class="container">
+	<div class="entry">
+    <div class="container">
 		
 <div class="item chapter">
 	<h1 id="chapter-16"><span>第 16 章</span> 继续</h1>
@@ -285,23 +285,23 @@
 </div>
 <p><strong>代码片段6</strong>给出了生成器的定义。这个和原始版本基本上相同，但有略微的修改。</p>
 
-<div class="codeblock"><div class="highlight type-scheme"><pre><span class="mi">01</span><span class="nv">:</span>     <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">leaf-generator</span> <span class="nv">tree</span><span class="p">)</span>
-<span class="mi">02</span><span class="nv">:</span>       <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">return</span> <span class="o">'</span><span class="p">()))</span>                                                        <span class="c1">; 1</span>
-<span class="mi">03</span><span class="nv">:</span>         <span class="p">(</span><span class="k">letrec</span> <span class="p">((</span><span class="nf">continue</span>                                                      <span class="c1">; 2</span>
-<span class="mi">04</span><span class="nv">:</span>     	      <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
-<span class="mi">05</span><span class="nv">:</span>     		<span class="p">(</span><span class="k">let</span> <span class="nv">rec</span> <span class="p">((</span><span class="nf">tree</span> <span class="nv">tree</span><span class="p">))</span>                                     <span class="c1">; 3</span>
-<span class="mi">06</span><span class="nv">:</span>     		  <span class="p">(</span><span class="k">cond</span>                                                     <span class="c1">; 4</span>
-<span class="mi">07</span><span class="nv">:</span>     		   <span class="p">((</span><span class="nb">null?</span> <span class="nv">tree</span><span class="p">)</span> <span class="ss">'skip</span><span class="p">)</span>                                     <span class="c1">; 5</span>
-<span class="mi">08</span><span class="nv">:</span>     		   <span class="p">((</span><span class="nb">pair?</span> <span class="nv">tree</span><span class="p">)</span> <span class="p">(</span><span class="nf">rec</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">tree</span><span class="p">))</span> <span class="p">(</span><span class="nf">rec</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">tree</span><span class="p">)))</span>       <span class="c1">; 6</span>
-<span class="mi">09</span><span class="nv">:</span>     		   <span class="p">(</span><span class="k">else</span>                                                    <span class="c1">; 7</span>
-<span class="mi">10</span><span class="nv">:</span>     		    <span class="p">(</span><span class="nb">call/cc</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">lap-to-go</span><span class="p">)</span>                            <span class="c1">; 8</span>
-<span class="mi">11</span><span class="nv">:</span>     			       <span class="p">(</span><span class="k">set!</span> <span class="nv">continue</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nf">lap-to-go</span> <span class="ss">'restart</span><span class="p">)))</span>    <span class="c1">; 9</span>
-<span class="mi">12</span><span class="nv">:</span>     			       <span class="p">(</span><span class="nf">return</span> <span class="nv">tree</span><span class="p">))))))</span>                      <span class="c1">;10</span>
-<span class="mi">13</span><span class="nv">:</span>     		<span class="p">(</span><span class="nf">return</span> <span class="o">'</span><span class="p">()))))</span>                                         <span class="c1">;11</span>
-<span class="mi">14</span><span class="nv">:</span>             <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>                                                     <span class="c1">;12</span>
-<span class="mi">15</span><span class="nv">:</span>               <span class="p">(</span><span class="nb">call/cc</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">where-to-go</span><span class="p">)</span>                               <span class="c1">;13</span>
-<span class="mi">16</span><span class="nv">:</span>                          <span class="p">(</span><span class="k">set!</span> <span class="nv">return</span> <span class="nv">where-to-go</span><span class="p">)</span>                         <span class="c1">;14</span>
-<span class="mi">17</span><span class="nv">:</span>                          <span class="p">(</span><span class="nf">continue</span><span class="p">)))))))</span>
+<div class="codeblock"><div class="highlight type-scheme"><pre><span class="mi">01</span><span class="nv">:</span>  <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">leaf-generator</span> <span class="nv">tree</span><span class="p">)</span>
+<span class="mi">02</span><span class="nv">:</span>    <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nf">return</span> <span class="o">'</span><span class="p">()))</span>            <span class="c1">;1</span>
+<span class="mi">03</span><span class="nv">:</span>      <span class="p">(</span><span class="k">letrec</span> <span class="p">((</span><span class="nf">continue</span>           <span class="c1">;2</span>
+<span class="mi">04</span><span class="nv">:</span>  	      <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+<span class="mi">05</span><span class="nv">:</span>  		    <span class="p">(</span><span class="k">let</span> <span class="nv">rec</span> <span class="p">((</span><span class="nf">tree</span> <span class="nv">tree</span><span class="p">))</span> <span class="c1">;3</span>
+<span class="mi">06</span><span class="nv">:</span>  		     <span class="p">(</span><span class="k">cond</span>                 <span class="c1">;4</span>
+<span class="mi">07</span><span class="nv">:</span>     	      <span class="p">((</span><span class="nb">null?</span> <span class="nv">tree</span><span class="p">)</span> <span class="ss">'skip</span><span class="p">)</span> <span class="c1">;5</span>
+<span class="mi">08</span><span class="nv">:</span>               <span class="p">((</span><span class="nb">pair?</span> <span class="nv">tree</span><span class="p">)</span> <span class="p">(</span><span class="nf">rec</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">tree</span><span class="p">))</span> <span class="p">(</span><span class="nf">rec</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">tree</span><span class="p">)))</span><span class="c1">;6</span>
+<span class="mi">09</span><span class="nv">:</span>     		   <span class="p">(</span><span class="k">else</span>                                           <span class="c1">;7</span>
+<span class="mi">10</span><span class="nv">:</span>     		    <span class="p">(</span><span class="nb">call/cc</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">lap-to-go</span><span class="p">)</span>                   <span class="c1">;8</span>
+<span class="mi">11</span><span class="nv">:</span>     			   <span class="p">(</span><span class="k">set!</span> <span class="nv">continue</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nf">lap-to-go</span> <span class="ss">'restart</span><span class="p">)))</span><span class="c1">;9</span>
+<span class="mi">12</span><span class="nv">:</span>     			   <span class="p">(</span><span class="nf">return</span> <span class="nv">tree</span><span class="p">))))))</span> <span class="c1">;10</span>
+<span class="mi">13</span><span class="nv">:</span>     	   <span class="p">(</span><span class="nf">return</span> <span class="o">'</span><span class="p">()))))</span>            <span class="c1">;11</span>
+<span class="mi">14</span><span class="nv">:</span>         <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>                    <span class="c1">;12</span>
+<span class="mi">15</span><span class="nv">:</span>            <span class="p">(</span><span class="nb">call/cc</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">where-to-go</span><span class="p">)</span>       <span class="c1">;13</span>
+<span class="mi">16</span><span class="nv">:</span>                       <span class="p">(</span><span class="k">set!</span> <span class="nv">return</span> <span class="nv">where-to-go</span><span class="p">)</span> <span class="c1">;14</span>
+<span class="mi">17</span><span class="nv">:</span>                       <span class="p">(</span><span class="nf">continue</span><span class="p">)))))))</span>
 </pre></div>
 </div>
 <p>(译者注：原文中05，08行中命名let中的<code>rec</code>被写为<code>loop</code>，结合上下文，改为<code>rec</code>)</p>
@@ -310,36 +310,41 @@
 
 <p>编号  解释</p>
 
-<ol>
-  <li>定义本地变量<code>return</code>。</li>
-  <li>使用<code>letrec</code>定义<code>continue</code>。<code>continue</code>将当前叶子返回到前面，将当前继续赋给<code>continue</code>，并停止。</li>
-  <li>用<code>rec</code>定义命名let。 </li>
-  <li>使用<code>cond</code>实现分支</li>
-  <li>如果是空表，什么也不做</li>
-  <li>如果是序对，递归地对序对的car和cdr进行调用rec。</li>
-  <li>如果是叶子，</li>
-  <li>调用<code>call/cc</code>以获取当前状态(lap-to-go)</li>
-  <li>接着将当前状态赋给<code>continue</code>，所以除了原有的<code>continue</code>，<code>lap-to-go</code>包含了当前状态。简而言之，它可以被如下的S-表达式中的<strong>[ ]</strong>表示。
-             (lambda ()
-               (let rec ((tree tree0))<br />
-                 (cond                <br />
-                  ((null? tree) ‘())   <br />
-                  ((pair? tree) (rec (car tree)) (rec (cdr tree)))<br />
-                  (else                                           <br />
-                   [ ]                  <br />
-               (return ‘()))))
-调用<code>lap-to-go</code>意味着(car tree)是叶子，且过程结束了，(rec (cdr tree))在下一次函数调用时开始运行。如果过程在<strong>[ ]</strong>之后结束，继续的参数将不起作用。                           </li>
-  <li>接着函数将找到的叶子返回到函数的调用处。<code>(return tree)</code>应该在<code>call/cc</code>中以重启过程。</li>
-  <li>在搜索了全部叶子之后返回空表。</li>
-  <li>这是一个返回叶子生成器的生成器。</li>
-  <li>首次调用<code>call/cc</code></li>
-  <li>将表示返回值的当前状态赋给<code>return</code>。</li>
-  <li>然后调用<code>continue</code>。</li>
-</ol>
+<ul>
+  <li>1.定义本地变量<code>return</code>。</li>
+  <li>2.使用<code>letrec</code>定义<code>continue</code>。<code>continue</code>将当前叶子返回到前面，将当前继续赋给<code>continue</code>，并停止。</li>
+  <li>3.用<code>rec</code>定义命名let。 </li>
+  <li>4.使用<code>cond</code>实现分支</li>
+  <li>5.如果是空表，什么也不做</li>
+  <li>6.如果是序对，递归地对序对的car和cdr进行调用rec。</li>
+  <li>7.如果是叶子，</li>
+  <li>8.调用<code>call/cc</code>以获取当前状态(lap-to-go)</li>
+  <li>9.接着将当前状态赋给<code>continue</code>，所以除了原有的<code>continue</code>，<code>lap-to-go</code>包含了当前状态。简而言之，它可以被如下的S-表达式中的<strong>[ ]</strong>表示。</li>
+</ul>
+
+<div class="codeblock"><div class="highlight type-plaintext"><pre>(lambda ()
+   (let rec ((tree tree0))  
+      (cond                  
+        ((null? tree) '())     
+        ((pair? tree) (rec (car tree)) (rec (cdr tree)))  
+        (else                                             
+           [ ]                    
+    (return '()))))
+</pre></div>
+</div>
+<p>调用<code>lap-to-go</code>意味着(car tree)是叶子，且过程结束了，(rec (cdr tree))在下一次函数调用时开始运行。如果过程在<strong>[ ]</strong>之后结束，继续的参数将不起作用。                           </p>
+
+<ul>
+  <li>10.接着函数将找到的叶子返回到函数的调用处。<code>(return tree)</code>应该在<code>call/cc</code>中以重启过程。</li>
+  <li>11.在搜索了全部叶子之后返回空表。</li>
+  <li>12.这是一个返回叶子生成器的生成器。</li>
+  <li>13.首次调用<code>call/cc</code></li>
+  <li>14.将表示返回值的当前状态赋给<code>return</code>。</li>
+  <li>15.然后调用<code>continue</code>。</li>
+</ul>
 
 <p>由<code>leaf-generator</code>生成的函数的行为可以通过函数（tree-traverse）的行为来估计。过程停止在轨迹的’*‘的注释处，并使得过程存储在<code>continue</code>。
-
-一个常规的便利函数：</p>
+ 一个常规的便利函数：</p>
 
 <div class="codeblock"><div class="highlight type-scheme"><pre><span class="p">(</span><span class="k">define</span> <span class="nv">tree-traverse</span>
   <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nf">tree</span><span class="p">)</span>
@@ -379,17 +384,29 @@ _
 
 <p>26 - 38行是协程的实现。</p>
 
-<p><strong>process-queue</strong>
-	过程的队列。</p>
+<p>
+  <strong>process-queue</strong>
+</p>
 
-<p><strong>(coroutine thunk)</strong>
-	在<code>process-queue</code>末尾添加<code>thunk</code>。</p>
+<p>过程的队列。</p>
 
-<p><strong>(start)</strong>
-	取得<code>process-queue</code>的第一个过程并执行它。</p>
+<p>
+  <strong>(coroutine thunk)</strong>
+</p>
 
-<p><strong>(pause)</strong>
-	将当前继续添加到<code>process-queue</code>的末尾并执行队列里的第一个过程。这个函数将控制权交给另外一个协程。</p>
+<p>在<code>process-queue</code>末尾添加<code>thunk</code>。</p>
+
+<p>
+  <strong>(start)</strong>
+</p>
+
+<p>取得<code>process-queue</code>的第一个过程并执行它。</p>
+
+<p>
+  <strong>(pause)</strong>
+</p>
+
+<p>将当前继续添加到<code>process-queue</code>的末尾并执行队列里的第一个过程。这个函数将控制权交给另外一个协程。</p>
 
 <p>42 - 61行显示如何使用它。一个显示数字例程和一个显示字母例程相互调用对方，结果显示在<strong>例7</strong></p>
 
@@ -483,8 +500,7 @@ _
 				
 			</div>
 			
-		
+    </div>		
 	</div>
-</div>
 </body>
 </html>

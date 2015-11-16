@@ -2,7 +2,9 @@
 
 ## 简介
 
-本章介绍的是Scheme中特有的数据类型——**继续（Continuation）**。由于其他程序设计语言并没有这种数据类型，因此它难于理解。当下，你并不需要彻底理解清楚，只需要大致了解。我会讲解广义的继续和简短地介绍**Continuation-Passing-Style(CPS)**，然后再讲解Scheme中的继续。我认为通过这种方式理解继续会比较容易。
+本章介绍的是Scheme中特有的数据类型——**继续（Continuation）**。由于其他程序设计语言并没有这种数据类型，因此它难于理解。当下，你并不需要彻底理解清楚，只需要大致了解。
+
+我会讲解广义的继续和简短地介绍**Continuation-Passing-Style(CPS)**，然后再讲解Scheme中的继续。我认为通过这种方式理解继续会比较容易。
 
 ## 广义继续
 
@@ -62,6 +64,7 @@ Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form 
 ;;; CPS
 (kfact 4 (lambda (x) (k+ x 3 return)))
 ```
+
 {:caption=>'例2'}
 
 **代码片段3**演示了如何分别用普通方式和CPS编写用于计算表中元素的积的函数。在CPS函数中，后继函数存储再局部变量`break`中，因此当元素乘以0时，可以立即退出。
@@ -84,6 +87,7 @@ Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form 
        ((zero? (car ls)) (break 0))
        (else (loop (cdr ls) (lambda (x) (k (* (car ls) x)))))))))
 ```
+
 {:caption=>'代码片段3'}
 
 **例3**将100与`'(2 4 7)`的积相加。
@@ -98,9 +102,9 @@ Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form 
 
 {:caption=>'例3'}
 
-尽管CPS再这样简单的情况中并不使用，但再一些像是自然语言解析和逻辑编程等复杂程序中非常有用，因为与通常的编程风格相比，CPS可以更灵活地改变后续过程。
+尽管CPS在这样简单的情况中并不实用，但在一些像是自然语言解析和逻辑编程等复杂程序中非常有用，因为与通常的编程风格相比，CPS可以更灵活地改变后续过程。
 
-**异常处理（Exception handling）**就是这种情况的简单例子。**代码片段4**演示了`kproduct`的错误处理版本，in that a non-number value is shown and the calculation is terminated when it appears in the input list.
+**异常处理（Exception handling）**就是这种情况的简单例子。**代码片段4**演示了`kproduct`的错误处理版本，程序中当非数字值出现在输入表中，在其被打印时，计算就会终止。
 
 ```scheme
 (define (non-number-value-error x)
@@ -119,7 +123,9 @@ Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form 
        ((zero? (car ls)) (break 0))
        (else (loop (cdr ls) (lambda (x) (k (* (car ls) x)))))))))
 ```
+
 {:caption=>'代码片段4'}
+
 
 ```scheme
 ;;; valid
@@ -135,6 +141,7 @@ Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form 
 Value error: hoge is not number.
 ;Value: error
 ```
+
 {:caption=>'例4'}
 
 ## Scheme中的继续
@@ -263,10 +270,10 @@ Value error: hoge is not number.
 02:       (let ((return '()))                                                        ; 1
 03:         (letrec ((continue                                                      ; 2
 04:     	      (lambda ()
-05:     		(let loop ((tree tree))                                     ; 3
+05:     		(let rec ((tree tree))                                     ; 3
 06:     		  (cond                                                     ; 4
 07:     		   ((null? tree) 'skip)                                     ; 5
-08:     		   ((pair? tree) (loop (car tree)) (loop (cdr tree)))       ; 6
+08:     		   ((pair? tree) (rec (car tree)) (rec (cdr tree)))       ; 6
 09:     		   (else                                                    ; 7
 10:     		    (call/cc (lambda (lap-to-go)                            ; 8
 11:     			       (set! continue (lambda () (lap-to-go 'restart)))    ; 9
@@ -279,18 +286,21 @@ Value error: hoge is not number.
 ```
 {:caption=>'代码片段6'}
 
+(译者注：原文中05，08行中命名let中的`rec`被写为`loop`，结合上下文，改为`rec`)
+
 注释解释
 
 编号  解释
-1.	declaring a local variable return.
-2.	defining continue using letrec. The continue returns current leaf in front, assigns the current continuation to the next continue, and halts.
-3.	defining rec using named let.
-4.	branching using cond
-5.	if empty list, does nothing.
-6.	if pair, applies the rec recursively to its car and cdr.
-7.	if leaf,
-8.	invokes call/cc to get the current state (lap-to-go)
-9.	"and set it to the next continue. The lap-to-go includes the current state in addition to the original continue. In short, it can be expressed by [ ]in the following S-expression.
+
+1. 定义本地变量`return`。
+2. 使用`letrec`定义`continue`。`continue`将当前叶子返回到前面，将当前继续赋给`continue`，并停止。
+3. 用`rec`定义命名let。 
+4. 使用`cond`实现分支
+5. 如果是空表，什么也不做
+6. 如果是序对，递归地对序对的car和cdr进行调用rec。
+7. 如果是叶子，
+8. 调用`call/cc`以获取当前状态(lap-to-go)
+9. 接着将当前状态赋给`continue`，所以除了原有的`continue`，`lap-to-go`包含了当前状态。简而言之，它可以被如下的S-表达式中的**[ ]**表示。
                 (lambda ()
                   (let rec ((tree tree0))  
                     (cond                  
@@ -298,17 +308,17 @@ Value error: hoge is not number.
                      ((pair? tree) (rec (car tree)) (rec (cdr tree)))  
                      (else                                             
                       [ ]                    
-                  (return '()))))                                       
-As invoking lap-to-go means that (car tree) is a leaf and the process is finished, (rec (cdr tree)) starts at the next function is called. As the process starts after finishing the part of [ ], The argument of the continuation does not matter."
-10.	Then the function return the found leaf to where the function is called. (return tree) should be inside of call/cc to restart the process.
-11.	Returning an empty list after searching all leaves
-12.	It is a generator that leaf-generator returns.
-13.	First invoking call/cc
-14.	and assign the plase to return values to return.
-15.	Then calls continue.
+                  (return '()))))
+调用`lap-to-go`意味着(car tree)是叶子，且过程结束了，(rec (cdr tree))在下一次函数调用时开始运行。如果过程在**[ ]**之后结束，继续的参数将不起作用。                           
+10.	接着函数将找到的叶子返回到函数的调用处。`(return tree)`应该在`call/cc`中以重启过程。
+11.	在搜索了全部叶子之后返回空表。
+12.	这是一个返回叶子生成器的生成器。
+13.	首次调用`call/cc`
+14.	将表示返回值的当前状态赋给`return`。
+15.	然后调用`continue`。
 
-The behaviour of the function generated by the leaf-generator can be estimated by the behavior of a conventional traversing function (tree-traverse). The process halts at '*' of the trace and remained process is stored in the continue. A conventional traverse functionF
-
+由`leaf-generator`生成的函数的行为可以通过函数（tree-traverse）的行为来估计。过程停止在轨迹的'*'的注释处，并使得过程存储在`continue`。
+ 一个常规的便利函数：
 
 ```scheme
 (define tree-traverse
@@ -320,17 +330,17 @@ The behaviour of the function generated by the leaf-generator can be estimated
       (write tree)))))
 ```
 
-Trace of the tree-traverse when tree '((1 2) 3) is given.
+当树为`'((1 2) 3)`时，`tree-traverse`的轨迹。
 
-```shell
+```
 > (tree-traverse '((1 2) 3))
-  | (tree-traverse ((1 2) 3))
-  | (tree-traverse (1 2))
-  | | (tree-traverse 1)           
-1 | |  #< void>               ; *
-  | | (tree-traverse (2))
-  | | (tree-traverse 2)           
-2 | |< void>                ; *
+|(tree-traverse ((1 2) 3))
+| (tree-traverse (1 2))
+| |(tree-traverse 1)           
+1| |#< void>               ; *
+| (tree-traverse (2))
+| |(tree-traverse 2)           
+2| |< void>                ; *
 | (tree-traverse '())
 | _
 |(tree-traverse (3))
@@ -345,18 +355,23 @@ _
 
 因为继续记录了后续计算过程，因此，用于多任务同时执行的**协程（Coroutine）**可以使用继续来实现。
 
-**代码片段7**shows a program that print numbers and alphabetic characters alternately. Lines 5 — 22 are imprementation of queue. (enqueue! queue obj) adds obj at the end of queue. (dequeue! queue) returns the first item of the queue with removing it.
-Lines 26 — 38 are imprementation of a coroutine.
-process-queue
-The queue of processes.
-(coroutine thunk)
-adding thunk at the end of the process-queue.
-(start)
-picking up the first process of the process-queue and executing it.
-(pause)
-adding the current continuation at the end of the process-queue and execute the first process of the queue. This function hand over the control to the other routine.
-Lines 42 — 61 show how to use it. The routine showing numbers and that showing alphabetic characters call e
+**代码片段7**展示了一段交替打印数字和字母的程序。5 - 22行是队列的实现。(enqueue! queue obj)将一个`obj`添加在队列的末尾。(dequeue! queue)返回队列第一个元素并将它删除。
 
+26 - 38行是协程的实现。
+
+**process-queue**
+	过程的队列。
+	
+**(coroutine thunk)**
+	在`process-queue`末尾添加`thunk`。
+
+**(start)**
+	取得`process-queue`的第一个过程并执行它。
+
+**(pause)**
+	将当前继续添加到`process-queue`的末尾并执行队列里的第一个过程。这个函数将控制权交给另外一个协程。
+	
+42 - 61行显示如何使用它。一个显示数字例程和一个显示字母例程相互调用对方，结果显示在**例7**
 
 ```scheme
 01:     ;;; abbreviation
@@ -421,7 +436,9 @@ Lines 42 — 61 show how to use it. The routine showing numbers and that showing
 60:     (newline)
 61:     (start)
 ```
+
 {:caption=>'代码片段7'}
+
 
 ```scheme
 (load "cor2.scm")
@@ -429,8 +446,13 @@ Lines 42 — 61 show how to use it. The routine showing numbers and that showing
 1 a 2 b 3 c 4 d 5 e 6 f 7 g 8 h 9 i 10 j  -- done
 ;Unspecified return value
 ```
+
 {:caption=>'例7'}
 
 ## 总结
 
-本章中，我讲解了继续。理解这些概念可能比较困难。但不要担心，有朝一日你终会明白。下一章中，我将介绍惰性求值。
+本章中，我讲解了继续。
+
+理解这些概念可能比较困难。但不要担心，有朝一日你终会明白。
+
+下一章中，我将介绍惰性求值。

@@ -1,3 +1,4 @@
 source :rubygems
 
-gem 'burr', '~> 0.0.1'
+gem 'burr',    '~> 0.0.1'
+gem 'rubyzip', "= 0.9.9"

@@ -266,23 +266,23 @@ Value error: hoge is not number.
 **代码片段6**给出了生成器的定义。这个和原始版本基本上相同，但有略微的修改。
 
 ```scheme
-01:     (define (leaf-generator tree)
-02:       (let ((return '()))                                                        ; 1
-03:         (letrec ((continue                                                      ; 2
-04:     	      (lambda ()
-05:     		(let rec ((tree tree))                                     ; 3
-06:     		  (cond                                                     ; 4
-07:     		   ((null? tree) 'skip)                                     ; 5
-08:     		   ((pair? tree) (rec (car tree)) (rec (cdr tree)))       ; 6
-09:     		   (else                                                    ; 7
-10:     		    (call/cc (lambda (lap-to-go)                            ; 8
-11:     			       (set! continue (lambda () (lap-to-go 'restart)))    ; 9
-12:     			       (return tree))))))                      ;10
-13:     		(return '()))))                                         ;11
-14:             (lambda ()                                                     ;12
-15:               (call/cc (lambda (where-to-go)                               ;13
-16:                          (set! return where-to-go)                         ;14
-17:                          (continue)))))))
+01:  (define (leaf-generator tree)
+02:    (let ((return '()))            ;1
+03:      (letrec ((continue           ;2
+04:  	      (lambda ()
+05:  		    (let rec ((tree tree)) ;3
+06:  		     (cond                 ;4
+07:     	      ((null? tree) 'skip) ;5
+08:               ((pair? tree) (rec (car tree)) (rec (cdr tree)));6
+09:     		   (else                                           ;7
+10:     		    (call/cc (lambda (lap-to-go)                   ;8
+11:     			   (set! continue (lambda () (lap-to-go 'restart)));9
+12:     			   (return tree)))))) ;10
+13:     	   (return '()))))            ;11
+14:         (lambda ()                    ;12
+15:            (call/cc (lambda (where-to-go)       ;13
+16:                       (set! return where-to-go) ;14
+17:                       (continue)))))))
 ```
 {:caption=>'代码片段6'}
 
@@ -292,30 +292,35 @@ Value error: hoge is not number.
 
 编号  解释
 
-1. 定义本地变量`return`。
-2. 使用`letrec`定义`continue`。`continue`将当前叶子返回到前面，将当前继续赋给`continue`，并停止。
-3. 用`rec`定义命名let。 
-4. 使用`cond`实现分支
-5. 如果是空表，什么也不做
-6. 如果是序对，递归地对序对的car和cdr进行调用rec。
-7. 如果是叶子，
-8. 调用`call/cc`以获取当前状态(lap-to-go)
-9. 接着将当前状态赋给`continue`，所以除了原有的`continue`，`lap-to-go`包含了当前状态。简而言之，它可以被如下的S-表达式中的**[ ]**表示。
-                (lambda ()
-                  (let rec ((tree tree0))  
-                    (cond                  
-                     ((null? tree) '())     
-                     ((pair? tree) (rec (car tree)) (rec (cdr tree)))  
-                     (else                                             
-                      [ ]                    
-                  (return '()))))
+- 1.定义本地变量`return`。
+- 2.使用`letrec`定义`continue`。`continue`将当前叶子返回到前面，将当前继续赋给`continue`，并停止。
+- 3.用`rec`定义命名let。 
+- 4.使用`cond`实现分支
+- 5.如果是空表，什么也不做
+- 6.如果是序对，递归地对序对的car和cdr进行调用rec。
+- 7.如果是叶子，
+- 8.调用`call/cc`以获取当前状态(lap-to-go)
+- 9.接着将当前状态赋给`continue`，所以除了原有的`continue`，`lap-to-go`包含了当前状态。简而言之，它可以被如下的S-表达式中的**[ ]**表示。
+
+```Scheme
+(lambda ()
+   (let rec ((tree tree0))  
+      (cond                  
+        ((null? tree) '())     
+        ((pair? tree) (rec (car tree)) (rec (cdr tree)))  
+        (else                                             
+           [ ]                    
+    (return '()))))
+```
+
 调用`lap-to-go`意味着(car tree)是叶子，且过程结束了，(rec (cdr tree))在下一次函数调用时开始运行。如果过程在**[ ]**之后结束，继续的参数将不起作用。                           
-10.	接着函数将找到的叶子返回到函数的调用处。`(return tree)`应该在`call/cc`中以重启过程。
-11.	在搜索了全部叶子之后返回空表。
-12.	这是一个返回叶子生成器的生成器。
-13.	首次调用`call/cc`
-14.	将表示返回值的当前状态赋给`return`。
-15.	然后调用`continue`。
+
+- 10.接着函数将找到的叶子返回到函数的调用处。`(return tree)`应该在`call/cc`中以重启过程。
+- 11.在搜索了全部叶子之后返回空表。
+- 12.这是一个返回叶子生成器的生成器。
+- 13.首次调用`call/cc`
+- 14.将表示返回值的当前状态赋给`return`。
+- 15.然后调用`continue`。
 
 由`leaf-generator`生成的函数的行为可以通过函数（tree-traverse）的行为来估计。过程停止在轨迹的'*'的注释处，并使得过程存储在`continue`。
  一个常规的便利函数：
@@ -360,16 +365,20 @@ _
 26 - 38行是协程的实现。
 
 **process-queue**
-	过程的队列。
+
+过程的队列。
 	
 **(coroutine thunk)**
-	在`process-queue`末尾添加`thunk`。
+
+在`process-queue`末尾添加`thunk`。
 
 **(start)**
-	取得`process-queue`的第一个过程并执行它。
+
+取得`process-queue`的第一个过程并执行它。
 
 **(pause)**
-	将当前继续添加到`process-queue`的末尾并执行队列里的第一个过程。这个函数将控制权交给另外一个协程。
+
+将当前继续添加到`process-queue`的末尾并执行队列里的第一个过程。这个函数将控制权交给另外一个协程。
 	
 42 - 61行显示如何使用它。一个显示数字例程和一个显示字母例程相互调用对方，结果显示在**例7**
 

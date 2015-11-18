@@ -4,7 +4,7 @@
 ## Scheme入门教程
 
 Takafumi Shido 著  
-DeathKing 译  
+DeathKing 及 lincode 译  
 
 这是一本面向初学者的温和且循序渐进的Scheme教程。目标读者是仅有些许编程经验的PC用户。
 
@@ -12,6 +12,6 @@ DeathKing 译
 
 本教程的目的在于给读者在Scheme程序设计上提供足够的知识和能力以便能够阅读最好的计算机科学教科书之一的——《计算机程序的构造和解释》（Structure and Interpreter of Computer Program，SICP）。SICP使用Scheme作为授课语言。
 
-鸣谢
+## 鸣谢
 
 本书使用[gitbook](https://gitbook.com/)生成。

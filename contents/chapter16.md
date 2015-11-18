@@ -437,7 +437,7 @@ _
 ;Unspecified return value
 ```
 
-## 总结
+## 小结
 
 本章中，我讲解了继续。
 

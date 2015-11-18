@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="10" data-chapter-title="输入/输出" data-filepath="contents/chapter9.md" data-basepath=".." data-revision="Wed Nov 18 2015 00:51:03 GMT+0800 (CST)">
+    <div class="book" data-level="10" data-chapter-title="输入/输出" data-filepath="contents/chapter9.md" data-basepath=".." data-revision="Wed Nov 18 2015 20:51:40 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -401,22 +401,18 @@
         <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">list-&gt;string</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">reverse</span></span> ls1)</span>)</span>)</span>
       <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> c ls1)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">read-char</span></span> p)</span>)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&quot;[&#x4EE3;&#x7801;&#x7247;&#x6BB5;1] &#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&quot;}</p>
 <p>&#x6BD4;&#x5982;&#xFF0C;&#x5728;[&#x8303;&#x4F8B;1]&#x4E2D;&#x5C55;&#x793A;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x662F;&#x5C06;[&#x4EE3;&#x7801;&#x7247;&#x6BB5;1]&#x5E94;&#x7528;&#x4E8E;&#x6587;&#x4EF6;hello.txt&#x3002;&#x7531;&#x4E8E;&#x6362;&#x884C;&#x7B26;&#x662F;&#x7531;<code>&apos;\n&apos;</code>&#x8868;&#x793A;&#x7684;&#xFF0C;&#x8FD9;&#x5C31;&#x5F88;&#x5BB9;&#x6613;&#x9605;&#x8BFB;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x50CF;&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;[&#x8303;&#x4F8B;2]&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4F7F;&#x7528;<code>display</code>&#x51FD;&#x6570;&#x3002;</p>
 <pre><code>Hello world!
 Scheme is an elegant programming language.
-</code></pre><p>{:caption=&quot;[&#x6587;&#x4EF6;]hello.txt&quot;}</p>
-<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">cd</span> <span class="hljs-string">&quot;C:\\doc&quot;</span>)</span>
+</code></pre><pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">cd</span> <span class="hljs-string">&quot;C:\\doc&quot;</span>)</span>
 <span class="hljs-list">(<span class="hljs-keyword">read-file</span> <span class="hljs-string">&quot;hello.txt&quot;</span>)</span>
 <span class="hljs-comment">;Value 14: &quot;Hello world!\nScheme is an elegant programming language.\n&quot;</span>
 </code></pre>
-<p>{:caption=&quot;[&#x8303;&#x4F8B;1]&quot;}</p>
 <pre><code class="lang-scheme">(display (read-file &quot;hello.txt&quot;))
 Hello world!
 Scheme is an elegant programming language.
 ;Unspecified return value
 </code></pre>
-<p>{:caption=&quot;[&#x8303;&#x4F8B;2]&quot;}</p>
 <h3 id="&#x8BED;&#x6CD5;callwithinputfile&#x548C;withinputfromfile">&#x8BED;&#x6CD5;call-with-input-file&#x548C;with-input-from-file</h3>
 <p>&#x4F60;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x8BED;&#x6CD5;<code>call-with-input-file</code>&#x548C;<code>with-input-from-file</code>&#x6765;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x4EE5;&#x4F9B;&#x8BFB;&#x53D6;&#x8F93;&#x5165;&#x3002;&#x8FD9;&#x4E9B;&#x8BED;&#x6CD5;&#x662F;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x8981;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x3002;</p>
 <blockquote>
@@ -433,7 +429,6 @@ Scheme is an elegant programming language.
           <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">list-&gt;string</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">reverse</span></span> ls1)</span>)</span>)</span>
         <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> c ls1)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">read-char</span></span> p)</span>)</span>)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&quot;[&#x4EE3;&#x7801;&#x7247;&#x6BB5;2] call-with-input-file&#x7248;&#x672C;&quot;}</p>
 <blockquote>
 <p><code>(with-input-from-file filename procedure)</code>
 &#x8BE5;&#x51FD;&#x6570;&#x5C06;&#x540D;&#x4E3A;<code>filename</code>&#x7684;&#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x6253;&#x5F00;&#x3002;&#x51FD;&#x6570;<code>procedure</code>&#x4E0D;&#x63A5;&#x53D7;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;&#x5F53;<code>procedure</code>&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x6587;&#x4EF6;&#x81EA;&#x52A8;&#x88AB;&#x5173;&#x95ED;&#x3002;[&#x4EE3;&#x7801;&#x7247;&#x6BB5;3]&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x7528;<code>with-input-from-file</code>&#x6765;&#x91CD;&#x5199;[&#x4EE3;&#x7801;&#x7247;&#x6BB5;1]&#x3002;</p>
@@ -446,7 +441,6 @@ Scheme is an elegant programming language.
         <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">list-&gt;string</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">reverse</span></span> ls1)</span>)</span>
         <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> c ls1)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">read-char</span></span>)</span>)</span>)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&quot;[&#x4EE3;&#x7801;&#x7247;&#x6BB5;3] with-input-from-file&#x7248;&#x672C;&quot;}</p>
 <h3 id="read">read</h3>
 <p>&#x51FD;&#x6570;<code>(read port)</code>&#x4ECE;&#x7AEF;&#x53E3;<code>port</code>&#x4E2D;&#x8BFB;&#x5165;&#x4E00;&#x4E2A;S-&#x8868;&#x8FBE;&#x5F0F;&#x3002;&#x7528;&#x5B83;&#x6765;&#x8BFB;&#x8BF8;&#x5982;&quot;paren.txt&quot;&#x4E2D;&#x5E26;&#x62EC;&#x53F7;&#x7684;&#x5185;&#x5BB9;&#x5C31;&#x5F88;&#x65B9;&#x4FBF;&#x3002;</p>
 <pre><code>&apos;(Hello world!
@@ -461,7 +455,6 @@ Scheme is an elegant programming language.)
         <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">reverse</span></span> ls1)</span>
         <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> s ls1)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">read</span></span>)</span>)</span>)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&quot;[&#x4EE3;&#x7801;&#x7247;&#x6BB5;4]&quot;}</p>
 <p>&#x4E0B;&#x9762;&#x5C55;&#x793A;&#x4E86;&#x7528;<code>s-read</code>&#x8BFB;&#x53D6;&quot;paren.txt&quot;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
 <pre><code>(s-read &quot;paren.txt&quot;)
 &#x21D2; ((quote (hello world! scheme is an elegant programming language.))

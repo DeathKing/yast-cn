@@ -1,24 +1,17 @@
-# Yet Another Scheme Tutorial
+# 简介
 
-This is a e-book from http://www.shido.info/lisp/idx_scm_e.html, the project of yast-cn is trying to translate it into Chinese.
+## Yet Another Scheme Tutorial
+## Scheme入门教程
 
+Takafumi Shido 著  
+DeathKing 译  
 
+这是一本面向初学者的温和且循序渐进的Scheme教程。目标读者是仅有些许编程经验的PC用户。
 
-# How to contribute
+如果你不满意于其它的教程，那么请尝试本书。我们有很多方法去解释像Scheme程序设计语言这样的抽象主题，这之中最好的方法取决于读者的能力以及素养。（没有对任何人来说都绝对完美的方法。）这也正是尽管已经有很多Scheme语言的教程，我还另写一本的原因所在。
 
-Just clone this repo and make a pull-requst after you translate some chap of it.
+本教程的目的在于给读者在Scheme程序设计上提供足够的知识和能力以便能够阅读最好的计算机科学教科书之一的——《计算机程序的构造和解释》（Structure and Interpreter of Computer Program，SICP）。SICP使用Scheme作为授课语言。
 
+鸣谢
 
-
-
-# How to translate
-
-The orignal files are in `en` directory and the translated files are in `zh_cn` directory, so you just need to open two `docx` file in your computer, one of them is the orignal file and the other is a blank file. Just translate it into Chinese! DON'T WORRY ABOUT THE FORMAT, WE WILL DO THAT LATER!
-
-If you do have some difficult in translating some words or sentences, just leave it as it was and mark it, we may have a disscus later.
-
-
-
-# The management of this project
-
-Unluckly, we've used a stupid way to handle this project, if you have a better idea to namage such a project just tell me.
+本书使用[gitbook](https://gitbook.com/)生成。

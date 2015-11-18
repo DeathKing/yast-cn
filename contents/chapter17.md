@@ -4,17 +4,17 @@
 
 惰性求值（Lazy evaluation）是在需要时才进行求值的计算方式。惰性求值自然地在数据结构中包含递归，可以以简单的方式表示无限的概念，这种方式有利于程序的模块化。
 
-你可以在[《Why Functional Programming Matters》](www.md.chalmers.se/~rjmh/Papers/whyfp.html)中获知惰性求值可以带来哪些好处。
+你可以从[《Why Functional Programming Matters》](www.md.chalmers.se/~rjmh/Papers/whyfp.html)中知晓惰性计算可以带来哪些好处。
 
-[Haskell](www.haskell.org/)语言以完全采用惰性求值而广为人知。Scheme也采用了惰性求值（即使是部分采用）。
+[Haskell](www.haskell.org/)语言以采用惰性求值而广为人熟知。Scheme也部分采用了惰性求值。
 
 ## 用于惰性求值的函数
 
-下面这些用于处理惰性求值的函数是在R5RS中定义的。中间状态被称为延时对象（`promise`），它表示求值方法已经定义好了，但求值还未执行。最终的值通过对promise调用force被计算出来。
+下面这些用于处理惰性求值的函数是在R5RS中定义的。中间状态被称为延时对象（`promise`），它表示求值方法已经定义好了，但求值还未执行。最终的值通过对延时对象（`promise`）调用force被计算出来。
 
 **(delay `proc`)**
 
-以proc创建一个延时对象（`promise`）。
+以`proc`创建一个延时对象（`promise`）。
 
 **(promise? `obj`)**
 
@@ -54,7 +54,7 @@ laz
 
 现在，让我们使用惰性求值创建无限序列。首先，我将定义一些用于处理无限序列的基本函数。然后，我会使用这些函数创建无限序列，并将无限序列用于数值计算。
 
-无限序列可以用如表达式（1）的cons单元的嵌套结构表示。cons单元的car和cdr分别是最终值和延时对象（promise）。另一个表达式（1）结构的cons单元通过强制求值cdr部分产生，你可以无限重复这个过程，就像图.1。这个个cons单元的嵌套结构和普通表类似，只是使用延时对象作为cdr部分使其可以表示无限序列。
+无限序列可以用如表达式（1）的cons单元的嵌套结构表示。cons单元的car和cdr分别是最终值和延时对象（promise）。另一个表达式（1）结构的cons单元通过强制求值cdr部分产生，你可以无限重复这个过程，就像图 1。这个个cons单元的嵌套结构和普通表类似，只是使用延时对象作为cdr部分使其可以表示无限序列。
 
 ```
 	(<val> . <promise>)    (1)
@@ -146,10 +146,10 @@ laz
 
 ### 无限序列
 
-无限系列可以简洁地使用哪个lazy-cons和lazy-map表示。我会展示两个例子：
+无限序列可以简洁地用lazy-cons和lazy-map表示。我会展示两个例子：
 
-- 下一项由前一项定义的序列，如等差数列和等比数列
-- 菲波那契数列
+- 下一项由前一项定义的序列，如等差数列和等比数列。
+- 菲波那契数列。
 
 #### 下一个项由前一项定义的序列
 
@@ -157,7 +157,7 @@ laz
 
 \\[{a}\_{i+1} = f(\{a}\_i) \\]
 
-可以表示为[代码2]里的`(inf-seq a0 f)`，`a0`和`f`分别是除始项和用于计算随后项的函数。
+可以表示为[代码2]里的`(inf-seq a0 f)`，`a0`和`f`分别是初始项和用于计算随后项的函数。
 
 `(inf-seq a0 f)`是递归定义的，它的定义清晰表明初始项是a0，第二项是(f a0)，（n+1）项由(f an)表示。
 
@@ -181,7 +181,7 @@ laz
 13:       (inf-seq a0 (lambda (x) (* x r))))
 ```
 
-让我们建议一下inf-seq产生的无限序列（例2）。创建两个等比数列：
+让我们检查一下inf-seq所产生的无限序列（例2）。创建两个等比数列：
 
 1. `g1`，初始值1，公比为2。
 2. `g2`，初始值1，公比为1/2。
@@ -190,7 +190,7 @@ laz
 
 接下来，使用lazy-map计算g1和g2的乘积，并使用head求值前10项。你将看到一个全是1的序列，这表明计算被正确地执行了。
 
-现在，让我们用等差数列和lazy-filter做一些游戏。首先，用 (ari 1 1)创建一个等比数列`ar1`。(head ar1 10) 的结果显示等比数列 (1 2 3 ....) 是由 (ari 1 1)产生的。然后使用lazy-filter取出`ar1`里的偶数，并使用head求值前10项。你将看到 (2 4 6 8 10 12 14 16 18 20)，这表明lazy-filter正常工作。
+现在，让我们用等差数列和lazy-filter娱乐一番。首先，用 (ari 1 1)创建一个等比数列`ar1`。(head ar1 10) 的结果显示等比数列 (1 2 3 ....) 是由 (ari 1 1)产生的。然后使用lazy-filter取出`ar1`里的偶数，并使用head求值前10项。你将看到 (2 4 6 8 10 12 14 16 18 20)，这表明lazy-filter正常工作。
 
 [例2]
 
@@ -231,9 +231,9 @@ fib(2) = 1
 fib(n+1) = fib(n) + fib(n-1)
 ```
 
-代码3展示了Scheme实现的菲波那切数列，用到了lazy-cons和lazy-map。如代码所示，Scheme里的定义和数学上的定义很相似。此外，各项的计算的复杂度为*O(n)*。
+代码3展示了Scheme实现的菲波那切数列，用到了lazy-cons和lazy-map。如代码所示，Scheme里的定义和数学上的定义很相似。此外，各个项的计算的复杂度为*O(n)*。
 
-[例3]中的值被立刻计算出来了。
+[例3]中，值被立刻计算出来了。
 
 [代码 3]
 
@@ -257,7 +257,7 @@ fib(n+1) = fib(n) + fib(n-1)
 
 ### 将惰性求值用于数值计算
 
-下面是[《Why Functional Programming Matters》](www.md.chalmers.se/~rjmh/Papers/whyfp.html)里代码的Schme版本。也可以查看[SICP 3.5. Stream](http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-24.html#%_sec_3.5)惰性计算在数值计算中的应用。
+下面是[《Why Functional Programming Matters》](www.md.chalmers.se/~rjmh/Papers/whyfp.html)里相关代码的Schme版本。也可以查看[SICP 3.5. Stream](http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-24.html#%_sec_3.5)惰性计算在数值计算中的应用。
 
 #### 牛顿-拉夫逊法求平方根
 
@@ -278,9 +278,9 @@ fib(n+1) = fib(n) + fib(n-1)
       a =  √N
 ```
 
-，这表明最终值a是N的平方根。序列的下一项是前一项的函数（如等式（2）展示的），这些序列用inf-seq表示。
+，这表明最终值a是N的平方根。序列的下一项是前一项的函数（如等式（2）所示），这些序列可用inf-seq表示。
 
-代码4展示了一个计算平方根的程序。在代码4中，初始值被定为1，由于序列收敛很快所以这没问题的。
+代码4展示了一个计算平方根的程序。在代码4中，初始值被定为1，由于序列收敛很快，所以这没问题。
 
 [代码4]
 
@@ -322,7 +322,6 @@ fib(n+1) = fib(n) + fib(n-1)
 
 在相对误差eps下，计算n的平方根。
 
-
 ```
 (my-sqrt 9 0.0000001)
 ;Value: 3.
@@ -330,13 +329,125 @@ fib(n+1) = fib(n) + fib(n-1)
 
 #### 数值微分
 
+[代码5]中的`easydiff`是一种计算数字积分的简单方式，其中`f`，`x`，和`h`分别是被积分的函数，x值，和Δx。理论上，如果`h`越趋于0，获得的近似值越好。但在实践中，由于数值在计算机里的精度是有限的，微小的`h`值会导致错误。
+
+为了解决这个问题，我们用`lazylist-diff`创建`h`的惰性表。这个惰性表是初始值为`h0`，公比为0.5的等比数列。然后我们创建一个对应于`h`的惰性表的近似值的惰性表。
+
+可以通过如下代码加快收敛速度，更快得到答案：
+
+```
+(lazylist->answer (lazylist-diff h0 f x) eps)
+```
+
+函数`super`是收敛加速函数。可以查看[《Why Functional Programming Matters》](www.md.chalmers.se/~rjmh/Papers/whyfp.html)的关于加速技术部分。如果你使用了传统编程语言，加速计算会相当复杂。相反，使用惰性求值可以以简单的方式实现。此外，因为高度的模块化，你可以在其他问题中复用代码，例如数值积分（4.3.3节）。代码6复用了代码5中的加速函数。
+
+[代码5]
+
+```scheme
+01:     ;;; differentiation
+02:     
+03:     ;;; primitive function for differentiation
+04:     (define (easydiff f x h)
+05:       (/ (- (f (+ x h)) (f x)) h))
+06:     
+07:     ;;; create a lazy list of approximation for differentiation
+08:     (define (lazylist-diff h0 f x)
+09:       (lazy-map (lambda (h) (easydiff f x h)) (geo h0 0.5)))
+10:     
+11:     ;;; eliminate error from the approximation
+12:     (define (elimerror n ls)
+13:       (let ((a (lazy-car ls))
+14:             (b (lazy-second ls))
+15:             (c (fix:lsh 1 n)))   ; (expt 2 n)
+16:         (lazy-cons
+17:          (/ (- (* b c) a) (- c 1))
+18:          (elimerror n (lazy-cdr ls)))))
+19:     
+20:     ;;; estimate `n' in elimerror
+21:     (define (order ls)
+22:       (let* ((a (lazy-car ls))
+23:              (b (lazy-second ls))
+24:              (c (lazy-ref ls 2))
+25:              (d (- (/ (- a c) (- b c)) 1.0)))
+26:         (cond
+27:          ((< d 2) 1)
+28:          ((<= 2 d 16) (inexact->exact (round (log2 d))))
+29:          (else 4))))
+30:     
+31:     ;;;
+32:     (define (log2 x)
+33:       (/ (log x) (log 2)))
+34:     
+35:     ;;; improve convergence of the lazy list of the approximation
+36:     (define (improve ls)
+37:       (elimerror (order ls) ls))
+38:     
+39:     ;;; return the second value of the lazy list
+40:     (define (lazy-second ls)
+41:       (lazy-car (lazy-cdr ls)))
+42:     
+43:     ;;; further improve the convergence of the list
+44:     (define (super ls)
+45:       (lazy-map lazy-second (inf-seq ls improve)))
+46:                 
+47:     
+48:     ;;; calculate the differentiation of function `f' at x within error eps
+49:     ;;; h0 is initial window width
+50:     (define (diff f x h0 eps)
+51:       (lazylist->answer (super (lazylist-diff h0 f x)) eps))
+```
+
+```
+(diff sin 0.0 0.1 0.0000001)
+;Value: .9999999999999516
+
+(diff exp 0.0 0.1 0.000001)
+;Value: .9999999991733471
+```
+
 #### 数值积分
 
+收敛加速函数无需任何修改即可被用于数值积分。最开始，我们使用`easyintegrate`创建一个粗略的近似。函数`lazylist-integrate`使用惰性表，通过递归地调用easyintegrate在中间点切分区间，来改进近似值。函数可以用lazy-map以简单的方式定义。最终，收敛被加速，收敛值由函数`integrate`返回。
+
+[代码6]
+
+```scheme
+01:     ;;; integration
+02:     
+03:     ;;; primitive integration
+04:     (define (easyintegrate f a b)
+05:       (* (/ (+ (f a) (f b)) 2) (- b a)))
+06:     
+07:     ;;; create the lazy list of approximation for integration
+08:     (define (lazylist-integrate f a b)
+09:       (let ((mid (/ (+ a b) 2)))
+10:         (lazy-cons (easyintegrate f a b)
+11:                    (lazy-map + (lazylist-integrate f a mid)
+12:                                (lazylist-integrate f mid b)))))
+13:     
+14:     ;;; integrate function `f' in a range of `a' and `b' within error `eps'
+15:     (define (integrate f a b eps)
+16:       (lazylist->answer (super (lazylist-integrate f a b)) eps))
+```
+
+```
+(define pi (* 4 (atan 1)))
+;Value: pi
+
+(integrate sin 0 pi 0.0000001)
+;Value: 2.000000002272428
+
+(integrate exp 0 1 0.0000001)
+;Value: 1.7182818277724858
+
+(- (exp 1) 1)
+;Value: 1.718281828459045
+```
 
 ## 小结
 
-惰性求值允许我们以简洁的方式将重复包含在数据结构中。这个功能有利于程序的模块化，使得代码更紧凑。
+惰性求值允许我们以简洁的方式将重复包含在数据结构中。这个功能有利于程序的模块化，可使代码更为紧凑。
 
-查看网页[Haskell](http://www.haskell.org/haskellwiki/Haskell)了解更多关于惰性求值的内容。
+查看网页[Haskell](http://www.haskell.org/haskellwiki/Haskell)可以了解更多关于惰性求值的内容。
 
 你可以在[这儿](http://www.shido.info/lisp/scheme_lazy.zip)下载本页中出现代码。

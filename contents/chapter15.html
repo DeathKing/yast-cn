@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="16" data-chapter-title="定义语法" data-filepath="contents/chapter15.md" data-basepath=".." data-revision="Wed Nov 18 2015 00:51:03 GMT+0800 (CST)">
+    <div class="book" data-level="16" data-chapter-title="定义语法" data-filepath="contents/chapter15.md" data-basepath=".." data-revision="Wed Nov 18 2015 17:20:20 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -418,14 +418,12 @@ a
 a
 ;Value: ()          ; a becomes &apos;()
 </code></pre>
-<p>{:caption=&gt;&apos;&apos;}</p>
 <p>&#x6211;&#x4F1A;&#x6F14;&#x793A;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;&#x6211;&#x4EEC;&#x7F16;&#x5199;&#x5B8F;<code>when</code>&#xFF0C;&#x5176;&#x8BED;&#x4E49;&#x4E3A;&#xFF1A;&#x5F53;&#x8C13;&#x8BCD;&#x6C42;&#x503C;&#x4E3A;&#x771F;&#x65F6;&#xFF0C;&#x6C42;&#x503C;&#x76F8;&#x5E94;&#x8BED;&#x53E5;&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> when
   <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">()</span>
     <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> pred b1 ...)</span>
      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> pred <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span> b1 ...)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;2&apos;}</p>
 <p><strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;2</strong>&#x4E2D;&#x7684;<code>...</code>&#x4EE3;&#x8868;&#x4E86;&#x4EFB;&#x610F;&#x591A;&#x4E2A;&#x6570;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;&#x5305;&#x62EC;0&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#xFF09;&#x3002;<strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;2</strong>&#x63ED;&#x793A;&#x4E86;&#x8BF8;&#x5982;&#x8868;&#x8FBE;&#x5F0F;<code>(when pred b1 ...)</code>&#x4F1A;&#x53D8;&#x6362;&#x4E3A;<code>(if pred (begin b1 ...))</code>&#x3002;</p>
 <p>&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x5B8F;&#x662F;&#x5C06;&#x8868;&#x8FBE;&#x5F0F;&#x53D8;&#x6362;&#x4E3A;<code>if</code>&#x7279;&#x6B8A;&#x5F62;&#x5F0F;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;<code>when</code>&#x3002;</p>
 <pre><code class="lang-scheme">(let ((i 0))
@@ -450,7 +448,6 @@ i == 0
       b1 ...
       <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword">1+</span> i)</span>)</span>)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;3&apos;}</p>
 <p>&#x4E0B;&#x9762;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x5B9E;&#x7528;&#x5B83;&#x4EEC;&#xFF1A;</p>
 <pre><code class="lang-scheme">define-syntax while
   (syntax-rules ()
@@ -487,7 +484,6 @@ i == 0
 <span class="hljs-list">(<span class="hljs-keyword">j</span> = <span class="hljs-number">3</span>)</span>
 <span class="hljs-comment">;Unspecified return value</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;4&apos;}</p>
 <blockquote>
 <p>&#x7EC3;&#x4E60;2  </p>
 <p>&#x7F16;&#x5199;&#x7528;&#x4E8E;&#x4ECE;&#x53D8;&#x91CF;&#x4E2D;&#x51CF;&#x53BB;&#x4E00;&#x4E2A;&#x6570;&#x7684;&#x5B8F;<code>decf</code>&#x3002;&#x5982;&#x679C;&#x51CF;&#x91CF;&#x7701;&#x7565;&#x4E86;&#xFF0C;&#x5219;&#x4ECE;&#x53D8;&#x91CF;&#x4E2D;&#x51CF;1&#x3002;</p>
@@ -513,7 +509,6 @@ i == 0
      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">t</span> e1)</span>)</span>
        <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> t t <span class="hljs-list">(<span class="hljs-keyword">my-or</span> e2 ...)</span>)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;5&apos;}</p>
 <p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9012;&#x5F52;&#x5B9A;&#x4E49;&#x6765;&#x7F16;&#x5199;&#x590D;&#x6742;&#x7684;&#x5B8F;&#x3002;</p>
 <blockquote>
 <p>&#x7EC3;&#x4E60;4  </p>
@@ -532,7 +527,6 @@ i == 0
      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span> e2 ...)</span>
      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cond</span></span> c1 ...)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;6&apos;}</p>
 <h2 id="&#x5C40;&#x90E8;&#x8BED;&#x6CD5;">&#x5C40;&#x90E8;&#x8BED;&#x6CD5;</h2>
 <p>&#x5728;Scheme&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>let-syntax</code>&#x548C;<code>letrec-syntax</code>&#x6765;&#x5B9A;&#x4E49;<strong>&#x5C40;&#x90E8;&#x8BED;&#x6CD5;&#xFF08;Local Syntax&#xFF09;</strong>&#x3002;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x7528;&#x6CD5;&#x548C;<code>define-syntax</code>&#x662F;&#x76F8;&#x4F3C;&#x7684;&#x3002;</p>
 <h2 id="implementation-depending-macro-definition">Implementation Depending Macro Definition</h2>

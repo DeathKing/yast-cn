@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-chapter-title="生成表" data-filepath="contents/chapter3.md" data-basepath=".." data-revision="Wed Nov 18 2015 00:51:03 GMT+0800 (CST)">
+    <div class="book" data-level="4" data-chapter-title="生成表" data-filepath="contents/chapter3.md" data-basepath=".." data-revision="Wed Nov 18 2015 17:20:20 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -398,13 +398,13 @@
 <span class="hljs-comment">;Value 11: (1 . 2)</span>
 </code></pre>
 <p>&#x7CFB;&#x7EDF;&#x8FD4;&#x56DE;<code>(1 . 2)</code>&#x3002;&#x5982;&#x56FE;&#x4E00;&#x6240;&#x793A;&#xFF0C;&#x51FD;&#x6570;<code>cons</code>&#x7ED9;&#x4E24;&#x4E2A;&#x5730;&#x5740;&#x5206;&#x914D;&#x4E86;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x5E76;&#x628A;&#x5B58;&#x653E;&#x6307;&#x5411;<code>1</code>&#x7684;&#x5730;&#x5740;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x7A7A;&#x95F4;&#xFF0C;&#x628A;&#x5B58;&#x653E;&#x6307;&#x5411;<code>2</code>&#x7684;&#x5730;&#x5740;&#x653E;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x7A7A;&#x95F4;&#x3002;&#x5B58;&#x653E;&#x6307;&#x5411;<code>1</code>&#x7684;&#x5730;&#x5740;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x88AB;&#x79F0;&#x4F5C;<code>car</code>&#x90E8;&#x5206;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#xFF0C;&#x5B58;&#x653E;&#x6307;&#x5411;<code>2</code>&#x7684;&#x5730;&#x5740;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x88AB;&#x79F0;&#x4F5C;<code>cdr</code>&#x90E8;&#x5206;&#x3002;<code>car</code>&#x548C;<code>cdr</code>&#x5206;&#x522B;&#x662F;<strong>&#x5BC4;&#x5B58;&#x5668;&#x5730;&#x5740;&#x90E8;&#x5206;&#xFF08;Contents of the Address part of the Register&#xFF09;</strong>&#x548C;<strong>&#x5BC4;&#x5B58;&#x5668;&#x51CF;&#x91CF;&#x90E8;&#x5206;&#xFF08;Contents of the Decrement part of the Register&#xFF09;</strong>&#x7684;&#x7B80;&#x79F0;&#x3002;&#x8FD9;&#x4E9B;&#x540D;&#x5B57;&#x6700;&#x521D;&#x6765;&#x6E90;&#x4E8E;Lisp&#x9996;&#x6B21;&#x88AB;&#x5B9E;&#x73B0;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x786C;&#x4EF6;&#x73AF;&#x5883;&#x4E2D;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x7684;&#x540D;&#x5B57;&#x3002;&#x8FD9;&#x4E9B;&#x540D;&#x5B57;&#x540C;&#x65F6;&#x4E5F;&#x8868;&#x660E;Cons&#x5355;&#x5143;&#x7684;&#x672C;&#x8D28;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x3002;<code>cons</code>&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#x662F;&#x672F;&#x8BED;<strong>&#x6784;&#x9020;&#xFF08;construction&#xFF09;</strong>&#x7684;&#x7B80;&#x79F0;&#x3002;</p>
-<p><img src="figures/cons2.png" alt="A cons cell">{:caption=&quot;&#x4E00;&#x4E2A;Cons&#x5355;&#x5143;&quot;}</p>
+<p><img src="figures/cons2.png" alt="A cons cell"></p>
 <p>Cons&#x5355;&#x5143;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x4E32;&#x8D77;&#x6765;&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> <span class="hljs-number">3</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>)</span>)</span>
 <span class="hljs-comment">;Value 15: (3 1 . 2)</span>
 </code></pre>
 <p>&#xB7;(3 . (1 . 2))&#xB7;&#x53EF;&#x4EE5;&#x66F4;&#x65B9;&#x4FBF;&#x5730;&#x8868;&#x793A;&#x4E3A;<code>(3 1 . 2)</code>&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x5982;&#x56FE;2&#x6240;&#x793A;&#x3002;</p>
-<p><img src="figures/conss2.png" alt="Beaded cons cells">{:caption=&quot;&#x4E32;&#x8FDE;Cons&#x5355;&#x5143;&quot;}</p>
+<p><img src="figures/conss2.png" alt="Beaded cons cells"></p>
 <p>Cons&#x5355;&#x5143;&#x53EF;&#x4EE5;&#x5B58;&#x653E;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5D4C;&#x5957;&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> <span class="hljs-literal">#\a</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> <span class="hljs-number">3</span> <span class="hljs-string">&quot;hello&quot;</span>)</span>)</span>
 <span class="hljs-comment">;Value 17: (#\a 3 . &quot;hello&quot;)</span>
@@ -416,7 +416,6 @@
 <h3 id="&#x8868;">&#x8868;</h3>
 <p>&#x8868;&#x662F;Cons&#x5355;&#x5143;&#x901A;&#x8FC7;&#x7528;<code>cdr</code>&#x90E8;&#x5206;&#x8FDE;&#x63A5;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;<code>Cons</code>&#x5355;&#x5143;&#x7684;&#x5F00;&#x5934;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x8868;&#x4E2D;&#x5305;&#x542B;&#x7684;<code>&#x2019;()</code>&#x88AB;&#x79F0;&#x4F5C;&#x7A7A;&#x8868;&#x3002;&#x5C31;&#x7B97;&#x6570;&#x636E;&#x4EC5;&#x7531;&#x4E00;&#x4E2A;Cons&#x5355;&#x5143;&#x7EC4;&#x6210;&#xFF0C;&#x53EA;&#x8981;&#x5B83;&#x7684;<code>cdr</code>&#x5355;&#x5143;&#x662F;<code>&#x2019;()</code>&#xFF0C;&#x90A3;&#x5B83;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x8868;&#x3002;&#x56FE;3&#x5C55;&#x793A;&#x4E86;&#x8868;<code>(1 2 3)</code>&#x7684;&#x5185;&#x5B58;&#x7ED3;&#x6784;&#x3002;</p>
 <p><img src="figures/conss2.png" alt="Memory structure for a list &apos;(1 2 3)"></p>
-<p>{:caption=&quot;&#x8868;(1 2 3)&#x7684;&#x5185;&#x5B58;&#x7ED3;&#x6784;&quot;}</p>
 <p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x8868;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x9012;&#x5F52;&#x5730;&#x5B9A;&#x4E49;&#xFF1A;</p>
 <ol>
 <li><code>&#x2018;()</code>&#x662F;&#x4E00;&#x4E2A;&#x8868;</li>

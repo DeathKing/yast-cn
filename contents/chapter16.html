@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="17" data-chapter-title="继续" data-filepath="contents/chapter16.md" data-basepath=".." data-revision="Wed Nov 18 2015 00:51:03 GMT+0800 (CST)">
+    <div class="book" data-level="17" data-chapter-title="继续" data-filepath="contents/chapter16.md" data-basepath=".." data-revision="Wed Nov 18 2015 17:20:20 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -404,11 +404,9 @@
 <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">k*</span> a b k)</span>
   <span class="hljs-list">(<span class="hljs-keyword">k</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> a b)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;1&apos;}</p>
 <p><strong>&#x4F8B;1</strong>&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;CPS&#x8BA1;&#x7B97;<code>(* 3 (+ 1 2))</code>&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">k+</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">k*</span> x <span class="hljs-number">3</span> return)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4F8B;1&apos;}</p>
 <p>Scheme&#x7684;&#x666E;&#x901A;&#x5F62;&#x5F0F;&#x4E2D;&#xFF0C;&#x503C;&#x5728;&#x62EC;&#x53F7;&#x5916;&#x88AB;&#x8BA1;&#x7B97;&#xFF08;#TBD In the ordinary form of Scheme, values that are calculated in parentheses go outside of them. &#xFF09;&#x4E0E;&#x6B64;&#x76F8;&#x53CD;&#xFF0C;CPS&#x4E2D;&#xFF0C;&#x503C;&#x5411;&#x5176;&#x5B83;&#x62EC;&#x53F7;&#x5185;&#x4F20;&#x9012;&#x3002;&#x5728;<strong>&#x4F8B;1</strong>&#x4E2D;&#xFF0C;<code>k+</code>&#x628A;<code>(+ 1 2)</code>&#x7684;&#x503C;&#x4F20;&#x9012;&#x7ED9;<code>(lambda (x) (k* x 3 return))</code>&#xFF0C;&#x800C;<code>k*</code>&#x628A;<code>(* (+ 1 2) 3)</code>&#x7684;&#x7ED3;&#x679C;&#x4F20;&#x7ED9;<code>return</code>&#x3002;</p>
 <h3 id="&#x4EE5;cps&#x7F16;&#x5199;&#x9012;&#x5F52;&#x51FD;&#x6570;">&#x4EE5;CPS&#x7F16;&#x5199;&#x9012;&#x5F52;&#x51FD;&#x6570;</h3>
 <p>&#x9012;&#x5F52;&#x51FD;&#x6570;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x4EE5;CPS&#x7F16;&#x5199;&#x3002;<strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;2</strong>&#x5C55;&#x793A;&#x4E86;&#x8BA1;&#x7B97;&#x9636;&#x4E58;&#x7684;&#x51FD;&#x6570;&#x5982;&#x4F55;&#x7528;&#x666E;&#x901A;&#x65B9;&#x5F0F;&#x7F16;&#x5199;&#xFF08;<code>fact</code>&#xFF09;&#x548C;&#x4EE5;CPS&#x7F16;&#x5199;(<code>kfact</code>)&#x3002;</p>
@@ -431,7 +429,6 @@
 <span class="hljs-comment">;;; CPS</span>
 <span class="hljs-list">(<span class="hljs-keyword">kfact</span> <span class="hljs-number">4</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">k+</span> x <span class="hljs-number">3</span> return)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4F8B;2&apos;}</p>
 <p><strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;3</strong>&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x5206;&#x522B;&#x7528;&#x666E;&#x901A;&#x65B9;&#x5F0F;&#x548C;CPS&#x7F16;&#x5199;&#x7528;&#x4E8E;&#x8BA1;&#x7B97;&#x8868;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x79EF;&#x7684;&#x51FD;&#x6570;&#x3002;&#x5728;CPS&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x540E;&#x7EE7;&#x51FD;&#x6570;&#x5B58;&#x50A8;&#x518D;&#x5C40;&#x90E8;&#x53D8;&#x91CF;<code>break</code>&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x5143;&#x7D20;&#x4E58;&#x4EE5;0&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x7ACB;&#x5373;&#x9000;&#x51FA;&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-comment">;;; normal</span>
 <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">product</span> ls)</span>
@@ -450,7 +447,6 @@
        <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">zero?</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> ls)</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">break</span> <span class="hljs-number">0</span>)</span>)</span>
        <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">else</span></span> <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> ls)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">k</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> ls)</span> x)</span>)</span>)</span>)</span>)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;3&apos;}</p>
 <p><strong>&#x4F8B;3</strong>&#x5C06;100&#x4E0E;<code>&apos;(2 4 7)</code>&#x7684;&#x79EF;&#x76F8;&#x52A0;&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-comment">;;; normal</span>
 <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> <span class="hljs-number">100</span> <span class="hljs-list">(<span class="hljs-keyword">product</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">2</span> <span class="hljs-number">4</span> <span class="hljs-number">7</span>)</span>)</span>)</span>
@@ -458,7 +454,6 @@
 <span class="hljs-comment">;;; CPS</span>
 <span class="hljs-list">(<span class="hljs-keyword">kproduct</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">2</span> <span class="hljs-number">4</span> <span class="hljs-number">7</span>)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">k+</span> x <span class="hljs-number">100</span> return)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4F8B;3&apos;}</p>
 <p>&#x5C3D;&#x7BA1;CPS&#x5728;&#x8FD9;&#x6837;&#x7B80;&#x5355;&#x7684;&#x60C5;&#x51B5;&#x4E2D;&#x5E76;&#x4E0D;&#x5B9E;&#x7528;&#xFF0C;&#x4F46;&#x5728;&#x4E00;&#x4E9B;&#x50CF;&#x662F;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x6790;&#x548C;&#x903B;&#x8F91;&#x7F16;&#x7A0B;&#x7B49;&#x590D;&#x6742;&#x7A0B;&#x5E8F;&#x4E2D;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0E;&#x901A;&#x5E38;&#x7684;&#x7F16;&#x7A0B;&#x98CE;&#x683C;&#x76F8;&#x6BD4;&#xFF0C;CPS&#x53EF;&#x4EE5;&#x66F4;&#x7075;&#x6D3B;&#x5730;&#x6539;&#x53D8;&#x540E;&#x7EED;&#x8FC7;&#x7A0B;&#x3002;</p>
 <p><strong>&#x5F02;&#x5E38;&#x5904;&#x7406;&#xFF08;Exception handling&#xFF09;</strong>&#x5C31;&#x662F;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x7684;&#x7B80;&#x5355;&#x4F8B;&#x5B50;&#x3002;<strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;4</strong>&#x6F14;&#x793A;&#x4E86;<code>kproduct</code>&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x7248;&#x672C;&#xFF0C;&#x7A0B;&#x5E8F;&#x4E2D;&#x5F53;&#x975E;&#x6570;&#x5B57;&#x503C;&#x51FA;&#x73B0;&#x5728;&#x8F93;&#x5165;&#x8868;&#x4E2D;&#xFF0C;&#x5728;&#x5176;&#x88AB;&#x6253;&#x5370;&#x65F6;&#xFF0C;&#x8BA1;&#x7B97;&#x5C31;&#x4F1A;&#x7EC8;&#x6B62;&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">non-number-value-error</span> x)</span>
@@ -477,7 +472,6 @@
        <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">zero?</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> ls)</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">break</span> <span class="hljs-number">0</span>)</span>)</span>
        <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">else</span></span> <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> ls)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">k</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> ls)</span> x)</span>)</span>)</span>)</span>)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;4&apos;}</p>
 <pre><code class="lang-scheme">;;; valid
 (kproduct &apos;(2 4 7) 
       (lambda (x) (k+ x 100 return)) 
@@ -491,7 +485,6 @@
 Value error: hoge is not number.
 ;Value: error
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4F8B;4&apos;}</p>
 <h2 id="scheme&#x4E2D;&#x7684;&#x7EE7;&#x7EED;">Scheme&#x4E2D;&#x7684;&#x7EE7;&#x7EED;</h2>
 <p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x8BB2;&#x89E3;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x638C;&#x63E1;&#x4E86;&#x7EE7;&#x7EED;&#x3002;&#x7EE7;&#x7EED;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x6027;&#x8D28;&#xFF1A;</p>
 <ol>
@@ -534,14 +527,12 @@ Value error: hoge is not number.
                             <span class="hljs-list">(<span class="hljs-keyword">cc</span> obj)</span>)</span>)</span>)</span>)</span>)</span>)</span>
          <span class="hljs-list">(<span class="hljs-keyword">iter</span> tree)</span>)</span>)</span>)</span>)</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;5&apos;}</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">find-leaf</span> <span class="hljs-number">7</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-list">(<span class="hljs-keyword">2</span> <span class="hljs-number">3</span>)</span> <span class="hljs-number">4</span> <span class="hljs-list">(<span class="hljs-keyword">5</span> <span class="hljs-list">(<span class="hljs-keyword">6</span> <span class="hljs-number">7</span>)</span>)</span>)</span>)</span>
 <span class="hljs-comment">;&#x21D2; 7</span>
 
 <span class="hljs-list">(<span class="hljs-keyword">find-leaf</span> <span class="hljs-number">8</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-list">(<span class="hljs-keyword">2</span> <span class="hljs-number">3</span>)</span> <span class="hljs-number">4</span> <span class="hljs-list">(<span class="hljs-keyword">5</span> <span class="hljs-list">(<span class="hljs-keyword">6</span> <span class="hljs-number">7</span>)</span>)</span>)</span>)</span>
 <span class="hljs-comment">;&#x21D2; ()</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4F8B;5&apos;}</p>
 <p><strong>&#x4F8B;6</strong>&#x6F14;&#x793A;&#x4E86;&#x4E00;&#x4E2A;&#x652F;&#x6301;&#x629B;&#x51FA;&#x7684;&#x8BED;&#x6CD5;<code>block</code>&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> block
   <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">()</span>
@@ -567,7 +558,6 @@ Value error: hoge is not number.
     &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-number">-2</span> <span class="hljs-number">3</span>)</span>)</span>)</span>
 <span class="hljs-comment">;&#x21D2; -2</span>
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4F8B;7&apos;}</p>
 <h3 id="&#x751F;&#x6210;&#x5668;">&#x751F;&#x6210;&#x5668;</h3>
 <p>&#x6211;&#x4F1A;&#x8BB2;&#x89E3;&#x5982;&#x4F55;&#x7528;<code>call/cc</code>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x6811;&#x5339;&#x914D;&#x7684;&#x751F;&#x6210;&#x5668;&#x3002;&#x751F;&#x6210;&#x5668;&#x4EE5;&#x4E00;&#x4E2A;&#x6811;&#x4E3A;&#x53C2;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x8FD4;&#x56DE;&#x540E;&#x5E8F;&#x7684;&#x53F6;&#x5B50;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x5728;<a href="www.ccs.neu.edu/home/dorai/t-y-scheme/t-y-scheme-Z-H-15.html#node_sec_13.3">Teach Yourself Scheme in Fixnum Days&#x7684;&#x7B2C;13.3&#x8282;</a>&#x4E2D;&#x627E;&#x5230;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x539F;&#x59CB;&#x7248;&#x672C;&#x3002;&#x751F;&#x6210;&#x5668;&#x662F;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x4F7F;&#x7528;&#x7684;&#xFF1A;</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> tr &apos;<span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-number">2</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">3</span> <span class="hljs-list">(<span class="hljs-keyword">4</span> <span class="hljs-number">5</span>)</span>)</span>)</span>)</span>
@@ -599,7 +589,6 @@ Value error: hoge is not number.
 16:                       (set! return where-to-go) ;14
 17:                       (continue)))))))
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;6&apos;}</p>
 <p>(&#x8BD1;&#x8005;&#x6CE8;&#xFF1A;&#x539F;&#x6587;&#x4E2D;05&#xFF0C;08&#x884C;&#x4E2D;&#x547D;&#x540D;let&#x4E2D;&#x7684;<code>rec</code>&#x88AB;&#x5199;&#x4E3A;<code>loop</code>&#xFF0C;&#x7ED3;&#x5408;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x6539;&#x4E3A;<code>rec</code>)</p>
 <p>&#x6CE8;&#x91CA;&#x89E3;&#x91CA;</p>
 <p>&#x7F16;&#x53F7;  &#x89E3;&#x91CA;</p>
@@ -734,13 +723,11 @@ _
 60:     (newline)
 61:     (start)
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;7&apos;}</p>
 <pre><code class="lang-scheme">(load &quot;cor2.scm&quot;)
 ;Loading &quot;cor2.scm&quot;
 1 a 2 b 3 c 4 d 5 e 6 f 7 g 8 h 9 i 10 j  -- done
 ;Unspecified return value
 </code></pre>
-<p>{:caption=&gt;&apos;&#x4F8B;7&apos;}</p>
 <h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
 <p>&#x672C;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x8BB2;&#x89E3;&#x4E86;&#x7EE7;&#x7EED;&#x3002;</p>
 <p>&#x7406;&#x89E3;&#x8FD9;&#x4E9B;&#x6982;&#x5FF5;&#x53EF;&#x80FD;&#x6BD4;&#x8F83;&#x56F0;&#x96BE;&#x3002;&#x4F46;&#x4E0D;&#x8981;&#x62C5;&#x5FC3;&#xFF0C;&#x6709;&#x671D;&#x4E00;&#x65E5;&#x4F60;&#x7EC8;&#x4F1A;&#x660E;&#x767D;&#x3002;</p>

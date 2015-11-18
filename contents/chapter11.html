@@ -1,0 +1,554 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>字符与字符串 | 简介</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../contents/chapter12.html" />
+    
+    
+    <link rel="prev" href="../contents/chapter10.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="12" data-chapter-title="字符与字符串" data-filepath="contents/chapter11.md" data-basepath=".." data-revision="Wed Nov 18 2015 00:51:03 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="contents/preface.html">
+            
+                
+                    <a href="../contents/preface.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        中文版序
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="contents/chapter1.html">
+            
+                
+                    <a href="../contents/chapter1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        安装MIT-Scheme
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="contents/chapter2.html">
+            
+                
+                    <a href="../contents/chapter2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        将Scheme用作计算器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="contents/chapter3.html">
+            
+                
+                    <a href="../contents/chapter3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        生成表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="contents/chapter4.html">
+            
+                
+                    <a href="../contents/chapter4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        定义函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="contents/chapter5.html">
+            
+                
+                    <a href="../contents/chapter5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        分支
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="contents/chapter6.html">
+            
+                
+                    <a href="../contents/chapter6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        局部变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="contents/chapter7.html">
+            
+                
+                    <a href="../contents/chapter7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        重复
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="contents/chapter8.html">
+            
+                
+                    <a href="../contents/chapter8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        高阶函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="contents/chapter9.html">
+            
+                
+                    <a href="../contents/chapter9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        输入/输出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="contents/chapter10.html">
+            
+                
+                    <a href="../contents/chapter10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        赋值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="12" data-path="contents/chapter11.html">
+            
+                
+                    <a href="../contents/chapter11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        字符与字符串
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="contents/chapter12.html">
+            
+                
+                    <a href="../contents/chapter12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        符号
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="contents/chapter13.html">
+            
+                
+                    <a href="../contents/chapter13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        关联表和哈希表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="contents/chapter14.html">
+            
+                
+                    <a href="../contents/chapter14.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        向量和结构体
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="contents/chapter15.html">
+            
+                
+                    <a href="../contents/chapter15.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        定义语法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="contents/chapter16.html">
+            
+                
+                    <a href="../contents/chapter16.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        继续
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="contents/chapter17.html">
+            
+                
+                    <a href="../contents/chapter17.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        惰性求值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="contents/chapter18.html">
+            
+            <span><b>19.</b> 非确定性求值</span>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >简介</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x5B57;&#x7B26;&#x4E0E;&#x5B57;&#x7B26;&#x4E32;">&#x5B57;&#x7B26;&#x4E0E;&#x5B57;&#x7B26;&#x4E32;</h1>
+<h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
+<p>&#x6211;&#x53EA;&#x4ECB;&#x7ECD;&#x4E86;&#x8868;&#x548C;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x5728;Scheme&#x4E2D;&#x6700;&#x4E3A;&#x5E38;&#x7528;&#x3002;&#x7136;&#x800C;&#xFF0C;Scheme&#x4E5F;&#x6709;&#x50CF;<strong>&#x5B57;&#x7B26;&#xFF08;Character&#xFF09;</strong>&#x3001;<strong>&#x5B57;&#x7B26;&#x4E32;&#xFF08;String&#xFF09;</strong>&#x3001;<strong>&#x7B26;&#x53F7;&#xFF08;Symbol&#xFF09;</strong>&#x3001;<strong>&#x5411;&#x91CF;&#xFF08;Vector&#xFF09;</strong>&#x7B49;&#x7684;&#x5176;&#x5B83;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x6211;&#x5C06;&#x5728;11&#x5230;14&#x7AE0;&#x8282;&#x4E2D;&#x4ECB;&#x7ECD;&#x5B83;&#x4EEC;&#x3002;</p>
+<h2 id="&#x5B57;&#x7B26;">&#x5B57;&#x7B26;</h2>
+<p>&#x5728;&#x67D0;&#x4E2A;&#x5B57;&#x7B26;&#x524D;&#x6DFB;&#x52A0;<code>#\</code>&#x6765;&#x8868;&#x660E;&#x8BE5;&#x7269;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x3002;&#x4F8B;&#x5982;&#xFF0C;<code>#\a</code>&#x8868;&#x793A;&#x5B57;&#x7B26;a&#x3002;&#x5B57;&#x7B26;<code>#\Space</code>&#x3001;<code>#\Tab</code>&#x3001;<code>#\Linefeed</code>&#x548C;<code>#\Return</code>&#x5206;&#x522B;&#x4EE3;&#x8868;&#x7A7A;&#x683C;&#xFF08;Space&#xFF09;&#x3001;&#x5236;&#x8868;&#x7B26;&#xFF08;Tab&#xFF09;&#xFF0C;Linefeed&#x548C;&#x8FD4;&#x56DE;&#xFF08;Return&#xFF09;&#x3002;R5RS&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E0B;&#x9762;&#x7684;&#x4E0E;&#x5B57;&#x7B26;&#x76F8;&#x5173;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+<dl>
+  <dt><code>(char? obj)</code></dt>
+  <dd>&#x5982;&#x679C;obj&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x5219;&#x8FD4;&#x56DE;<code>#t</code>&#x3002;</dd>
+
+  <dt><code>(char=? c1 c3)</code></dt>
+  <dd>&#x5982;&#x679C;c1&#x548C;c2&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x8BDD;&#x5219;&#x8FD4;&#x56DE;<code>#t</code>&#x3002;</dd>
+
+  <dt><code>(char-&gt;integer c)</code></dt>
+  <dd>&#x5C06;c&#x8F6C;&#x5316;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;&#x6574;&#x6570;&#xFF08;&#x5B57;&#x7B26;&#x4EE3;&#x7801;&#xFF0C;character code&#xFF09;&#x3002;&#x793A;&#x4F8B;&#xFF1A;<code>(char-&gt;integer #\a) =&gt; 97</code></dd>
+
+  <dt><code>(integer-&gt;char n)</code></dt>
+  <dd>&#x8BE5;&#x51FD;&#x6570;&#x5C06;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x8F6C;&#x5316;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x7B26;&#x3002;</dd>
+
+  <dt><code>(char</code></dt>
+  <dt><code>(char</code></dt>
+  <dt><code>(char&gt; c1 c2)</code></dt>
+  <dt><code>(char&gt;= c1 c2)</code></dt>
+  <dd>&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x7528;&#x4E8E;&#x6BD4;&#x8F83;&#x5B57;&#x7B26;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x6BD4;&#x8F83;&#x7684;&#x662F;&#x5B57;&#x7B26;&#x4EE3;&#x7801;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x4F8B;&#x5982;&#xFF0C;<code>(char&#x7B49;&#x540C;&#x4E8E;(&lt; (char-&gt;integer c1) (char-&gt;integer c2))</code></dd>
+
+  <dt><code>(char-ci=? c1 c2)</code></dt>
+  <dt><code>(char-ci</code></dt>
+  <dt><code>(char-ci</code></dt> 
+  <dt><code>(char-ci&gt;? c1 c2)</code></dt>
+  <dt><code>(char-ci&gt;=? c1 c2)</code></dt>
+  <dd>&#x8FD9;&#x4E9B;&#x6BD4;&#x8F83;&#x51FD;&#x6570;&#x5BF9;&#x5927;&#x5C0F;&#x5199;&#x4E0D;&#x654F;&#x611F;&#x3002;</dd>
+
+  <dt><code>(char-alphabetic? c)</code></dt>
+  <dt><code>(char-numeric? c)</code></dt>
+  <dt><code>(char-whitespace? c)</code></dt>
+  <dt><code>(char-upper-case? c)</code></dt>
+  <dt><code>(char-lower-case? c)</code></dt>
+<dd>&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x5206;&#x522B;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;&#x5B57;&#x7B26;c&#x662F;&#x5426;&#x4E3A;&#x5B57;&#x6BCD;&#x3001;&#x6570;&#x5B57;&#x3001;&#x7A7A;&#x767D;&#x7B26;&#x3001;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x6216;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#x3002;</dd>
+
+  <dt><code>(char-upcase c)</code></dt>
+  <dt><code>(char-downcase c)</code></dt>
+    <dd>&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x5206;&#x522B;&#x8FD4;&#x56DE;&#x5B57;&#x7B26;C&#x5BF9;&#x5E94;&#x7684;&#x5927;&#x5199;&#x6216;&#x5C0F;&#x5199;&#x3002;</dd>
+</dl>
+
+<h2 id="&#x5B57;&#x7B26;&#x4E32;">&#x5B57;&#x7B26;&#x4E32;</h2>
+<p>&#x5B57;&#x7B26;&#x4E32;&#x901A;&#x8FC7;&#x4E24;&#x4E2A;&#x95ED;&#x5408;&#x7684;&#x53CC;&#x5F15;&#x53F7;&#x8868;&#x793A;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x201D;abc&#x201D;&#x8868;&#x793A;&#x5B57;&#x7B26;&#x4E32;abc&#x3002;R5RS&#x5B9A;&#x4E49;&#x4E86;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+<dl>
+  <dt><code>(string? s)</code></dt>
+  <dd>&#x5982;&#x679C;<code>s</code>&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x5219;&#x8FD4;&#x56DE;<code>#t</code>&#x3002;</dd>
+
+  <dt><code>(make-string n c)</code></dt>
+  <dd>&#x8FD4;&#x56DE;&#x7531;<code>n</code>&#x4E2A;&#x5B57;&#x7B26;<code>c</code>&#x7EC4;&#x6210;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x53C2;&#x6570;<code>c</code>&#x53EF;&#x9009;&#x3002;</dd>
+
+  <dt><code>(string-length s)</code></dt>
+  <dd>&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&#x4E32;<code>s</code>&#x7684;&#x957F;&#x5EA6;&#x3002;</dd>
+
+  <dt><code>(string=? s1 s2)</code></dt>
+  <dd>&#x5982;&#x679C;&#x5B57;&#x7B26;&#x4E32;<code>s1</code>&#x548C;<code>s2</code>&#x76F8;&#x540C;&#x7684;&#x8BDD;&#x5219;&#x8FD4;&#x56DE;<code>#t</code>&#x3002;</dd>
+
+  <dt><code>(string-ref s idx)</code></dt>
+  <dd>&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&#x4E32;<code>s</code>&#x4E2D;&#x7D22;&#x5F15;&#x4E3A;<code>idx</code>&#x7684;&#x5B57;&#x7B26;&#xFF08;&#x7D22;&#x5F15;&#x4ECE;0&#x5F00;&#x59CB;&#x8BA1;&#x6570;&#xFF09;&#x3002;</dd>
+
+  <dt><code>(string-set! s idx c)</code></dt>
+  <dd>&#x5C06;&#x5B57;&#x7B26;&#x4E32;<code>s</code>&#x4E2D;&#x7D22;&#x5F15;&#x4E3A;<code>idx</code>&#x7684;&#x5B57;&#x7B26;&#x8BBE;&#x7F6E;&#x4E3A;<code>c</code>&#x3002;</dd>
+
+  <dt><code>(substring s start end)</code></dt>
+  <dd>&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&#x4E32;<code>s</code>&#x4ECE;<code>start</code>&#x5F00;&#x59CB;&#x5230;<code>end-1</code>&#x5904;&#x7684;&#x5B50;&#x4E32;&#x3002;&#x4F8B;&#x5982;<code>(substring &quot;abcdefg&quot; 1 4) =&gt; &quot;b c d&quot;</code></dd>
+
+  <dt><code>(string-append s1 s2 ...)</code></dt>
+  <dd>&#x8FDE;&#x63A5;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;<code>s1</code>&#x548C;<code>s2</code></dd>
+
+  <dt><code>(string-&gt;list s)</code></dt>
+  <dd>&#x5C06;&#x5B57;&#x7B26;&#x4E32;<code>s</code>&#x8F6C;&#x6362;&#x4E3A;&#x7531;&#x5B57;&#x7B26;&#x6784;&#x6210;&#x7684;&#x8868;&#x3002;</dd>
+
+  <dt><code>(list-&gt;string ls)</code></dt>
+  <dd>&#x5C06;&#x4E00;&#x4E2A;&#x7531;&#x5B57;&#x7B26;&#x6784;&#x6210;&#x7684;&#x8868;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</dd>
+
+  <dt><code>(string-copy s)</code></dt>
+  <dd>&#x590D;&#x5236;&#x5B57;&#x7B26;&#x4E32;<code>s</code>&#x3002;</dd>
+</dl>
+
+<blockquote>
+<p>&#x7EC3;&#x4E60;1</p>
+<p>&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x51FD;&#x6570;<code>title-style</code>&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x7528;&#x4E8E;&#x5C06;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">title-style</span> <span class="hljs-string">&quot;the cathedral and the bazaar&quot;</span>)</span>
+<span class="hljs-comment">;&#x21D2; &quot;The Cathedral And The Bazaar&quot;</span>
+</code></pre>
+</blockquote>
+<h2 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h2>
+<p>&#x672C;&#x7AE0;&#x8BB2;&#x89E3;&#x4E86;&#x5B57;&#x7B26;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x4E0B;&#x7AE0;&#x6211;&#x5C06;&#x8BB2;&#x89E3;&#x7B26;&#x53F7;&#x3002;&#x7B26;&#x53F7;&#x662F;Lisp/Scheme&#x4E2D;&#x7684;&#x4E00;&#x79CD;&#x5B57;&#x7B26;&#x578B;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x6587;&#x672C;&#x8FDB;&#x884C;&#x5FEB;&#x901F;&#x64CD;&#x4F5C;&#x3002;</p>
+<h2 id="&#x4E60;&#x9898;&#x89E3;&#x7B54;">&#x4E60;&#x9898;&#x89E3;&#x7B54;</h2>
+<h3 id="&#x7EC3;&#x4E60;1">&#x7EC3;&#x4E60;1</h3>
+<p>&#x5148;&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x5316;&#x4E3A;&#x8868;&#xFF0C;&#x5C06;&#x7A7A;&#x683C;&#x4E4B;&#x540E;&#x7684;&#x5B57;&#x7B26;&#x5927;&#x5199;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x8868;&#x8F6C;&#x6362;&#x4F1A;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x3010;&#x8BD1;&#x6CE8;&#xFF1A;&#x539F;&#x6587;&#x4F3C;&#x6709;&#x8BEF;&#x3002;&#x3011;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">identity</span> x)</span> x)</span>
+
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">title-style</span> str)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> loop <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">ls</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">string-&gt;list</span></span> str)</span>)</span>
+         <span class="hljs-list">(<span class="hljs-keyword">w</span> <span class="hljs-literal">#t</span>)</span>
+         <span class="hljs-list">(<span class="hljs-keyword">acc</span> &apos;<span class="hljs-list">()</span>)</span>)</span>
+    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">null?</span></span> ls)</span>
+    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">list-&gt;string</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">reverse</span></span> acc)</span>)</span>
+    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">c</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> ls)</span>)</span>)</span>
+      <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> ls)</span>
+        <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">char-whitespace?</span></span> c)</span>
+        <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> w char-upcase identity)</span> c)</span> acc)</span>)</span>)</span>)</span>)</span>)</span>
+
+<span class="hljs-comment">;;; Another answer, You can assign caps to the string.</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">title-style</span> str)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">n</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">string-length</span></span> str)</span>)</span>)</span>
+    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> loop <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">w</span> <span class="hljs-literal">#t</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">i</span> <span class="hljs-number">0</span>)</span>)</span>
+      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">=</span></span> i n)</span>
+      str
+      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">c</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">string-ref</span></span> str i)</span>)</span>)</span>
+        <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> w <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">string-set!</span></span> str i <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">char-upcase</span></span> c)</span>)</span>)</span>
+        <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">char-whitespace?</span></span> c)</span> <span class="hljs-list">(<span class="hljs-keyword">1+</span> i)</span>)</span>)</span>)</span>)</span>)</span>)</span>
+
+<span class="hljs-list">(<span class="hljs-keyword">title-style</span> <span class="hljs-string">&quot;the cathedral and the bazaar&quot;</span>)</span>
+<span class="hljs-comment">;&#x21D2; &quot;The Cathedral And The Bazaar&quot;</span>
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../contents/chapter10.html" class="navigation navigation-prev " aria-label="Previous page: 赋值"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../contents/chapter12.html" class="navigation navigation-next " aria-label="Next page: 符号"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

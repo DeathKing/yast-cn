@@ -1,0 +1,623 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>定义语法 | 简介</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../contents/chapter16.html" />
+    
+    
+    <link rel="prev" href="../contents/chapter14.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="16" data-chapter-title="定义语法" data-filepath="contents/chapter15.md" data-basepath=".." data-revision="Wed Nov 18 2015 00:51:03 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="contents/preface.html">
+            
+                
+                    <a href="../contents/preface.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        中文版序
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="contents/chapter1.html">
+            
+                
+                    <a href="../contents/chapter1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        安装MIT-Scheme
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="contents/chapter2.html">
+            
+                
+                    <a href="../contents/chapter2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        将Scheme用作计算器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="contents/chapter3.html">
+            
+                
+                    <a href="../contents/chapter3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        生成表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="contents/chapter4.html">
+            
+                
+                    <a href="../contents/chapter4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        定义函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="contents/chapter5.html">
+            
+                
+                    <a href="../contents/chapter5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        分支
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="contents/chapter6.html">
+            
+                
+                    <a href="../contents/chapter6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        局部变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="contents/chapter7.html">
+            
+                
+                    <a href="../contents/chapter7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        重复
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="contents/chapter8.html">
+            
+                
+                    <a href="../contents/chapter8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        高阶函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="contents/chapter9.html">
+            
+                
+                    <a href="../contents/chapter9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        输入/输出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="contents/chapter10.html">
+            
+                
+                    <a href="../contents/chapter10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        赋值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="contents/chapter11.html">
+            
+                
+                    <a href="../contents/chapter11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        字符与字符串
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="contents/chapter12.html">
+            
+                
+                    <a href="../contents/chapter12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        符号
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="contents/chapter13.html">
+            
+                
+                    <a href="../contents/chapter13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        关联表和哈希表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="contents/chapter14.html">
+            
+                
+                    <a href="../contents/chapter14.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        向量和结构体
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="16" data-path="contents/chapter15.html">
+            
+                
+                    <a href="../contents/chapter15.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        定义语法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="contents/chapter16.html">
+            
+                
+                    <a href="../contents/chapter16.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        继续
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="contents/chapter17.html">
+            
+                
+                    <a href="../contents/chapter17.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        惰性求值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="contents/chapter18.html">
+            
+            <span><b>19.</b> 非确定性求值</span>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >简介</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x5B9A;&#x4E49;&#x8BED;&#x6CD5;">&#x5B9A;&#x4E49;&#x8BED;&#x6CD5;</h1>
+<h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
+<p>&#x672C;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x4F1A;&#x8BB2;&#x89E3;&#x5982;&#x4F55;&#x81EA;&#x5B9A;&#x4E49;&#x8BED;&#x6CD5;&#x3002;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x8BED;&#x6CD5;&#x79F0;&#x4F5C;<strong>&#x5B8F;&#xFF08;Macro&#xFF09;</strong>&#x3002;Lisp/Scheme&#x4E2D;&#x7684;&#x5B8F;&#x6BD4;C&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x5B8F;&#x66F4;&#x52A0;&#x5F3A;&#x5927;&#x3002;&#x5B8F;&#x53EF;&#x4EE5;&#x4F7F;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#x4F18;&#x7F8E;&#x800C;&#x7D27;&#x51D1;&#x3002;</p>
+<p>&#x5B8F;&#x662F;&#x4EE3;&#x7801;&#x7684;&#x53D8;&#x6362;&#x3002;&#x4EE3;&#x7801;&#x5728;&#x88AB;&#x6C42;&#x503C;&#x6216;&#x7F16;&#x8BD1;&#x524D;&#x8FDB;&#x884C;&#x53D8;&#x6362;&#xFF0C;and the procedure continues as if the transformed codes are written from the beginning.</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;Scheme&#x4E2D;&#x901A;&#x8FC7;&#x7528;&#x7B26;&#x5408;R5RS&#x89C4;&#x8303;&#x7684;<code>syntax-rules</code>&#x8F7B;&#x6613;&#x5730;&#x5B9A;&#x4E49;&#x7B80;&#x5355;&#x5B8F;&#xFF0C;&#x76F8;&#x6BD4;&#x4E4B;&#x4E0B;&#xFF0C;&#x5728;Common Lisp&#x4E2D;&#x81EA;&#x5B9A;&#x4E49;&#x8BED;&#x6CD5;&#x5C31;&#x590D;&#x6742;&#x591A;&#x4E86;&#x3002;&#x4F7F;&#x7528;<code>syntax-rules</code>&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;&#x5B8F;&#x800C;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;<strong>&#x53D8;&#x91CF;&#x7684;&#x6355;&#x83B7;&#xFF08;Variable Capture&#xFF09;</strong>&#x3002;On the other hand, defining complicated macros that cannot be defined using the syntax-rules is more difficult than that of the Common Lisp.</p>
+<h2 id="&#x5B9E;&#x4F8B;&#xFF1A;&#x7B80;&#x5355;&#x5B8F;">&#x5B9E;&#x4F8B;&#xFF1A;&#x7B80;&#x5355;&#x5B8F;</h2>
+<p>&#x6211;&#x5C06;&#x4EE5;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5B8F;&#x4F5C;&#x4E3A;&#x4F8B;&#x5B50;&#x3002;</p>
+<p>[&#x4EE3;&#x7801;&#x7247;&#x6BB5; 1] &#x4E00;&#x4E2A;&#x5C06;&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#x4E3A;&#x2019;()&#x7684;&#x5B8F;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> nil!
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">()</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> x)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">set!</span></span> x &apos;<span class="hljs-list">()</span>)</span>)</span>)</span>)</span>
+</code></pre>
+<p><code>syntax-reuls</code>&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x7531;&#x662F;&#x53D8;&#x6362;&#x524D;&#x8868;&#x8FBE;&#x5F0F;&#x6784;&#x6210;&#x7684;&#x8868;&#x3002;<code>_</code>&#x4EE3;&#x8868;&#x5B8F;&#x7684;&#x540D;&#x5B57;&#x3002;&#x7B80;&#x8A00;&#x4E4B;&#xFF0C;<strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;1</strong>&#x8868;&#x793A;&#x8868;&#x8FBE;&#x5F0F;<code>(nil! x)</code>&#x4F1A;&#x53D8;&#x6362;&#x4E3A;<code>(set! x &apos;())</code>.</p>
+<p>&#x8FD9;&#x7C7B;&#x8FC7;&#x7A0B;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x95ED;&#x5305;&#x6027;&#x8D28;&#x9650;&#x5236;&#x5B83;&#x4E0D;&#x80FD;&#x5F71;&#x54CD;&#x5916;&#x90E8;&#x53D8;&#x91CF;&#x3002;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x7528;&#x51FD;&#x6570;&#x5B9E;&#x73B0;<strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;1</strong>&#xFF0C;&#x5E76;&#x89C2;&#x5BDF;&#x6548;&#x679C;&#x3002;</p>
+<pre><code class="lang-scheme">(define (f-nil! x)
+   (set! x &apos;()))
+(define a 1)
+;Value: a
+
+(f-nil! a)
+;Value: 1
+
+a
+;Value: 1           ; the value of a dose not change
+
+(nil! a)
+;Value: 1
+
+a
+;Value: ()          ; a becomes &apos;()
+</code></pre>
+<p>{:caption=&gt;&apos;&apos;}</p>
+<p>&#x6211;&#x4F1A;&#x6F14;&#x793A;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;&#x6211;&#x4EEC;&#x7F16;&#x5199;&#x5B8F;<code>when</code>&#xFF0C;&#x5176;&#x8BED;&#x4E49;&#x4E3A;&#xFF1A;&#x5F53;&#x8C13;&#x8BCD;&#x6C42;&#x503C;&#x4E3A;&#x771F;&#x65F6;&#xFF0C;&#x6C42;&#x503C;&#x76F8;&#x5E94;&#x8BED;&#x53E5;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> when
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">()</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> pred b1 ...)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> pred <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span> b1 ...)</span>)</span>)</span>)</span>)</span>
+</code></pre>
+<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;2&apos;}</p>
+<p><strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;2</strong>&#x4E2D;&#x7684;<code>...</code>&#x4EE3;&#x8868;&#x4E86;&#x4EFB;&#x610F;&#x591A;&#x4E2A;&#x6570;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;&#x5305;&#x62EC;0&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#xFF09;&#x3002;<strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;2</strong>&#x63ED;&#x793A;&#x4E86;&#x8BF8;&#x5982;&#x8868;&#x8FBE;&#x5F0F;<code>(when pred b1 ...)</code>&#x4F1A;&#x53D8;&#x6362;&#x4E3A;<code>(if pred (begin b1 ...))</code>&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x5B8F;&#x662F;&#x5C06;&#x8868;&#x8FBE;&#x5F0F;&#x53D8;&#x6362;&#x4E3A;<code>if</code>&#x7279;&#x6B8A;&#x5F62;&#x5F0F;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;<code>when</code>&#x3002;</p>
+<pre><code class="lang-scheme">(let ((i 0))
+  (when (= i 0)
+    (display &quot;i == 0&quot;)
+    (newline)))
+i == 0
+;Unspecified return value
+</code></pre>
+<p>&#x6211;&#x4F1A;&#x6F14;&#x793A;&#x4E24;&#x4E2A;&#x5B9E;&#x5B8F;&#xFF1A;<code>while</code>&#x548C;<code>for</code>&#x3002;&#x53EA;&#x8981;&#x8C13;&#x8BCD;&#x90E8;&#x5206;&#x6C42;&#x503C;&#x4E3A;&#x771F;&#xFF0C;<code>while</code>&#x5C31;&#x4F1A;&#x5BF9;&#x8BED;&#x53E5;&#x4F53;&#x6C42;&#x503C;&#x3002;&#x800C;&#x6570;&#x5B57;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x8303;&#x56F4;&#x4E2D;&#xFF0C;<code>for</code>&#x5C31;&#x4F1A;&#x5BF9;&#x8BED;&#x53E5;&#x4F53;&#x6C42;&#x503C;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> while
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">()</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> pred b1 ...)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> loop <span class="hljs-list">()</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">when</span></span> pred b1 ... <span class="hljs-list">(<span class="hljs-keyword">loop</span>)</span>)</span>)</span>)</span>)</span>)</span>
+
+
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> for
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">()</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> <span class="hljs-list">(<span class="hljs-keyword">i</span> from to)</span> b1 ...)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> loop<span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">i</span> from)</span>)</span>
+       <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">when</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&lt;</span></span> i to)</span>
+      b1 ...
+      <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword">1+</span> i)</span>)</span>)</span>)</span>)</span>)</span>)</span>
+</code></pre>
+<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;3&apos;}</p>
+<p>&#x4E0B;&#x9762;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x5B9E;&#x7528;&#x5B83;&#x4EEC;&#xFF1A;</p>
+<pre><code class="lang-scheme">define-syntax while
+  (syntax-rules ()
+    ((_ pred b1 ...)
+     (let loop () (when pred b1 ... (loop))))))
+
+
+(define-syntax for
+  (syntax-rules ()
+    ((_ (i from to) b1 ...)
+     (let loop((i from))
+       (when (&lt; i to)
+      b1 ...
+      (loop (1+ i)))))))
+</code></pre>
+<blockquote>
+<p>&#x7EC3;&#x4E60;1</p>
+<p>&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x5B8F;&#xFF0C;&#x5176;&#x8BED;&#x4E49;&#x4E3A;&#xFF1A;&#x5F53;&#x8C13;&#x8BCD;&#x6C42;&#x503C;&#x4E3A;&#x5047;&#x65F6;&#x6267;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3002;&#xFF08;&#x8BED;&#x4E49;&#x4E0E;<code>when</code>&#x76F8;&#x5BF9;&#xFF09;</p>
+</blockquote>
+<h2 id="syntaxrule&#x7684;&#x66F4;&#x591A;&#x7EC6;&#x8282;">syntax-rule&#x7684;&#x66F4;&#x591A;&#x7EC6;&#x8282;</h2>
+<h3 id="&#x591A;&#x4E2A;&#x5B9A;&#x4E49;&#x6A21;&#x5F0F;">&#x591A;&#x4E2A;&#x5B9A;&#x4E49;&#x6A21;&#x5F0F;</h3>
+<p><code>syntax-rule</code>&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x7CFB;&#x5217;&#x6A21;&#x5F0F;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x4E00;&#x4E2A;&#x8BA9;&#x53D8;&#x91CF;&#x589E;&#x52A0;&#x7684;&#x5B8F;&#xFF0C;&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x4E86;&#x53D8;&#x91CF;&#x540D;&#xFF0C;&#x90A3;&#x4E48;&#x5B8F;<code>incf</code>&#x4F7F;&#x8BE5;&#x53D8;&#x91CF;&#x589E;&#x52A0;1&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7F16;&#x5199;&#x4E0B;&#x9762;<strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;4</strong>&#x8FD9;&#x6837;&#x7684;&#x6A21;&#x5F0F;&#x8F6C;&#x6362;&#x6765;&#x5B9E;&#x73B0;&#x5B8F;<code>incf</code>&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> incf
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">()</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> x)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">set!</span></span> x <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> x <span class="hljs-number">1</span>)</span>)</span> x)</span>)</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> x i)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">set!</span></span> x <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> x i)</span>)</span> x)</span>)</span>)</span>)</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">i</span> <span class="hljs-number">0</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">j</span> <span class="hljs-number">0</span>)</span>)</span>
+  <span class="hljs-list">(<span class="hljs-keyword">incf</span> i)</span>
+  <span class="hljs-list">(<span class="hljs-keyword">incf</span> j <span class="hljs-number">3</span>)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">display</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">list</span></span> <span class="hljs-variable">&apos;i</span> <span class="hljs-variable">&apos;=</span> i)</span>)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">newline</span></span>)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">display</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">list</span></span> <span class="hljs-variable">&apos;j</span> <span class="hljs-variable">&apos;=</span> j)</span>)</span>)</span>
+<span class="hljs-list">(<span class="hljs-keyword">i</span> = <span class="hljs-number">1</span>)</span>
+<span class="hljs-list">(<span class="hljs-keyword">j</span> = <span class="hljs-number">3</span>)</span>
+<span class="hljs-comment">;Unspecified return value</span>
+</code></pre>
+<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;4&apos;}</p>
+<blockquote>
+<p>&#x7EC3;&#x4E60;2  </p>
+<p>&#x7F16;&#x5199;&#x7528;&#x4E8E;&#x4ECE;&#x53D8;&#x91CF;&#x4E2D;&#x51CF;&#x53BB;&#x4E00;&#x4E2A;&#x6570;&#x7684;&#x5B8F;<code>decf</code>&#x3002;&#x5982;&#x679C;&#x51CF;&#x91CF;&#x7701;&#x7565;&#x4E86;&#xFF0C;&#x5219;&#x4ECE;&#x53D8;&#x91CF;&#x4E2D;&#x51CF;1&#x3002;</p>
+<p>&#x7EC3;&#x4E60;3</p>
+<p>&#x6539;&#x8FDB;<strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;3</strong>&#x4E2D;&#x7684;&#x5B8F;<code>for</code>&#xFF0C;&#x4F7F;&#x5F97;&#x5B83;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x6B65;&#x957F;&#x3002;&#x5982;&#x679C;&#x7701;&#x7565;&#x4E86;&#x6B65;&#x957F;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x4E3A;1&#x3002;</p>
+</blockquote>
+<h3 id="&#x5B8F;&#x7684;&#x9012;&#x5F52;&#x5B9A;&#x4E49;">&#x5B8F;&#x7684;&#x9012;&#x5F52;&#x5B9A;&#x4E49;</h3>
+<p>&#x7279;&#x6B8A;&#x5F62;&#x5F0F;<code>or</code>&#x548C;<code>and</code>&#x662F;&#x901A;&#x8FC7;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x9012;&#x5F52;&#x5B9A;&#x4E49;&#x7684;&#x5B8F;&#xFF1A;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> my-and
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">()</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span>)</span> <span class="hljs-literal">#t</span>)</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> e)</span> e)</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> e1 e2 ...)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> e1
+     <span class="hljs-list">(<span class="hljs-keyword">my-and</span> e2 ...)</span>
+     <span class="hljs-literal">#f</span>)</span>)</span>)</span>)</span>
+
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> my-or
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">()</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span>)</span> <span class="hljs-literal">#f</span>)</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> e)</span> e)</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> e1 e2 ...)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">t</span> e1)</span>)</span>
+       <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> t t <span class="hljs-list">(<span class="hljs-keyword">my-or</span> e2 ...)</span>)</span>)</span>)</span>)</span>)</span>
+</code></pre>
+<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;5&apos;}</p>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9012;&#x5F52;&#x5B9A;&#x4E49;&#x6765;&#x7F16;&#x5199;&#x590D;&#x6742;&#x7684;&#x5B8F;&#x3002;</p>
+<blockquote>
+<p>&#x7EC3;&#x4E60;4  </p>
+<p>&#x8BF7;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;<code>let*</code>&#x3002;</p>
+</blockquote>
+<h3 id="&#x4F7F;&#x7528;&#x4FDD;&#x7559;&#x5B57;">&#x4F7F;&#x7528;&#x4FDD;&#x7559;&#x5B57;</h3>
+<p><code>syntax-rule</code>&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4FDD;&#x7559;&#x5B57;&#x8868;&#x3002;&#x6BD4;&#x5982;&#xFF0C;<code>cond</code>&#x7684;&#x5B9A;&#x4E49;&#x5982;<strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;6</strong>&#x6240;&#x793A;&#xFF0C;&#x8FD9;&#x5F53;&#x4E2D;&#xFF0C;<code>else</code>&#x662F;&#x4FDD;&#x7559;&#x5B57;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> my-cond
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">else</span></span>)</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">else</span></span> e1 ...)</span>)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span> e1 ...)</span>)</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> <span class="hljs-list">(<span class="hljs-keyword">e1</span> e2 ...)</span>)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">when</span></span> e1 e2 ...)</span>)</span>
+    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> <span class="hljs-list">(<span class="hljs-keyword">e1</span> e2 ...)</span> c1 ...)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> e1 
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span> e2 ...)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cond</span></span> c1 ...)</span>)</span>)</span>)</span>)</span>
+</code></pre>
+<p>{:caption=&gt;&apos;&#x4EE3;&#x7801;&#x7247;&#x6BB5;6&apos;}</p>
+<h2 id="&#x5C40;&#x90E8;&#x8BED;&#x6CD5;">&#x5C40;&#x90E8;&#x8BED;&#x6CD5;</h2>
+<p>&#x5728;Scheme&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>let-syntax</code>&#x548C;<code>letrec-syntax</code>&#x6765;&#x5B9A;&#x4E49;<strong>&#x5C40;&#x90E8;&#x8BED;&#x6CD5;&#xFF08;Local Syntax&#xFF09;</strong>&#x3002;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x7528;&#x6CD5;&#x548C;<code>define-syntax</code>&#x662F;&#x76F8;&#x4F3C;&#x7684;&#x3002;</p>
+<h2 id="implementation-depending-macro-definition">Implementation Depending Macro Definition</h2>
+<p>&#x6709;&#x4E9B;&#x5B8F;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;<code>syntax-rules</code>&#x6765;&#x5B9A;&#x4E49;&#x3002;&#x5B9A;&#x4E49;&#x8FD9;&#x4E9B;&#x5B8F;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x5728;Scheme&#x5B9E;&#x73B0;&#x4E2D;&#x51C6;&#x5907;&#x597D;&#x4E86;&#x3002;&#x7531;&#x4E8E;&#x8FD9;&#x79CD;&#x884C;&#x4E3A;&#x4E25;&#x91CD;&#x4F9D;&#x8D56;&#x4E8E;&#x5B9E;&#x73B0;&#xFF0C;&#x56E0;&#x6B64;&#x4F60;&#x53EF;&#x4EE5;&#x8DF3;&#x8FC7;&#x6B64;&#x8282;&#x3002;</p>
+<p>In the case of the MIT-Scheme, The sc-macro-transformer is available for such purpose, which allows to write macros in a similar way to taht of the Common Lisp. See the Common Lisp HyperSpec. about what ` , ,@ are. See MIT-Scheme manual about sc-macro-transfomrer and make-syntactic-closure. [code 7] shows simple examples.
+[code 7]</p>
+<p>&#x5728;MIT-Scheme&#x4E2D;&#xFF0C;<code>sc-macro-transformer</code>&#x5C31;&#x53EF;&#x7528;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x7528;&#x4E0E;Common Lisp&#x4E2D;&#x76F8;&#x4F3C;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x7F16;&#x5199;&#x5B8F;&#x3002;&#x5173;&#x4E8E;<code>,</code>&#x3001;<code>,@</code>&#x7684;&#x4ECB;&#x7ECD;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1;<a href="www.lispworks.com/documentation/HyperSpec/Body/02_df.htm">The Common Lisp HyperSpec</a>&#x3002;&#x5173;&#x4E8E;<code>sc-macro-transformer</code>&#x548C;<code>make-syntactic-closuer</code>&#x8BF7;&#x53C2;&#x89C1;MIT-Scheme&#x624B;&#x518C;&#x3002;<strong>&#x4EE3;&#x7801;&#x7247;&#x6BB5;7</strong>&#x6F14;&#x793A;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> show-vars
+  <span class="hljs-list">(<span class="hljs-keyword">sc-macro-transformer</span>
+    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">exp</span></span> env)</span>
+      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">vars</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> exp)</span>)</span>)</span>
+           `<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">begin</span></span>
+              <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">display</span></span>
+                <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">list</span></span>
+                  ,@<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">map</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">v</span>)</span>
+                            <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">w</span> <span class="hljs-list">(<span class="hljs-keyword">make-syntactic-closure</span> env &apos;<span class="hljs-list">()</span> v)</span>)</span>)</span>
+                                 `<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">list</span></span> &apos;,w ,w)</span>)</span>)</span>
+                          vars)</span>)</span>)</span>
+      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">newline</span></span>)</span>)</span>)</span>)</span>)</span>)</span>
+
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> random-choice
+  <span class="hljs-list">(<span class="hljs-keyword">sc-macro-transformer</span>
+   <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">exp</span></span> env)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">i</span> <span class="hljs-number">-1</span>)</span>)</span>
+       `<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">case</span></span> <span class="hljs-list">(<span class="hljs-keyword">random</span> ,<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">length</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> exp)</span>)</span>)</span>
+      ,@<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">map</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span>
+           `<span class="hljs-list">(<span class="hljs-list">(,<span class="hljs-list">(<span class="hljs-keyword">incf</span> i)</span>)</span> ,<span class="hljs-list">(<span class="hljs-keyword">make-syntactic-closure</span> env &apos;<span class="hljs-list">()</span> x)</span>)</span>)</span>
+         <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> exp)</span>)</span>)</span>)</span>)</span>)</span>)</span>
+
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> aif
+  <span class="hljs-list">(<span class="hljs-keyword">sc-macro-transformer</span>
+   <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">exp</span></span> env)</span>
+     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">test</span> <span class="hljs-list">(<span class="hljs-keyword">make-syntactic-closure</span> env &apos;<span class="hljs-list">(<span class="hljs-keyword">it</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">second</span> exp)</span>)</span>)</span>
+       <span class="hljs-list">(<span class="hljs-keyword">cthen</span> <span class="hljs-list">(<span class="hljs-keyword">make-syntactic-closure</span> env &apos;<span class="hljs-list">(<span class="hljs-keyword">it</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">third</span> exp)</span>)</span>)</span>
+       <span class="hljs-list">(<span class="hljs-keyword">celse</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">pair?</span></span> <span class="hljs-list">(<span class="hljs-keyword">cdddr</span> exp)</span>)</span>
+              <span class="hljs-list">(<span class="hljs-keyword">make-syntactic-closure</span> env &apos;<span class="hljs-list">(<span class="hljs-keyword">it</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">fourth</span> exp)</span>)</span>
+              <span class="hljs-literal">#f</span>)</span>)</span>)</span>
+       `<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">it</span> ,test)</span>)</span>
+      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> it ,cthen ,celse)</span>)</span>)</span>)</span>)</span>)</span>
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../contents/chapter14.html" class="navigation navigation-prev " aria-label="Previous page: 向量和结构体"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../contents/chapter16.html" class="navigation navigation-next " aria-label="Next page: 继续"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

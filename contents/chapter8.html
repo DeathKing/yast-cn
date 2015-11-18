@@ -1,0 +1,755 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>高阶函数 | 简介</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../contents/chapter9.html" />
+    
+    
+    <link rel="prev" href="../contents/chapter7.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="9" data-chapter-title="高阶函数" data-filepath="contents/chapter8.md" data-basepath=".." data-revision="Wed Nov 18 2015 00:51:03 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="contents/preface.html">
+            
+                
+                    <a href="../contents/preface.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        中文版序
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="contents/chapter1.html">
+            
+                
+                    <a href="../contents/chapter1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        安装MIT-Scheme
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="contents/chapter2.html">
+            
+                
+                    <a href="../contents/chapter2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        将Scheme用作计算器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="contents/chapter3.html">
+            
+                
+                    <a href="../contents/chapter3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        生成表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="contents/chapter4.html">
+            
+                
+                    <a href="../contents/chapter4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        定义函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="contents/chapter5.html">
+            
+                
+                    <a href="../contents/chapter5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        分支
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="contents/chapter6.html">
+            
+                
+                    <a href="../contents/chapter6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        局部变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="contents/chapter7.html">
+            
+                
+                    <a href="../contents/chapter7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        重复
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="9" data-path="contents/chapter8.html">
+            
+                
+                    <a href="../contents/chapter8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        高阶函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="contents/chapter9.html">
+            
+                
+                    <a href="../contents/chapter9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        输入/输出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="contents/chapter10.html">
+            
+                
+                    <a href="../contents/chapter10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        赋值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="contents/chapter11.html">
+            
+                
+                    <a href="../contents/chapter11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        字符与字符串
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="contents/chapter12.html">
+            
+                
+                    <a href="../contents/chapter12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        符号
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="contents/chapter13.html">
+            
+                
+                    <a href="../contents/chapter13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        关联表和哈希表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="contents/chapter14.html">
+            
+                
+                    <a href="../contents/chapter14.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        向量和结构体
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="contents/chapter15.html">
+            
+                
+                    <a href="../contents/chapter15.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        定义语法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="contents/chapter16.html">
+            
+                
+                    <a href="../contents/chapter16.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        继续
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="contents/chapter17.html">
+            
+                
+                    <a href="../contents/chapter17.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        惰性求值
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="contents/chapter18.html">
+            
+            <span><b>19.</b> 非确定性求值</span>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >简介</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x9AD8;&#x9636;&#x51FD;&#x6570;">&#x9AD8;&#x9636;&#x51FD;&#x6570;</h1>
+<h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
+<p><strong>&#x9AD8;&#x9636;&#x51FD;&#x6570;&#xFF08;Higher Order Function&#xFF09;</strong>&#x662F;&#x4E00;&#x79CD;&#x4EE5;&#x51FD;&#x6570;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x3002;&#x5B83;&#x4EEC;&#x90FD;&#x88AB;&#x7528;&#x4E8E;<strong>&#x6620;&#x5C04;&#xFF08;mapping&#xFF09;</strong>&#x3001;<strong>&#x8FC7;&#x6EE4;&#xFF08;filtering&#xFF09;</strong>&#x3001;<strong>&#x5F52;&#x6863;&#xFF08;folding&#xFF09;</strong>&#x548C;<strong>&#x6392;&#x5E8F;&#xFF08;sorting&#xFF09;</strong>&#x8868;&#x3002;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x63D0;&#x9AD8;&#x4E86;&#x7A0B;&#x5E8F;&#x7684;&#x6A21;&#x5757;&#x6027;&#x3002;&#x7F16;&#x5199;&#x5BF9;&#x5404;&#x79CD;&#x60C5;&#x51B5;&#x90FD;&#x9002;&#x7528;&#x7684;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x4E0E;&#x4E3A;&#x5355;&#x4E00;&#x60C5;&#x51B5;&#x7F16;&#x5199;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x76F8;&#x6BD4;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7A0B;&#x5E8F;&#x66F4;&#x5177;&#x53EF;&#x8BFB;&#x6027;&#x3002;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x6392;&#x5E8F;&#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x6761;&#x4EF6;&#x6765;&#x6392;&#x5E8F;&#xFF0C;&#x8FD9;&#x5C31;&#x5C06;&#x6392;&#x5E8F;&#x6761;&#x4EF6;&#x548C;&#x6392;&#x5E8F;&#x8FC7;&#x7A0B;&#x6E05;&#x695A;&#x5730;&#x5212;&#x5206;&#x5F00;&#x6765;&#x3002;&#x51FD;&#x6570;<code>sort</code>&#x5177;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5176;&#x4E00;&#x662F;&#x4E00;&#x4E2A;&#x5F85;&#x6392;&#x5E8F;&#x7684;&#x8868;&#xFF0C;&#x5176;&#x4E8C;&#x662F;<strong>&#x5B9A;&#x5E8F;&#xFF08;Ordering&#xFF09;</strong>&#x51FD;&#x6570;&#x3002;&#x4E0B;&#x9762;&#x5C55;&#x793A;&#x4E86;&#x6309;&#x7167;&#x5927;&#x5C0F;&#x5C06;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x8868;&#x6B63;&#x5E8F;&#x6392;&#x5E8F;&#x3002;<code>&lt;</code>&#x51FD;&#x6570;&#x5C31;&#x662F;&#xFF08;&#x672C;&#x4F8B;&#x4E2D;&#x7684;&#xFF09;&#x4E24;&#x6570;&#x7684;&#x5B9A;&#x5E8F;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">sort</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">7883</span> <span class="hljs-number">9099</span> <span class="hljs-number">6729</span> <span class="hljs-number">2828</span> <span class="hljs-number">7754</span> <span class="hljs-number">4179</span> <span class="hljs-number">5340</span> <span class="hljs-number">2644</span> <span class="hljs-number">2958</span> <span class="hljs-number">2239</span>)</span> &lt;)</span>
+<span class="hljs-comment">;&#x21D2;  (2239 2644 2828 2958 4179 5340 6729 7754 7883 9099)</span>
+</code></pre>
+<p>&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x6309;&#x7167;&#x6BCF;&#x4E2A;&#x6570;&#x672B;&#x4E24;&#x4F4D;&#x7684;&#x5927;&#x5C0F;&#x6392;&#x5E8F;&#x53EF;&#x4EE5;&#x6309;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">sort</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">7883</span> <span class="hljs-number">9099</span> <span class="hljs-number">6729</span> <span class="hljs-number">2828</span> <span class="hljs-number">7754</span> <span class="hljs-number">4179</span> <span class="hljs-number">5340</span> <span class="hljs-number">2644</span> <span class="hljs-number">2958</span> <span class="hljs-number">2239</span>)</span> 
+      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span> y)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&lt;</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">modulo</span></span> x <span class="hljs-number">100</span>)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">modulo</span></span> y <span class="hljs-number">100</span>)</span>)</span>)</span>)</span>
+<span class="hljs-comment">;&#x21D2;  (2828 6729 2239 5340 2644 7754 2958 4179 7883 9099)</span>
+</code></pre>
+<p>&#x6B63;&#x5982;&#x8FD9;&#x91CC;&#x6240;&#x6F14;&#x793A;&#x7684;&#xFF0C;&#x50CF;<strong>&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#xFF08;Quick Sort&#xFF09;</strong>&#x3001;<strong>&#x5F52;&#x5E76;&#x6392;&#x5E8F;&#xFF08;Merge Sort&#xFF09;</strong>&#x7B49;&#x6392;&#x5E8F;&#x8FC7;&#x7A0B;&#xFF0C;&#x5C06;&#x5B9A;&#x5E8F;&#x51FD;&#x6570;&#x5B8C;&#x5168;&#x5206;&#x79BB;&#x5F00;&#x6765;&#x63D0;&#x9AD8;&#x4E86;&#x4EE3;&#x7801;&#x7684;&#x590D;&#x7528;&#x6027;&#x3002;</p>
+<p>&#x5728;&#x672C;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x5C06;&#x8BB2;&#x89E3;&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x5B9A;&#x4E49;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x3002;&#x7531;&#x4E8E;Scheme&#x5E76;&#x4E0D;&#x533A;&#x522B;&#x8FC7;&#x7A0B;&#x548C;&#x5176;&#x5B83;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x56E0;&#x6B64;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C06;&#x51FD;&#x6570;&#x5F53;&#x4F5C;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x8F7B;&#x677E;&#x7684;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;Scheme&#x4E2D;&#x9884;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x7684;&#x672C;&#x8D28;&#x5C31;&#x662F;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;Scheme&#x5E76;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x5757;&#x7ED3;&#x6784;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x4F7F;&#x7528;<code>lambda</code>&#x8868;&#x8FBE;&#x5F0F;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5757;&#x3002;</p>
+<h2 id="&#x6620;&#x5C04;">&#x6620;&#x5C04;</h2>
+<p>&#x6620;&#x5C04;&#x662F;&#x5C06;&#x540C;&#x6837;&#x7684;&#x884C;&#x4E3A;&#x5E94;&#x7528;&#x4E8E;&#x8868;&#x6240;&#x6709;&#x5143;&#x7D20;&#x7684;&#x8FC7;&#x7A0B;&#x3002;R5RS&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;&#x6620;&#x5C04;&#x8FC7;&#x7A0B;&#xFF1A;&#x5176;&#x4E00;&#x4E3A;&#x8FD4;&#x56DE;&#x8F6C;&#x5316;&#x540E;&#x7684;&#x8868;&#x7684;<code>map</code>&#x8FC7;&#x7A0B;&#xFF0C;&#x53E6;&#x4E00;&#x4E3A;&#x6CE8;&#x91CD;&#x526F;&#x4F5C;&#x7528;&#x7684;<code>for-each</code>&#x8FC7;&#x7A0B;&#x3002;</p>
+<h3 id="map">map</h3>
+<p><code>map</code>&#x8FC7;&#x7A0B;&#x7684;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">map</span></span> procedure list1 list2 ...)</span>
+</code></pre>
+<p><code>procedure</code>&#x662F;&#x4E2A;&#x4E0E;&#x67D0;&#x4E2A;&#x8FC7;&#x7A0B;&#x6216;<code>lambda</code>&#x8868;&#x8FBE;&#x5F0F;&#x76F8;&#x7ED1;&#x5B9A;&#x7684;&#x7B26;&#x53F7;&#x3002;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x8868;&#x7684;&#x4E2A;&#x6570;&#x89C6;<code>procedure</code>&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;&#x800C;&#x5B9A;&#x3002;</p>
+<p>&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-scheme"><span class="hljs-comment">; Adding each item of &apos;(1 2 3) and &apos;(4 5 6).</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">map</span></span> + &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>)</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span>)</span>)</span>
+<span class="hljs-comment">;&#x21D2;  (5 7 9)</span>
+
+<span class="hljs-comment">; Squaring each item of &apos;(1 2 3)</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">map</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> x x)</span>)</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>)</span>)</span>
+<span class="hljs-comment">;&#x21D2;  (1 4 9)</span>
+</code></pre>
+<h3 id="foreach">for-each</h3>
+<p><code>for-each</code>&#x7684;&#x683C;&#x5F0F;&#x4E0E;<code>map</code>&#x4E00;&#x81F4;&#x3002;&#x4F46;<code>for-each</code>&#x5E76;&#x4E0D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x503C;&#xFF0C;&#x53EA;&#x662F;&#x7528;&#x4E8E;&#x526F;&#x4F5C;&#x7528;&#x3002;</p>
+<p>&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-scheme">(define sum 0)
+(for-each (lambda (x) (set! sum (+ sum x))) &apos;(1 2 3 4))
+sum
+;&#x21D2;  10
+</code></pre>
+<blockquote>
+<p>&#x7EC3;&#x4E60;1</p>
+<p>&#x7528;<code>map</code>&#x7F16;&#x5199;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#xFF1A;</p>
+<ol>
+<li>&#x4E00;&#x4E2A;&#x5C06;&#x8868;&#x4E2D;&#x6240;&#x6709;&#x5143;&#x7D20;&#x7FFB;&#x500D;&#x7684;&#x51FD;&#x6570;&#xFF1B;</li>
+<li>&#x4E00;&#x4E2A;&#x5C06;&#x4E24;&#x4E2A;&#x8868;&#x4E2D;&#x5BF9;&#x5E94;&#x4F4D;&#x7F6E;&#x5143;&#x7D20;&#x76F8;&#x51CF;&#x7684;&#x51FD;&#x6570;&#xFF1B;</li>
+</ol>
+</blockquote>
+<h2 id="&#x8FC7;&#x6EE4;">&#x8FC7;&#x6EE4;</h2>
+<p>&#x5C3D;&#x7BA1;&#x8FC7;&#x6EE4;&#x51FD;&#x6570;&#x5E76;&#x6CA1;&#x6709;&#x5728;R5RS&#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;&#x4F46;MIT-Scheme&#x5B9E;&#x73B0;&#x63D0;&#x4F9B;&#x4E86;<code>keep-matching-items</code>&#x548C;<code>delete-matching-item</code>&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x5176;&#x5B83;&#x5B9E;&#x73B0;&#x4E2D;&#x5E94;&#x8BE5;&#x6709;&#x7C7B;&#x4F3C;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">keep-matching-items</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-number">2</span> <span class="hljs-number">-3</span> <span class="hljs-number">-4</span> <span class="hljs-number">5</span>)</span> positive?)</span>
+<span class="hljs-comment">;&#x21D2;  (1 2 5)</span>
+</code></pre>
+<blockquote>
+<p>&#x7EC3;&#x4E60;2</p>
+<p>&#x7F16;&#x5199;&#x4E0B;&#x5217;&#x51FD;&#x6570;&#xFF1A;</p>
+<ol>
+<li><strong>&#x6EE4;&#x53D6;&#xFF08;Filtering Out&#xFF09;</strong>&#x51FA;&#x4E00;&#x4E2A;&#x8868;&#x4E2D;&#x7684;&#x5076;&#x6570;&#xFF1B;</li>
+<li>&#x6EE4;&#x53D6;&#x51FA;&#x4E0D;&#x6EE1;&#x8DB3;<code>10 &#x2264; x &#x2264; 100</code>&#x7684;&#x6570;&#xFF1B;</li>
+</ol>
+</blockquote>
+<h2 id="&#x5F52;&#x6863;">&#x5F52;&#x6863;</h2>
+<p>&#x5C3D;&#x7BA1;&#x5728;R5RS&#x4E2D;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x5F52;&#x6863;&#x51FD;&#x6570;&#xFF0C;&#x4F46;MIT-Scheme&#x63D0;&#x4F9B;&#x4E86;<code>reduce</code>&#x7B49;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">reduce</span> + <span class="hljs-number">0</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span>)</span>)</span>                 <span class="hljs-comment">;&#x21D2;  10</span>
+<span class="hljs-list">(<span class="hljs-keyword">reduce</span> + <span class="hljs-number">0</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-number">2</span>)</span>)</span>                     <span class="hljs-comment">;&#x21D2;  3</span>
+<span class="hljs-list">(<span class="hljs-keyword">reduce</span> + <span class="hljs-number">0</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span>)</span>)</span>                       <span class="hljs-comment">;&#x21D2;  1</span>
+<span class="hljs-list">(<span class="hljs-keyword">reduce</span> + <span class="hljs-number">0</span> &apos;<span class="hljs-list">()</span>)</span>                        <span class="hljs-comment">;&#x21D2;  0</span>
+<span class="hljs-list">(<span class="hljs-keyword">reduce</span> + <span class="hljs-number">0</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">foo</span>)</span>)</span>                     <span class="hljs-comment">;&#x21D2;  foo</span>
+<span class="hljs-list">(<span class="hljs-keyword">reduce</span> list &apos;<span class="hljs-list">()</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span>)</span>)</span>            <span class="hljs-comment">;&#x21D2;  (((1 2) 3) 4)</span>
+</code></pre>
+<blockquote>
+<p>&#x7EC3;&#x4E60;3</p>
+<ol>
+<li>&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x5C06;&#x8868;&#x4E2D;&#x6240;&#x6709;&#x5143;&#x7D20;&#x5E73;&#x65B9;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x6C42;&#x53D6;&#x5B83;&#x4EEC;&#x7684;&#x548C;&#xFF0C;&#x6700;&#x540E;&#x6C42;&#x548C;&#x7684;&#x5E73;&#x65B9;&#x6839;&#x3002;</li>
+</ol>
+</blockquote>
+<h2 id="&#x6392;&#x5E8F;">&#x6392;&#x5E8F;</h2>
+<p>&#x5C3D;&#x7BA1;R5RS&#x4E2D;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x6392;&#x5E8F;&#x51FD;&#x6570;&#xFF0C;&#x4F46;MIT-Scheme&#x63D0;&#x4F9B;&#x4E86;<code>sort</code>&#xFF08;&#x5B9E;&#x4E3A;<code>merge-sort</code>&#x5B9E;&#x73B0;&#xFF09;&#x548C;<code>quick-sort</code>&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">sort</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">3</span> <span class="hljs-number">5</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span> <span class="hljs-number">-1</span>)</span> &lt;)</span>
+<span class="hljs-comment">;&#x21D2;  (-1 1 3 4 5)</span>
+</code></pre>
+<blockquote>
+<p>&#x7EC3;&#x4E60;4</p>
+<p>&#x7F16;&#x5199;&#x4E0B;&#x5217;&#x51FD;&#x6570;</p>
+<ol>
+<li>&#x4EE5;<code>sin(x)</code>&#x7684;&#x5927;&#x5C0F;&#x5347;&#x5E8F;&#x6392;&#x5E8F;&#xFF1B;</li>
+<li>&#x4EE5;&#x8868;&#x957F;&#x5EA6;&#x964D;&#x5E8F;&#x6392;&#x5E8F;&#xFF1B;</li>
+</ol>
+</blockquote>
+<h2 id="apply&#x51FD;&#x6570;">apply&#x51FD;&#x6570;</h2>
+<p><code>apply</code>&#x51FD;&#x6570;&#x662F;&#x5C06;&#x4E00;&#x4E2A;&#x8FC7;&#x7A0B;&#x5E94;&#x7528;&#x4E8E;&#x4E00;&#x4E2A;&#x8868;&#xFF08;&#x8BD1;&#x6CE8;&#xFF1A;&#x5C06;&#x8868;&#x5C55;&#x5F00;&#xFF0C;&#x4F5C;&#x4E3A;&#x8FC7;&#x7A0B;&#x7684;&#x53C2;&#x6570;&#xFF09;&#x3002;&#x6B64;&#x51FD;&#x6570;&#x5177;&#x6709;&#x4EFB;&#x610F;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4F46;&#x9996;&#x53C2;&#x6570;&#x548C;&#x672B;&#x53C2;&#x6570;&#x5206;&#x522B;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x4E2A;&#x8FC7;&#x7A0B;&#x548C;&#x4E00;&#x4E2A;&#x8868;&#x3002;&#x867D;&#x7136;&#x4E4D;&#x770B;&#x4E4B;&#x4E0B;&#x4E0D;&#x7136;&#xFF0C;&#x4F46;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x786E;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">apply</span></span> max &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-number">3</span> <span class="hljs-number">2</span>)</span>)</span>      <span class="hljs-comment">;&#x21D2;   3</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">apply</span></span> + <span class="hljs-number">1</span> <span class="hljs-number">2</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>)</span>)</span>    <span class="hljs-comment">;&#x21D2;  15</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">apply</span></span> - <span class="hljs-number">100</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">5</span> <span class="hljs-number">12</span> <span class="hljs-number">17</span>)</span>)</span>  <span class="hljs-comment">;&#x21D2;  66</span>
+</code></pre>
+<blockquote>
+<p>&#x7EC3;&#x4E60;5</p>
+<p>&#x7528;<code>apply</code>&#x7F16;&#x5199;&#x7EC3;&#x4E60;3&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+</blockquote>
+<h2 id="&#x7F16;&#x5199;&#x9AD8;&#x9636;&#x51FD;&#x6570;">&#x7F16;&#x5199;&#x9AD8;&#x9636;&#x51FD;&#x6570;</h2>
+<p>&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x3002;&#x8FD9;&#x91CC;&#x7528;<code>member-if</code>&#x3001;<code>member</code>&#x548C;<code>fractal</code>&#x6F14;&#x793A;&#x3002;</p>
+<h3 id="memberif&#x548C;member">member-if&#x548C;member</h3>
+<p><code>member-if</code>&#x51FD;&#x6570;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x8C13;&#x8BCD;&#x548C;&#x4E00;&#x4E2A;&#x8868;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B50;&#x8868;&#xFF0C;&#x8BE5;&#x5B50;&#x8868;&#x7684;<code>car</code>&#x90E8;&#x5206;&#x5373;&#x662F;&#x539F;&#x5217;&#x8868;&#x4E2D;&#x9996;&#x4E2A;&#x6EE1;&#x8DB3;&#x8BE5;&#x8C13;&#x8BCD;&#x7684;&#x5143;&#x7D20;&#x3002;<code>member-if</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">member-if</span> proc ls)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cond</span></span>
+   <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">null?</span></span> ls)</span> <span class="hljs-literal">#f</span>)</span>
+   <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">proc</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> ls)</span>)</span> ls)</span>
+   <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">else</span></span> <span class="hljs-list">(<span class="hljs-keyword">member-if</span> proc <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> ls)</span>)</span>)</span>)</span>)</span>
+
+<span class="hljs-list">(<span class="hljs-keyword">member-if</span> positive? &apos;<span class="hljs-list">(<span class="hljs-keyword">0</span> <span class="hljs-number">-1</span> <span class="hljs-number">-2</span> <span class="hljs-number">3</span> <span class="hljs-number">5</span> <span class="hljs-number">-7</span>)</span>)</span>
+<span class="hljs-comment">;&#x21D2;  (3 5 -7)</span>
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;<code>member</code>&#x51FD;&#x6570;&#x68C0;&#x67E5;&#x7279;&#x5B9A;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5728;&#x8868;&#x4E2D;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x7F16;&#x5199;&#x5982;&#x4E0B;&#x3002;&#x51FD;&#x6570;&#x9700;&#x8981;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5176;&#x4E00;&#x4E3A;&#x7528;&#x4E8E;&#x6BD4;&#x8F83;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5176;&#x4E8C;&#x4E3A;&#x7279;&#x5B9A;&#x9879;&#xFF0C;&#x5176;&#x4E09;&#x4E3A;&#x5F85;&#x67E5;&#x627E;&#x8868;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">member</span></span> proc obj ls)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cond</span></span>
+   <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">null?</span></span> ls)</span> <span class="hljs-literal">#f</span>)</span>
+   <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">proc</span> obj <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> ls)</span>)</span> ls)</span>
+   <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">else</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">member</span></span> proc obj <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> ls)</span>)</span>)</span>)</span>)</span>
+
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">member</span></span> string=? <span class="hljs-string">&quot;hello&quot;</span> &apos;<span class="hljs-list">(<span class="hljs-string">&quot;hi&quot;</span> <span class="hljs-string">&quot;guys&quot;</span> <span class="hljs-string">&quot;bye&quot;</span> <span class="hljs-string">&quot;hello&quot;</span> <span class="hljs-string">&quot;see you&quot;</span>)</span>)</span>
+<span class="hljs-comment">;&#x21D2;  (&quot;hello&quot; &quot;see you&quot;)</span>
+</code></pre>
+<h3 id="&#x4E0D;&#x89C4;&#x5219;&#x66F2;&#x7EBF;">&#x4E0D;&#x89C4;&#x5219;&#x66F2;&#x7EBF;</h3>
+<p>&#x751F;&#x6210;&#x50CF;C&#x66F2;&#x7EBF;&#x3001;&#x9F99;&#x66F2;&#x7EBF;&#x7B49;&#x4E0D;&#x89C4;&#x5219;&#x66F2;&#x7EBF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x4E24;&#x4E2A;&#x70B9;&#x4E2D;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x70B9;&#x6765;&#x5B9E;&#x73B0; which are generated by inserting a point(s) between two points according to a positioning function can be separated into two parts: a common routine to generate fractal curves and a positioning function. &#x3002;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-scheme">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;;                frac.scm
+;;;
+;;;        draw fractal curves
+;;;         by T.Shido
+;;;       on August 20, 2005
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; &#x5E73;&#x9762;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x7CFB;&#x4E0A;&#x7684;&#x70B9;&#x901A;&#x8FC7;&#x5E8F;&#x5BF9;&#x6765;&#x8868;&#x793A;&#xFF0C;&#x5176;&#x4E2D;car&#x90E8;&#x5206;&#x548C;cdr&#x90E8;&#x5206;&#x5206;&#x522B;&#x4EE3;&#x8868;
+;;; x&#x5750;&#x6807;&#x548C;y&#x5750;&#x6807;&#x3002;
+;;; &#x51FD;&#x6570;_x&#x548C;_y&#x7528;&#x6765;&#x53D6;&#x5F97;&#x5750;&#x6807;&#xFF0C;point&#x7528;&#x6765;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x70B9;&#x3002;
+(define _x car)
+(define _y cdr)
+(define point cons)
+
+;;; (rappend ls0 ls1)
+;;; (rappend &apos;(1 2 3) &apos;(4 5 6)) -&gt; (3 2 1 4 5 6)
+;;;
+;;; &#x63A5;&#x53D7;&#x4E24;&#x4E2A;&#x8868;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x5C06;&#x7B2C;&#x4E00;&#x4E2A;&#x8868;&#x53CD;&#x8F6C;&#x540E;&#x4E0E;&#x7B2C;&#x4E8C;&#x4E2A;&#x8868;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#x3002;
+(define (rappend ls0 ls1)
+  (let loop((ls0 ls0) (ls1 ls1))
+    (if (null? ls0)
+        ls1
+      (loop (cdr ls0) (cons (car ls0) ls1)))))
+
+;;; (devide p1 p2 r)
+;;; dividing p1 and p2 internally by the ratio r.
+(define (divide p1 p2 r)
+  (point (+ (* r (_x p1)) (* (- 1.0 r) (_x p2)))
+     (+ (* r (_y p1)) (* (- 1.0 r) (_y p2)))))
+
+;;; (print-curve points fout)
+;;; &#x5C06;&#x70B9;&#x8F93;&#x51FA;&#x81F3;&#x6587;&#x4EF6;&#x3002;&#x5C06;&#x4E00;&#x7CFB;&#x5217;&#x70B9;points&#x6309;&#x4E00;&#x884C;&#x4E00;&#x4E2A;&#x70B9;&#x5F97;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x81F3;fout&#x4EE3;
+;;; &#x8868;&#x7684;&#x6587;&#x4EF6;
+(define (print-curve points fout)
+  (with-output-to-file fout
+    (lambda ()
+      (for-each
+       (lambda (p)
+         (display (_x p))
+         (display &quot; &quot;)
+         (display (_y p))
+         (newline))
+       points))))
+
+
+;;; (fractal proc n points fout)
+;;; &#x521B;&#x5EFA;&#x5206;&#x578B;&#x56FE;&#x5F62;&#x7684;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x3002;&#x5176;&#x4E2D;&#xFF0C;proc&#x662F;&#x5B9A;&#x4F4D;&#x51FD;&#x6570;&#xFF0C;n&#x662F;&#x91CD;&#x590D;&#x6B21;&#x6570;&#xFF0C;
+;;; points&#x662F;&#x521D;&#x59CB;&#x70B9;&#x6784;&#x6210;&#x7684;&#x8868;&#xFF0C;fout&#x662F;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;
+;;; &#x51FD;&#x6570;&#x7531;&#x4E24;&#x4E2A;&#x53EB;&#x505A;loop&#x548C;iter&#x7684;&#x5FAA;&#x73AF;&#x6784;&#x6210;&#x3002;loop&#x5BF9;&#x6570;&#x636E;&#x8868;&#x505A;n&#x6B21;&#x63D2;&#x5165;&#x3002;
+;;; The iter adds new points to the data list using the positioning function. In short, fractal generates curves by repeating iter for n times.
+The positioning function proc takes two points as arguments and returns a list of the first point and the interpolated point.
+(define (fractal proc n points fout)
+  (let loop ((i 0) (points points))
+    (if (= n i)
+      (print-curve points fout)
+      (loop
+       (1+ i)
+       (let iter ((points points) (acc &apos;()))
+         (if (null? (cdr points)) 
+           (reverse! (cons (car points) acc))
+           (iter
+             (cdr points)
+             (rappend (proc (first points) (second points)) acc)))))))
+  &apos;done)
+
+
+;;; (c-curve p1 p2) 
+;;; C-&#x66F2;&#x7EBF;&#x7684;&#x5B9A;&#x4F4D;&#x51FD;&#x6570;
+(define (c-curve p1 p2) 
+  (let ((p3 (divide p1 p2 0.5)))
+    (list
+     p1
+     (point (+ (_x p3) (- (_y p3) (_y p2)))
+        (+ (_y p3) (- (_x p2) (_x p3)))))))
+
+;;; (dragon-curve p1 p2)
+;;; &#x9F99;&#x66F2;&#x7EBF;&#x7684;&#x5B9A;&#x4F4D;&#x51FD;&#x6570;
+(define dragon-curve 
+  (let ((n 0))
+    (lambda (p1 p2)
+      (let ((op (if (even? n) + -))
+        (p3 (divide  p1 p2 0.5)))
+    (set! n (1+ n))
+    (list
+     p1
+     (point (op (_x p3) (- (_y p3) (_y p2)))
+        (op (_y p3) (- (_x p2) (_x p3)))))))))
+
+
+;;; (koch p1 p2)
+;;; Koch&#x66F2;&#x7EBF;&#x7684;&#x5B9A;&#x4F4D;&#x51FD;&#x6570;
+(define (koch p1 p2)
+  (let ((p3 (divide p1 p2 2/3))
+    (p4 (divide p1 p2 1/3))
+    (p5 (divide p1 p2 0.5))
+    (c  (/ (sqrt 3) 2)))
+    (list
+     p1
+     p3
+     (point (- (_x p5) (* c (- (_y p4) (_y p3))))
+        (+ (_y p5) (* c (- (_x p4) (_x p3)))))
+     p4)))
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x751F;&#x6210;&#x5206;&#x578B;&#x66F2;&#x7EBF;&#x3002;&#x6E90;&#x4EE3;&#x7801;&#x5728;&#x8FD9;&#x91CC;&#x3002;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x8BF7;&#x5148;&#x7F16;&#x8BD1;&#xFF0C;&#x4EE5;&#x8282;&#x7701;&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x3002;</p>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">compile-file</span> <span class="hljs-string">&quot;frac.scm&quot;</span>)</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">load</span></span> <span class="hljs-string">&quot;frac&quot;</span>)</span>
+
+<span class="hljs-comment">;; C-Curve</span>
+<span class="hljs-list">(<span class="hljs-keyword">fractal</span> c-curve <span class="hljs-number">14</span> &apos;<span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">0</span> . <span class="hljs-number">0</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">2</span> . <span class="hljs-number">3</span>)</span>)</span> <span class="hljs-string">&quot;c14.dat&quot;</span>)</span>
+<span class="hljs-comment">;Value: done</span>
+
+<span class="hljs-comment">;; Dragon-Curve</span>
+<span class="hljs-list">(<span class="hljs-keyword">fractal</span> dragon-curve <span class="hljs-number">14</span> &apos;<span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">0</span> . <span class="hljs-number">0</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">1</span> . <span class="hljs-number">0</span>)</span>)</span> <span class="hljs-string">&quot;d14.dat&quot;</span>)</span>
+<span class="hljs-comment">;Value: done</span>
+
+<span class="hljs-comment">;; Koch-Curve</span>
+<span class="hljs-list">(<span class="hljs-keyword">fractal</span> koch <span class="hljs-number">5</span> &apos;<span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">0</span> . <span class="hljs-number">0</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">1</span> . <span class="hljs-number">0</span>)</span>)</span> <span class="hljs-string">&quot;k5.dat&quot;</span>)</span>
+<span class="hljs-comment">;Value: done</span>
+</code></pre>
+<p>X&#x5750;&#x6807;&#x548C;Y&#x5750;&#x6807;&#x90FD;&#x5B58;&#x50A8;&#x5728;&#x540D;&#x5B57;&#x5F62;&#x5982;<code>*.dat</code>&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4F60;&#x559C;&#x6B22;&#x7684;&#x5236;&#x56FE;&#x7A0B;&#x5E8F;&#x6765;&#x7ED8;&#x5236;&#x3002;&#x56FE;&#x8868;1-3&#x90FD;&#x662F;&#x7528;gnuplot&#x7ED8;&#x5236;&#x7684;&#x3002;</p>
+<blockquote>
+<p>&#x7EC3;&#x4E60; 6</p>
+<ol>
+<li>&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;<code>keep-matching-items</code>&#x3002;</li>
+<li>&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;<code>map</code>&#x3002;&#x63A5;&#x53D7;&#x4E0D;&#x6B62;&#x4E00;&#x4E2A;&#x8868;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x53EF;&#x80FD;&#x6709;&#x70B9;&#x56F0;&#x96BE;&#x3002;&#x5269;&#x4F59;&#x7684;&#x53C2;&#x6570;&#x662F;&#x901A;&#x8FC7;&#x5E26;&#x70B9;&#x5F97;&#x5E8F;&#x5BF9;<code>(.)</code>&#x6765;&#x5B9A;&#x4E49;&#x7684;&#x3002;&#x5176;<code>cdr</code>&#x90E8;&#x5206;&#x4EE5;&#x8868;&#x7684;&#x5F62;&#x5F0F;&#x4F20;&#x9012;&#x7ED9;&#x51FD;&#x6570;&#x3002;
+&#x4F8B;: my-list<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">my-list</span> . x)</span> x)</span>
+</code></pre>
+&#x591A;&#x8BF4;&#x4E00;&#x53E5;&#xFF0C;&#x4F60;&#x9700;&#x8981;<code>apply</code>&#x51FD;&#x6570;&#x3002;</li>
+</ol>
+</blockquote>
+<h2 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h2>
+<p>&#x672C;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x8BB2;&#x89E3;&#x4E86;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x3002;&#x6B63;&#x5982;&#x5728;&#x751F;&#x6210;&#x5206;&#x5F62;&#x56FE;&#x5F62;&#x4F53;&#x73B0;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x589E;&#x5F3A;&#x4E86;&#x6A21;&#x5757;&#x5316;&#x6210;&#x90FD;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x5B9A;&#x4E49;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x3002;&#x5F53;&#x4F60;&#x7F16;&#x5199;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x66F4;&#x8981;&#x5728;&#x4E4E;&#x5C06;&#x5176;&#x5B9E;&#x73B0;&#x4E3A;&#x66F4;&#x62BD;&#x8C61;&#x7684;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x80FD;&#x591F;<strong>&#x590D;&#x7528;&#xFF08;reusable&#xFF09;</strong>&#x3002;</p>
+<p>&#x5728;&#x4E0B;&#x4E00;&#x7AE0;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x4F1A;&#x4ECB;&#x7ECD;IO&#x3002;</p>
+<h2 id="&#x4E60;&#x9898;&#x89E3;&#x7B54;">&#x4E60;&#x9898;&#x89E3;&#x7B54;</h2>
+<h3 id="&#x7B54;&#x6848;1">&#x7B54;&#x6848;1</h3>
+<pre><code class="lang-scheme"><span class="hljs-comment">; 1</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">double</span> ls)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">map</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> x <span class="hljs-number">2</span>)</span>)</span> ls)</span>)</span>
+
+<span class="hljs-comment">; 2</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">sub</span> ls1 ls2)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">map</span></span> - ls1 ls2)</span>)</span>
+</code></pre>
+<h3 id="&#x7B54;&#x6848;2">&#x7B54;&#x6848;2</h3>
+<pre><code class="lang-scheme"><span class="hljs-comment">; 1</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">filter-even</span> ls)</span>
+  <span class="hljs-list">(<span class="hljs-keyword">keep-matching-items</span> ls even?)</span>)</span>
+<span class="hljs-comment">; 2</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">filter-10-100</span> ls)</span>
+  <span class="hljs-list">(<span class="hljs-keyword">keep-matching-items</span> ls <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&lt;=</span></span> <span class="hljs-number">10</span> x <span class="hljs-number">100</span>)</span>)</span>)</span>)</span>
+</code></pre>
+<h3 id="&#x7B54;&#x6848;3">&#x7B54;&#x6848;3</h3>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">sqrt-sum-sq</span> ls)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">sqrt</span></span> <span class="hljs-list">(<span class="hljs-keyword">reduce</span> + <span class="hljs-number">0</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">map</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> x x)</span>)</span> ls)</span>)</span>)</span>)</span>
+</code></pre>
+<h3 id="&#x7B54;&#x6848;4">&#x7B54;&#x6848;4</h3>
+<pre><code class="lang-scheme"><span class="hljs-comment">; 1</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">sort-sin</span> ls)</span>
+  <span class="hljs-list">(<span class="hljs-keyword">sort</span> ls <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span> y)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&lt;</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">sin</span></span> x)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">sin</span></span> y)</span>)</span>)</span>)</span>)</span>
+
+<span class="hljs-comment">; 2</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">sort-length</span> ls)</span>
+  <span class="hljs-list">(<span class="hljs-keyword">sort</span> ls <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span> y)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&gt;</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">length</span></span> x)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">length</span></span> y)</span>)</span>)</span>)</span>)</span>
+</code></pre>
+<h3 id="&#x7B54;&#x6848;5">&#x7B54;&#x6848;5</h3>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">sqrt-sum-sq-a</span> ls)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">sqrt</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">apply</span></span> + <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">map</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> x x)</span>)</span> ls)</span>)</span>)</span>)</span>
+</code></pre>
+<h3 id="&#x7B54;&#x6848;6">&#x7B54;&#x6848;6</h3>
+<pre><code class="lang-scheme"><span class="hljs-comment">; 1</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">my-keep-matching-items</span> ls fn)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cond</span></span>
+   <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">null?</span></span> ls)</span> &apos;<span class="hljs-list">()</span>)</span>
+   <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">fn</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> ls)</span>)</span>
+    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> ls)</span> <span class="hljs-list">(<span class="hljs-keyword">my-keep-matching-items</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> ls)</span> fn)</span>)</span>)</span>
+   <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">else</span></span>
+    <span class="hljs-list">(<span class="hljs-keyword">my-keep-matching-items</span>  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> ls)</span> fn)</span>)</span>)</span>)</span>
+
+<span class="hljs-comment">; 2</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">my-map</span> fun . lss)</span>
+  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">letrec</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">iter</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">fun</span> lss)</span>
+               <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">null?</span></span> lss)</span>
+               &apos;<span class="hljs-list">()</span>
+               <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> <span class="hljs-list">(<span class="hljs-keyword">fun</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> lss)</span>)</span>
+                 <span class="hljs-list">(<span class="hljs-keyword">iter</span> fun <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> lss)</span>)</span>)</span>)</span>)</span>)</span>
+       <span class="hljs-list">(<span class="hljs-keyword">map-rec</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">fun</span> lss)</span>
+              <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">memq</span></span> &apos;<span class="hljs-list">()</span> lss)</span>
+              &apos;<span class="hljs-list">()</span>
+              <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cons</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">apply</span></span> fun <span class="hljs-list">(<span class="hljs-keyword">iter</span> car lss)</span>)</span>
+                <span class="hljs-list">(<span class="hljs-keyword">map-rec</span> fun <span class="hljs-list">(<span class="hljs-keyword">iter</span> cdr lss)</span>)</span>)</span>)</span>)</span>)</span>)</span>
+    <span class="hljs-list">(<span class="hljs-keyword">map-rec</span> fun lss)</span>)</span>)</span>
+<span class="hljs-list">(<span class="hljs-keyword">my-map</span> + &apos;<span class="hljs-list">(<span class="hljs-keyword">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>)</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">10</span> <span class="hljs-number">20</span> <span class="hljs-number">30</span>)</span> &apos;<span class="hljs-list">(<span class="hljs-keyword">100</span> <span class="hljs-number">200</span> <span class="hljs-number">300</span>)</span>)</span>
+<span class="hljs-comment">;&#x21D2; (111 222 333)</span>
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../contents/chapter7.html" class="navigation navigation-prev " aria-label="Previous page: 重复"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../contents/chapter9.html" class="navigation navigation-next " aria-label="Next page: 输入/输出"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -242,7 +242,7 @@ R5RS定义了关联表，因此它在所有Scheme实现中都可用。但是使�
 73:           'done)))
 ```
 
-## 总结
+## 小结
 
 你可以在[这儿](http://www.shido.info/lisp/scheme_ah.zip)下载密码生成程序。
 

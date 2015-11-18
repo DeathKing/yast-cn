@@ -26,14 +26,12 @@ CPS是一种编程风格，在这种风格中，把依赖于当前函数结果�
 (define (k* a b k)
   (k (* a b)))
 ```
-{:caption=>'代码片段1'}
 
 **例1**演示了如何使用CPS计算`(* 3 (+ 1 2))`。
 
 ```scheme
 (k+ 1 2 (lambda (x) (k* x 3 return)))
 ```
-{:caption=>'例1'}
 
 Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form of Scheme, values that are calculated in parentheses go outside of them. ）与此相反，CPS中，值向其它括号内传递。在**例1**中，`k+`把`(+ 1 2)`的值传递给`(lambda (x) (k* x 3 return))`，而`k*`把`(* (+ 1 2) 3)`的结果传给`return`。
 
@@ -65,8 +63,6 @@ Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form 
 (kfact 4 (lambda (x) (k+ x 3 return)))
 ```
 
-{:caption=>'例2'}
-
 **代码片段3**演示了如何分别用普通方式和CPS编写用于计算表中元素的积的函数。在CPS函数中，后继函数存储再局部变量`break`中，因此当元素乘以0时，可以立即退出。
 
 ```scheme
@@ -88,8 +84,6 @@ Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form 
        (else (loop (cdr ls) (lambda (x) (k (* (car ls) x)))))))))
 ```
 
-{:caption=>'代码片段3'}
-
 **例3**将100与`'(2 4 7)`的积相加。
 
 ```scheme
@@ -99,8 +93,6 @@ Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form 
 ;;; CPS
 (kproduct '(2 4 7) (lambda (x) (k+ x 100 return)))
 ```
-
-{:caption=>'例3'}
 
 尽管CPS在这样简单的情况中并不实用，但在一些像是自然语言解析和逻辑编程等复杂程序中非常有用，因为与通常的编程风格相比，CPS可以更灵活地改变后续过程。
 
@@ -124,9 +116,6 @@ Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form 
        (else (loop (cdr ls) (lambda (x) (k (* (car ls) x)))))))))
 ```
 
-{:caption=>'代码片段4'}
-
-
 ```scheme
 ;;; valid
 (kproduct '(2 4 7) 
@@ -141,8 +130,6 @@ Scheme的普通形式中，值在括号外被计算（#TBD In the ordinary form 
 Value error: hoge is not number.
 ;Value: error
 ```
-
-{:caption=>'例4'}
 
 ## Scheme中的继续
 
@@ -204,7 +191,6 @@ Value error: hoge is not number.
 		                    (cc obj)))))))
          (iter tree)))))
 ```
-{:caption=>'代码片段5'}
 
 ```scheme
 (find-leaf 7 '(1 (2 3) 4 (5 (6 7))))
@@ -213,7 +199,6 @@ Value error: hoge is not number.
 (find-leaf 8 '(1 (2 3) 4 (5 (6 7))))
 ;⇒ ()
 ```
-{:caption=>'例5'}
 
 **例6**演示了一个支持抛出的语法`block`。
 
@@ -245,7 +230,6 @@ Value error: hoge is not number.
 	'(1 -2 3)))
 ;⇒ -2
 ```
-{:caption=>'例7'}
 
 ### 生成器
 
@@ -284,7 +268,6 @@ Value error: hoge is not number.
 16:                       (set! return where-to-go) ;14
 17:                       (continue)))))))
 ```
-{:caption=>'代码片段6'}
 
 (译者注：原文中05，08行中命名let中的`rec`被写为`loop`，结合上下文，改为`rec`)
 
@@ -447,9 +430,6 @@ _
 61:     (start)
 ```
 
-{:caption=>'代码片段7'}
-
-
 ```scheme
 (load "cor2.scm")
 ;Loading "cor2.scm"
@@ -457,9 +437,7 @@ _
 ;Unspecified return value
 ```
 
-{:caption=>'例7'}
-
-## 总结
+## 小结
 
 本章中，我讲解了继续。
 

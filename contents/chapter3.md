@@ -21,7 +21,7 @@
 
 系统返回`(1 . 2)`。如图一所示，函数`cons`给两个地址分配了内存空间，并把存放指向`1`的地址放在一个空间，把存放指向`2`的地址放在另一个空间。存放指向`1`的地址的内存空间被称作`car`部分，对应的，存放指向`2`的地址的内存空间被称作`cdr`部分。`car`和`cdr`分别是**寄存器地址部分（Contents of the Address part of the Register）**和**寄存器减量部分（Contents of the Decrement part of the Register）**的简称。这些名字最初来源于Lisp首次被实现所使用的硬件环境中内存空间的名字。这些名字同时也表明Cons单元的本质就是一个内存空间。`cons`这个名字是术语**构造（construction）**的简称。
 
-![A cons cell](figures/cons2.png){:caption="一个Cons单元"}
+![A cons cell](figures/cons2.png)
 
 Cons单元也可以被串起来。
 
@@ -32,7 +32,7 @@ Cons单元也可以被串起来。
 
 ·(3 . (1 . 2))·可以更方便地表示为`(3 1 . 2)`。这种情况的内存空间如图2所示。
 
-![Beaded cons cells](figures/conss2.png){:caption="串连Cons单元"}
+![Beaded cons cells](figures/conss2.png)
 
 Cons单元可以存放不同类型的数据，也可以嵌套。
 
@@ -52,7 +52,6 @@ Cons单元可以存放不同类型的数据，也可以嵌套。
 
 ![Memory structure for a list '(1 2 3)](./figures/conss2.png)
 
-{:caption="表(1 2 3)的内存结构"}
 
 事实上，表可以像下面这样递归地定义：
 

@@ -1,75 +1,75 @@
-# ÒëÃû±í
+# è¯‘åè¡¨
 
 ## a
-Abbreviation		ËõÂÔ´Ê
-Accessors		¶ÁÈ¡º¯Êı
-Arbitrary		¿É±äµÄ£»±äÔª£»ÈÎÒâ¶à
-Argument		²ÎÊı
+Abbreviation		ç¼©ç•¥è¯
+Accessors		è¯»å–å‡½æ•°
+Arbitrary		å¯å˜çš„ï¼›å˜å…ƒï¼›ä»»æ„å¤š
+Argument		å‚æ•°
 
 ## b
-Boolean			²¼¶ûÖµ
-Branch			·ÖÖ§
+Boolean			å¸ƒå°”å€¼
+Branch			åˆ†æ”¯
 
 ## c
-Convert			×ª»»
-Circle Ratio		Ô²ÖÜÂÊ
+Convert			è½¬æ¢
+Circle Ratio		åœ†å‘¨ç‡
 
 ## e
-Example			Àı
-Exponential		Ö¸Êı
+Example			ä¾‹
+Exponential		æŒ‡æ•°
 
 ## g
-Geometric Progression 	¼¸ºÎÔö³¤
+Geometric Progression 	å‡ ä½•å¢é•¿
 
 ## I
-Introduction		¼ò½é
-Inner product		ÄÚ»ı
+Introduction		ç®€ä»‹
+Inner product		å†…ç§¯
 
 ## l
-List			±í
-Local Variable		¾Ö²¿±äÁ¿
-Logarithm		¶ÔÊı
+List			è¡¨
+Local Variable		å±€éƒ¨å˜é‡
+Logarithm		å¯¹æ•°
 
 ## M
-Macro			ºê
+Macro			å®
 
 ## N
-Native Code		±¾µØ´úÂë
-Newline			»»ĞĞ·û
+Native Code		æœ¬åœ°ä»£ç 
+Newline			æ¢è¡Œç¬¦
 
 ## O
-Option			²ÎÁ¿
+Option			å‚é‡
 
 ## p
-Pair			Ğò¶Ô
-Predicate		Î½´Ê
+Pair			åºå¯¹
+Predicate		è°“è¯
 
 ## Q
-Quotient		ÉÌÊı
+Quotient		å•†æ•°
 
 ## r
-Reciprocal		µ¹Êı
-Remainder		ÓàÊı
+Reciprocal		å€’æ•°
+Remainder		ä½™æ•°
 
 ## S
-Same			Ò»ÖÂ
-S-expressions		S-±í´ïÊ½
-Sequence		ĞòÁĞ
-Setters			ÉèÖÃº¯Êı
-Side effects		¸±×÷ÓÃ
-Slot			²Û
-Space			¿Õ¸ñ·û
-Square root		Æ½·½¸ù
-Symbol			·ûºÅ
+Same			ä¸€è‡´
+S-expressions		S-è¡¨è¾¾å¼
+Sequence		åºåˆ—
+Setters			è®¾ç½®å‡½æ•°
+Side effects		å‰¯ä½œç”¨
+Slot			æ§½
+Space			ç©ºæ ¼ç¬¦
+Square root		å¹³æ–¹æ ¹
+Symbol			ç¬¦å·
 
 ## V
-Variable Capture	±äÁ¿²¶»ñ
+Variable Capture	å˜é‡æ•è·
 
 
 ## T
-Tab			ÖÆ±í·û
-Transformation		×ª»»
-Trigonometric Functions	Èı½Çº¯Êı
+Tab			åˆ¶è¡¨ç¬¦
+Transformation		è½¬æ¢
+Trigonometric Functions	ä¸‰è§’å‡½æ•°
 
 ## t
-Term			Ïî
+Term			é¡¹

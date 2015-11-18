@@ -20,7 +20,6 @@
 	    (list->string (reverse ls1)))
 	  (loop (cons c ls1) (read-char p))))))
 ```
-{:caption="[代码片段1] 以字符串的形式返回文件内容"}
 
 比如，在[范例1]中展示的结果就是将[代码片段1]应用于文件hello.txt。由于换行符是由`'\n'`表示的，这就很容易阅读。然而，像格式化输出[范例2]，我们也可使用`display`函数。
 
@@ -28,14 +27,12 @@
 Hello world!
 Scheme is an elegant programming language.
 ```
-{:caption="[文件]hello.txt"}
 
 ```scheme
 (cd "C:\\doc")
 (read-file "hello.txt")
 ;Value 14: "Hello world!\nScheme is an elegant programming language.\n"
 ```
-{:caption="[范例1]"}
 
 ```scheme
 (display (read-file "hello.txt"))
@@ -43,7 +40,6 @@ Hello world!
 Scheme is an elegant programming language.
 ;Unspecified return value
 ```
-{:caption="[范例2]"}
 
 ### 语法call-with-input-file和with-input-from-file
 
@@ -64,7 +60,6 @@ Scheme is an elegant programming language.
 	      (list->string (reverse ls1)))
 	    (loop (cons c ls1) (read-char p)))))))
 ```
-{:caption="[代码片段2] call-with-input-file版本"}
 
 > `(with-input-from-file filename procedure)`
 > 该函数将名为`filename`的文件作为标准输入打开。函数`procedure`不接受任何参数。当`procedure`退出时，文件自动被关闭。[代码片段3]展示了如何用`with-input-from-file`来重写[代码片段1]。
@@ -78,7 +73,6 @@ Scheme is an elegant programming language.
 	    (list->string (reverse ls1))
 	    (loop (cons c ls1) (read-char)))))))
 ```
-{:caption="[代码片段3] with-input-from-file版本"}
 
 ### read
 
@@ -100,7 +94,6 @@ Scheme is an elegant programming language.)
 	    (reverse ls1)
 	    (loop (cons s ls1) (read)))))))
 ```
-{:caption="[代码片段4]"}
 
 下面展示了用`s-read`读取"paren.txt"的结果。
 

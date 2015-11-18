@@ -115,19 +115,13 @@ tree
 
 队列可以用set-car!和set-cdr!实现。队列是一种**先进先出(First in first out, FIFO)**的数据结构，表则是**先进后出(First in last out，FILO)**。图表1展示了队列的结构。`cons-cell-top`的car部分指向表（头），而（`cons-cell-top`的）cdr部分指向表末的cons单元（表尾）。
 
-{:caption="[图表1] 队列结构"}
-
 入队操作按如下步骤进行（见图表2）：
 1. 将当前最末的cons单元（可以通过`cons-cell-top`取得）的cdr部分重定向到新的元素。
 2. 将`cons-cell-top`的cdr部分重定向到新的元素
 
-{:caption="[图表2] 元素4入队的步骤"}
-
 出队操作按如下步骤进行（见图表3）
 1. 将队首元素存放在一个局部变量里。
 2. 将`cons-cell-top`的car部分重定向到表的第二个元素
-
-{:caption="[图表3] 元素1出队的步骤"}
 
 [代码片段1]展示了如何实现队列。函数enqueue!返回将元素obj添加进队列queue后的队列。函数dequeue!将队列的首元素移出队列并将该元素的值作为返回值。
 
@@ -168,7 +162,6 @@ tree
 q
 ;Value 13: ((b c) c)
 ```
-{:caption="[代码片段1] 队列的Scheme实现"}
 
 ## 小结
 

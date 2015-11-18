@@ -43,7 +43,6 @@ a
 a
 ;Value: ()          ; a becomes '()
 ```
-{:caption=>''}
 
 我会演示另外一个例子。我们编写宏`when`，其语义为：当谓词求值为真时，求值相应语句。
 
@@ -53,7 +52,6 @@ a
     ((_ pred b1 ...)
      (if pred (begin b1 ...)))))
 ```
-{:caption=>'代码片段2'}
 
 **代码片段2**中的`...`代表了任意多个数的表达式（包括0个表达式）。**代码片段2**揭示了诸如表达式`(when pred b1 ...)`会变换为`(if pred (begin b1 ...))`。
 
@@ -85,7 +83,6 @@ i == 0
 	  b1 ...
 	  (loop (1+ i)))))))
 ```
-{:caption=>'代码片段3'}
 
 下面演示了如何实用它们：
 
@@ -130,7 +127,6 @@ define-syntax while
 (j = 3)
 ;Unspecified return value
 ```
-{:caption=>'代码片段4'}
 
 > 练习2  
 >
@@ -162,7 +158,6 @@ define-syntax while
      (let ((t e1))
        (if t t (my-or e2 ...))))))
 ```
-{:caption=>'代码片段5'}
 
 可以使用递归定义来编写复杂的宏。
 
@@ -186,7 +181,6 @@ define-syntax while
 	 (begin e2 ...)
 	 (cond c1 ...)))))
 ```
-{:caption=>'代码片段6'}
 
 ## 局部语法
 

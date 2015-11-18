@@ -24,7 +24,6 @@
 (define fhello (lambda ()         ;2
 		 "Hello world"))
 ```
-{:caption="代码片段1（hello.scm）"}
 
 接下来，向Scheme解释器输入下面的命令：
 
@@ -77,7 +76,6 @@ fhello
   (lambda (a b c)
     (+ a b c)))
 ```
-{:caption="代码片段2 (farg.scm)"}
 
 保存文件，并在解释器中载入此文件，然后调用我们定义的函数。
 
@@ -114,7 +112,6 @@ Hello
 (define (sum3 a b c)
   (+ a b c))
 ```
-{:caption="代码片段3"}
 
 在这种形式中，函数按照它们被调用的形式被定义。代码片段2和代码片段3都是相同的。有些人不喜欢这种短形式的函数定义，但是我在教程中使用这种形式，因为它可以使代码更短小。
 

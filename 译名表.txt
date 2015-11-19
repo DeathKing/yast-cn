@@ -53,14 +53,15 @@ Remainder		余数
 
 ## S
 Same			一致
-S-expressions		S-表达式
+S-expressions	S-表达式
 Sequence		序列
 Setters			设置函数
-Side effects		副作用
+Side effects	副作用
 Slot			槽
 Space			空格符
 Square root		平方根
 Symbol			符号
+Structure       结构体
 
 ## V
 Variable Capture	变量捕获

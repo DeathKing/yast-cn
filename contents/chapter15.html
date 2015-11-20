@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="16" data-chapter-title="定义语法" data-filepath="contents/chapter15.md" data-basepath=".." data-revision="Wed Nov 18 2015 20:51:40 GMT+0800 (CST)">
+    <div class="book" data-level="16" data-chapter-title="定义语法" data-filepath="contents/chapter15.md" data-basepath=".." data-revision="Thu Nov 19 2015 18:10:57 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -613,8 +613,8 @@ i == 0
       (car it)
       #f))
 </code></pre>
-<h2 id="&#x7ED3;&#x6784;&#x7684;&#x539F;&#x59CB;&#x5B9E;&#x73B0;">&#x7ED3;&#x6784;&#x7684;&#x539F;&#x59CB;&#x5B9E;&#x73B0;</h2>
-<p>&#x7ED3;&#x6784;&#xFF08;structure&#xFF09;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;[&#x4EE3;&#x7801;8]&#x4E2D;&#x7684;&#x7B80;&#x5355;&#x5B8F;&#x5B9E;&#x73B0;&#x3002;&#x8FD9;&#x91CC;&#x5B9A;&#x4E49;&#x7684;&#x7ED3;&#x6784;&#x7684;&#x672C;&#x8D28;&#x662F;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#xFF08;vector&#xFF09;&#x548C;&#x7531;&#x5B8F;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x7684;&#x53D6;&#x503C;&#x4EE5;&#x53CA;&#x8D4B;&#x503C;&#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x4F60;&#x559C;&#x6B22;&#x7684;Scheme&#x7248;&#x672C;&#x4E48;&#x6709;&#x7ED3;&#x6784;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x5B83;&#x4EEC;&#x3002;</p>
+<h2 id="&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x539F;&#x59CB;&#x5B9E;&#x73B0;">&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x539F;&#x59CB;&#x5B9E;&#x73B0;</h2>
+<p>&#x7ED3;&#x6784;&#x4F53;&#xFF08;structure&#xFF09;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;[&#x4EE3;&#x7801;8]&#x4E2D;&#x7684;&#x7B80;&#x5355;&#x5B8F;&#x5B9E;&#x73B0;&#x3002;&#x8FD9;&#x91CC;&#x5B9A;&#x4E49;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x672C;&#x8D28;&#x662F;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#xFF08;vector&#xFF09;&#x548C;&#x7531;&#x5B8F;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x7684;&#x53D6;&#x503C;&#x4EE5;&#x53CA;&#x8D4B;&#x503C;&#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x4F60;&#x559C;&#x6B22;&#x7684;Scheme&#x7248;&#x672C;&#x6CA1;&#x6709;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x5B83;&#x4EEC;&#x3002;</p>
 <p>[&#x4EE3;&#x7801;8]</p>
 <pre><code class="lang-scheme">01:     ;;; simple structure definition
 02:     
@@ -694,7 +694,7 @@ i == 0
 76:                 (loop (1+ i)))))))))))))
 </code></pre>
 <p>&#x4E0B;&#x9762;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#xFF1A;</p>
-<p>&#x4F60;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#xFF0C;&#x8981;&#x4E48;&#x53EA;&#x7ED9;&#x51FA;&#x69FD;&#xFF08;slot&#xFF09;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x8981;&#x4E48;&#x7ED9;&#x51FA;&#x69FD;&#xFF08;slot&#xFF09;&#x7684;&#x540D;&#x5B57;&#x548C;&#x7F3A;&#x7701;&#x503C;&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x8981;&#x4E48;&#x53EA;&#x7ED9;&#x51FA;&#x69FD;&#xFF08;slot&#xFF09;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x8981;&#x4E48;&#x7ED9;&#x51FA;&#x69FD;&#xFF08;slot&#xFF09;&#x7684;&#x540D;&#x5B57;&#x548C;&#x7F3A;&#x7701;&#x503C;&#x3002;</p>
 <pre><code class="lang-scheme">;;; Defining a structure point having 3 slots whose defaults are 0.0.
 (defstruct point (x 0.0) (y 0.0) (z 0.0))
 ;Unspecified return value
@@ -834,9 +834,13 @@ mon-month
     <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>

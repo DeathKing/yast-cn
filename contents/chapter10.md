@@ -90,12 +90,12 @@ Scheme过程的主要目的是返回一个值，而另一个目的则称为**副
 
 > 练习 1
 > 
-> 修改make-bank-account函数
+> 修改make-bank-account函数 
 > Modify make-bank-account so that withdrawing more than balance causes error. hint: Use begin to group more than one S-expressions.
 
 ## 表的破坏性操作（set-car!，set-cdr!）
 
-函数set-cat!和set-cdr!分别为一个cons单元的car部分和cdr部分赋新值。和set!不同，这两个操作可以为S-表达式赋值。
+函数set-car!和set-cdr!分别为一个cons单元的car部分和cdr部分赋新值。和set!不同，这两个操作可以为S-表达式赋值。
 
 ```scheme
 (define tree '((1 2) (3 4 5) (6 7 8 9)))

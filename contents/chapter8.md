@@ -339,7 +339,7 @@ X坐标和Y坐标都存储在名字形如`*.dat`的文件中。你可以使用�
   (keep-matching-items ls even?))
 ; 2
 (define (filter-10-100 ls)
-  (keep-matching-items ls (lambda (x) (<= 10 x 100))))
+  (delete-matching-items ls (lambda (x) (<= 10 x 100))))
 ```
 
 ###  答案3

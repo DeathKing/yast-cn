@@ -15,9 +15,9 @@
 ;Value 23: (6 5)
 ```
 
-(amb 4 6 7)从4，6和7中返回一个合适的数，(amb 5 8 11)从5，8和11中返回一个合适的数。如果没有选出合适的值，(amb)返回假。
+`(amb 4 6 7)` 从4，6和7中返回一个合适的数，`(amb 5 8 11)`从5，8和11中返回一个合适的数。如果没有选出合适的值，(amb)返回假。
 
-实际上，amb做了深度优先搜索。(amb c1 c2 c3 ...)创建了搜索路径依次检查c1，c2，c3，...并回溯。因此，非确定性是一种帮程序隐藏搜索的抽象。一旦我们有了amb，我们可以很容易地编写程序而无需思考计算机做了什么。
+实际上，amb做了深度优先搜索。`(amb c1 c2 c3 ...)`创建了搜索路径依次检查`c1`，`c2`，`c3`，...并回溯。因此，非确定性是一种帮程序隐藏搜索的抽象。一旦我们有了amb，我们可以很容易地编写程序而无需思考计算机做了什么。
 
 ## 非确定性的实现
 
@@ -130,7 +130,7 @@
       (cc a)))))))
 ```
 
-宏定义,amb，在参数为S-表达式时也和其他值一样正常工作。
+宏定义，amb，在参数为S-表达式时也和其他值一样正常工作。
 
 [例3]
 
@@ -149,7 +149,7 @@
 ;Value: 3
 ```
 
-在[Teach Yourself Scheme in Fixnum Days](http://www.ccs.neu.edu/home/dorai/t-y-scheme/t-y-scheme-Z-H-16.html#node_sec_14.2) 和[Dave Hername Code](http://www.ccs.neu.edu/home/dherman/code/amb.ss)中的amb实现使用`',@(map ...)'`展开参数。即使它们是直截了当的定义，但由于使用了两次call/cc，它们某种程度上仍很复杂。[代码2]所示的递归定义更简单，即使展开的S-表达式会很复杂。
+在[Teach Yourself Scheme in Fixnum Days](http://www.ccs.neu.edu/home/dorai/t-y-scheme/t-y-scheme-Z-H-16.html#node_sec_14.2) 和[Dave Hername Code](http://www.ccs.neu.edu/home/dherman/code/amb.ss)中的amb实现使用`',@(map ...)'`展开参数。即使它们是直截了当的定义，但由于使用了两次`call/cc`，它们某种程度上仍很复杂。[代码2]所示的递归定义更简单，即使展开的S-表达式会很复杂。
 
 ### 应用于逻辑编程，使程序更简洁
 

@@ -6,7 +6,7 @@
 
 ## 递归
 
-在自己的定义中调用自己的函数叫做**递归函数（Recursive Function）**。虽然这听起来很奇怪，但是循环的常见方法。If you have an analogy comparing functions to machines, recursion makes no sense. 然而，正因为函数式过程，函数调用自己是有意义的。比如说，让我们来考察一下文献调研吧。你可能需要去阅读你正在阅读的文献所引用的文献（cited-1）。进一步，你可能还需要去阅读文件（cite-1）所引用的其它文献。这样，文献调研就是一个递归的过程，你也可以重复这个调研过程直到满足了特定条件（比如说，你累了）。Thus, an analogy that compares functions in programming languages to some kind of human activities (say, literature survey) is useful to understand recursive functions.
+在自己的定义中调用自己的函数叫做**递归函数（Recursive Function）**。虽然这听起来很奇怪，但是循环的常见方法。如果你把函数类比为机器的话，递归似乎毫无道理。然而，正因为函数是过程，函数调用自己是有意义的。比如说，让我们来考察一下文献调研吧。你可能需要去阅读你正在阅读的文献所引用的文献（cited-1）。进一步，你可能还需要去阅读文件（cite-1）所引用的其它文献。这样，文献调研就是一个递归的过程，你也可以重复这个调研过程直到满足了特定条件（比如说，你累了）。这样，将程序设计语言中的函数类比为人类活动（比如文献调研）将有助于理解递归函数。
 
 我们通常使用计算阶乘来解释递归。
 

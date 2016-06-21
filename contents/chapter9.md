@@ -115,37 +115,41 @@ Scheme is an elegant programming language.)
 
 输出有和输入类似的函数，比如：
 
-<dl>
-  <dt><code>(open-output-file filename)</code></dt>
-  <dd>该函数打开一个文件用作输出，放回该输出端口。</dd>
+**(open-output-file filename)**
 
-  <dt><code>(close-output-port port)</code></dt>
-  <dd>关闭用于输出的端口。</dd>
+该函数打开一个文件用作输出，放回该输出端口。
 
-  <dt><code>(call-with-output-file filename procedure)</code></dt>
-  <dd>打开文件<code>filename</code>用于输出，并调用过程<code>procedure</code>。该函数以输出端口为参数。</dd>
+**(close-output-port port)**
 
-  <dt><code>(with-output-to-file filename procedure)</code></dt>
-  <dd>打开文件<code>filename</code>作为标准输出，并调用过程<code>procedure</code>。该过程没有参数。当控制权从过程<code>procedure</code>中返回时，文件被关闭。</dd>
-</dl>
+关闭用于输出的端口。
+
+**(call-with-output-file filename procedure)**
+
+打开文件`filename`用于输出，并调用过程`procedure`。该函数以输出端口为参数。
+
+**(with-output-to-file filename procedure)**
+
+打开文件`filename`作为标准输出，并调用过程`procedure`。该过程没有参数。当控制权从过程`procedure`中返回时，文件被关闭。
 
 ### 用于输出的函数
 
 下面的函数可用于输出。如果参数`port`被省略的话，则输出至标准输出。
 
-<dl>
-  <dt><code>(write obj port)</code></dt>
-  <dd>该函数将<code>obj</code>输出至<code>port</code>。字符串被双引号括起而字符具有前缀<code>#\</code>。</dd>
+**(write obj port)**
 
-  <dt><code>(display obj port)</code></dt>
-  <dd>该函数将<code>obj</code>输出至<code>port</code>。字符串*不被*双引号括起而字符*不*具有前缀<code>#\</code>。</dd>
+该函数将`obj`输出至`port`。字符串被双引号括起而字符具有前缀`#\`。
 
-  <dt><code>(newline port)</code></dt>
-  <dd>以新行起始。</dd>
+**(display obj port)**
 
-  <dt><code>(write-char char port)</code></dt>
-  <dd>该函数向<code>port</code>写入一个字符。</dd>
-</dl>
+该函数将`obj`输出至`port`。字符串*不被*双引号括起而字符*不*具有前缀`#\`。
+
+**(newline port)**
+
+向 `port` 输出一个换行符。
+
+**(write-char char port)**
+
+该函数向<code>port</code>写入一个字符。
 
 > 练习2
 > 

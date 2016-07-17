@@ -40,7 +40,7 @@ Cons单元可以存放不同类型的数据，也可以嵌套。
 (cons #\a (cons 3 "hello"))
 ;Value 17: (#\a 3 . "hello")
 
-(cons (cons 0 1) (cons 1 2))
+(cons (cons 0 1) (cons 2 3))
 ;Value 23: ((0 . 1) 2 . 3)
 ```
 
@@ -50,7 +50,7 @@ Cons单元可以存放不同类型的数据，也可以嵌套。
 
 表是Cons单元通过用`cdr`部分连接到下一个`Cons`单元的开头实现的。表中包含的`’()`被称作空表。就算数据仅由一个Cons单元组成，只要它的`cdr`单元是`’()`，那它就是一个表。图3展示了表`(1 2 3)`的内存结构。
 
-![Memory structure for a list '(1 2 3)](./figures/conss2.png)
+![Memory structure for a list '(1 2 3)](./figures/list2.png)
 
 
 事实上，表可以像下面这样递归地定义：

@@ -267,7 +267,7 @@ a0 * n                                        (r = 1)
 ;Value: ()
 ```
 
-> `odd?`、`even?`、`postitive?`、`negative?`、`zero?`  
+> `odd?`、`even?`、`positive?`、`negative?`、`zero?`  
 > 这些函数仅有一个参数，如果这些参数满足函数名所指示的条件话就返回`#t`。
 
 ### 用于比较符号的函数

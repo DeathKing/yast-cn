@@ -218,7 +218,7 @@
 ```scheme
 ; 1
 (define (my-reverse ls)
-  (my-reverse-rec ls ()))
+  (my-reverse-rec ls '()))
 
 (define (my-reverse-rec ls0 ls1)
   (if (null? ls0)

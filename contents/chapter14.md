@@ -64,18 +64,18 @@ Scheme中的结构体与C语言中的结构体类似。但Scheme中的结构体�
 例：一个对向量中元素求和的函数。
 
 ```scheme
-     (define (vector-add v1 v2)
-       (let ((lenv1 (vector-length v1))
-     	(lenv2 (vector-length v2)))
-         (if (= lenv1 lenv2)
-     	(let ((v (make-vector lenv1)))
-     	  (let loop ((i 0))
-     	    (if (= i lenv1)
-     		v
-     		(begin
-     		  (vector-set! v i (+ (vector-ref v1 i) (vector-ref v2 i)))
-     		  (loop (1+ i))))))
-    	(error "different dimensions."))))
+(define (vector-add v1 v2)
+  (let ((lenv1 (vector-length v1))
+	      (lenv2 (vector-length v2)))
+    (if (= lenv1 lenv2)
+	      (let ((v (make-vector lenv1)))
+	        (let loop ((i 0))
+	          (if (= i lenv1)
+		            v
+		            (begin
+		              (vector-set! v i (+ (vector-ref v1 i) (vector-ref v2 i)))
+		              (loop (+ 1 i))))))
+        (error "different dimensions."))))
 ```
 
 > 练习1
@@ -424,15 +424,14 @@ Scheme中的结构体与C语言中的结构体类似。但Scheme中的结构体�
 ### 答案1
 
 ```scheme
-     (define (inner-product vec1 vec2)
-       (let ((len1 (vector-length vec1))
-     	(len2 (vector-length vec2)))
-         (if (= len1 len2)
-     	(let loop ((i 0) (pro 0))
-     	  (if (= i len1)
-     	      pro
-     	      (loop (1+ i) (+ pro
-     			      (* (vector-ref vec1 i)
-     				 (vector-ref vec2 i))))))
-     	(error "different dimensions."))))
+(define (inner-product vec1 vec2)
+  (let ((len1 (vector-length vec1))
+	      (len2 (vector-length vec2)))
+    (if (= len1 len2)
+	    (let loop ((i 0) (pro 0))
+	      (if (= i len1)
+	          pro
+	          (loop (+ 1 i)
+                  (+ pro (* (vector-ref vec1 i) (vector-ref vec2 i))))))
+	    (error "different dimensions."))))
 ```

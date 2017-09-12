@@ -1,415 +1,415 @@
+
 <!DOCTYPE HTML>
-<html lang="en" >
-    
+<html lang="" >
     <head>
-        
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>非确定性求值 | 简介</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>非确定性求值 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 3.2.3">
         
         
-        <meta name="HandheldFriendly" content="true"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
+    
     <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+    
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+    
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
-        
     
+        
     
 
         
     
     
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
     
-    <link rel="prev" href="../contents/chapter17.html" />
+    
+    <link rel="prev" href="chapter17.html" />
     
 
-        
     </head>
     <body>
         
+<div class="book">
+    <div class="book-summary">
         
-    <div class="book" data-level="19" data-chapter-title="非确定性求值" data-filepath="contents/chapter18.md" data-basepath=".." data-revision="Mon Dec 28 2015 11:43:45 GMT+0800 (CST)">
-    
-
-<div class="book-summary">
-    <nav role="navigation">
-        <ul class="summary">
             
-            
-            
-            
-
-            
-
-            
-    
-        <li class="chapter " data-level="0" data-path="index.html">
-            
-                
-                    <a href="../index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                        Introduction
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1" data-path="contents/preface.html">
-            
-                
-                    <a href="../contents/preface.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.</b>
-                        
-                        中文版序
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2" data-path="contents/chapter1.html">
-            
-                
-                    <a href="../contents/chapter1.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.</b>
-                        
-                        安装MIT-Scheme
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3" data-path="contents/chapter2.html">
-            
-                
-                    <a href="../contents/chapter2.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.</b>
-                        
-                        将Scheme用作计算器
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4" data-path="contents/chapter3.html">
-            
-                
-                    <a href="../contents/chapter3.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.</b>
-                        
-                        生成表
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5" data-path="contents/chapter4.html">
-            
-                
-                    <a href="../contents/chapter4.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                        定义函数
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6" data-path="contents/chapter5.html">
-            
-                
-                    <a href="../contents/chapter5.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.</b>
-                        
-                        分支
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="7" data-path="contents/chapter6.html">
-            
-                
-                    <a href="../contents/chapter6.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.</b>
-                        
-                        局部变量
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8" data-path="contents/chapter7.html">
-            
-                
-                    <a href="../contents/chapter7.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.</b>
-                        
-                        重复
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="9" data-path="contents/chapter8.html">
-            
-                
-                    <a href="../contents/chapter8.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.</b>
-                        
-                        高阶函数
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="10" data-path="contents/chapter9.html">
-            
-                
-                    <a href="../contents/chapter9.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>10.</b>
-                        
-                        输入/输出
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="11" data-path="contents/chapter10.html">
-            
-                
-                    <a href="../contents/chapter10.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.</b>
-                        
-                        赋值
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="12" data-path="contents/chapter11.html">
-            
-                
-                    <a href="../contents/chapter11.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.</b>
-                        
-                        字符与字符串
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="13" data-path="contents/chapter12.html">
-            
-                
-                    <a href="../contents/chapter12.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.</b>
-                        
-                        符号
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="14" data-path="contents/chapter13.html">
-            
-                
-                    <a href="../contents/chapter13.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.</b>
-                        
-                        关联表和哈希表
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="15" data-path="contents/chapter14.html">
-            
-                
-                    <a href="../contents/chapter14.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>15.</b>
-                        
-                        向量和结构体
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="16" data-path="contents/chapter15.html">
-            
-                
-                    <a href="../contents/chapter15.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>16.</b>
-                        
-                        定义语法
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="17" data-path="contents/chapter16.html">
-            
-                
-                    <a href="../contents/chapter16.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>17.</b>
-                        
-                        继续
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="18" data-path="contents/chapter17.html">
-            
-                
-                    <a href="../contents/chapter17.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>18.</b>
-                        
-                        惰性求值
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter active" data-level="19" data-path="contents/chapter18.html">
-            
-                
-                    <a href="../contents/chapter18.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>19.</b>
-                        
-                        非确定性求值
-                    </a>
-            
-            
-        </li>
-    
-
-
-            
-            <li class="divider"></li>
-            <li>
-                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-                    Published with GitBook
-                </a>
-            </li>
-            
-        </ul>
-    </nav>
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
 </div>
 
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="preface.html">
+            
+                <a href="preface.html">
+            
+                    
+                    中文版序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter1.html">
+            
+                <a href="chapter1.html">
+            
+                    
+                    安装MIT-Scheme
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="chapter2.html">
+            
+                <a href="chapter2.html">
+            
+                    
+                    将Scheme用作计算器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="chapter3.html">
+            
+                <a href="chapter3.html">
+            
+                    
+                    生成表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="chapter4.html">
+            
+                <a href="chapter4.html">
+            
+                    
+                    定义函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="chapter5.html">
+            
+                <a href="chapter5.html">
+            
+                    
+                    分支
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="chapter6.html">
+            
+                <a href="chapter6.html">
+            
+                    
+                    局部变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="chapter7.html">
+            
+                <a href="chapter7.html">
+            
+                    
+                    重复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="chapter8.html">
+            
+                <a href="chapter8.html">
+            
+                    
+                    高阶函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="chapter9.html">
+            
+                <a href="chapter9.html">
+            
+                    
+                    输入/输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="chapter10.html">
+            
+                <a href="chapter10.html">
+            
+                    
+                    赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="chapter11.html">
+            
+                <a href="chapter11.html">
+            
+                    
+                    字符与字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="chapter12.html">
+            
+                <a href="chapter12.html">
+            
+                    
+                    符号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="chapter13.html">
+            
+                <a href="chapter13.html">
+            
+                    
+                    关联表和哈希表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="chapter14.html">
+            
+                <a href="chapter14.html">
+            
+                    
+                    向量和结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="chapter15.html">
+            
+                <a href="chapter15.html">
+            
+                    
+                    定义语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="chapter16.html">
+            
+                <a href="chapter16.html">
+            
+                    
+                    继续
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="chapter17.html">
+            
+                <a href="chapter17.html">
+            
+                    
+                    惰性求值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.20" data-path="chapter18.html">
+            
+                <a href="chapter18.html">
+            
+                    
+                    非确定性求值
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
     <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header" role="navigation">
-    <!-- Actions Left -->
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
     
 
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >简介</a>
+        <a href=".." >非确定性求值</a>
     </h1>
 </div>
 
-            <div class="page-wrapper" tabindex="-1" role="main">
-                <div class="page-inner">
-                
-                
-                    <section class="normal" id="section-">
-                    
-                        <h1 id="&#x975E;&#x786E;&#x5B9A;&#x6027;">&#x975E;&#x786E;&#x5B9A;&#x6027;</h1>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x975E;&#x786E;&#x5B9A;&#x6027;">&#x975E;&#x786E;&#x5B9A;&#x6027;</h1>
 <h2 id="&#x4ECB;&#x7ECD;">&#x4ECB;&#x7ECD;</h2>
 <p>&#x975E;&#x786E;&#x5B9A;&#x6027;&#x662F;&#x4E00;&#x79CD;&#x901A;&#x8FC7;&#x4EC5;&#x5B9A;&#x4E49;&#x95EE;&#x9898;&#x6765;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x7B97;&#x6CD5;&#x3002;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x7A0B;&#x5E8F;&#x81EA;&#x52A8;&#x9009;&#x62E9;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x9009;&#x9879;&#x3002;&#x8FD9;&#x9879;&#x6280;&#x672F;&#x5F88;&#x9002;&#x5408;&#x903B;&#x8F91;&#x7F16;&#x7A0B;&#x3002;</p>
 <p>&#x4F8B;&#x5982;&#xFF0C;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x8FD4;&#x56DE;&#x4E00;&#x5BF9;&#x6570;&#xFF0C;&#x5176;&#x548C;&#x662F;&#x4E00;&#x4E2A;&#x8D28;&#x6570;&#x3002;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x6570;&#x4ECE;<code>&apos;(4 6 7)</code>&#x9009;&#x53D6;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x4ECE;<code>&apos;(5 8 11)</code>&#x9009;&#x53D6;&#x3002;</p>
-<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">i</span> <span class="hljs-list">(<span class="hljs-keyword">amb</span> <span class="hljs-number">4</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>)</span>)</span>
-      <span class="hljs-list">(<span class="hljs-keyword">j</span> <span class="hljs-list">(<span class="hljs-keyword">amb</span> <span class="hljs-number">5</span> <span class="hljs-number">8</span> <span class="hljs-number">11</span>)</span>)</span>)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword">prime?</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> i j)</span>)</span>
-      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">list</span></span> i j)</span>
-      <span class="hljs-list">(<span class="hljs-keyword">amb</span>)</span>)</span>)</span>
+<pre><code class="lang-scheme">(<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> ((<span class="hljs-name">i</span> (<span class="hljs-name">amb</span> <span class="hljs-number">4</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>))
+      (<span class="hljs-name">j</span> (<span class="hljs-name">amb</span> <span class="hljs-number">5</span> <span class="hljs-number">8</span> <span class="hljs-number">11</span>)))
+  (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">prime?</span> (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> i j))
+      (<span class="hljs-name"><span class="hljs-builtin-name">list</span></span> i j)
+      (<span class="hljs-name">amb</span>)))
 <span class="hljs-comment">;Value 23: (6 5)</span>
 </code></pre>
-<p>(amb 4 6 7)&#x4ECE;4&#xFF0C;6&#x548C;7&#x4E2D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x6570;&#xFF0C;(amb 5 8 11)&#x4ECE;5&#xFF0C;8&#x548C;11&#x4E2D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x6570;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9009;&#x51FA;&#x5408;&#x9002;&#x7684;&#x503C;&#xFF0C;(amb)&#x8FD4;&#x56DE;&#x5047;&#x3002;</p>
-<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;amb&#x505A;&#x4E86;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x641C;&#x7D22;&#x3002;(amb c1 c2 c3 ...)&#x521B;&#x5EFA;&#x4E86;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x4F9D;&#x6B21;&#x68C0;&#x67E5;c1&#xFF0C;c2&#xFF0C;c3&#xFF0C;...&#x5E76;&#x56DE;&#x6EAF;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x662F;&#x4E00;&#x79CD;&#x5E2E;&#x7A0B;&#x5E8F;&#x9690;&#x85CF;&#x641C;&#x7D22;&#x7684;&#x62BD;&#x8C61;&#x3002;&#x4E00;&#x65E6;&#x6211;&#x4EEC;&#x6709;&#x4E86;amb&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x7F16;&#x5199;&#x7A0B;&#x5E8F;&#x800C;&#x65E0;&#x9700;&#x601D;&#x8003;&#x8BA1;&#x7B97;&#x673A;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x3002;</p>
+<p><code>(amb 4 6 7)</code> &#x4ECE;4&#xFF0C;6&#x548C;7&#x4E2D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x6570;&#xFF0C;<code>(amb 5 8 11)</code>&#x4ECE;5&#xFF0C;8&#x548C;11&#x4E2D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x6570;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9009;&#x51FA;&#x5408;&#x9002;&#x7684;&#x503C;&#xFF0C;(amb)&#x8FD4;&#x56DE;&#x5047;&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;amb&#x505A;&#x4E86;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x641C;&#x7D22;&#x3002;<code>(amb c1 c2 c3 ...)</code>&#x521B;&#x5EFA;&#x4E86;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x4F9D;&#x6B21;&#x68C0;&#x67E5;<code>c1</code>&#xFF0C;<code>c2</code>&#xFF0C;<code>c3</code>&#xFF0C;...&#x5E76;&#x56DE;&#x6EAF;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x662F;&#x4E00;&#x79CD;&#x5E2E;&#x7A0B;&#x5E8F;&#x9690;&#x85CF;&#x641C;&#x7D22;&#x7684;&#x62BD;&#x8C61;&#x3002;&#x4E00;&#x65E6;&#x6211;&#x4EEC;&#x6709;&#x4E86;amb&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x7F16;&#x5199;&#x7A0B;&#x5E8F;&#x800C;&#x65E0;&#x9700;&#x601D;&#x8003;&#x8BA1;&#x7B97;&#x673A;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x3002;</p>
 <h2 id="&#x975E;&#x786E;&#x5B9A;&#x6027;&#x7684;&#x5B9E;&#x73B0;">&#x975E;&#x786E;&#x5B9A;&#x6027;&#x7684;&#x5B9E;&#x73B0;</h2>
 <p>&#x4F7F;&#x7528;&#x5728;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x4E2D;&#x7684;&#x56DE;&#x6EAF;&#x88AB;&#x5B9E;&#x73B0;&#x4E3A;&#x8FDE;&#x63A5;&#x5230;&#x7EE7;&#x7EED;&#xFF08;continuation&#xFF09;&#x7684;&#x95ED;&#x5305;&#x94FE;&#x3002;&#x8FD9;&#x4E2A;&#x94FE;&#x88AB;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53C2;&#x6570;<code>fail</code>&#x8868;&#x793A;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x590D;&#x5199;&#x81EA;&#x5DF1;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
 <h3 id="&#x51FD;&#x6570;&#x5B9E;&#x73B0;">&#x51FD;&#x6570;&#x5B9E;&#x73B0;</h3>
-<p>&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x6211;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#xFF08;&#x540D;&#x4E3A;choose&#xFF09;&#x5B9E;&#x73B0;&#x975E;&#x786E;&#x5B9A;&#x6027;&#xFF0C;&#x6F14;&#x793A;&#x4E8E;[&#x4EE3;&#x7801;1]&#x3002;&#x6211;&#x9996;&#x5148;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53C2;&#x6570;<code>fail</code>&#xFF0C;&#x5B83;&#x7684;&#x521D;&#x59CB;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x5C06;&#x8FD4;&#x56DE;<code>no-choice</code>&#x5230;&#x9876;&#x5C42;&#x7684;&#x51FD;&#x6570;&#xFF08;22-26&#x884C;&#xFF09;&#x3002;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x5728;&#x51FD;&#x6570;choose&#x4E2D;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;<code>fail</code>&#x5B9E;&#x73B0;&#x95ED;&#x5305;&#x94FE;&#x3002;&#x56DE;&#x6EAF;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#x7684;<code>fail</code>&#x5B9E;&#x73B0;&#x3002;</p>
-<p>&#x51FD;&#x6570;choose&#x6709;&#x5982;&#x4E0B;&#x884C;&#x4E3A;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x6211;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#xFF08;&#x540D;&#x4E3A;<code>choose</code>&#xFF09;&#x5B9E;&#x73B0;&#x975E;&#x786E;&#x5B9A;&#x6027;&#xFF0C;&#x6F14;&#x793A;&#x4E8E;[&#x4EE3;&#x7801;1]&#x3002;&#x6211;&#x9996;&#x5148;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53C2;&#x6570;<code>fail</code>&#xFF0C;&#x5B83;&#x7684;&#x521D;&#x59CB;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x5C06;&#x8FD4;&#x56DE;<code>no-choice</code>&#x5230;&#x9876;&#x5C42;&#x7684;&#x51FD;&#x6570;&#xFF08;22-26&#x884C;&#xFF09;&#x3002;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x5728;&#x51FD;&#x6570;choose&#x4E2D;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;<code>fail</code>&#x5B9E;&#x73B0;&#x95ED;&#x5305;&#x94FE;&#x3002;&#x56DE;&#x6EAF;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#x7684;<code>fail</code>&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x51FD;&#x6570;<code>choose</code>&#x6709;&#x5982;&#x4E0B;&#x884C;&#x4E3A;&#xFF1A;</p>
 <ol>
 <li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9009;&#x9879;&#xFF0C;&#x8C03;&#x7528;(fail)&#x3002;</li>
 <li>&#x5982;&#x679C;&#x6709;&#x4EFB;&#x4F55;&#x9009;&#x9879;&#xFF0C;<ol>
@@ -421,31 +421,31 @@
 </ol>
 <p>[&#x4EE3;&#x7801;1]</p>
 <pre><code class="lang-scheme"><span class="hljs-comment">;;; abbreviation for call-with-current-continuation</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> call/cc call-with-current-continuation)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> call/cc call-with-current-continuation)
 
 <span class="hljs-comment">;;; This function is re-assigned in `choose` and `fail` itself.</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> fail <span class="hljs-literal">#f</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> fail <span class="hljs-literal">#f</span>)
 
 <span class="hljs-comment">;;; function for nondeterminism</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">choose</span> . ls)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">null?</span></span> ls)</span> 
-    <span class="hljs-list">(<span class="hljs-keyword">fail</span>)</span>
-    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">fail0</span> fail)</span>)</span>
-      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">call/cc</span></span>
-        <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">cc</span>)</span>
-          <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">set!</span></span> fail <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">()</span>
-                       <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">set!</span></span> fail fail0)</span>
-                       <span class="hljs-list">(<span class="hljs-keyword">cc</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">apply</span></span> choose <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cdr</span></span> ls)</span>)</span>)</span>)</span>)</span>
-          <span class="hljs-list">(<span class="hljs-keyword">cc</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">car</span></span> ls)</span>)</span>)</span>)</span>)</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">choose</span> . ls)
+  (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">null?</span></span> ls) 
+    (<span class="hljs-name">fail</span>)
+    (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> ((<span class="hljs-name">fail0</span> fail))
+      (<span class="hljs-name"><span class="hljs-builtin-name">call/cc</span></span>
+        (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (cc)
+          (<span class="hljs-name"><span class="hljs-builtin-name">set!</span></span> fail (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> ()
+                       (<span class="hljs-name"><span class="hljs-builtin-name">set!</span></span> fail fail0)
+                       (<span class="hljs-name">cc</span> (<span class="hljs-name"><span class="hljs-builtin-name">apply</span></span> choose (<span class="hljs-name"><span class="hljs-builtin-name">cdr</span></span> ls)))))
+          (<span class="hljs-name">cc</span> (<span class="hljs-name"><span class="hljs-builtin-name">car</span></span> ls)))))))
 
 <span class="hljs-comment">;;; write following at the end of file</span>
 <span class="hljs-comment">;;; initial value for fail</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">call/cc</span></span> 
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">cc</span>)</span>
-    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">set!</span></span> fail <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">()</span>
-                 <span class="hljs-list">(<span class="hljs-keyword">cc</span> <span class="hljs-variable">&apos;no-choice</span>)</span>)</span>)</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">call/cc</span></span> 
+  (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (cc)
+    (<span class="hljs-name"><span class="hljs-builtin-name">set!</span></span> fail (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> ()
+                 (<span class="hljs-name">cc</span> <span class="hljs-symbol">&apos;no-choice</span>)))))
 </code></pre>
-<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;choose&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x6BD5;&#x8FBE;&#x54E5;&#x62C9;&#x65AF;&#x4E09;&#x5143;&#x7EC4;&#x3002;&#x51FD;&#x6570;pythag&#x7528;&#x4E8E;&#x5BFB;&#x627E;&#x4E09;&#x5143;&#x7EC4;&#x3002;&#x5982;&#x679C;&#x627E;&#x5230;&#x4E86;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8868;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x627E;&#x5230;&#xFF0C;&#x8C03;&#x7528;&#x65E0;&#x53C2;&#x6570;&#x7684;choose&#xFF0C;&#x4EE5;&#x56DE;&#x6EAF;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;<code>choose</code>&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x6BD5;&#x8FBE;&#x54E5;&#x62C9;&#x65AF;&#x4E09;&#x5143;&#x7EC4;&#x3002;&#x51FD;&#x6570;<code>pythag</code>&#x7528;&#x4E8E;&#x5BFB;&#x627E;&#x4E09;&#x5143;&#x7EC4;&#x3002;&#x5982;&#x679C;&#x627E;&#x5230;&#x4E86;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8868;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x627E;&#x5230;&#xFF0C;&#x8C03;&#x7528;&#x65E0;&#x53C2;&#x6570;&#x7684;<code>choose</code>&#xFF0C;&#x4EE5;&#x56DE;&#x6EAF;&#x3002;</p>
 <p>[&#x4F8B;1]</p>
 <pre><code>(define (sq x)
   (* x x))
@@ -461,37 +461,37 @@
 (pythag (choose 1 2 3) (choose 3 4 5) (choose  4 5 6))
 ;Value 16: (3 4 5)
 </code></pre><h3 id="&#x5B8F;&#x5B9E;&#x73B0;">&#x5B8F;&#x5B9E;&#x73B0;</h3>
-<p>&#x4E3A;&#x4E86;&#x5BF9;S-&#x8868;&#x8FBE;&#x5F0F;&#x4F7F;&#x7528;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x64CD;&#x4F5C;&#xFF0C;&#x5FC5;&#x987B;&#x628A;&#x64CD;&#x4F5C;&#x5B9A;&#x4E49;&#x4E3A;&#x5B8F;&#x3002;&#x4F8B;&#x5982;&#xFF0C;[&#x4F8B;2]&#x4E2D;&#x6240;&#x793A;&#x51FD;&#x6570;an-integer-starting-from&#x5E94;&#x8BE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;n&#x7684;&#x6574;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;choose&#x88AB;&#x4EE5;&#x51FD;&#x6570;&#x5F62;&#x5F0F;&#x5B9A;&#x4E49;&#xFF0C;&#x5B83;&#x5C06;&#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x56E0;&#x4E3A;&#x53C2;&#x6570;&#x4F1A;&#x7ACB;&#x5373;&#x6C42;&#x503C;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x5BF9;S-&#x8868;&#x8FBE;&#x5F0F;&#x4F7F;&#x7528;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x64CD;&#x4F5C;&#xFF0C;&#x5FC5;&#x987B;&#x628A;&#x64CD;&#x4F5C;&#x5B9A;&#x4E49;&#x4E3A;&#x5B8F;&#x3002;&#x4F8B;&#x5982;&#xFF0C;[&#x4F8B;2]&#x4E2D;&#x6240;&#x793A;&#x51FD;&#x6570;<code>an-integer-starting-from</code>&#x5E94;&#x8BE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;<code>n</code>&#x7684;&#x6574;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;<code>choose</code>&#x88AB;&#x4EE5;&#x51FD;&#x6570;&#x5F62;&#x5F0F;&#x5B9A;&#x4E49;&#xFF0C;&#x5B83;&#x5C06;&#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x56E0;&#x4E3A;&#x53C2;&#x6570;&#x4F1A;&#x7ACB;&#x5373;&#x6C42;&#x503C;&#x3002;</p>
 <p>[&#x4F8B;2]</p>
-<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">an-integer-starting-from</span> n)</span>
-  <span class="hljs-list">(<span class="hljs-keyword">choose</span> n <span class="hljs-list">(<span class="hljs-keyword">an-integer-starting-from</span> <span class="hljs-list">(<span class="hljs-keyword">1+</span> n)</span>)</span>)</span>)</span>
+<pre><code class="lang-scheme">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">an-integer-starting-from</span> n)
+  (<span class="hljs-name">choose</span> n (<span class="hljs-name">an-integer-starting-from</span> (<span class="hljs-name">1+</span> n))))
 <span class="hljs-comment">;Value: an-integer-starting-from</span>
 
-<span class="hljs-list">(<span class="hljs-keyword">an-integer-starting-from</span> <span class="hljs-number">1</span>)</span>
+(<span class="hljs-name">an-integer-starting-from</span> <span class="hljs-number">1</span>)
 <span class="hljs-comment">;Aborting!: maximum recursion depth exceeded</span>
 </code></pre>
-<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x548C;[&#x4EE3;&#x7801;1]&#x4E2D;&#x5B9A;&#x4E49;&#x4E00;&#x81F4;&#x4F46;&#x4F7F;&#x7528;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x5B8F;<code>amb</code>&#x5B9E;&#x73B0;&#x7684;choose&#x3002;&#x8FD9;&#x4E2A;&#x5B8F;amb&#x6709;&#x548C;choose&#x4E00;&#x6837;&#x7684;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x7ED3;&#x6784;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x548C;[&#x4EE3;&#x7801;1]&#x4E2D;&#x5B9A;&#x4E49;&#x4E00;&#x81F4;&#x4F46;&#x4F7F;&#x7528;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x5B8F;<code>amb</code>&#x5B9E;&#x73B0;&#x7684;<code>choose</code>&#x3002;&#x8FD9;&#x4E2A;&#x5B8F;<code>amb</code>&#x6709;&#x548C;<code>choose</code>&#x4E00;&#x6837;&#x7684;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x7ED3;&#x6784;&#x3002;</p>
 <p>[&#x4EE3;&#x7801;1]&#x4E2D;&#x7684;1-5&#x884C;&#x548C;20-26&#x884C;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x5F97;&#x4EE5;&#x91CD;&#x7528;&#x3002;</p>
 <p>[&#x4EE3;&#x7801;2]&#x4F7F;&#x7528;MIT-Scheme&#x7F16;&#x8BD1;&#x65F6;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x7ED9;&#x51FA;&#x5982;&#x4E0B;&#x8B66;&#x544A;&#xFF1A;</p>
 <pre><code>;Warning: Possible inapplicable operator ()
-</code></pre><p>&#x4F46;&#x662F;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x5728;<a href="http://www.scheme.com/petitechezscheme.html" target="_blank">Petite Chez Scheme</a>&#x4E0B;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x3002;&#x5373;&#x4F7F;&#x6211;&#x6CA1;&#x6709;&#x8BD5;&#x8FC7;&#x5176;&#x4ED6;Scheme&#x5B9E;&#x73B0;&#xFF0C;&#x6211;&#x8BA4;&#x4E3A;amb&#x7684;&#x5B9A;&#x4E49;&#x53EF;&#x4EE5;&#x5DE5;&#x4F5C;&#xFF0C;&#x53EA;&#x8981;&#x5B83;&#x4EEC;&#x9075;&#x5B88;R5RS&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x5728;<a href="http://www.shido.info/lisp/scheme_amb.zip" target="_blank">&#x8FD9;&#x91CC;</a>&#x4E0B;&#x8F7D;&#x4E00;&#x4E2A;&#x4E3A;MIT-Scheme&#x505A;&#x7684;&#x4E13;&#x95E8;&#x5B9E;&#x73B0;&#x3002;MIT-Scheme&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x4F1A;&#x5BF9;&#x8FD9;&#x4E2A;&#x4E13;&#x95E8;&#x5B9E;&#x73B0;&#x63D0;&#x51FA;&#x8B66;&#x544A;&#x3002;</p>
+</code></pre><p>&#x4F46;&#x662F;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x5728;<a href="http://www.scheme.com/petitechezscheme.html" target="_blank">Petite Chez Scheme</a>&#x4E0B;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x3002;&#x5373;&#x4F7F;&#x6211;&#x6CA1;&#x6709;&#x8BD5;&#x8FC7;&#x5176;&#x4ED6;Scheme&#x5B9E;&#x73B0;&#xFF0C;&#x6211;&#x8BA4;&#x4E3A;<code>amb</code>&#x7684;&#x5B9A;&#x4E49;&#x53EF;&#x4EE5;&#x5DE5;&#x4F5C;&#xFF0C;&#x53EA;&#x8981;&#x5B83;&#x4EEC;&#x9075;&#x5B88;R5RS&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x5728;<a href="http://www.shido.info/lisp/scheme_amb.zip" target="_blank">&#x8FD9;&#x91CC;</a>&#x4E0B;&#x8F7D;&#x4E00;&#x4E2A;&#x4E3A;MIT-Scheme&#x505A;&#x7684;&#x4E13;&#x95E8;&#x5B9E;&#x73B0;&#x3002;MIT-Scheme&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x4F1A;&#x5BF9;&#x8FD9;&#x4E2A;&#x4E13;&#x95E8;&#x5B9E;&#x73B0;&#x63D0;&#x51FA;&#x8B66;&#x544A;&#x3002;</p>
 <p>[&#x4EE3;&#x7801;2]</p>
 <pre><code class="lang-scheme"><span class="hljs-comment">;;; nondeterminism macro operator</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define-syntax</span></span> amb
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">syntax-rules</span></span> <span class="hljs-list">()</span>
-    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">fail</span>)</span>)</span>
-    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> a)</span> a)</span>
-    <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">_</span> a b ...)</span>
-     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">fail0</span> fail)</span>)</span>
-       <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">call/cc</span></span>
-    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">cc</span>)</span>
-      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">set!</span></span> fail
-        <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">()</span>
-          <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">set!</span></span> fail fail0)</span>
-          <span class="hljs-list">(<span class="hljs-keyword">cc</span> <span class="hljs-list">(<span class="hljs-keyword">amb</span> b ...)</span>)</span>)</span>)</span>
-      <span class="hljs-list">(<span class="hljs-keyword">cc</span> a)</span>)</span>)</span>)</span>)</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define-syntax</span></span> amb
+  (<span class="hljs-name"><span class="hljs-builtin-name">syntax-rules</span></span> ()
+    ((<span class="hljs-name">_</span>) (<span class="hljs-name">fail</span>))
+    ((<span class="hljs-name">_</span> a) a)
+    ((<span class="hljs-name">_</span> a b ...)
+     (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> ((<span class="hljs-name">fail0</span> fail))
+       (<span class="hljs-name"><span class="hljs-builtin-name">call/cc</span></span>
+    (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (cc)
+      (<span class="hljs-name"><span class="hljs-builtin-name">set!</span></span> fail
+        (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> ()
+          (<span class="hljs-name"><span class="hljs-builtin-name">set!</span></span> fail fail0)
+          (<span class="hljs-name">cc</span> (<span class="hljs-name">amb</span> b ...))))
+      (<span class="hljs-name">cc</span> a)))))))
 </code></pre>
-<p>&#x5B8F;&#x5B9A;&#x4E49;,amb&#xFF0C;&#x5728;&#x53C2;&#x6570;&#x4E3A;S-&#x8868;&#x8FBE;&#x5F0F;&#x65F6;&#x4E5F;&#x548C;&#x5176;&#x4ED6;&#x503C;&#x4E00;&#x6837;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>&#x5B8F;&#x5B9A;&#x4E49;&#xFF0C;<code>amb</code>&#xFF0C;&#x5728;&#x53C2;&#x6570;&#x4E3A;S-&#x8868;&#x8FBE;&#x5F0F;&#x65F6;&#x4E5F;&#x548C;&#x5176;&#x4ED6;&#x503C;&#x4E00;&#x6837;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;</p>
 <p>[&#x4F8B;3]</p>
 <pre><code>(define (an-integer-starting-from n)
   (amb n (an-integer-starting-from (1+ n))))
@@ -505,7 +505,7 @@
 
 (amb)
 ;Value: 3
-</code></pre><p>&#x5728;<a href="http://www.ccs.neu.edu/home/dorai/t-y-scheme/t-y-scheme-Z-H-16.html#node_sec_14.2" target="_blank">Teach Yourself Scheme in Fixnum Days</a> &#x548C;<a href="http://www.ccs.neu.edu/home/dherman/code/amb.ss" target="_blank">Dave Hername Code</a>&#x4E2D;&#x7684;amb&#x5B9E;&#x73B0;&#x4F7F;&#x7528;<code>&apos;,@(map ...)&apos;</code>&#x5C55;&#x5F00;&#x53C2;&#x6570;&#x3002;&#x5373;&#x4F7F;&#x5B83;&#x4EEC;&#x662F;&#x76F4;&#x622A;&#x4E86;&#x5F53;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x4F7F;&#x7528;&#x4E86;&#x4E24;&#x6B21;call/cc&#xFF0C;&#x5B83;&#x4EEC;&#x67D0;&#x79CD;&#x7A0B;&#x5EA6;&#x4E0A;&#x4ECD;&#x5F88;&#x590D;&#x6742;&#x3002;[&#x4EE3;&#x7801;2]&#x6240;&#x793A;&#x7684;&#x9012;&#x5F52;&#x5B9A;&#x4E49;&#x66F4;&#x7B80;&#x5355;&#xFF0C;&#x5373;&#x4F7F;&#x5C55;&#x5F00;&#x7684;S-&#x8868;&#x8FBE;&#x5F0F;&#x4F1A;&#x5F88;&#x590D;&#x6742;&#x3002;</p>
+</code></pre><p>&#x5728;<a href="http://www.ccs.neu.edu/home/dorai/t-y-scheme/t-y-scheme-Z-H-16.html#node_sec_14.2" target="_blank">Teach Yourself Scheme in Fixnum Days</a> &#x548C;<a href="http://www.ccs.neu.edu/home/dherman/code/amb.ss" target="_blank">Dave Hername Code</a>&#x4E2D;&#x7684;amb&#x5B9E;&#x73B0;&#x4F7F;&#x7528;<code>&apos;,@(map ...)&apos;</code>&#x5C55;&#x5F00;&#x53C2;&#x6570;&#x3002;&#x5373;&#x4F7F;&#x5B83;&#x4EEC;&#x662F;&#x76F4;&#x622A;&#x4E86;&#x5F53;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x4F7F;&#x7528;&#x4E86;&#x4E24;&#x6B21;<code>call/cc</code>&#xFF0C;&#x5B83;&#x4EEC;&#x67D0;&#x79CD;&#x7A0B;&#x5EA6;&#x4E0A;&#x4ECD;&#x5F88;&#x590D;&#x6742;&#x3002;[&#x4EE3;&#x7801;2]&#x6240;&#x793A;&#x7684;&#x9012;&#x5F52;&#x5B9A;&#x4E49;&#x66F4;&#x7B80;&#x5355;&#xFF0C;&#x5373;&#x4F7F;&#x5C55;&#x5F00;&#x7684;S-&#x8868;&#x8FBE;&#x5F0F;&#x4F1A;&#x5F88;&#x590D;&#x6742;&#x3002;</p>
 <h3 id="&#x5E94;&#x7528;&#x4E8E;&#x903B;&#x8F91;&#x7F16;&#x7A0B;&#xFF0C;&#x4F7F;&#x7A0B;&#x5E8F;&#x66F4;&#x7B80;&#x6D01;">&#x5E94;&#x7528;&#x4E8E;&#x903B;&#x8F91;&#x7F16;&#x7A0B;&#xFF0C;&#x4F7F;&#x7A0B;&#x5E8F;&#x66F4;&#x7B80;&#x6D01;</h3>
 <p>[&#x4EE3;&#x7801;3]&#x6F14;&#x793A;&#x4E86;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x5E94;&#x7528;&#x903B;&#x8F91;&#x7F16;&#x7A0B;&#xFF0C;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x66F4;&#x7B80;&#x6D01;</p>
 <p>[&#x4EE3;&#x7801;3]</p>
@@ -549,21 +549,21 @@
 <p>&#x975E;&#x786E;&#x5B9A;&#x6027;&#x5730;&#x8FD4;&#x56DE;&#x4ECE;<code>n</code>&#x5F00;&#x59CB;&#x7684;&#x6574;&#x6570;&#x3002;</p>
 <p><strong>(number-between <code>a</code> <code>b</code>)</strong></p>
 <p>&#x975E;&#x786E;&#x5B9A;&#x6027;&#x5730;&#x8FD4;&#x56DE;<code>a</code>&#x548C;<code>b</code>&#x4E4B;&#x95F4;&#x7684;&#x6574;&#x6570;</p>
-<p>[&#x4F8B;4]&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;set-of&#x3002;&#x5F97;&#x5230;&#x4E86;&#x6240;&#x6709;&#x5C0F;&#x4E8E;20&#x7684;&#x8D28;&#x6570;&#x3002;</p>
+<p>[&#x4F8B;4]&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;<code>set-of</code>&#x3002;&#x5F97;&#x5230;&#x4E86;&#x6240;&#x6709;&#x5C0F;&#x4E8E;20&#x7684;&#x8D28;&#x6570;&#x3002;</p>
 <p>[&#x4F8B;4]</p>
-<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">prime?</span> n)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">m</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">sqrt</span></span> n)</span>)</span>)</span>
-    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> loop <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">i</span> <span class="hljs-number">2</span>)</span>)</span>
-      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">or</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">&lt;</span></span> m i)</span>
-          <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">and</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">not</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">zero?</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">modulo</span></span> n i)</span>)</span>)</span>
-               <span class="hljs-list">(<span class="hljs-keyword">loop</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> i <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">=</span></span> i <span class="hljs-number">2</span>)</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>)</span>)</span>)</span>)</span>)</span>)</span>)</span>)</span>
+<pre><code class="lang-scheme">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">prime?</span> n)
+  (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> ((<span class="hljs-name">m</span> (<span class="hljs-name"><span class="hljs-builtin-name">sqrt</span></span> n)))
+    (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> loop ((<span class="hljs-name">i</span> <span class="hljs-number">2</span>))
+      (<span class="hljs-name"><span class="hljs-builtin-name">or</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">&lt;</span></span> m i)
+          (<span class="hljs-name"><span class="hljs-builtin-name">and</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">not</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">zero?</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">modulo</span></span> n i)))
+               (<span class="hljs-name">loop</span> (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> i (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">=</span></span> i <span class="hljs-number">2</span>) <span class="hljs-number">1</span> <span class="hljs-number">2</span>))))))))
 
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">gen-prime</span> n)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">let</span></span> <span class="hljs-list">(<span class="hljs-list">(<span class="hljs-keyword">i</span> <span class="hljs-list">(<span class="hljs-keyword">number-between</span>  <span class="hljs-number">2</span> n)</span>)</span>)</span>
-    <span class="hljs-list">(<span class="hljs-keyword">assert</span> <span class="hljs-list">(<span class="hljs-keyword">prime?</span> i)</span>)</span>
-    i)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">gen-prime</span> n)
+  (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> ((<span class="hljs-name">i</span> (<span class="hljs-name">number-between</span>  <span class="hljs-number">2</span> n)))
+    (<span class="hljs-name">assert</span> (<span class="hljs-name">prime?</span> i))
+    i))
 
-<span class="hljs-list">(<span class="hljs-keyword">set-of</span> <span class="hljs-list">(<span class="hljs-keyword">gen-prime</span> <span class="hljs-number">20</span>)</span>)</span>
+(<span class="hljs-name">set-of</span> (<span class="hljs-name">gen-prime</span> <span class="hljs-number">20</span>))
 <span class="hljs-comment">;Value 12: (2 3 5 7 11 13 17 19)</span>
 </code></pre>
 <h2 id="&#x903B;&#x8F91;&#x7F16;&#x7A0B;&#x7684;&#x4F8B;&#x5B50;">&#x903B;&#x8F91;&#x7F16;&#x7A0B;&#x7684;&#x4F8B;&#x5B50;</h2>
@@ -624,7 +624,7 @@
 <p><strong>(all-different? , ls)</strong></p>
 <p>&#x5F53;<code>ls</code>&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x90FD;&#x4E0D;&#x76F8;&#x540C;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;#t&#x3002;</p>
 <p><strong>(girls-exam)</strong></p>
-<p>&#x662F;&#x89E3;&#x51B3;&#x8C1C;&#x9898;&#x7684;&#x4E3B;&#x8981;&#x51FD;&#x6570;&#x3002;&#x5B83;&#x8FD4;&#x56DE;&#x540D;&#x5B57;&#x548C;&#x6392;&#x540D;&#x7684;&#x8868;&#x3002;&#x6BCF;&#x6B21;&#x53C2;&#x6570;&#x8D4B;&#x503C;&#x540E;&#x90FD;&#x8C03;&#x7528;&#x4E86;assert&#x662F;&#x4E3A;&#x4E86;&#x6709;&#x6548;&#x5730;&#x51CF;&#x5C11;&#x6B7B;&#x5206;&#x652F;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x3002;<code>(girls-exam-x)</code>&#x5219;&#x662F;&#x4E00;&#x4E2A;&#x574F;&#x4F8B;&#x5B50;&#x3002;&#x5B83;&#x5728;&#x4E3A;&#x6240;&#x6709;&#x53C2;&#x6570;&#x8D4B;&#x503C;&#x4E4B;&#x540E;&#x8C03;&#x7528;assert&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x65E0;&#x8C13;&#x5730;&#x641C;&#x7D22;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x6B7B;&#x5206;&#x652F;&#x3002;[&#x4F8B;5]&#x663E;&#x793A;(girl-exam-x)&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x662F;(girl-exam)&#x7684;10&#x500D;&#x3002;</p>
+<p>&#x662F;&#x89E3;&#x51B3;&#x8C1C;&#x9898;&#x7684;&#x4E3B;&#x8981;&#x51FD;&#x6570;&#x3002;&#x5B83;&#x8FD4;&#x56DE;&#x540D;&#x5B57;&#x548C;&#x6392;&#x540D;&#x7684;&#x8868;&#x3002;&#x6BCF;&#x6B21;&#x53C2;&#x6570;&#x8D4B;&#x503C;&#x540E;&#x90FD;&#x8C03;&#x7528;&#x4E86;<code>assert</code>&#x662F;&#x4E3A;&#x4E86;&#x6709;&#x6548;&#x5730;&#x51CF;&#x5C11;&#x6B7B;&#x5206;&#x652F;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x3002;<code>(girls-exam-x)</code>&#x5219;&#x662F;&#x4E00;&#x4E2A;&#x574F;&#x4F8B;&#x5B50;&#x3002;&#x5B83;&#x5728;&#x4E3A;&#x6240;&#x6709;&#x53C2;&#x6570;&#x8D4B;&#x503C;&#x4E4B;&#x540E;&#x8C03;&#x7528;<code>assert</code>&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x65E0;&#x8C13;&#x5730;&#x641C;&#x7D22;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x6B7B;&#x5206;&#x652F;&#x3002;[&#x4F8B;5]&#x663E;&#x793A;<code>(girl-exam-x)</code>&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x662F;<code>(girl-exam)</code>&#x7684;10&#x500D;&#x3002;</p>
 <p>[&#x4F8B;5]</p>
 <pre><code>(define-syntax cpu-time/sec
   (syntax-rules ()
@@ -652,52 +652,78 @@
 <p>&#x5199;&#x8FD9;&#x4E00;&#x7AE0;&#x65F6;&#xFF0C;&#x6211;&#x53C2;&#x8003;&#x4E86;<a href="http://www.ccs.neu.edu/home/dorai/t-y-scheme/t-y-scheme-Z-H-16.html" target="_blank">Teach Yourself Scheme in Fixnum Days</a>&#x3002;</p>
 <p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;<a href="http://www.shido.info/lisp/scheme_amb.zip" target="_blank">&#x8FD9;&#x513F;</a>&#x4E0B;&#x8F7D;&#x672C;&#x7AE0;&#x4EE3;&#x7801;&#x3002;</p>
 
-                    
-                    </section>
-                
-                
-                </div>
-            </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
         </div>
-
-        
-        <a href="../contents/chapter17.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 惰性求值"><i class="fa fa-angle-left"></i></a>
-        
-        
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
     </div>
 </div>
 
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter17.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 惰性求值">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
         
-<script src="../gitbook/app.js"></script>
+    </div>
 
-    
-    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
-    
-
-<script>
-require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
-    gitbook.start(config);
-});
-</script>
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"非确定性求值","level":"1.20","depth":1,"previous":{"title":"惰性求值","level":"1.19","depth":1,"path":"contents/chapter17.md","ref":"contents/chapter17.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/chapter18.md","mtime":"2017-09-10T08:04:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-12T05:17:25.146Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
 
         
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
     </body>
-    
 </html>
+

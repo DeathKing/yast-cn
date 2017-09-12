@@ -1,400 +1,400 @@
+
 <!DOCTYPE HTML>
-<html lang="en" >
-    
+<html lang="" >
     <head>
-        
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>定义函数 | 简介</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>定义函数 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 3.2.3">
         
         
-        <meta name="HandheldFriendly" content="true"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
+    
     <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+    
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+    
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
-        
     
+        
     
 
         
     
     
-    <link rel="next" href="../contents/chapter5.html" />
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter5.html" />
     
     
-    <link rel="prev" href="../contents/chapter3.html" />
+    <link rel="prev" href="chapter3.html" />
     
 
-        
     </head>
     <body>
         
+<div class="book">
+    <div class="book-summary">
         
-    <div class="book" data-level="5" data-chapter-title="定义函数" data-filepath="contents/chapter4.md" data-basepath=".." data-revision="Mon Dec 28 2015 11:43:45 GMT+0800 (CST)">
-    
-
-<div class="book-summary">
-    <nav role="navigation">
-        <ul class="summary">
             
-            
-            
-            
-
-            
-
-            
-    
-        <li class="chapter " data-level="0" data-path="index.html">
-            
-                
-                    <a href="../index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                        Introduction
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1" data-path="contents/preface.html">
-            
-                
-                    <a href="../contents/preface.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.</b>
-                        
-                        中文版序
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2" data-path="contents/chapter1.html">
-            
-                
-                    <a href="../contents/chapter1.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.</b>
-                        
-                        安装MIT-Scheme
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3" data-path="contents/chapter2.html">
-            
-                
-                    <a href="../contents/chapter2.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.</b>
-                        
-                        将Scheme用作计算器
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4" data-path="contents/chapter3.html">
-            
-                
-                    <a href="../contents/chapter3.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.</b>
-                        
-                        生成表
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter active" data-level="5" data-path="contents/chapter4.html">
-            
-                
-                    <a href="../contents/chapter4.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                        定义函数
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6" data-path="contents/chapter5.html">
-            
-                
-                    <a href="../contents/chapter5.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.</b>
-                        
-                        分支
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="7" data-path="contents/chapter6.html">
-            
-                
-                    <a href="../contents/chapter6.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.</b>
-                        
-                        局部变量
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8" data-path="contents/chapter7.html">
-            
-                
-                    <a href="../contents/chapter7.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.</b>
-                        
-                        重复
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="9" data-path="contents/chapter8.html">
-            
-                
-                    <a href="../contents/chapter8.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.</b>
-                        
-                        高阶函数
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="10" data-path="contents/chapter9.html">
-            
-                
-                    <a href="../contents/chapter9.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>10.</b>
-                        
-                        输入/输出
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="11" data-path="contents/chapter10.html">
-            
-                
-                    <a href="../contents/chapter10.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.</b>
-                        
-                        赋值
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="12" data-path="contents/chapter11.html">
-            
-                
-                    <a href="../contents/chapter11.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.</b>
-                        
-                        字符与字符串
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="13" data-path="contents/chapter12.html">
-            
-                
-                    <a href="../contents/chapter12.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.</b>
-                        
-                        符号
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="14" data-path="contents/chapter13.html">
-            
-                
-                    <a href="../contents/chapter13.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.</b>
-                        
-                        关联表和哈希表
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="15" data-path="contents/chapter14.html">
-            
-                
-                    <a href="../contents/chapter14.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>15.</b>
-                        
-                        向量和结构体
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="16" data-path="contents/chapter15.html">
-            
-                
-                    <a href="../contents/chapter15.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>16.</b>
-                        
-                        定义语法
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="17" data-path="contents/chapter16.html">
-            
-                
-                    <a href="../contents/chapter16.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>17.</b>
-                        
-                        继续
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="18" data-path="contents/chapter17.html">
-            
-                
-                    <a href="../contents/chapter17.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>18.</b>
-                        
-                        惰性求值
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="19" data-path="contents/chapter18.html">
-            
-                
-                    <a href="../contents/chapter18.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>19.</b>
-                        
-                        非确定性求值
-                    </a>
-            
-            
-        </li>
-    
-
-
-            
-            <li class="divider"></li>
-            <li>
-                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-                    Published with GitBook
-                </a>
-            </li>
-            
-        </ul>
-    </nav>
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
 </div>
 
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="preface.html">
+            
+                <a href="preface.html">
+            
+                    
+                    中文版序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter1.html">
+            
+                <a href="chapter1.html">
+            
+                    
+                    安装MIT-Scheme
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="chapter2.html">
+            
+                <a href="chapter2.html">
+            
+                    
+                    将Scheme用作计算器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="chapter3.html">
+            
+                <a href="chapter3.html">
+            
+                    
+                    生成表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="chapter4.html">
+            
+                <a href="chapter4.html">
+            
+                    
+                    定义函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="chapter5.html">
+            
+                <a href="chapter5.html">
+            
+                    
+                    分支
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="chapter6.html">
+            
+                <a href="chapter6.html">
+            
+                    
+                    局部变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="chapter7.html">
+            
+                <a href="chapter7.html">
+            
+                    
+                    重复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="chapter8.html">
+            
+                <a href="chapter8.html">
+            
+                    
+                    高阶函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="chapter9.html">
+            
+                <a href="chapter9.html">
+            
+                    
+                    输入/输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="chapter10.html">
+            
+                <a href="chapter10.html">
+            
+                    
+                    赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="chapter11.html">
+            
+                <a href="chapter11.html">
+            
+                    
+                    字符与字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="chapter12.html">
+            
+                <a href="chapter12.html">
+            
+                    
+                    符号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="chapter13.html">
+            
+                <a href="chapter13.html">
+            
+                    
+                    关联表和哈希表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="chapter14.html">
+            
+                <a href="chapter14.html">
+            
+                    
+                    向量和结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="chapter15.html">
+            
+                <a href="chapter15.html">
+            
+                    
+                    定义语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="chapter16.html">
+            
+                <a href="chapter16.html">
+            
+                    
+                    继续
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="chapter17.html">
+            
+                <a href="chapter17.html">
+            
+                    
+                    惰性求值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="chapter18.html">
+            
+                <a href="chapter18.html">
+            
+                    
+                    非确定性求值
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
     <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header" role="navigation">
-    <!-- Actions Left -->
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
     
 
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >简介</a>
+        <a href=".." >定义函数</a>
     </h1>
 </div>
 
-            <div class="page-wrapper" tabindex="-1" role="main">
-                <div class="page-inner">
-                
-                
-                    <section class="normal" id="section-">
-                    
-                        <h1 id="&#x5B9A;&#x4E49;&#x51FD;&#x6570;">&#x5B9A;&#x4E49;&#x51FD;&#x6570;</h1>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5B9A;&#x4E49;&#x51FD;&#x6570;">&#x5B9A;&#x4E49;&#x51FD;&#x6570;</h1>
 <h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
 <p>&#x5728;&#x524D;&#x9762;&#x7684;&#x7AE0;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x5DF2;&#x7ECF;&#x8BB2;&#x89E3;&#x4E86;&#xFF1A;</p>
 <ol>
@@ -407,17 +407,17 @@
 <p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>define</code>&#x6765;&#x5C06;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#x4E0E;&#x4E00;&#x4E2A;&#x503C;&#x7ED1;&#x5B9A;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x7B26;&#x5B9A;&#x4E49;&#x4F8B;&#x5982;&#x6570;&#x3001;&#x5B57;&#x7B26;&#x3001;&#x8868;&#x3001;&#x51FD;&#x6570;&#x7B49;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x5168;&#x5C40;&#x53C2;&#x6570;&#x3002;</p>
 <p>&#x8BA9;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4EFB;&#x610F;&#x4E00;&#x6B3E;&#x7F16;&#x8F91;&#x5668;&#xFF08;&#x8BB0;&#x4E8B;&#x672C;&#x4EA6;&#x53EF;&#xFF09;&#x6765;&#x7F16;&#x8F91;&#x4EE3;&#x7801;&#x7247;&#x6BB5;1&#x4E2D;&#x5C55;&#x793A;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x5C06;&#x5B83;&#x4EEC;&#x5B58;&#x50A8;&#x4E3A;<code>hello.scm</code>&#xFF0C;&#x653E;&#x7F6E;&#x5728;&#x7C7B;&#x4F3C;&#x4E8E;<code>C:\doc\scheme\</code>&#x7684;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x3002;&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x7684;&#x8BDD;&#xFF0C;&#x628A;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x653E;&#x5728;&#x4F60;&#x5728;&#x7B2C;&#x4E00;&#x7AE0;&#x5B9A;&#x4E49;&#x7684;MIT-Scheme&#x9ED8;&#x8BA4;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-comment">; Hello world as a variable</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> vhello <span class="hljs-string">&quot;Hello world&quot;</span>)</span>     <span class="hljs-comment">;1</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> vhello <span class="hljs-string">&quot;Hello world&quot;</span>)     <span class="hljs-comment">;1</span>
 
 <span class="hljs-comment">; Hello world as a function</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> fhello <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">()</span>         <span class="hljs-comment">;2</span>
-         <span class="hljs-string">&quot;Hello world&quot;</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> fhello (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> ()         <span class="hljs-comment">;2</span>
+         <span class="hljs-string">&quot;Hello world&quot;</span>))
 </code></pre>
 <p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x5411;Scheme&#x89E3;&#x91CA;&#x5668;&#x8F93;&#x5165;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#xFF1A;</p>
-<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">cd</span> <span class="hljs-string">&quot;C:\\doc\\scheme&quot;</span>)</span>
+<pre><code class="lang-scheme">(<span class="hljs-name">cd</span> <span class="hljs-string">&quot;C:\\doc\\scheme&quot;</span>)
 <span class="hljs-comment">;Value 14: #[pathname 14 &quot;c:\\doc\\scheme\\&quot;]</span>
 
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">load</span></span> <span class="hljs-string">&quot;hello.scm&quot;</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">load</span></span> <span class="hljs-string">&quot;hello.scm&quot;</span>)
 <span class="hljs-comment">;Loading &quot;hello.scm&quot; -- done</span>
 <span class="hljs-comment">;Value: fhello</span>
 </code></pre>
@@ -440,14 +440,14 @@ fhello
 <h2 id="&#x5B9A;&#x4E49;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;">&#x5B9A;&#x4E49;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;</h2>
 <p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;<code>lambda</code>&#x540E;&#x653E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x8868;&#x6765;&#x5B9A;&#x4E49;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x3002;&#x5C06;&#x4EE3;&#x7801;&#x7247;&#x6BB5;2&#x4FDD;&#x5B58;&#x4E3A;<code>farg.scm</code>&#x5E76;&#x653E;&#x5728;&#x540C;<code>hello.scm</code>&#x4E00;&#x81F4;&#x7684;&#x76EE;&#x5F55;&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-comment">; hello with name</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> hello
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">name</span>)</span>
-    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">string-append</span></span> <span class="hljs-string">&quot;Hello &quot;</span> name <span class="hljs-string">&quot;!&quot;</span>)</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> hello
+  (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (name)
+    (<span class="hljs-name"><span class="hljs-builtin-name">string-append</span></span> <span class="hljs-string">&quot;Hello &quot;</span> name <span class="hljs-string">&quot;!&quot;</span>)))
 
 <span class="hljs-comment">; sum of three numbers</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> sum3
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">lambda</span></span> <span class="hljs-list">(<span class="hljs-keyword">a</span> b c)</span>
-    <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> a b c)</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> sum3
+  (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (a b c)
+    (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> a b c)))
 </code></pre>
 <p>&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5728;&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#x8F7D;&#x5165;&#x6B64;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
 <pre><code class="lang-scheme">(load &quot;farg.scm&quot;)
@@ -467,13 +467,13 @@ Hello
 <h2 id="&#x4E00;&#x79CD;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x77ED;&#x5F62;&#x5F0F;">&#x4E00;&#x79CD;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x77ED;&#x5F62;&#x5F0F;</h2>
 <p>&#x7528;<code>lambda</code>&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x79CD;&#x89C4;&#x8303;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;&#x4E8E;&#x4EE3;&#x7801;&#x7247;&#x6BB5;3&#x4E2D;&#x5C55;&#x793A;&#x7684;&#x77ED;&#x5F62;&#x5F0F;&#x3002;</p>
 <pre><code class="lang-scheme"><span class="hljs-comment">; hello with name</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">hello</span> name)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">string-append</span></span> <span class="hljs-string">&quot;Hello &quot;</span> name <span class="hljs-string">&quot;!&quot;</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">hello</span> name)
+  (<span class="hljs-name"><span class="hljs-builtin-name">string-append</span></span> <span class="hljs-string">&quot;Hello &quot;</span> name <span class="hljs-string">&quot;!&quot;</span>))
 
 
 <span class="hljs-comment">; sum of three numbers</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">sum3</span> a b c)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> a b c)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">sum3</span> a b c)
+  (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> a b c))
 </code></pre>
 <p>&#x5728;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x6309;&#x7167;&#x5B83;&#x4EEC;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x5F62;&#x5F0F;&#x88AB;&#x5B9A;&#x4E49;&#x3002;&#x4EE3;&#x7801;&#x7247;&#x6BB5;2&#x548C;&#x4EE3;&#x7801;&#x7247;&#x6BB5;3&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#x3002;&#x6709;&#x4E9B;&#x4EBA;&#x4E0D;&#x559C;&#x6B22;&#x8FD9;&#x79CD;&#x77ED;&#x5F62;&#x5F0F;&#x7684;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x5728;&#x6559;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x4F7F;&#x4EE3;&#x7801;&#x66F4;&#x77ED;&#x5C0F;&#x3002;</p>
 <blockquote>
@@ -534,90 +534,118 @@ Hello
 <h2 id="&#x4E60;&#x9898;&#x89E3;&#x7B54;">&#x4E60;&#x9898;&#x89E3;&#x7B54;</h2>
 <h3 id="&#x7B54;&#x6848;1">&#x7B54;&#x6848;1</h3>
 <pre><code class="lang-scheme"><span class="hljs-comment">; 1</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">1+</span> x)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> x <span class="hljs-number">1</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">1+</span> x)
+  (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> x <span class="hljs-number">1</span>))
 
 <span class="hljs-comment">; 2</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">1-</span> x)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">-</span></span> x <span class="hljs-number">1</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">1-</span> x)
+  (<span class="hljs-name"><span class="hljs-builtin-name">-</span></span> x <span class="hljs-number">1</span>))
 </code></pre>
 <h3 id="&#x7B54;&#x6848;2">&#x7B54;&#x6848;2</h3>
 <p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
 <pre><code class="lang-scheme"><span class="hljs-comment">; definition of pi</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> pi <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> <span class="hljs-number">4</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">atan</span></span> <span class="hljs-number">1.0</span>)</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> pi (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> <span class="hljs-number">4</span> (<span class="hljs-name"><span class="hljs-builtin-name">atan</span></span> <span class="hljs-number">1.0</span>)))
 
 <span class="hljs-comment">; degree -&gt; radian</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">radian</span> deg)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> deg <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">/</span></span> pi <span class="hljs-number">180.0</span>)</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">radian</span> deg)
+  (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> deg (<span class="hljs-name"><span class="hljs-builtin-name">/</span></span> pi <span class="hljs-number">180.0</span>)))
 
 <span class="hljs-comment">; free fall time</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">ff-time</span> vy)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">/</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> <span class="hljs-number">2.0</span> vy)</span> <span class="hljs-number">9.8</span>)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">ff-time</span> vy)
+  (<span class="hljs-name"><span class="hljs-builtin-name">/</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> <span class="hljs-number">2.0</span> vy) <span class="hljs-number">9.8</span>))
 
 <span class="hljs-comment">; horizontal distance </span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">dx</span> vx t)</span>
-  <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> vx t)</span>)</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">dx</span> vx t)
+  (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> vx t))
 
 <span class="hljs-comment">; distance</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">distance</span> v ang)</span>
-  <span class="hljs-list">(<span class="hljs-keyword">dx</span>
-   <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> v <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">cos</span></span> <span class="hljs-list">(<span class="hljs-keyword">radian</span> ang)</span>)</span>)</span>                     <span class="hljs-comment">; vx</span>
-   <span class="hljs-list">(<span class="hljs-keyword">ff-time</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> v <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">sin</span></span> <span class="hljs-list">(<span class="hljs-keyword">radian</span> ang)</span>)</span>)</span>)</span>)</span>)</span>         <span class="hljs-comment">; t</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">distance</span> v ang)
+  (<span class="hljs-name">dx</span>
+   (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> v (<span class="hljs-name"><span class="hljs-builtin-name">cos</span></span> (<span class="hljs-name">radian</span> ang)))                     <span class="hljs-comment">; vx</span>
+   (<span class="hljs-name">ff-time</span> (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> v (<span class="hljs-name"><span class="hljs-builtin-name">sin</span></span> (<span class="hljs-name">radian</span> ang))))))         <span class="hljs-comment">; t</span>
 </code></pre>
 <p>&#x5411;&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#x8F7D;&#x5165;&#x540E;&#xFF0C;&#x8DDD;&#x79BB;&#x53EF;&#x4EE5;&#x50CF;&#x8FD9;&#x6837;&#x8BA1;&#x7B97;&#xFF1A;</p>
-<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">distance</span> <span class="hljs-number">40</span> <span class="hljs-number">30</span>)</span>
+<pre><code class="lang-scheme">(<span class="hljs-name">distance</span> <span class="hljs-number">40</span> <span class="hljs-number">30</span>)
 <span class="hljs-comment">;Value: 141.39190265868385</span>
 </code></pre>
 <p>&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5408;&#x7406;&#x7684;&#x503C;&#xFF1A;141.1&#x7C73;&#xFF0C;&#x56E0;&#x4E3A;&#x5FFD;&#x7565;&#x4E86;&#x7A7A;&#x6C14;&#x963B;&#x529B;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x503C;&#x7565;&#x5FAE;&#x504F;&#x5927;&#x3002;</p>
 
-                    
-                    </section>
-                
-                
-                </div>
-            </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
         </div>
-
-        
-        <a href="../contents/chapter3.html" class="navigation navigation-prev " aria-label="Previous page: 生成表"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="../contents/chapter5.html" class="navigation navigation-next " aria-label="Next page: 分支"><i class="fa fa-angle-right"></i></a>
-        
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
     </div>
 </div>
 
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter3.html" class="navigation navigation-prev " aria-label="Previous page: 生成表">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter5.html" class="navigation navigation-next " aria-label="Next page: 分支">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
         
-<script src="../gitbook/app.js"></script>
+    </div>
 
-    
-    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
-    
-
-<script>
-require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
-    gitbook.start(config);
-});
-</script>
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"定义函数","level":"1.6","depth":1,"next":{"title":"分支","level":"1.7","depth":1,"path":"contents/chapter5.md","ref":"contents/chapter5.md","articles":[]},"previous":{"title":"生成表","level":"1.5","depth":1,"path":"contents/chapter3.md","ref":"contents/chapter3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/chapter4.md","mtime":"2017-09-10T08:04:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-12T05:17:25.146Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
 
         
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
     </body>
-    
 </html>
+

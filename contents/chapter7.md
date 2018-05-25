@@ -38,10 +38,10 @@
 
 ```scheme
 (define (list*2 ls)
-  (if (null? ls)
-      '()
+  (if (pair? ls)
       (cons (* 2 (car ls))
-	         (list*2 (cdr ls)))))
+             (list*2 (cdr ls)))
+      (* 2 ls)))
 ```
 
 > 练习1
